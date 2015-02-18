@@ -1,0 +1,639 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>How to Design a Custom Twitter Background Image</title>
+	<meta name="robots" content="noodp, noydir" />
+	<meta name="description" content="This guide shows you how to design a custom Twitter background image that looks great on any screen resolution and sends a professional first impression." />
+	<link rel="canonical" href="custom-twitter-background.html" />
+	<link rel="pingback" href="../xmlrpc.php" />
+	<link rel="stylesheet" href="../wp-content/themes/freethesis/custom/custom0170.css?20120714-2235" type="text/css" />
+</head>
+<body class="custom">
+<div id="container">
+<div id="page">
+	<div id="header">
+		<div id="logo_mofo">
+			<div id="domain_mofo"><a href="../index.html">SEO<span></span></a><b>mofo</b></div>
+			<div id="slogan_mofo">world's greatest seo</div>
+		</div>
+<ul class="menu">
+<li class="tab tab-1"><a href="../about.html" title="About">About</a></li>
+<li class="tab tab-2"><a href="../policy.html" title="Policy">Policy</a></li>
+</ul>
+
+<p id="breadcrumbs"><a href="../index.html">SEO</a> &raquo; <a href="index.html">AntiSocial Media</a> &raquo; <strong>How to Design a Custom Twitter Background Image</strong></p>	</div>
+	<div id="content_box">
+		<div id="content" class="hfeed">
+
+			<div class="post-939 post type-post status-publish format-standard hentry category-antisocial-media post_box top" id="post-939">
+<div class="headline_area">
+		<div id="tm_box"></div>
+		<div id="tm_loading"></div>
+		<div id="tw_box"></div>
+		<div id="tw_loading"></div>
+					<h1 class="entry-title">How to Design a Custom Twitter Background Image</h1>
+					<p class="headline_meta">by <span class="author vcard fn">SEO Mofo</span> on <span class="published">Dec 14th, 2009</span></p>
+					<p class="headline_meta">in <span><a href="index.html" title="View all posts in AntiSocial Media" rel="category tag">AntiSocial Media</a></span></p>
+				</div>
+				<div class="format_text entry-content">
+<p class="notice_mofo">
+<strong>2/17/2011 NOTICE:</strong> This post was originally written for the &#8220;old Twitter&#8221; layout, so only some of this information still applies. I will probably update this tutorial when the &#8220;new Twitter&#8221; profiles become permanent.
+</p>
+<a href="http://twitter.com/SEOmofo"><img height="170" width="316" alt="My custom twitter background" src="../img/custom-twitter-background.png" class="post_image alignright" /></a>
+<div style="width:206px; margin:0; padding:1em; line-height:normal; border:1px solid #AAA; background-color:#F3F6FF;">
+<p style="font-size:.875em; text-align:center; margin-bottom:1em;">
+<strong>Table of Contents</strong>
+</p>
+<ul style="margin:0; list-style:none;">
+<li><a href="#pagesize" style="text-decoration:none;">Twitter page dimensions</a></li>
+<li><a href="#imagesize" style="text-decoration:none;">Twitter Background image dimensions</a></li>
+<li><a href="#designtips" style="text-decoration:none;">Tips for designing your own Twitter background</a></li>
+<li><a href="#template" style="text-decoration:none;">Custom Twitter background template</a></li>
+</ul>
+</div>
+<p style="clear:both;"></p>
+<p>If you&#8217;re using Twitter to promote yourself or your company, then you need your profile page to make a good first impression. Twitter offers a handful of simple formatting options for customizing your profile page, and one of those is the option to use a <strong>custom background image</strong>. This article will show you how to design a Twitter background that looks great on all of the most common computer monitor resolutions, and therefore appeals to the broadest audience possible.
+</p>
+<p>
+A well-designed background image can have a positive influence on how your brand is perceived by your customers, business contacts, and colleagues. On the other hand, a poorly-designed background image can make you seem incompetent, lazy, disorganized, or just plain stupid. The goal of this article is to establish some intelligent guidelines and best practices for creating a custom Twitter background image. Since I am a perfectionist, I will probably go into ridiculously-detailed details about why or how I determined my final guidelines. However, if you already know that I&#8217;m a genius and that everything I say is a holy gift handed down to me by Informinus (the Roman god of correct information), then you&#8217;re certainly welcome to skip to the <a href="#designtips">design tips</a> or the <a href="#template">template</a>. If you&#8217;re not yet convinced of my awesomeness, then put on your <acronym title="obsessive compulsive disorder">OCD</acronym> thinking caps and follow me.</p>
+
+<div id="pagesize"></div>
+<h2>What are the Twitter page dimensions?</h2>
+
+<p>
+In order to create an optimal background image, we need to know the dimensions of the various elements in the page layout. In other words, we need to know where Twitter&#8217;s content is going to appear so we can build our image around it. We&#8217;ll start by measuring the elements whose dimensions are independent of the user&#8217;s monitor resolution. Then we&#8217;ll discuss the dimensions that DO change as the monitor resolution changes.
+</p>
+<h3>Static Dimensions</h3>
+<p>
+Some of the dimensions of the header spacing and navigation menu are defined in relative units (meaning they could increase or decrease if a user changes the default font size of their web browser), but for the sake of designing our image, we will assume that our users have not changed the default font size (1em = 12px). Here are the dimensions of the page that we can assume will never change:<br /><br />
+<a href="../img/static-twitter-dimensions-full.png" title="Click to view larger image"><img src="../img/static-twitter-dimensions.png" alt="Dimensions of static Twitter page elements" class="aligncenter" width="405" height="161" style="border:1px solid blue; margin-bottom:0;" /></a><span style="font-size:.5em; line-height:100%; display:block; margin:1em auto; text-align:center;">CLICK IMAGE TO VIEW LARGER</span>
+</p>
+<br />
+<p>
+In the image above, I have highlighted the dimensions that might be useful to know. The image also has a chart of the heights of each color-coded section. The first measurement represents the height as it is rendered in a web browser. Some of the elements have a second measurement in parentheses&#8211;these represent the dimensions as they are actually defined in Twitter&#8217;s CSS stylesheet. For reference, here are the CSS styles from the original Twitter stylesheet (colored squares correspond to the image above):
+</p>
+
+<div style="font-family:monospace; color:#000; line-height:100%;">
+<p>
+#container {<br />
+&nbsp;&nbsp;width:763px;<br />
+&nbsp;&nbsp;margin:1em auto; <span style="background-color:#99FF66;">&nbsp;&nbsp;</span><br />
+&nbsp;&nbsp;text-align:left;<br />
+&nbsp;&nbsp;position:relative;<br />
+}</p>
+<p>
+#logo img {<br />
+&nbsp;&nbsp;margin-top:-2px;<br />
+&nbsp;&nbsp;position:absolute;<br />
+&nbsp;&nbsp;left:0;<br />
+}</p>
+<p>
+.top-navigation&gt;li&gt;a {<br />
+&nbsp;&nbsp;padding:.5em .15em; <span style="background-color:#CC66CC;">&nbsp;&nbsp;</span><br />
+&nbsp;&nbsp;border:1px solid transparent; <span style="background-color:#CC66CC;">&nbsp;&nbsp;</span><br />
+&nbsp;&nbsp;<del>font-size:1.05em;</del><br />
+&nbsp;&nbsp;display:inline-block;<br />
+}</p>
+<p>
+body .top-navigation&gt;li&gt;a {<br />
+&nbsp;&nbsp;font-size:1em; <span style="background-color:#CC66CC;">&nbsp;&nbsp;</span><br />
+}</p>
+<p>
+.content-bubble-arrow {<br />
+&nbsp;&nbsp;margin-top:1em; <span style="background-color:#33CCCC;">&nbsp;&nbsp;</span><br />
+&nbsp;&nbsp;padding-top:11px; <span style="background-color:#6666FF;">&nbsp;&nbsp;</span><br />
+&nbsp;&nbsp;background-repeat:no-repeat;<br />
+&nbsp;&nbsp;background-position:25px 0;<br />
+&nbsp;&nbsp;background-image:url(&#8216;/a/1259882278/images/arr2.gif&#8217;);<br />
+}</p>
+</div>
+
+<p>
+The only one that might be confusing is the purple section&#8217;s dimensions. Note that the purple section&#8217;s height is defined by more than one CSS style. Once you take the 12px font&#8217;s line-height into consideration (default = 125% = 15px), you get the purple height as the sum of:
+</p>
+<p style="text-align:center; font-size:.875em;">
+&lt;1px border&gt;&lt;6px padding&gt;&lt;15px line-height&gt;&lt;6px padding&gt;&lt;1px border&gt;
+</p>
+<br /><br />
+<p class="info_mofo">
+Damn it! As I&#8217;m writing this, the developers at Twitter are changing their CSS file! Grrrrr. Ok, as far as I can tell, they only removed the style that defines the top nav text as font-size:1em. Since this style was overriding the one before it, deleting it brings us back to 1.05em. I don&#8217;t know which of these is going to be used long-term, so I&#8217;ll just show both. The difference is only a couple of pixels:
+</p>
+<p>
+<a href="../img/static-twitter-dimensions-full-2.png" title="Click to view larger image"><img src="../img/static-twitter-dimensions-2.png" alt="Dimensions of static Twitter page elements" class="aligncenter" width="405" height="161" style="border:1px solid blue; margin-bottom:0;" /></a><span style="font-size:.5em; line-height:100%; display:block; margin:1em auto; text-align:center;">CLICK IMAGE TO VIEW LARGER</span>
+</p>
+<br />
+<h3>Variable Dimensions</h3>
+
+<p>
+This is the trickiest part of designing your custom background, and it&#8217;s the area where most people fail. After you upload your new image, it will be positioned in the upper-left corner of your web browser window, and it will stay at that position regardless of the users&#8217; monitor resolutions. However, the container element (i.e. the main page content) is centered in the browser window, so its starting position DOES change, depending on the size of the monitor. You can see this for yourself by going to Twitter.com and adjusting the size of your browser window. As you drag the side of the window to make it bigger/smaller, you should notice that the containing element readjusts so that it&#8217;s always centered. As a result, the visible portion of our background image changes as well. One of the things we need to figure out&#8230;is the relationship between a user&#8217;s monitor resolution and the size of our drawing &#8220;canvas,&#8221; shown here in green:
+</p>
+<p>
+<img src="../img/dimensions.png" alt="Twitter dynamic dimensions" class="aligncenter" width="533" height="285" />
+</p>
+<h4>Canvas Width vs. Monitor Resolution</h4>
+<p>
+To find the width of our canvas, we start with the monitor width and subtract out any widths of browser window borders and scroll bars. This is tricky, because scroll bars have different widths, depending on the operating system&#8230;and browser borders have different widths, depending on which browser it is. So we&#8217;re going to have to make a generalization here, erring on the side of caution.
+</p>
+<p>
+After testing all of the major browsers in Windows Vista, I found that most of them have no side borders when the window size is maximized. However, Internet Explorer and Opera both kept some type of borders, even when maximized. Of the two, Internet Explorer had the thickest borders at 2px per side. So our generalized measurement for all browsers will be 4px of total width assigned to browser borders. This generalization assumes that your visitors are using a maximized browser window. (Otherwise, they will have adjusted their browser window to an arbitrary width and height, and you can&#8217;t really plan for that.)
+</p>
+<p>
+<img src="../img/xp-vista-scroll-bars.png" alt="scroll bars in Windows XP and Vista" class="alignright" width="40" height="155" />Scroll bars can change sizes, depending on the operating system being used. I don&#8217;t have access to many different OS&#8217;s, so I only measured the widths in Windows XP (left) and Windows Vista (right). Both came out to 17px wide. If you know of any operating systems that use scroll bars wider than 17px, let me know. Until then, our generalized measurement for all scroll bars will be 17px.
+</p>
+<p>
+After subtracting 21 pixels from the screen resolution, we then subtract the width of the container element, which is 763px. The result equals both sides of the exposed background image, but we only care about the left side, so we divide by 2. Overall, our formula for canvas width is:
+</p>
+<p style="text-align:center; font-size:.875em;">
+canvas width = (monitor width &#8211; 4px borders &#8211; 17px scroll bar &#8211; 763px container) / 2
+</p>
+<h4>Canvas Height vs. Monitor Resolution</h4>
+<p>
+Measuring the canvas height is not as accurate as the width was. With the width, we only had to generalize the width of the browser borders and scroll bar. These dimensions do not vary much. But the height has to take more into consideration, such as the height of all menu bars and task bars. These dimensions vary greatly, depending on the browser and the operating system. For example, compare the top of Chrome to the top of Firefox after I installed several Firefox plugins:
+</p>
+<p>
+<img alt="" src="../img/firefox-vs-chrome-top-menus.png" title="menu bars of Firefox vs. Chrome" class="aligncenter" width="574" height="238" />
+</p>
+<p>
+Since the browser choice can make such a big difference in the canvas size, the generalized measurements will be much shorter than what some users will see. We will assume that all users have a ridiculously plugin-laden Firefox installation like mine, and they are running Windows Vista. In addition to the 238px height of the top portion (shown in the comparison above), we must also take the bottom portion into consideration. Here is the Vista task bar + Firefox bottom:
+</p>
+<p>
+<img src="../img/vista-task-bar.png" alt="Vista task bar + Firefox bottom menu bar" class="aligncenter" width="320" height="52" /> 
+</p>
+<p>
+Our generalized formula for canvas height would be:
+</p>
+<p style="text-align:center; font-size:.875em;">
+canvas height = monitor height &#8211; 238px top &#8211; 52px bottom
+</p>
+<p>
+Okay, the hard part is over. Now all we have to do is take a list of common screen resolutions and adjust the width and height, according to our formulas. The end result will be a list of canvas sizes we can expect to work with as we create our custom background image. In order to determine what the most common screen resolutions are, I sampled Google Analytics data taken from 4 different websites over a period of 6 months, from July 1, 2009 &#8211; December 1, 2009. This data represents 3.1 million total visitors, so it should be a pretty good representation of internet users in general. Below are the top 18 screen resolutions and their corresponding canvas sizes. These 2 graphs are the same data, but one is sorted by popularity and the other is sorted by screen resolution:
+</p>
+
+<div style="width:50%; float:left; margin-bottom:2em;">
+<p style="font-size:.75em; text-align:center;">
+SORTED BY MOST POPULAR
+</p>
+<table cellspacing="0" cellpadding="0" style="font-family:monospace; border:1px solid #CCC; padding:1em; margin:0 auto;">
+  <col width="100" />
+  <col width="60" />
+  <col width="60" />
+  <tr style="line-height:100%;">
+    <th style="text-align:left;">MONITOR<br />SIZE</th>
+    <th>CANVAS<br />SIZE</th>
+    <th style="text-align:right;">USAGE</th>
+  </tr>
+  <tr>
+    <td>1024&#215;768</td>
+    <td>120&#215;478</td>
+    <td align="right">23.0%</td>
+  </tr>
+  <tr>
+    <td>1280&#215;800</td>
+    <td>248&#215;510</td>
+    <td align="right">21.0%</td>
+  </tr>
+  <tr>
+    <td>1280&#215;1024</td>
+    <td>248&#215;734</td>
+    <td align="right">11.1%</td>
+  </tr>
+  <tr>
+    <td>1440&#215;900</td>
+    <td>328&#215;610</td>
+    <td align="right">10.0%</td>
+  </tr>
+  <tr>
+    <td>1680&#215;1050</td>
+    <td>448&#215;760</td>
+    <td align="right">7.5%</td>
+  </tr>
+  <tr>
+    <td>1920&#215;1200</td>
+    <td>568&#215;910</td>
+    <td align="right">4.0%</td>
+  </tr>
+  <tr>
+    <td>&nbsp;800&#215;600</td>
+    <td>&nbsp;&nbsp;8&#215;310</td>
+    <td align="right">2.2%</td>
+  </tr>
+  <tr>
+    <td>1366&#215;768</td>
+    <td>291&#215;478</td>
+    <td align="right">2.2%</td>
+  </tr>
+  <tr>
+    <td>1152&#215;864</td>
+    <td>184&#215;574</td>
+    <td align="right">2.0%</td>
+  </tr>
+  <tr>
+    <td>1280&#215;768</td>
+    <td>248&#215;478</td>
+    <td align="right">1.7%</td>
+  </tr>
+  <tr>
+    <td>1920&#215;1080</td>
+    <td>568&#215;790</td>
+    <td align="right">1.2%</td>
+  </tr>
+  <tr>
+    <td>&nbsp;320&#215;396</td>
+    <td>&nbsp;&nbsp;0&#215;106</td>
+    <td align="right">1.0%</td>
+  </tr>
+  <tr>
+    <td>1600&#215;1200</td>
+    <td>408&#215;910</td>
+    <td align="right">0.9%</td>
+  </tr>
+  <tr>
+    <td>1024&#215;600</td>
+    <td>120&#215;310</td>
+    <td align="right">0.8%</td>
+  </tr>
+  <tr>
+    <td>1280&#215;960</td>
+    <td>248&#215;670</td>
+    <td align="right">0.8%</td>
+  </tr>
+  <tr>
+    <td>1280&#215;720</td>
+    <td>248&#215;430</td>
+    <td align="right">0.7%</td>
+  </tr>
+  <tr>
+    <td>1400&#215;1050</td>
+    <td>308&#215;760</td>
+    <td align="right">0.7%</td>
+  </tr>
+  <tr>
+    <td>1600&#215;900</td>
+    <td>408&#215;610</td>
+    <td align="right">0.6%</td>
+  </tr>
+</table>
+
+</div>
+<div style="width:50%; float:left; margin-bottom:2em;">
+
+<p style="font-size:.75em; text-align:center;">
+SORTED BY SMALLEST RESOLUTION
+</p>
+<table cellspacing="0" cellpadding="0" style="font-family:monospace; border:1px solid #CCC; padding:1em; margin:0 auto;">
+  <col width="100" />
+  <col width="60" />
+  <col width="60" />
+  <tr style="line-height:100%;">
+    <th style="text-align:left;">MONITOR<br />SIZE</th>
+    <th>CANVAS<br />SIZE</th>
+    <th style="text-align:right;">USAGE</th>
+  </tr>
+  <tr>
+    <td>&nbsp;320&#215;396</td>
+    <td>&nbsp;&nbsp;0&#215;106</td>
+    <td align="right">1.0%</td>
+  </tr>
+  <tr>
+    <td>&nbsp;800&#215;600</td>
+    <td>&nbsp;&nbsp;8&#215;310</td>
+    <td align="right">2.2%</td>
+  </tr>
+  <tr>
+    <td>1024&#215;600</td>
+    <td>120&#215;310</td>
+    <td align="right">0.8%</td>
+  </tr>
+  <tr>
+    <td>1024&#215;768</td>
+    <td>120&#215;478</td>
+    <td align="right">23.0%</td>
+  </tr>
+  <tr>
+    <td>1152&#215;864</td>
+    <td>184&#215;574</td>
+    <td align="right">2.0%</td>
+  </tr>
+  <tr>
+    <td>1280&#215;1024</td>
+    <td>248&#215;734</td>
+    <td align="right">11.1%</td>
+  </tr>
+  <tr>
+    <td>1280&#215;720</td>
+    <td>248&#215;430</td>
+    <td align="right">0.7%</td>
+  </tr>
+  <tr>
+    <td>1280&#215;768</td>
+    <td>248&#215;478</td>
+    <td align="right">1.7%</td>
+  </tr>
+  <tr>
+    <td>1280&#215;800</td>
+    <td>248&#215;510</td>
+    <td align="right">21.0%</td>
+  </tr>
+  <tr>
+    <td>1280&#215;960</td>
+    <td>248&#215;670</td>
+    <td align="right">0.8%</td>
+  </tr>
+  <tr>
+    <td>1366&#215;768</td>
+    <td>291&#215;478</td>
+    <td align="right">2.2%</td>
+  </tr>
+  <tr>
+    <td>1400&#215;1050</td>
+    <td>308&#215;760</td>
+    <td align="right">0.7%</td>
+  </tr>
+  <tr>
+    <td>1440&#215;900</td>
+    <td>328&#215;610</td>
+    <td align="right">10.0%</td>
+  </tr>
+  <tr>
+    <td>1600&#215;1200</td>
+    <td>408&#215;910</td>
+    <td align="right">0.9%</td>
+  </tr>
+  <tr>
+    <td>1600&#215;900</td>
+    <td>408&#215;610</td>
+    <td align="right">0.6%</td>
+  </tr>
+  <tr>
+    <td>1680&#215;1050</td>
+    <td>448&#215;760</td>
+    <td align="right">7.5%</td>
+  </tr>
+  <tr>
+    <td>1920&#215;1080</td>
+    <td>568&#215;790</td>
+    <td align="right">1.2%</td>
+  </tr>
+  <tr>
+    <td>1920&#215;1200</td>
+    <td>568&#215;910</td>
+    <td align="right">4.0%</td>
+  </tr>
+</table>
+</div>
+
+<p style="margin-top:2em; clear:both;">
+Many of these screen resolutions have similar widths, so I compressed the top 18 screen resolutions into the top 6 screen <em>widths</em>. The majority of the poorly-designed backgrounds I&#8217;ve seen contain information or graphics that are <strong>too wide</strong>. Look at the following graph&#8230;you should notice that more than a quarter of internet users are using screens that are 1024 pixels wide. This means your background image needs to display all your contact information and important graphics <strong>within the leftmost 120 pixels</strong>&#8211;otherwise a quarter of your viewers won&#8217;t be able to read it!
+</p>
+<p>
+<img src="../img/common-screen-widths.png" alt="common computer screen widths" class="aligncenter" width="375" height="425" />
+</p>
+<p>
+I haven&#8217;t seen nearly as many backgrounds exceeding the canvas height, but I&#8217;ll show the chart anyway. The data in this chart suggests that you <strong>keep your important information within the topmost 478 pixels</strong>.
+</p>
+<p>
+<img src="../img/common-screen-heights.png" alt="common computer screen heights" class="aligncenter" width="375" height="425" />
+</p>
+
+<h3>More Screen Resolution Statistics</h3>
+<p>
+The following table contains <a href="http://www.w3schools.com/browsers/browsers_display.asp">popular screen size data</a> provided by W3Cschools.com. They also have <a href="http://www.w3schools.com/browsers/default.asp">web browser stats</a> that you might find useful or interesting.
+</p>
+<p style="font-size:.75em; text-align:center; font-weight:bold; line-height:normal;">
+W3Cschools.com Users<br />January 2010
+</p>
+<table cellspacing="0" cellpadding="0" style="font-family:monospace; border:1px solid #CCC; padding:1em; margin:0 auto;">
+	<tr style="line-height:100%;">
+		<th align="left">Display<br />Resolution</th>
+		<th align="right">% of Total<br />Users</th>
+	</tr>
+	<tr>
+		<td>1024&#215;768</td>
+		<td align="right">20.0</td>
+	</tr>
+	<tr>
+		<td>1280&#215;1024</td>
+		<td align="right">18.2</td>
+	</tr>
+	<tr>
+		<td>1280&#215;800</td>
+		<td align="right">17.3</td>
+	</tr>
+	<tr>
+		<td>1440&#215;900</td>
+		<td align="right">10.5</td>
+	</tr>
+	<tr>
+		<td>1680&#215;1050</td>
+		<td align="right">10.0</td>
+	</tr>
+	<tr>
+		<td>Other &gt; 1024&#215;768</td>
+		<td align="right">4.8</td>
+	</tr>
+	<tr>
+		<td>1920&#215;1200</td>
+		<td align="right">4.6</td>
+	</tr>
+	<tr>
+		<td>1366&#215;768</td>
+		<td align="right">3.6</td>
+	</tr>
+	<tr>
+		<td>Unknown</td>
+		<td align="right">3.0</td>
+	</tr>
+	<tr>
+		<td>1920&#215;1080</td>
+		<td align="right">2.3</td>
+	</tr>
+	<tr>
+		<td>1152&#215;864</td>
+		<td align="right">2.1</td>
+	</tr>
+	<tr>
+		<td>1600&#215;1200</td>
+		<td align="right">1.4</td>
+	</tr>
+	<tr>
+		<td>1280&#215;768</td>
+		<td align="right">1.2</td>
+	</tr>
+	<tr>
+		<td>800&#215;600</td>
+		<td align="right">1.0</td>
+	</tr>
+	<tr>
+		<td>640&#215;480</td>
+		<td align="right">0.0</td>
+	</tr>
+</table>
+
+<div id="imagesize"></div>
+<h2>What are the Twitter background image dimensions?</h2>
+<p>
+Many people fail to realize that <strong>the viewable portion of a Twitter background image changes</strong>, depending on the dimensions of the viewer&#8217;s monitor. In other words, there are no one-size-fits-all measurements. However, Twitter does impose a limit on the width of any images you upload, and it will automatically scale your image down to 2048px wide. The height is not limited, but it will change proportionately to the width, if Twitter has to scale your image down to meet the 2048 pixel cutoff.
+</p>
+<h3><strong>Recommended</strong> Background Image Dimensions</h3>
+<p>
+<strong>Width:</strong> 1920 pixels<br />
+<strong>Height:</strong> 1200 pixels
+</p>
+<h3>Maximum Background Image Dimensions</h3>
+<p>
+<strong>Width:</strong> 2048 pixels<br />
+<strong>Height:</strong> no limit
+</p>
+<p>
+Fitting your important information within your visitors&#8217; viewable background is only half the battle. The other half is making sure your image completely fills the background on your viewers&#8217; screens. There are 2 ways to accomplish this.
+</p>
+<h3>Make it Big</h3>
+<p>
+The simplest way to make sure your background image is big enough&#8230;is to make it as big as the biggest monitors you can reasonably expect your visitors to use. In my opinion, the minimum size you should use is 1920&#215;1200 (this size is used by more than 5% of users). This will cover the vast majority of your visitors&#8217; screens. If your image is relatively simple (i.e. increasing the dimensions by a lot only increases the file size by a little), then you might consider going up to 2048&#215;1600, which is the maximum width that Twitter allows, coupled with the height of a 30&#8243; monitor.
+</p>
+<h3>Blend the Edges</h3>
+<p>
+The second way to make sure your image is big enough&#8230;is to use an image that terminates in a solid color at the edges, and set that color as your background-color. To change your background color, you click Settings &rarr; Design.
+</p>
+<p>
+<img src="../img/twitter-background-color.png" alt="change your Twitter background color" class="aligncenter" width="536" height="297" />
+</p>
+<p>
+If I were designing a background image to use with the color #C4E0EC, it might look something like this:
+</p>
+<p>
+<img src="../img/twitter-background.png" alt="Worlds Greatest SEO Twitter background image" class="alignnone" width="45" height="241" style="margin-left:38px;" />
+</p>
+<p style="text-align:center;">
+And adding it to my #C4E0EC background would be seamless:
+</p>
+<p>
+<img src="../img/seamless-twitter-background.png" alt="seamless Twitter background image" class="aligncenter" width="500" height="236" />
+</p>
+<p class="info_mofo">
+If you already have an image, but you don&#8217;t know how to match the background color to it&#8230;you can use the Firefox plugin called <a href="http://www.colorzilla.com/firefox/">Colorzilla</a>, which lets you click on anything in your browser and it tells you the color code for that pixel. It&#8217;s basically like the eyedropper tool in Paint, Photoshop, Illustrator, etc., but it works in your browser.
+</p>
+
+<div id="designtips"></div>
+<h2>Tips for Designing Your Own Twitter Background</h2>
+<p>
+<strong>1. </strong>If your custom background image displays important information like your business name, website, email address, etc., then it should be no wider than the leftmost 120 pixels. Any wider than this and your information will be unreadable to about 25% of your visitors (using monitors that are 1024px wide).
+</p>
+<p>
+<strong>2. </strong>The viewable height of your background image depends on which web browser your visitors are using, how many plugins they&#8217;ve installed in it, and which operating system they&#8217;re using (i.e. the height of the task bar). A conservative estimate of your usable background would be the topmost 478 pixels.
+</p>
+<p>
+<strong>3. </strong>The space between the document window and the top of the main container element (i.e., the space where the Twitter logo and top navigation are located) is 66 pixels tall. If your background image displays contact information in the top 66 pixels, then visitors using 800&#215;600 monitors (only about 2-3% of users) will see the Twitter logo on top of that information. If you wish to avoid this, display your information below the top 66px.
+</p>
+<p>
+<strong>4. </strong>To make sure your background image fills your visitors&#8217; entire screens, you have two options. You can blend your image into a solid color around the edges and set your Twitter profile&#8217;s background-color to match it. Or you can make your background big enough to cover the highest resolutions available on the consumer market. If you choose the latter, your background image should be at least 1920&#215;1200.
+</p>
+<div id="template"></div>
+<h2>Custom Twitter Background Image Template</h2>
+<p>
+The images below are guides to help you with the design of your custom Twitter background. The one on the left is the recommended 1920&#215;1200 resolution, and the one on the right is the XL resolution of 2048&#215;1600. The XL version is not very practical, but I&#8217;ve included it for the sake of completeness. The colored boxes represent the canvas sizes as they are viewed in each of the top 6 most common screen sizes, and the XL version also contains the yellow area, which represents the viewable dimensions of the 2560&#215;1600 pixel monitors. The images are also annotated with helpful tips that explain each section of the layout. You can copy an image and paste it into your image editing program, and then build your own background image over it.
+</p>
+
+<div style="width:50%; float:left; margin-top:2em;">
+<h4 style="text-align:center;">Recommended Background Size</h4>
+<p style="height:224px;">
+<a href="../img/twitter-background-template.png" title="Click to view larger image"><img src="../img/twitter-background-template-small.png" alt="custom Twitter background image template" class="aligncenter mb1em" width="240" height="150" /></a><span style="font-size:.5em; line-height:100%; display:block; margin:1em auto; text-align:center;">CLICK IMAGE TO VIEW LARGER</span>
+</p>
+<p>
+<br /><a href="../downloads/twitter-template-1920x1200.zip" onclick="_gaq.push(['_trackEvent', 'Downloads', 'Photoshop', 'twitter-template-1920x1200.zip']);"><img src="../img/icons/photoshop.png" alt="download the original Photoshop file" class="aligncenter mb1em" width="112" height="92" /></a><span style="font-size:.5em; line-height:100%; display:block; margin:1em auto; text-align:center;">CLICK ICON TO DOWNLOAD .PSD FILE</span>
+</p>
+</div>
+<div style="width:50%; float:left; margin-top:2em;">
+<h4 style="text-align:center;">Maximum Background Size</h4>
+<p>
+<a href="../img/twitter-background-template-xl.png" title="Click to view larger image"><img src="../img/twitter-background-template-xl-small.png" alt="custom Twitter background image template" class="aligncenter mb1em" width="256" height="200" /></a><span style="font-size:.5em; line-height:100%; display:block; margin:1em auto; text-align:center;">CLICK IMAGE TO VIEW LARGER</span>
+</p>
+<p>
+<br />
+<a href="../downloads/twitter-template-2048x1600.zip" onclick="_gaq.push(['_trackEvent', 'Downloads', 'Photoshop', 'twitter-template-2048x1600.zip']);"><img src="../img/icons/photoshop.png" alt="download the original Photoshop file" class="aligncenter mb1em" width="112" height="92" /></a><span style="font-size:.5em; line-height:100%; display:block; margin:1em auto; text-align:center;">CLICK ICON TO DOWNLOAD .PSD FILE</span>
+</p>
+</div>
+<div style="clear:both;"></div>	<div id="widget_holder">
+	</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="sidebars">
+			<div id="sidebar_1" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-7">			<div class="textwidget"><div style="width:158px; margin:0; padding:4px 0; border:1px solid #7ABCF1; background-color:#F3F6FF; color:#006699; font-family:Georgia, 'Times New Roman', Times, serif; font-size:16px; line-height:16px; text-align:center; text-shadow:#CCC 0 1px 1px; -moz-border-radius:12px; -webkit-border-radius:12px;border-radius:12px;-moz-box-shadow: 0 0 5px #A8D3F5;-webkit-box-shadow: 0 0 5px #A8D3F5;box-shadow: 0 0 5px #A8D3F5;"><a href="../snippet-optimizer.html" style="text-decoration:none;outline:none;"><span style="color: rgb(0, 57, 182);">G</span><span style="color: rgb(196, 18, 0);">o</span><span style="color: rgb(243, 197, 24);">o</span><span style="color: rgb(0, 57, 182);">g</span><span style="color: rgb(48, 167, 47);">l</span><span style="color: rgb(196, 18, 0);">e</span>&nbsp;SERP&nbsp;Snippet Optimization&nbsp;Tool</a></div></div>
+		</li><li class="widget widget_text" id="text-8"><div class="widget_heading">Pages</div>			<div class="textwidget">	<ul>
+		<li><a style="color: rgb(255, 76, 0);" href="../middle-finger-cursors.html"><span style="color: rgb(255, 76, 0);"><b>FREE Middle Finger Cursors!</b></span></a></li>
+		<li><a href="../low-priority-page.html">Low Priority Page</a></li>
+		<li><a href="../google-instant-previews.html">Google Instant Previews</a></li>
+	</ul></div>
+		</li><li class="widget widget_categories" id="categories-3"><div class="widget_heading">Categories</div>		<ul>
+	<li class="cat-item cat-item-8"><a href="../advanced/index.html" title="Advanced White Hat SEO">Advanced SEO</a> (4)
+</li>
+	<li class="cat-item cat-item-6"><a href="index.html" title="Anti-Social Media + Antisocial Media">AntiSocial Media</a> (4)
+</li>
+	<li class="cat-item cat-item-11"><a href="../experiments/index.html" title="View all posts filed under Experiments">Experiments</a> (7)
+</li>
+	<li class="cat-item cat-item-9"><a href="../advanced/patents/index.html" title="Google Patents On Information Retrieval">Google Patents</a> (2)
+</li>
+	<li class="cat-item cat-item-12"><a href="../google-sucks/index.html" title="Sometimes I Hate Google">Google Sucks</a> (6)
+</li>
+	<li class="cat-item cat-item-7"><a href="../marketing/index.html" title="Internet Marketing">Marketing</a> (3)
+</li>
+	<li class="cat-item cat-item-13"><a href="../speed/index.html" title="Page Speed &amp; Site Performance">Page Speed</a> (5)
+</li>
+	<li class="cat-item cat-item-10"><a href="../orm/index.html" title="Online Reputation Management">Reputation Management</a> (6)
+</li>
+	<li class="cat-item cat-item-14"><a href="../ethics/index.html" title="View all posts filed under SEO Ethics">SEO Ethics</a> (3)
+</li>
+	<li class="cat-item cat-item-17"><a href="../experiments/serp/index.html" title="View all posts filed under SERP Experiments">SERP Experiments</a> (10)
+</li>
+	<li class="cat-item cat-item-5"><a href="../wordpress/thesis/index.html" title="Thesis WordPress Theme">Thesis Theme</a> (6)
+</li>
+	<li class="cat-item cat-item-4"><a href="../wordpress/index.html" title="WordPress SEO Tips">WordPress</a> (4)
+</li>
+		</ul>
+</li>				</ul>
+			</div>
+			<div id="sidebar_2" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-4">			<div class="textwidget"><div id="sub_box"></div></div>
+		</li>				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<p id="copyright">Copyright&nbsp;&copy;&nbsp;2013&nbsp;Darren Slatten</p>
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+	//<![CDATA[
+	mofoImgs = document.getElementsByTagName("img");
+	if (mofoImgs.length > 0) {
+		mofoLazyPics = new Array();
+		for (var i = 0; i < mofoImgs.length; i++) {
+			mofoLazyPics[i] = mofoImgs[i].src;
+			mofoImgs[i].style.backgroundImage = "url(/img/throbber.gif)";
+			mofoImgs[i].style.backgroundRepeat = "no-repeat";
+			mofoImgs[i].style.backgroundPosition = "center center";
+			mofoImgs[i].setAttribute("src", "data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%00%00%00!%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00%00%02%02D%01%00%3B");
+		}
+	}
+	//]]>
+</script><script type="text/javascript">
+//<![CDATA[
+	var _gaq=[['_setAccount','UA-4827976-1'],['_setDomainName','.seomofo.com'],['_trackPageview'],['_trackPageLoadTime']];
+	(function(d,t){
+		var g=d.createElement(t);var s=d.getElementsByTagName(t)[0];
+		g.async=1;g.src='http://www.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s);
+	})(document,'script');
+//]]>
+</script><!-- 17 queries in 0.145 seconds. -->
+<script type='text/javascript' src='../wp-content/themes/freethesis/custom/customac77.js?ver=20120628-1801'></script>
+</body>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+</html>

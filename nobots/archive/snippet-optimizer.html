@@ -1,0 +1,878 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head>
+<title>Google SERP Snippet Optimization Tool</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="description" content="This tool replicates the appearance of a snippet in Google SERPs, which allows SEOs to optimize a page title and description for maximum click-through rate." />
+<link rel="canonical" href="http://www.seomofo.com/snippet-optimizer.html" />
+<link rel="alternate" type="application/rss+xml" title="SEO Mofo &#187; World&#039;s Greatest SEO RSS Feed" href="http://feeds.seomofo.com/seomofo" />
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<style type="text/css">
+
+/* FOOTER WIDGETS */
+#post_footer_mofo{font-size:16px; width:380px; height:80px; position:absolute; right:0; top:0; text-align:center; background:url('/img/icons/social-media-widgets-2.png') no-repeat;}
+.post_widget_mofo{width:50px; height:80px; float:left; margin:0 1em 0 0;}
+.post_widget_mofo a{display:block; width:50px; height:80px;}
+.post_widget_mofo a span{display:none;}
+#copy_link_mofo{display:none;}
+	#copy_link_mofo textarea{width:48px; overflow:hidden; margin:0; font-size:10px; color:#666; background-color:#F3F6FF; border:1px solid #CCC; -moz-border-radius:.5em; -webkit-border-radius:.5em;}
+#reddit_mofo{margin:0;}
+#tm_box{position:absolute; top:0; left:78px; width:50px; height:61px; background-color:#FCFCFF;}
+#tm_loading{position:absolute; top:0; left:78px; width:50px; height:61px; background:url('/img/icons/tweetmeme-loading.png') no-repeat;}
+		#sidebar_2 ul.sidebar_list{padding-right:1.2em;}
+		#mofo_subs{width:127px; height:434px; background:url('/img/icons/subscribe.png') no-repeat;}
+			#sub_rss a{display:block; width:127px; height:91px; margin-bottom:3px;}
+				#sub_rss a span{display:none;}
+			#sub_feedburner{position:relative;}
+			#sub_feedburner a{display:block; width:127px; height:53px; margin-bottom:3px;}
+				#sub_feedburner a img{display:block; position:absolute; left:20px; top:14px; width:88px; height:26px; border:0;}
+			#sub_email a{display:block; width:127px; height:52px; margin-bottom:3px;}
+				#sub_email a span{display:none;}
+			#sub_twitter a{display:block; width:127px; height:107px; margin-bottom:3px;}
+				#sub_twitter a span{display:none;}
+			#sub_seo_dojo a{display:block; width:127px; height:128px;}
+				#sub_seo_dojo a span{display:none;}
+
+
+
+
+
+#gbar{float:left;height:22px;}.gbh,.gbd{border-top:1px solid #c9d7f1;font-size:1px;}.gbh{height:0;position:absolute;top:24px;width:100%;}#gbs,.gbm{background:#fff;left:0;position:absolute;text-align:left;visibility:hidden;z-index:1000;}.gbm{border:1px solid;border-color:#c9d7f1 #36c #36c #a2bae7;z-index:1001;}#guser{padding-bottom:7px !important;text-align:right;}#gbar,#guser{font-size:13px;padding-top:1px !important;}.gb1{margin-right:.5em;}.gb2{display:block;padding:.2em .5em;}.gb2,.gb3{text-decoration:none;}a.gb1,a.gb2,a.gb3,a.gb4{color:#00c !important;}a.gb2:hover{background:#36c;color:#fff !important;}a.gb1,a.gb2,a.gb3,.link{color:#20c!important;}.ts{border-collapse:collapse;}.ts td{padding:0;}.ti,.bl,form,#res h3{display:inline;}.ti{display:inline-table;}.fl:link,.gl,.gl a:link{color:#77c;}a:link,.w,#prs a:visited,#prs a:active,.q:active,.q:visited{color:#20c;}.mblink:visited,a:visited{color:#551a8b;}a:active{color:red;}.cur{color:#a90a08;font-weight:bold;}.b{font-weight:bold;}.j{width:42em;font-size:82%;}.s{max-width:42em;}.sl{font-size:82%;}#gb{text-align:right;padding:1px 0 7px;margin:0;}.hd{position:absolute;width:1px;height:1px;top:-1000em;overflow:hidden;}.f,.m,.c h2,#mbEnd h2{color:#676767;}.a,cite,.cite,.cite:link{color:green;font-style:normal;}#mbEnd{float:right;}h1,ol{margin:0;padding:0;}li.g,body,html,.std,.c h2,#mbEnd h2,h1{font-size:small;font-family:arial,sans-serif;}.c h2,#mbEnd h2,h1{font-weight:normal;}#ssb,.clr{clear:both;margin:0 8px;}#nav a,#nav a:visited,.blk a{color:#000;}#nav a{display:block;}#nav .b a,#nav .b a:visited{color:#20c;}#nav .i{color:#a90a08;font-weight:bold;}.csb,.ss,#logo span,#rptglbl{background:url(/images/nav_logo8.png) no-repeat;overflow:hidden;}.csb,.ss,#logo span,#rptglbl{background:url(/images/nav_logo7.png) no-repeat;overflow:hidden;}.csb,.ss{background-position:0 0;height:26px;display:block;}.ss{background-position:0 -88px;position:absolute;left:0;top:0;}.cps{height:18px;overflow:hidden;width:114px;}.mbi{width:13px;height:13px;background-position:-91px -74px;position:relative;top:2px;margin-right:3px;}#nav td{padding:0;text-align:center;}#logo{display:block;overflow:hidden;position:relative;width:103px;height:37px;margin:11px 0 7px;}#logo img{border:none;position:absolute;left:-0px;top:-26px;}.ws,.wsa,.wxs,.wci,.wxi,.wpb{background:url(/images/nav_logo8.png) no-repeat;border:0;cursor:pointer;display:none;margin-right:3px;height:14px;vertical-align:bottom;width:14px;}.ws,.wsa{display:inline;height:14px;margin-left:5px;vertical-align:6px;width:14px;}.ws{background-position:-151px -32px;}.wsa{background-position:-151px -47px;}.wxs{background-position:-134px -44px;cursor:default;display:inline;height:16px;margin-left:8px;width:16px;}.wci,.wxi{display:inline;}.wci{background-position:-119px -87px;height:14px;width:16px;}.wpb{background-position:-91px -74px;display:inline;height:13px;vertical-align:5px;width:13px;}.wxi{background-position:-104px -57px;height:14px;width:14px;}.wcd{margin-top:2px;max-width:42em;}button::-moz-focus-inner{border:0;}.link{color:#00c;text-decoration:underline;cursor:pointer;}.link:active{color:red;}.pin{overflow:hidden;height:36px;width:22px;position:relative;display:block;}.pin img{position:absolute;}.pin1{top:0;}.pin2{top:-36px;}.pin3{top:-72px;}.pin4{top:-108px;}.pin5{top:-144px;}.pin6{top:-180px;}.pin7{top:-216px;}.pindot{bottom:0;}#logo span,.ch{cursor:pointer;}.lst{font-family:arial,sans-serif;font-size:17px;vertical-align:middle;}.lsb{font-family:arial,sans-serif;font-size:15px;height:1.85em;vertical-align:middle;}h3,.med{font-size:medium;font-weight:normal;padding:0;margin:0;}.e{margin:.75em 0;}.bc a{color:green;text-decoration:none;}.bc a:hover{text-decoration:underline;}.slk td{padding-left:40px;padding-top:5px;vertical-align:top;}.slk div{padding-left:10px;text-indent:-10px;}.fc{margin-top:.5em;padding-left:3em;}#mbEnd cite{display:block;text-align:left;}#mbEnd p{margin:-.5em 0 0 .5em;text-align:center;}#bsf,#ssb,.blk{border-top:1px solid #6b90da;background:#f0f7f9;}#bsf{border-bottom:1px solid #6b90da;}#flp{margin:7px 0;}#ssb div{float:left;padding:4px 0 0;padding-left:7px;padding-right:.5em;}#prs a,#prs b{margin-right:.6em;}#ssb p{text-align:right;white-space:nowrap;margin:.1em 0;padding:.2em;}#ssb{margin:0 8px 11px;padding:.1em;}#cnt{max-width:80em;clear:both;}#mbEnd{background:#fff;padding:0;border-left:11px solid #fff;border-spacing:0;white-space:nowrap;}#res{padding-right:1em;margin:0 16px;}.c{background:#fff8dd;margin:0 8px;}.c li{padding:0 3px 0 8px;margin:0;}.c .tam,.c .tal{padding-top:12px;}#mbEnd li{margin:1em 0;padding:0;}.xsm{font-size:x-small;}.sm{margin:0 0 0 40px;padding:0;}ol li{list-style:none;}.sm li{margin:0;}.gl,#bsf a,.nobr{white-space:nowrap;}#mbEnd .med{white-space:normal;}.sl,.r{display:inline;font-weight:normal;margin:0;}.r{font-size:medium;}h4.r{font-size:small;}.mr{margin-top:-.5em;}h3.tbpr{margin-top:.3em;margin-bottom:1em;}img.tbpr{border:0px;width:15px;height:15px;margin-right:3px;}.jsb{display:block;}.nojsb{display:none;}.rt1{background:transparent url(/images/bubble1.png) no-repeat;}.rt2{background:transparent url(/images/bubble2.png) repeat 0 0 scroll;}.sb{background:url(/images/scrollbar.png) repeat scroll 0 0;cursor:pointer;width:14px;}.rtdm:hover{text-decoration:underline;}.ri_cb{left:0;margin:6px;position:absolute;top:0;z-index:1;}.ri_sp{display:-moz-inline-box;display:inline-block;text-align:center;vertical-align:top;margin-bottom:6px;}.ri_sp img{vertical-align:bottom;}.g{margin:1em 0;}.mbl{margin:1em 0 0;}em{font-weight:bold;font-style:normal;}.tbi div,#tbp{display:block;background:url(/images/nav_logo8.png) no-repeat;overflow:hidden;width:13px;height:13px;}.tbi div,#tbp{display:block;background:url(/images/nav_logo7.png) no-repeat;overflow:hidden;width:13px;height:13px;}#ssb #tbp{background-position:-91px -74px;padding:0;margin-top:1px;margin-left:0.75em;;}.tbpo,.tbpc{margin-left:3px;margin-right:1em;text-decoration:underline;white-space:nowrap;;}.tbpc,.tbo .tbpo{display:inline;}.tbo .tbpc,.tbpo{display:none;}#prs *{float:left;}#prs a,#prs b{margin-right:.3em;}.std dfn{padding-left:.2em;padding-right:.5em;}dfn{font-style:normal;font-weight:bold;padding-left:1px;position:relative;top:-.12em;}#tbd{display:none;margin-left:-9.6em;z-index:1;}.tbo #tads,.tbo #pp,.tbo #tadsb{margin-left:13em;}.tbo #res{margin-left:11.05em;;}.tbo #tbd{width:9.6em;padding:0;left:11px;background:#fff;border-right:1px solid #c9d7f1;position:absolute;display:block;margin-left:0;}.tbo #mbEnd{width:26%;}</style>
+<style type="text/css">body{margin:0;padding:0;color:#000;background-color:#FCFCFF;}.snippet-optimizer{font-size:10px;background-color:#666;font-family:Tahoma,Geneva,Verdana,sans-serif;}#header{border:double #DDD;border-width:0 0 3px 0;clear:both;position:relative;height:9em;padding:0;background:transparent url('/img/seo-mofo-header-logo.png') no-repeat;}#logo_mofo{text-align:left;font-size:3.2em;line-height:1.25em;}#domain_mofo{position:relative;font-family:"Courier New",Courier,monospace;font-size:200%;color:#555;font-weight:bold;text-shadow:#FFF 0 0 1px;}#domain_mofo a{display:block;height:90px;width:350px;float:left;z-index:2;text-decoration:none;color:#00B3FF;text-shadow:#FFF 0 0 2px;}#domain_mofo a:active,#domain_mofo a:hover,#domain_mofo a:focus{border:0;text-decoration:none;color:#FF4C00;}#domain_mofo em{font-size:120%;font-weight:bold;font-style:normal;display:none;}#domain_mofo span{font-size:20%;}#domain_mofo div{display:none;float:left;position:relative;right:3.25em;}#slogan_mofo{display:none;clear:both;position:relative;top:-1.5em;font-family:Georgia,"Times New Roman",Times,serif;font-size:80%;font-style:italic;font-weight:bold;color:#FF4C00;text-shadow:#000 0 0 1px;}.menu{border:0;position:absolute;top:0;right:0;list-style-type:none;margin:0;}.menu li{position:relative;float:left;}.menu li.tab{float:right;}.menu li.tab a{display:block;text-transform:uppercase;letter-spacing:2px;font-size:1.2em;font-family:Georgia,"Times New Roman",Times,serif;line-height:1.333em;color:#999999;background:#F3F9FF;padding:.25em .5em;margin-left:.5em;border:1px solid #CCC;-moz-border-radius:.5em;-webkit-border-radius:.5em;text-decoration:none;}#breadcrumbs{text-align:right;position:absolute;top:7.8em;right:0;margin:0;}#breadcrumbs a{text-decoration:none;color:#00B3FF;}#breadcrumbs a:hover{color:#FF4C00;}#content_box{margin:0;}#content{clear:both;}#google-content{margin:0 auto;background-color:#666;}#google-content a:visited{color:#20C;}#google-content .gl a:visited{color:#77C;}#gcontainer{width:1080px;margin:0 auto;background-color:#FFF;}#gborder{border:12px solid #666;width:1056px;}#gsr{width:1040px;position:relative;background:#fff;color:#000;margin:3px 8px;}.gbh{top:21px;}#topheader{background-color:#666;}#homelink{width:106px;height:34px;margin-top:1px;margin-right:16px;text-align:center;float:left;}#homelink a{font-family:"Courier New",Courier,monospace;font-size:24px;line-height:20px;text-decoration:none;color:#F3F6FF;}#homelink a span{color:#00B1FB;}#homelink a:hover span{color:#FF4C00;}#homelink a:hover em{color:#00B1FB;}#homelink em{display:block;text-decoration:none;font-weight:normal;margin:0;font-size:11px;line-height:14px;font-family:"Comic Sans MS",cursive;color:#FF4C00;}#hboxes{width:456px;float:left;}#h1box{width:456px;height:40px;margin:0;}#h2box{width:456px;height:44px;margin:0;}#h1box h1{width:454px;height:34px;margin:0 auto;padding:0;border:1px solid #7ABCF1;background-color:#F3F6FF;color:#006699;font-family:Georgia,'Times New Roman',Times,serif;font-size:24px;line-height:30px;text-align:center;text-shadow:#999 1px 1px 1px;-moz-border-radius:17px;-webkit-border-radius:17px;}#h2box h2{height:20px;line-height:20px;margin:0;padding:0;font-family:Tahoma,Geneva,sans-serif;font-weight:normal;font-size:16px;color:#9CF;text-align:left;}#clearhbox{width:100%;height:0;clear:both;}#topcontainer{width:1056px;margin:0 auto;padding:6px 12px;}#textbox{width:454px;margin-left:24px;float:right;}#toptext{margin:5px 0 0 0;padding:0;font-size:14px;line-height:18px;color:#FC9;text-align:justify;vertical-align:text-bottom;}#toptext a{color:#F90;}#mofoform{background-color:#FCFCFF;width:1008px;margin:0 auto;padding:6px 24px;}.notes{width:198px;height:198px;margin:0;padding:6px;border:1px solid #EEE;overflow-y:scroll;background-color:#FFF;}#out_richtext{display:inline;}#box_richtext{float:left;width:402px;height:51px;}#box_date{float:right;width:127px;height:51px;}#addadate,#enteradate,#out_datedots{color:black;}#inputdiv label{color:#333;font-size:13px;line-height:13px;font-family:Georgia,"Times New Roman",Times,serif;line-height:20px;}#displayops{width:200px;}#displayops label{font-family:arial,sans-serif;color:#000;}textarea{overflow:hidden;background-color:#FFF;color:#000;-moz-border-radius:.25em;-webkit-border-radius:.25em;}#in_title,#in_snippet,#in_url,#in_richtext,#in_datevalue,#in_bold{font-family:arial,sans-serif;}#in_title{width:552.5px;color:#CCCCF5;border:1px solid #8080E6;font-size:medium;}#in_snippet{width:552.5px;color:#CCCCCC;border:1px solid #808080;font-size:small;}#in_url{width:552.5px;color:#CCE6CC;border:1px solid #80C080;font-size:small;}#in_richtext{width:400.0px;color:#E1E1E1;border:1px solid #B3B3B3;font-size:small;}#in_datevalue{width:125.0px;color:#CCCCCC;border:1px solid #808080;font-size:small;}#in_bold{width:400px;color:#CCCCCC;border:1px solid #808080;font-size:small;overflow-y:scroll;}.input_subtext{font-size:11px;color:#CCC;}.char_subtext{font-weight:bold;color:#CCC;font-family:Georgia,"Times New Roman",Times,serif;}.tip_subtext{font-weight:bold;}#titlechar,#snippetchar{display:block;margin:0;padding:0;width:276px;float:right;text-align:right;line-height:20px;font-family:Georgia,"Times New Roman",Times,serif;font-weight:bold;font-size:16px;color:#06C;}#inputdiv{font-family:arial,sans-serif;}#inputdiv span small{font-size:11px;line-height:normal;color:#333;}#inputtable{width:552.5px;}#inputtable td,#displayops td{padding:5px 0px 5px 0px;}#snipborder{height:48px;background:url('/images/border.png') repeat-x #FCFCFF bottom;}#snipborder2{height:12px;background:url('/images/border2.png') repeat-x #FCFCFF bottom;background-color:#666;}#bottomhalf h2,#bottomhalf h3{font-family:Georgia,"Times New Roman",Times,serif;color:#069;font-weight:normal;}</style>
+<!--[if lte IE 7]><style type="text/css">.ti{margin-right:4px;}</style><![endif]-->
+<!--[if IE 6]><style type="text/css">.mbi{font-size:0;}.bc a:visited,.bc a:active{color:green;}#ssb p{zoom:1;}#mbEnd li{zoom:1;}.ri_cb{margin:2px;}.ri_sp img{vertical-align:baseline;}.tbi div,#tbp,.tbpo,.tbpc{cursor:pointer;}#prs a,#prs b{position:relative;bottom:.08em;}dfn{_line-height:100%;}.tbo #tads,.tbo #pp,.tbo #tadsb{margin-left:12.7em;}.s{width:42em;}</style><![endif]-->
+<script type="text/javascript">
+//<![CDATA[
+var boldWords;
+var boldList = "";
+var ellipsis = " ...";
+var dateEllipsis = " <b>...</b> ";
+function get(e){return document.getElementById(e);}
+function val(e){return document.getElementById(e).value;}
+function html(e){return document.getElementById(e).innerHTML;}
+function css(e){return document.getElementById(e).style;}
+function showTopads(){
+	if(get('check_topads').checked == true){
+		css('out_topads').display = "block";
+		css('notes_default').display = "none";
+		css('notes_sponsored').display = "block";}
+	else{
+		css('out_topads').display = "none";
+		if(get('check_rightads').checked == false){
+			css('notes_default').display = "block";
+			css('notes_sponsored').display = "none";}}}
+function showRightads(){
+	if(get('check_rightads').checked == true){
+		css('out_rightads').display = "block";
+		css('notes_default').display = "none";
+		css('notes_sponsored').display = "block";}
+	else{
+		css('out_rightads').display = "none";
+		css('topspons').float = "right";
+		if(get('check_topads').checked == false){
+			css('notes_default').display = "block";
+			css('notes_sponsored').display = "none";}}}
+function showOrganics(){
+	if(get('check_organics').checked == true){
+		css('toporganic').display = "block";
+		css('bottomorganic').display = "block";}
+	else{
+		css('toporganic').display = "none";
+		css('bottomorganic').display = "none";}}
+function showSerpElements(){
+	if(get('check_serpelements').checked == true){
+		css('box_topads').display = "inline";
+		css('box_rightads').display = "inline";
+		css('box_organics').display = "inline";}
+	else{
+		css('box_topads').display = "none";
+		css('box_rightads').display = "none";
+		css('box_organics').display = "none";}
+	if(get('check_serpelements').checked == true){
+		css('out_topsearch').display = "block";
+		css('out_toplinks').display = "block";
+		css('out_bluebar').display = "block";
+		css('out_blueline').display = "block";
+		css('out_bottomsearch').display = "block";
+		showTopads();
+		showRightads();
+		showOrganics();}
+	else{
+		css('out_topsearch').display = "none";
+		css('out_toplinks').display = "none";
+		css('out_bluebar').display = "none";
+		css('out_blueline').display = "none";
+		css('out_bottomsearch').display = "none";
+		css('out_topads').display = "none";
+		css('out_rightads').display = "none";
+		css('topspons').float = "right";
+		css('toporganic').display = "none";
+		css('bottomorganic').display = "none";
+		css('notes_default').display = "block";
+		css('notes_sponsored').display = "none";}}
+function dateError(){
+	if(val('in_datevalue') == '' && get('check_date').checked == true){
+			css('addadate').color = "#F00";
+			css('enteradate').color = "#F00";
+			css('out_datedots').color = "#F00";
+			focusDateValue();}
+		else{
+			css('addadate').color = "#000";
+			css('enteradate').color = "#333";
+			css('out_datedots').color = "#000";}}
+function showTR(){
+	if(get('check_date').checked == false && get('check_richsnippet').checked == false){
+			css('box_rich_date').display = "none";}
+	else{
+			css('box_rich_date').display = "block";}}
+function showRichSnippet(){
+	if(get('check_richsnippet').checked == true){
+		css('out_richsnippet').display = "inline";
+		css('box_richtext').display = "block";
+		css('box_stars').display = "inline";}
+	else{
+		css('out_richsnippet').display = "none";
+		css('box_richtext').display = "none";
+		css('box_stars').display = "none";}
+	if(get('check_stars').checked == true){
+		css('out_stars').display = "inline";}
+	else{
+		css('out_stars').display = "none";}
+	showTR();}
+function showDate(){
+	if(get('check_date').checked == true){
+		css('out_date').display = "inline";
+		css('box_date').display = "block";
+		css('out_datedots').display = "inline";}
+	else{
+		css('out_date').display = "none";
+		css('box_date').display = "none";
+		css('out_datedots').display = "none";}
+	showTR();
+	dateFunction();}
+function showCached(){
+	if(get('check_cached').checked == true && get('check_similar').checked == true){
+		css('out_dash1').display = "inline";
+		css('out_dash2').display = "inline";}
+	if(get('check_cached').checked == false && get('check_similar').checked == false){
+		css('out_dash1').display = "none";
+		css('out_dash2').display = "none";}
+	if(get('check_cached').checked == true && get('check_similar').checked == false){
+		css('out_dash1').display = "inline";
+		css('out_dash2').display = "none";}
+	if(get('check_cached').checked == false && get('check_similar').checked == true){
+		css('out_dash1').display = "inline";
+		css('out_dash2').display = "none";}
+	if(get('check_cached').checked == true){
+		css('out_cached').display = "inline";}
+	else{
+		css('out_cached').display = "none";}
+	if(get('check_similar').checked == true){
+		css('out_similar').display = "inline";}
+	else{
+		css('out_similar').display = "none";}}
+
+function showBold(){
+	if(get('check_bold').checked == false){
+			css('box_bold').display = "none";}
+	else{
+			css('box_bold').display = "block";}
+// The next 2 lines are there to force IE to reflow the page layout.
+	css('out_searchresults').display = "none";
+	css('out_searchresults').display = "block";
+}
+
+function focusBold(){
+	titleFunction();
+	snippetFunction();
+	urlFunction();
+	get('in_bold').focus();
+	get('in_bold').select();}
+
+
+// This function takes the value of in_bold
+// and outputs an array of words to make bold
+function makeBoldWords(){
+	var splitChars = /\s+/g;
+	var trashChars = /\s+|\W+|^.{1,2}$/g;
+	boldWords = "";
+	boldWords = val('in_bold').replace(trashChars," ").toLowerCase();
+	boldWords = boldWords.split(splitChars);
+	for(i=0; i<boldWords.length; i++){
+		boldWords[i] = boldWords[i].replace(trashChars,"");
+		if(boldWords[i] == ""){
+			boldWords.splice(i,1);
+			i--;
+		}
+	}
+	boldList = "";
+	for(i=0; i<boldWords.length; i++){
+		boldList += boldWords[i] + "\n";
+	}
+	get('in_bold').value = boldList;
+	return boldWords;
+}
+
+
+function highlightTerms(content){
+	makeBoldWords();
+	var outNode = get(content);
+	for(i=0; i<boldWords.length; i++){
+		var boldRegExp = new RegExp('\\b('+boldWords[i]+'(\'\\S*)?)\\b','ig');
+		var tempText = outNode.innerHTML;
+		outNode.innerHTML = tempText.replace(boldRegExp,'<em>$1</em>');
+	}
+}
+
+function highlightURL(){
+	makeBoldWords();
+	var outNode = get('out_url');
+	for(i=0; i<boldWords.length; i++){
+		var boldRegExp = new RegExp('('+boldWords[i]+')','ig');
+		var tempText = outNode.innerHTML;
+		outNode.innerHTML = tempText.replace(boldRegExp,'<em>$1</em>');
+	}
+}
+
+function pageRefresh(){
+	showTopads();
+	showRightads();
+	showOrganics();
+	showSerpElements();
+	showRichSnippet();
+	showDate();
+	showCached();
+	showBold();
+	titleFunction();
+	snippetFunction();
+	urlFunction();
+	richTextFunction();
+	dateFunction();}
+function focusRichText(){
+		get('in_richtext').focus();}
+function focusDateValue(){
+	get('in_datevalue').focus();}
+
+window.onload = function(){
+	pageRefresh();
+	lazyLoader();}
+
+
+
+/** BEGIN SPEED TEST JAVASCRIPT **/
+
+function lazyLoader(){
+	timeWaster();
+}
+
+var t = 5000;
+
+function timeWaster(){
+	t -= 100;
+	var tensPlace = t/1000;
+	get('countdown').innerHTML = tensPlace.toFixed(1);
+
+	if(t >= 0){
+		setTimeout('timeWaster()',100);
+		return false;
+	}
+	else{
+		css('countbox').display='none';
+		loadSocialMedia();
+	}
+}
+
+function loadSocialMedia(){
+	subscribeLinks();
+	tweetMemeWidget();
+	mofoWidgets();
+	mofoCopyright();}
+function subscribeLinks(){
+if(document.getElementById('sub_box')){
+	var subArray = new Array();
+	subArray.push("<div id=\"mofo_subs\">");
+	subArray.push("	<div id=\"sub_rss\">");
+	subArray.push("		<a target=\"_blank\" href=\"http:\/\/feeds.seomofo.com\/seomofo\" title=\"Subscribe to the World's Greatest SEO Blog!\"><span>RSS Feed<\/span><\/a>");
+	subArray.push("	<\/div>");
+	subArray.push("	<div id=\"sub_feedburner\">");
+	subArray.push("		<a target=\"_blank\" href=\"http:\/\/feeds.seomofo.com\/seomofo\" title=\"Subscribe to the World's Greatest SEO Blog!\"><img src=\"http:\/\/feeds.feedburner.com\/~fc\/seomofo?bg=FF6600&amp;fg=000000&amp;anim=0\" height=\"26\" width=\"88\" alt=\"FeedBurner readers\" \/><img src=\"http:\/\/www.seomofo.com\/img\/icons\/feedburner-mofos.gif\" height=\"26\" width=\"88\" alt=\"FeedBurner mofos\" \/><\/a>");
+	subArray.push("	<\/div>");
+	subArray.push("	<div id=\"sub_email\">");
+	subArray.push("		<a target=\"_blank\" href=\"http:\/\/feedburner.google.com\/fb\/a\/mailverify?uri=seomofo&amp;loc=en_US\" title=\"Click here to receive updates via email!\"><span>Email<\/span><\/a>");
+	subArray.push("	<\/div>");
+	subArray.push("	<div id=\"sub_twitter\">");
+	subArray.push("		<a target=\"_blank\" href=\"http:\/\/twitter.com\/SEOmofo\" title=\"Follow me on Twitter!\"><span>Twitter<\/span><\/a>");
+	subArray.push("	<\/div>");
+	subArray.push("	<div id=\"sub_seo_dojo\">");
+	subArray.push("		<a target=\"_blank\" href=\"http:\/\/huomah.com\/dojo\/\" title=\"Seriously Obsessed Search Geek - SEO Dojo\"><span>SEO Dojo<\/span><\/a>");
+	subArray.push("	<\/div>");
+	subArray.push("<\/div>");
+	var subCode = subArray.join('');
+	document.getElementById('sub_box').innerHTML = subCode;}}
+function tweetMemeWidget(){
+if(document.getElementById('widget_holder')){
+	var tmArray = new Array();
+	tmArray.push("<iframe scrolling=\"no\" height=\"61\" frameborder=\"0\" width=\"50\" src=\"http:\/\/api.tweetmeme.com\/button.js?url=" + escape(document.URL) + "&amp;style=normal&amp;source=SEOmofo&amp;service=bit.ly\" onload=\"doneLoading();\"><\/iframe>");
+	var tmCode = tmArray.join('');
+	document.getElementById('tm_box').innerHTML = tmCode;}}
+function mofoWidgets(){
+	if(document.getElementById('widget_holder')){
+		var myWidgets = new Array();
+		myWidgets.push("<div id=\"post_footer_mofo\">");
+		myWidgets.push("	<div id=\"twitter_mofo\" class=\"post_widget_mofo\">");
+		myWidgets.push("		<a href=\"http:\/\/twitter.com\/home?status=" + encodeURIComponent(document.title) + " - " + encodeURIComponent(document.URL) + "\"><\/a>");
+		myWidgets.push("	<\/div>");
+		myWidgets.push("	<div id=\"delicious_mofo\" class=\"post_widget_mofo\">");
+		myWidgets.push("		<a onclick=\"window.open('http:\/\/delicious.com\/save?v=5&amp;noui&amp;jump=close&amp;url='+encodeURIComponent('" + encodeURIComponent(document.URL) + "')+'&amp;title='+encodeURIComponent('" + encodeURIComponent(document.title) + "'),'delicious', 'toolbar=no,width=550,height=550'); return false;\" href=\"http:\/\/delicious.com\/save\"><\/a>");
+		myWidgets.push("	<\/div>");
+		myWidgets.push("	<div id=\"facebook_mofo\" class=\"post_widget_mofo\">");
+		myWidgets.push("		<a href=\"http:\/\/www.facebook.com\/sharer.php?u=" + encodeURIComponent(document.URL) + "&amp;t=" + encodeURIComponent(document.title) + "\"><\/a>");
+		myWidgets.push("	<\/div>");
+		myWidgets.push("	<div id=\"reddit_mofo\" class=\"post_widget_mofo\">");
+		myWidgets.push("		<div>");
+		myWidgets.push("			<iframe src=\"http://www.reddit.com/static/button/button3.html?width=69&amp;url=" + escape(document.URL) + "\" height=\"52\" width=\"69\" scrolling='no' frameborder='0'></iframe>");
+		myWidgets.push("		<\/div>");
+		myWidgets.push("	<\/div>");
+		myWidgets.push("	<div id=\"copy_link_mofo\" class=\"post_widget_mofo\">");
+		myWidgets.push("		<textarea cols=\"24\" rows=\"5\" onclick=\"this.focus();this.select();\">&lt;a href=\"" + document.URL + "\"&gt;" + document.title + "&lt;\/a&gt;<\/textarea>");
+		myWidgets.push("		<p style=\"margin: 0pt; height: 1.2em; color: rgb(153, 153, 153); font-size: 10px; line-height: 1.2em; text-align: center;\">Copy Link<\/p>");
+		myWidgets.push("	<\/div>");
+		myWidgets.push("<\/div>");
+		var widgetsCode = myWidgets.join('');
+		document.getElementById('widget_holder').innerHTML = widgetsCode;
+	}
+}
+function mofoCopyright(){
+if(document.getElementById('footer')){
+	var myCopy = "";
+	var d = new Date();
+	var mofoYear = d.getFullYear();
+	myCopy += "&copy;&nbsp;Copyright&nbsp;&nbsp;2007-" + mofoYear + "&nbsp;&nbsp;Darren Slatten";
+	document.getElementById('footer').innerHTML = myCopy;}}
+function doneLoading(){
+	document.getElementById('tm_loading').style.display='none';
+	var doneLoadNode = document.createElement('span');
+	document.getElementById('append_load_node').appendChild(doneLoadNode);
+	doneLoadNode.setAttribute('id', 'done_loading');
+}
+
+
+/** END SPEED TEST JAVASCRIPT **/
+
+
+
+function titleFunction(){
+	theTitle = val('in_title').replace(/^\s+|\s+$/g,"");
+	get('titlechar').innerHTML = theTitle.length;
+	if(theTitle != ''){
+		if(theTitle.length <= 70){
+			get('out_title').innerHTML = theTitle;}
+		else{
+			titleSpace = theTitle.lastIndexOf(" ",70);
+			get('out_title').innerHTML = theTitle.substring(0,titleSpace).concat(ellipsis.bold());}}
+	if(get('check_bold').checked == true){
+		highlightTerms('out_title');
+	}
+
+}
+
+function snippetFunction(){
+	theSnippet = val('in_snippet').replace(/^\s+|\s+$/g,"");
+	if(get('check_date').checked == true){
+		var dateLength = html('out_date').length + 5;
+		css('out_datedots').display = "inline";}
+	else{
+		var dateLength = 0;
+		css('out_datedots').display = "none";}
+	var snippetLength = theSnippet.length + dateLength;
+	get('snippetchar').innerHTML = snippetLength;
+	if(theSnippet.length + dateLength <= 156){
+		get('out_snippet').innerHTML = theSnippet;}
+	else{
+		var snipLimit = 156 - dateLength;
+		snippetSpace = theSnippet.lastIndexOf(" ",snipLimit);
+		get('out_snippet').innerHTML = theSnippet.substring(0,snippetSpace).concat(ellipsis.bold());}
+	dateError();
+	if(get('check_bold').checked == true){
+		highlightTerms('out_snippet');
+	}
+}
+
+function urlFunction(){
+	var theURL = val('in_url');
+	theURL = theURL.replace('http://','');
+	theURL = theURL.replace(/^\s+|\s+$/g,"");
+	get('out_url').innerHTML = theURL;
+	if(get('check_bold').checked == true){
+		highlightURL();
+	}
+}
+function richTextFunction(){
+	if(val('in_richtext') != ''){
+		get('out_richtext').innerHTML = val('in_richtext').replace(/^\s+|\s+$/g,"");}}
+function dateFunction(){
+	if(val('in_datevalue') != ''){
+		get('out_date').innerHTML = val('in_datevalue').replace(/^\s+|\s+$/g,"");
+		snippetFunction();}}
+//]]>
+</script>
+</head>
+<body>
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-4827976-1']);
+	_gaq.push(['_trackPageview']);
+	(function() {
+		var ga = document.createElement('script');
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		ga.setAttribute('async', 'true');
+		document.documentElement.firstChild.appendChild(ga);
+	})();
+</script>
+<!-- BEGIN SEOMOFO CONTENT -->
+<div id="topheader">
+	<div id="topcontainer">
+		<div id="homelink">
+			<a href="http://www.seomofo.com/">
+			<div>
+				<span>SEO</span>mofo<br />
+				<em>world's&nbsp;greatest&nbsp;seo</em>
+			</div>
+			</a>
+		</div>
+		<div id="hboxes">
+			<div id="h1box">
+				<h1><span style="color: rgb(0, 57, 182);">G</span><span style="color: rgb(196, 18, 0);">o</span><span style="color: rgb(243, 197, 24);">o</span><span style="color: rgb(0, 57, 182);">g</span><span style="color: rgb(48, 167, 47);">l</span><span style="color: rgb(196, 18, 0);">e</span> <span>SERP Snippet Optimization Tool</span></h1>
+			</div>
+			<div id="h2box">
+				<h2>&bull;&nbsp;Predict how your web page will look in Google's search results</h2>
+				<h2>&bull;&nbsp;Create better-looking search listings and increase click-through</h2>
+			</div>
+		</div>
+		<div id="textbox">
+			<p id="toptext">
+				<span style="font-weight:bold; color:#F90; font-size:18px; line-height:22px;">What is this?</span> - This tool simulates Google's search engine results pages (SERPs). Use the form below to enter the title, meta description, and URL of your web page, and this tool will generate a virtual search result listing based on your input. For more information, <a href="#about">click here</a>.
+			</p>
+		</div>
+		<div id="clearhbox"></div>
+	</div>
+</div>
+<div class="snippet-optimizer">
+	<div id="mofoform">
+		<div id="inputdiv">
+			<div style="float:left; width:580px;">
+				<table border="0" cellpadding="0" cellspacing="0" id="inputtable">
+					<tr>
+						<td>
+							<label for="in_title" style="display:block; margin:0; padding:0; width:276px; float:left; text-align:left; line-height:20px;">Title</label><span id="titlechar">70</span><span style="display:block; margin:0; padding:0; clear:both;"></span>
+							<textarea id="in_title" name="in_title" rows="2" cols="70" onkeyup="titleFunction();" onfocus="this.style.color='#00C'; this.style.border='1px solid #00C'; css('subtext_title').color='#000'; css('subtext_title_char').color='#06C'; css('tip_title').color='#000';" onblur="this.style.color='#CCCCF5'; this.style.border='1px solid #8080E6'; css('subtext_title').color='#CCC'; css('subtext_title_char').color='#CCC'; css('tip_title').color='#CCC';" tabindex="1">This is an Example of a Title Tag that is Seventy Characters in Length</textarea>
+							<div class="input_subtext" id="subtext_title"><span class="tip_subtext" id="tip_title">Tip:&nbsp;&nbsp;</span>the maximum number of characters in a Google SERP title is <span class="char_subtext" id="subtext_title_char">70</span></div>
+						</td>
+					</tr>
+					<tr id="box_rich_date">
+						<td style="width:554.5px;">
+							<div id="box_richtext">
+								<label for="in_richtext">Rich Snippet Text</label><br />
+								<textarea id="in_richtext" name="in_richtext" rows="1" cols="54" onkeyup="richTextFunction();" onfocus="this.style.color='#676767'; this.style.border='1px solid #676767'; css('subtext_richtext').color='#676767'; css('tip_richtext').color='#000';" onblur="this.style.color='#E1E1E1'; this.style.border='1px solid #B3B3B3'; css('subtext_richtext').color='#CCC'; css('tip_richtext').color='#CCC';" tabindex="2">Review by Darren Slatten - Jan 1, 2010 - Price range: $999.99</textarea>
+								<div class="input_subtext" id="subtext_richtext"><span class="tip_subtext" id="tip_richtext">Example:&nbsp;&nbsp;</span>Review by Darren Slatten - Jan 1, 2010 - Price range: $999.99</div>
+							</div>
+							<div id="box_date">
+								<label for="in_datevalue"><span id="enteradate">Enter a date:</span></label><br />
+								<textarea id="in_datevalue" name="in_datevalue" rows="1" cols="11" onkeyup="dateFunction();" onfocus="this.style.color='#000'; this.style.border='1px solid #000'; css('subtext_datevalue').color='#000'; css('tip_datevalue').color='#000';" onblur="this.style.color='#CCC'; this.style.border='1px solid #808080'; css('subtext_datevalue').color='#CCC'; css('tip_datevalue').color='#CCC';" tabindex="3"></textarea>
+								<div class="input_subtext" id="subtext_datevalue"><span class="tip_subtext" id="tip_datevalue">Example:&nbsp;&nbsp;</span>Jan 1, 2010</div>
+							</div>
+							<div style="clear:both;"></div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="in_snippet" style="display:block; margin:0; padding:0; width:276px; float:left; text-align:left; line-height:20px;">Description</label><span id="snippetchar" style="display:block; margin:0; padding:0; width:276px; float:right; text-align:right; line-height:20px;">156</span><span style="display:block; margin:0; padding:0; clear:both;"></span>
+							<textarea id="in_snippet" name="in_snippet" rows="3" cols="70" onkeyup="snippetFunction();" onfocus="this.style.color='#000'; this.style.border='1px solid #000'; css('subtext_snippet').color='#000'; css('subtext_snippet_char').color='#06C'; css('tip_snippet').color='#000';" onblur="this.style.color='#CCC'; this.style.border='1px solid #808080'; css('subtext_snippet').color='#CCC'; css('subtext_snippet_char').color='#CCC'; css('tip_snippet').color='#CCC';" tabindex="4">Here is an example of what a snippet looks like in Google's SERPs. The content that appears here is usually taken from the Meta Description tag if relevant.</textarea>
+							<div class="input_subtext" id="subtext_snippet"><span class="tip_subtext" id="tip_snippet">Tip:&nbsp;&nbsp;</span>the maximum number of characters in a Google SERP snippet is <span class="char_subtext" id="subtext_snippet_char">156</span></div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="in_url">URL</label><br />
+							<textarea id="in_url" name="in_url" rows="1" cols="70" onkeyup="urlFunction();" onfocus="this.style.color='#008000'; this.style.border='1px solid #008000'; css('subtext_url').color='#40a040'; css('tip_url').color='#000';" onblur="this.style.color='#CCE6CC'; this.style.border='1px solid #80C080'; css('subtext_url').color='#CCC'; css('tip_url').color='#CCC';" tabindex="5">www.seomofo.com/snippet-optimizer.html</textarea>
+							<div class="input_subtext" id="subtext_url"><span class="tip_subtext" id="tip_url">Example:&nbsp;&nbsp;</span>www.seomofo.com/snippet-optimizer.html</div>
+						</td>
+					</tr>
+					<tr id="box_bold">
+						<td style="width:554.5px;">
+							<div style="float:left; width:402px; height:104px;">
+								<label for="in_bold">Bold Words</label><br />
+								<textarea id="in_bold" name="in_bold" rows="4" cols="70" onchange="makeBoldWords(); titleFunction(); snippetFunction(); urlFunction();" onfocus="this.style.color='#000'; this.style.border='1px solid #000'; css('subtext_bold').color='#000'; css('tip_bold').color='#000';" onblur="this.style.color='#CCC'; this.style.border='1px solid #808080'; css('subtext_bold').color='#CCC'; css('tip_bold').color='#CCC';" tabindex="6">Paste keywords here. snippet tag google title</textarea><br />
+								<div class="input_subtext" id="subtext_bold"><span class="tip_subtext" id="tip_bold">Tip:&nbsp;&nbsp;</span>paste words here to simulate bolded query terms.</div>
+							</div>
+							<div style="float:right; width:127px; height:104px; line-height:20px;">
+								<br />
+								<button onclick="makeBoldWords(); titleFunction(); snippetFunction(); urlFunction();" type="button" tabindex="7">Refresh</button>
+							</div>
+							<div style="clear:both;"></div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div style="float:left; width:200px; line-height:1.5em;">
+				<table border="0" cellpadding="0" cellspacing="0" id="displayops">
+					<tr>
+						<td valign="top">
+							<div style="font-family:Georgia, 'Times New Roman', Times, serif; color:#333; font-size:small; line-height:20px;">
+								Display Options
+							</div>
+							<div style="background-color:#FFF; padding:1em; border:1px solid #DDD; -moz-border-radius:4px; -webkit-border-radius:4px;">
+								<input id="check_serpelements" name="check_serpelements" type="checkbox" onclick="showSerpElements();" tabindex="8" />
+								<label for="check_serpelements"><span style="font-family:Georgia, 'Times New Roman', Times, serif; text-shadow:#CCC 0 1px 1px;"><span style="color: rgb(0, 57, 182);">G</span><span style="color: rgb(196, 18, 0);">o</span><span style="color: rgb(243, 197, 24);">o</span><span style="color: rgb(0, 57, 182);">g</span><span style="color: rgb(48, 167, 47);">l</span><span style="color: rgb(196, 18, 0);">e</span></span> SERP Simulator</label><br />
+								<span id="box_topads">
+									&nbsp;&nbsp;&nbsp;&nbsp;<input id="check_topads" name="check_topads" type="checkbox" onclick="showTopads();" tabindex="9" />
+									<label for="check_topads"><span style="color:#676767; background-color:#FFF8DD; font-family:Arial, sans-serif; font-size:small;">Sponsored Links</span> (top)</label><br />
+								</span>
+								<span id="box_rightads">
+									&nbsp;&nbsp;&nbsp;&nbsp;<input id="check_rightads" name="check_rightads" type="checkbox" onclick="showRightads();" tabindex="10" />
+									<label for="check_rightads"><span style="color:#676767; font-family:Arial, sans-serif; font-size:small;">Sponsored Links</span> (right)</label><br />
+								</span>
+								<span id="box_organics">
+									&nbsp;&nbsp;&nbsp;&nbsp;<input id="check_organics" name="check_organics" type="checkbox" onclick="showOrganics();" tabindex="11" />
+									<label for="check_organics">Organic Results</label><br />
+								</span>
+								<input id="check_richsnippet" name="check_richsnippet" type="checkbox" onclick="showRichSnippet(); focusRichText();" tabindex="12" />
+								<label for="check_richsnippet"><span style="color:#676767; font-family:Arial, sans-serif; font-size:small;">Add rich snippet text</span></label><br />
+								<span id="box_stars">
+									&nbsp;&nbsp;&nbsp;&nbsp;<input id="check_stars" name="check_stars" type="checkbox" onclick="showRichSnippet();" tabindex="13" />
+									<label for="check_stars"><img width="50" height="9" style="margin:0; padding:0; border:0;" src="/images/stars.png" alt="Google rich snippet review stars" /></label><br />
+								</span>
+								<input id="check_cached" name="check_cached" type="checkbox" onclick="showCached();" checked="checked" tabindex="14" />
+								<label for="check_cached">Show <span style="color:#77C; text-decoration:underline; font-family:Arial, sans-serif; font-size:small;">Cached</span></label><br />
+								<input id="check_similar" name="check_similar" type="checkbox" onclick="showCached();" checked="checked" tabindex="15" />
+								<label for="check_similar">Show <span style="color:#77C; text-decoration:underline; font-family:Arial, sans-serif; font-size:small;">Similar</span></label><br />
+								<input id="check_date" name="check_date" type="checkbox" onclick="showDate();" tabindex="16" />
+								<label for="check_date"><span style="font-family:Arial, sans-serif; font-size:small;" id="addadate">Add a date</span></label><br />
+								<input id="check_bold" name="check_bold" type="checkbox" onclick="showBold(); focusBold(); titleFunction(); snippetFunction(); urlFunction();" tabindex="17" />
+								<label for="check_bold">Bold words <img src="http://www.seomofo.com/img/icons/new.png" width="36" height="12" alt="new" style="vertical-align:middle;" /></label>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div style="float:right; width:200px; height:86px; line-height:1.25em; font-size:12px; font-family:Tahoma, Geneva, sans-serif; padding:5px 0;">
+				<div style="font-family:Georgia, 'Times New Roman', Times, serif; color:#333; font-size:small; line-height:20px;">
+					Notes
+				</div>
+				<p id="notes_default" class="notes" style="text-align:center;">
+					<br /><br /><br /><br />
+					Try the new<br />
+					<b>BOLD WORDS</b> feature!
+				</p>
+				<p id="notes_sponsored" class="notes">
+					The <strong>Sponsored Links</strong> ads shown in this tool's simluated Google SERP are <strong>not real</strong>. The web pages listed in these faux advertisements are ones that I genuinely endorse, and therefore, the links to those pages are natural, followed links. The entire content of each faux advertisement is <strong>original material that I wrote</strong> specifically for this snippet tool. None of these ads were based on any real AdWords campaigns, and the owners of the web pages mentioned were not involved in the creation of this content.
+				</p>
+			</div>								
+			<div style="clear:both;"></div>
+		</div>
+	</div>
+</div>
+<!-- END SEOMOFO CONTENT -->
+<!-- BEGIN GOOGLE CONTENT -->
+<div id="google-content">
+	<div id="gcontainer">
+		<div id="gborder">
+			<div id="gsr">
+				<div id="out_toplinks">
+					<!-- BEGIN TOP LINKS -->
+					<div id="gbar">
+						<div class="nobr">
+							<b class="gb1">Web</b>
+							<a href="#" onclick="return false;" class="gb1">Images</a>
+							<a href="#" onclick="return false;" class="gb1">Videos</a>
+							<a href="#" onclick="return false;" class="gb1">Maps</a>
+							<a href="#" onclick="return false;" class="gb1">News</a>
+							<a href="#" onclick="return false;" class="gb1">Shopping</a>
+							<a href="#" onclick="return false;" class="gb1">Gmail</a>
+							<a href="#" onclick="return false;" class="gb3"><span style="text-decoration:underline;">more</span> <small>&#9660;</small></a>
+						</div>
+					</div>
+					<div id="guser">
+						<div class="nobr">
+							<a href="#" onclick="return false;" class="gb4">Search settings</a> | 
+							<a href="#" onclick="return false;" class="gb4">Sign in</a>
+						</div>
+					</div>
+					<!-- END TOP LINKS -->
+				</div>
+				<div id="out_blueline">
+					<!-- BEGIN BLUE LINE -->
+					<div class="gbh" style="left:8px"></div>
+					<div class="gbh" style="right:8px"></div>
+					<!-- END BLUE LINE -->
+				</div>
+				<div id="cnt">
+					<div id="out_topsearch">
+						<!-- BEGIN LOGO AND TOP SEARCH BOX -->
+						<form id="tsf" method="get" action="">
+							<table id="sft" class="ts" style="clear:both;margin:19px 16px 20px 15px">
+								<tr valign="top">
+									<td>
+										<h1><a id="logo" href="#" onclick="return false;" title="Go to Google Home">Google<img width="164" height="106" src="/images/nav_logo7.png" alt="" /></a></h1>
+									</td>
+									<td id="sff" style="padding:1px 3px 7px;padding-left:16px;width:100%">
+										<table class="ts" style="margin:12px 0 3px">
+											<tr>
+												<td>
+													<input class="lst" type="text" size="41" maxlength="2048" title="Search" />
+													<input type="submit" class="lsb" style="margin:0 2px 0 5px" value="Search" />
+												</td>
+												<td style="padding:0 6px" class="nobr xsm">
+													<a href="#" onclick="return false;">Advanced Search</a><br />
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</form>
+						<!-- END LOGO AND SEARCH BOX -->
+					</div>
+					<div id="out_bluebar">
+						<!-- BEGIN TOP BLUE BAR -->
+						<div id="ssb">
+							<div id="prs">
+								<span class="std"><b>Web</b></span>
+								<a href="#" onclick="return false;" id="tbpi" class="q">
+									<span id="tbp"></span>
+									<span class="tbpo">Hide options</span>
+									<span class="tbpc">Show options...</span>
+								</a>
+							</div>
+							<p id="resultStats">&nbsp;Results <b>1</b> - <b>3</b> of about <b>1,050,000</b> for <b>world's greatest seo</b>. (<b>0.36</b> seconds)&nbsp; </p>
+						</div>
+						<!-- END TOP BLUE BAR -->
+					</div>
+					<div id="out_rightads">
+						<!-- BEGIN RIGHT-SIDE SPONSORED LINKS -->
+						<table width="30%" style="margin-bottom: 1em;" id="mbEnd">
+							<tbody>
+								<tr>
+									<td class="std" style="border-left: 1px solid rgb(201, 215, 241); padding-left:8px;" id="rhsline">
+										<h2 style="margin: 0pt; padding: 2px 0pt 0pt; text-align: left;">Sponsored Links</h2>
+										<ol class="nobr">
+											<li>
+												<h3><a href="http://www.seoconsultants.com/" id="an3"><b>SEO</b> Consultants Directory</a></h3>
+												Directory of Professional <b>SEO</b> &amp; SEM<br />
+												Consultants From Around the <b>World</b>.<br />
+												<cite>http://www.<b>SEO</b>Consultants.com/</cite>
+											</li>
+											<li>
+												<h3><a href="http://www.seomofo.com/" id="an1"><b>Worlds Greatest SEO</b></a></h3>
+												Rank #1 in Google within 24 hours,<br />
+												or no money back... GUARANTEED!<br />
+												<cite>www.<b>SEO</b>mofo.com</cite>
+											</li>
+											<li>
+												<h3><a href="http://www.seomofo.com/snippet-experiment.html" id="an2">Google SERP Experiments</a></h3>
+												Learn How to Control Your Website's<br />
+												Search Engine Results Page Listing!<br />
+												<cite><b>SEO</b>mofo.com/Snippet-Experiment.html</cite>
+											</li>
+										</ol>
+										<br />
+										<p style="margin: -14px 0pt 0pt; text-align: left;"><br /><br /></p>
+									</td>
+								</tr>
+								<tr>
+									<td id="rhspad" style="height: 0pt;"></td>
+								</tr>
+							</tbody>
+						</table>
+						<!-- END RIGHT-SIDE SPONSORED LINKS -->
+					</div>
+					<div id="out_topads">
+						<!-- BEGIN TOP SPONSORED LINKS -->
+						<div id="tads" class="c">
+							<div id="topspons">
+								<h2 style="margin: 3px 3px 0; float: right;">Sponsored Links</h2>
+							</div>
+							<ol style="padding: 3px 0;">
+								<li class="taf">
+									<h3><a href="http://seobullshit.com/" id="pa1">Don't Believe <b>SEO</b> Hype!</a></h3>
+									<cite><b>SEO</b>Bullshit.com/</cite>&nbsp; &nbsp; &nbsp; If it's about <b>SEO</b> and it's here... It's probably bullshit.
+								</li>
+								<li class="tam">
+									<h3><a href="http://twitter.com/SEOmofo" id="pa2">Hottest <b>SEO</b> in the <b>World</b>?</a></h3>
+									<cite>Twitter.com/<b>SEO</b>mofo</cite>&nbsp; &nbsp; &nbsp; The only thing hotter than this <b>SEO</b> is his search engine optimization!
+								</li>
+							</ol>
+						</div>
+						<!-- END TOP SPONSORED LINKS -->
+					</div>
+					<div id="out_searchresults">
+						<!-- BEGIN RESULTS -->
+						<div id="res" class="med">
+							<!--a-->
+							<h2 class="hd">Search Results</h2>
+							<div>
+								<ol>
+									<!--m-->
+									<li class="g" id="toporganic">
+										<h3 class="r"><a href="http://www.seomofo.com/antisocial-media/custom-twitter-background.html" class="l">How to Design a Custom Twitter Background Image</a></h3>
+										<div class="s">
+											This guide shows you how to design a custom Twitter background image that looks great on any screen resolution and sends a professional first impression.<br />
+										<cite>www.seomofo.com/antisocial.../custom-twitter-background.html - </cite><span class="gl"><a href="#" onclick="return false;">Cached</a></span>
+										</div>
+										<!--n-->
+										<!--m-->
+									</li>
+									<li class="g">
+										<h3 class="r"><a href="#" onclick="return false;" class="l"><span id="out_title">This is an Example of a Title Tag that is Seventy Characters in Length</span></a></h3>
+										<div class="s">
+											<div class="f" id="out_richsnippet">
+												<div id="out_stars">
+													<table cellspacing="0" cellpadding="0" border="0" style="" class="ti">
+														<tbody>
+															<tr>
+																<td><p style="margin: 0pt; padding: 0pt; overflow: hidden; height: 9px; width: 10px; position: relative;"><img style="left: -20px; position: absolute; top: -78px;" src="/images/nav_logo8.png" alt="Rated 3.5 out of 5.0" /></p></td>
+																<td><p style="margin: 0pt; padding: 0pt; overflow: hidden; height: 9px; width: 10px; position: relative;"><img style="left: -20px; position: absolute; top: -78px;" src="/images/nav_logo8.png" alt="" /></p></td>
+																<td><p style="margin: 0pt; padding: 0pt; overflow: hidden; height: 9px; width: 10px; position: relative;"><img style="left: -20px; position: absolute; top: -78px;" src="/images/nav_logo8.png" alt="" /></p></td>
+																<td><p style="margin: 0pt; padding: 0pt; overflow: hidden; height: 9px; width: 10px; position: relative;"><img style="left: -10px; position: absolute; top: -78px;" src="/images/nav_logo8.png" alt="" /></p></td>
+																<td><p style="margin: 0pt; padding: 0pt; overflow: hidden; height: 9px; width: 10px; position: relative;"><img style="left: 0px; position: absolute; top: -78px;" src="/images/nav_logo8.png" alt="" /></p></td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+												<span id="out_richtext">Review by Darren Slatten - Jan 1, 2010 - Price range: $999.99</span><br />
+											</div>
+											<span id="out_datesnip"><span id="out_date"></span><span id="out_datedots">&nbsp;<b>...</b>&nbsp;</span><span id="out_snippet">Here is an example of what a snippet looks like in Google's SERPs. The content that appears here is usually taken from the Meta Description tag if relevant.</span></span><br />
+											<cite><span id="out_url">www.seomofo.com/snippet-optimizer.html</span><span id="out_dash1"> - </span></cite>
+											<span class="gl"><span id="out_cached"><a href="#" onclick="return false;">Cached</a></span><span id="out_dash2"> - </span><span id="out_similar"><a href="#" onclick="return false;">Similar</a></span></span>
+										</div>
+										<!--n-->
+										<!--m-->
+									</li>
+									<li class="g" id="bottomorganic">
+										<h3 class="r"><a href="http://www.seomofo.com/wordpress/comments-slow-page-speed.html" class="l">WordPress Comments Slow Down Page Speed</a></h3>
+										<div class="s">
+											Feb 1, 2010 <b>...</b> Enabling comments and custom Gravatars on your WordPress blog can encourage visitors to participate, but it also negatively impacts your <b>...</b><br />
+										<cite>www.seomofo.com/wordpress/comments-slow-page-speed.html - </cite><span class="gl"><a href="#" onclick="return false;">Cached</a></span>
+										</div>
+										<!--n-->
+										<!--m-->
+									</li>
+								</ol>
+							</div>
+							<!--z-->
+						</div>
+						<!-- END RESULTS -->
+					</div>
+					<div id="out_bottomsearch">
+						<!-- BEGIN BOTTOM SEARCH BOX -->
+						<div id="navcnt"></div>
+						<div style="height:1px; line-height:0"></div>
+						<div style="text-align:center;margin-top:1.4em" class="clr">
+							<div id="bsf" style="padding:1.8em 0;margin-top:0">
+								<form method="get" action="">
+									<div>
+										<input class="lst" type="text" size="41" maxlength="2048" title="Search" />
+										<input type="submit" class="lsb" style="margin:0 2px 0 5px" value="Search" />
+									</div>
+								</form>
+								<p style="margin:1.2em 0 0">
+									<a href="#" onclick="return false;">Search&nbsp;within&nbsp;results</a> - 
+									<a href="#" onclick="return false;">Language Tools</a> - 
+									<a href="#" onclick="return false;">Search Help</a> - 
+									<a href="#" onclick="return false;">Dissatisfied? Help us improve</a> - 
+									<a href="#" onclick="return false;">Try Google Experimental</a>
+								</p>
+							</div>
+							<p id="flp">
+								<a href="#" onclick="return false;">Google&nbsp;Home</a> - 
+								<a href="#" onclick="return false;">Advertising&nbsp;Programs</a> - 
+								<a href="#" onclick="return false;">Business Solutions</a> - 
+								<a href="#" onclick="return false;">Privacy</a> - 
+								<a href="#" onclick="return false;">About Google</a>
+							</p>
+						</div>
+						<div id="xjsd"></div>
+						<div id="xjsi"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END GOOGLE CONTENT -->
+<div id="snipborder2"></div>
+<div style="width:995px; margin:24px auto 400px auto; background-color:#FCFCFF; font-size:10px; font-family:Tahoma, Geneva, Verdana, sans-serif;">
+	<div id="about" style="padding-top:5px;"></div>
+	<div id="header">
+		<div id="logo_mofo">
+			<div id="domain_mofo">
+				<a href="/"><em>SEO</em></a>
+				<div>
+					<span> </span>mofo
+				</div>
+			</div>
+			<div id="slogan_mofo">
+				World's Greatest SEO
+			</div>
+		</div>
+		<div id="widget_holder"></div>
+	</div>
+	<div style="width:576px; float:left; padding-right:24px; border-right:1px solid #DDD; margin:0 0 0 12px; line-height:1.5; font-size:16px; font-family:Tahoma, Geneva, sans-serif;">
+		<div id="bottomhalf">
+			<h2 style="text-shadow:0 1px 2px #CCCCCC; margin:0; margin-top:24px; font-size:24px; line-height:32px;">About the Google SERP Snippet Optimization Tool</h2>
+			<p>The main purpose of the SERP Snippet Optimization Tool is to allow webmasters and content publishers to strategically construct page titles and meta description tags that will result in aesthetically-pleasing or eye-catching listings in Google's organic search results. Using this tool, you can optimize the content of your titles and snippets to maximize your click-through rate (CTR) from Google. In other words, you can increase your organic search engine traffic for a specific keyword...even if you can't improve your rankings. This tactic can be especially useful in situations where you know you'll probably never outrank the sites above yours (e.g. a very strong competitor, a Wikipedia page, a government website, etc.) for certain keywords. In those scenarios, your best option is to make your site's listing stand out from the rest and look as inviting as possible.</p>
+			<h3>Parts of a Google Snippet</h3>
+			<p>Here is a brief explanation of the various elements that can be found in a typical Google Web Search result.</p>
+			<h4>Title</h4>
+			<ul>
+			<li>Google shows up to 70 characters (including spaces) of a page's title in its search results.</li>
+			<li>If a page title exceeds 70 characters, Google will show as many whole words as it can, and the rest are replaced with an ellipsis (...).</li>
+			</ul>
+			<h4>Snippet</h4>
+			<ul>
+			<li>Google shows up to 156 characters (including spaces) of a page's meta description tag.</li>
+			<li>If a page's meta description tag exceeds 156 characters, Google will show as many whole words as it can, and the rest are replaced with an ellipsis (...).</li>
+			<li>If the web page includes a published-on date, Google may include that date as part of the snippet. In these cases, the date counts as part of the 156 characters.</li>
+			<li>To make sure your web page's snippet can fit a published-on date and the entire meta description (without getting cut off by the ellipsis), keep your meta description tag shorter than 139 characters (or 140 characters, if the published-on date is from a single-digit day of the month).</li>
+			</ul>
+			<h4>Rich Snippet</h4>
+			<ul>
+			<li>Google shows rich snippet text for some types of pages and data, for example: <a href="http://www.google.com/support/webmasters/bin/answer.py?answer=146645">reviews</a>, <a href="http://www.google.com/support/webmasters/bin/answer.py?answer=146646">people</a>, <a href="http://www.google.com/support/webmasters/bin/answer.py?answer=146861">businesses</a>, and <a href="http://www.google.com/support/webmasters/bin/answer.py?answer=164506">events</a>.</li>
+			<li>For information about rich snippets and microformats, see Google's help page on <a href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&amp;answer=99170">rich snippets</a>.</li>
+			</ul>
+			<h4>URL</h4>
+			<ul>
+			<li>For sites with a clear information hierarchy, Google may show <a href="http://googleblog.blogspot.com/2009/11/new-site-hierarchies-display-in-search.html">breadcrumb links</a> in the search results.</li>
+			<li>This snippet tool does not currently support any advanced URL features. These may be added in future releases.</li>
+			</ul>
+			<h3>Disclaimer</h3>
+			<p>This snippet tool and the content of this website are not affiliated with Google nor endorsed by them. The Google logo and any other trademarks owned by Google contained herein are used for educational/non-commercial purposes only. I have made every effort to replicate the appearance of Google's search results as accurately as possible, however the information on this website is provided "as is" without any representations or warranties, express or implied.</p>
+			<p style="margin-bottom:0;">&nbsp;</p>
+		</div>
+	</div>
+	<div style="width:382px; float:left; margin-top:24px; font-size:16px;">
+		<div>
+			<div style="width:206px; margin:0 12px; float:left; padding:0;">
+				<div style="position:relative; height:80px;">
+					<div id="tm_box"></div>
+					<div id="tm_loading"></div>
+				</div>
+				<div id="countbox" style="text-align:center;">
+					<p>
+						Social media widgets will load in <span id="countdown">5</span> seconds.<br /><br />
+						Thank you for your patience!
+					</p>
+				</div>
+			</div>
+			<div style="width:127px; margin:0 12px; float:left;">
+				<div id="sub_box"></div>
+			</div>
+			<div style="clear:both;"></div>
+		</div>
+	</div>
+	<div id="footer" style="border-top:3px double #DDD; text-align:right; color:#888; font-size:10px; font-family:Tahoma, Geneva, sans-serif; clear:both;">
+	</div>
+	<div id="append_load_node"></div>
+</div>
+</body>
+</html>

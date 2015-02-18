@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>How to Spam Your Competitors&#8217; Search Results</title>
+	<meta name="robots" content="noodp, noydir" />
+	<link rel="canonical" href="spam-search-results.html" />
+	<link rel="pingback" href="../xmlrpc.php" />
+	<link rel="stylesheet" href="../wp-content/themes/freethesis/custom/custom0170.css?20120714-2235" type="text/css" />
+</head>
+<body class="custom">
+<div id="container">
+<div id="page">
+	<div id="header">
+		<div id="logo_mofo">
+			<div id="domain_mofo"><a href="../index.html">SEO<span></span></a><b>mofo</b></div>
+			<div id="slogan_mofo">world's greatest seo</div>
+		</div>
+<ul class="menu">
+<li class="tab tab-1"><a href="../about.html" title="About">About</a></li>
+<li class="tab tab-2"><a href="../policy.html" title="Policy">Policy</a></li>
+</ul>
+
+<p id="breadcrumbs"><a href="../index.html">SEO</a> &raquo; <a href="index.html">Experiments</a> &raquo; <strong>How to Spam Your Competitors&#8217; Search Results</strong></p>	</div>
+	<div id="content_box">
+		<div id="content" class="hfeed">
+
+			<div class="post-2539 post type-post status-publish format-standard hentry category-experiments post_box top" id="post-2539">
+<div class="headline_area">
+		<div id="tm_box"></div>
+		<div id="tm_loading"></div>
+		<div id="tw_box"></div>
+		<div id="tw_loading"></div>
+					<h1 class="entry-title">How to Spam Your Competitors&#8217; Search Results</h1>
+					<p class="headline_meta">by <span class="author vcard fn">SEO Mofo</span> on <span class="published">Dec 2nd, 2010</span></p>
+					<p class="headline_meta">in <span><a href="index.html" title="View all posts in Experiments" rel="category tag">Experiments</a></span></p>
+				</div>
+				<div class="format_text entry-content">
+<p>This is a quick experiment to add to my list of <a href="../snippet-experiment.html">SERP snippet experiments</a>. I got the idea for this after reading a blog post by <a href="http://twitter.com/everfluxx" style="color:#FF0066;font-weight:bold;text-decoration:none;">Everfluxx</a>, titled: <a href="http://www.everfluxx.com/why-i-deleted-add2any-tweetmeme/">Why I deleted the AddToAny and TweetMeme plugins</a>. In that post, Everfluxx links to a file on my site that is <strong>blocked by my robots.txt file</strong>.</p>
+<p>The file contains nothing but a bunch of social media buttons, which I lazy-load into my blog posts. I do this because it cuts down page load times and prevents the theoretical evaporation of PageRank caused by nofollow attributes.</p>
+<p>Here&#8217;s a glimpse at the post that links to my iframe file (the one with the anchor text that says &#8220;custom solution&#8221;):</p>
+<p><a href="http://www.everfluxx.com/why-i-deleted-add2any-tweetmeme/"><img src="../img/everfluxx-blog-post-link.png" alt="Why I deleted the AddToAny and TweetMeme plugins" width="576" height="259" class="aligncenter" /></a></p>
+<p>Today as I was looking at the results of a <a href="javascript:myURL=location.href;myURL=myURL.replace('http://','');myURL=myURL.replace('www.','');slash=myURL.indexOf('../index.html');myURL=myURL.substring(0,slash);void(window.open('http://www.google.com/search?q=site%3A'+myURL+'&#038;pws=0'+'&#038;num=100'+'&#038;filter=0'));">site: command</a> (keep the bookmarklet; it&#8217;s a free gift!), I noticed this amongst the results:</p>
+<p><img src="../img/blocked-page-indexed.png" alt="A URL that's blocked by robots.txt, but still getting indexed." width="406" height="78" class="aligncenter" /></p>
+<p>If it surprises you to realize that blocking URLs in your robots.txt file <strong>does not</strong> prevent them from appearing in Google&#8217;s search results, then you need to study the difference between <a href="http://sebastians-pamphlets.com/crawling-vs-indexing/">crawling and indexing</a>. The only thing I found interesting about this particular SERP listing is the title. As far as I can remember, Google has always used the URL as the title for blocked pages, but in this case, it&#8217;s quite obvious that Google is using Everfluxx&#8217;s anchor text + my home page title. Maybe Google has always had the ability to do this, but I&#8217;ve just never seen it?</p>
+<p>In any case, as soon as I realized where this title was coming from, it made me realize: I can spam other websites&#8217; search results! The process is theoretically pretty simple:</p>
+<ol>
+	<li>Pick a website.</li>
+	<li>Review their <a href="javascript:myURL=location.href;slash=myURL.indexOf('../index.html');myURL=myURL.substring(0,slash);void(window.open(myURL+'/robots.txt'));">robots.txt file</a> (another free gift, bitches!).</li>
+	<li>Link to a URL they&#8217;ve blocked, using a spammy phrase as anchor text!</li>
+</ol>
+<p>Alright now&#8230;it&#8217;s time to find some poor bastard to try this out on. Hmm&#8230;</p>
+<p>Jackpot!!! I just checked out Matt Cutts&#8217; robots.txt file, which contains the following:</p>
+<pre>
+User-agent: *
+Disallow: /files/
+</pre>
+<p>Naturally, I immediately tried accessing that URL, but all I got was this:</p>
+<pre>
+Sorry.
+</pre>
+<p>It actually doesn&#8217;t matter what the page request returns, because well-behaved bots like googlebot will never request a URL that&#8217;s blocked by robots.txt. So for the purposes of this experiment, I can use any URL that <em>appears to be</em> in the <code>/files</code> directory, even if it returns a 404 status. Stop and think about this for a second. This means I can theoretically convince Google to add non-existent URLs to Matt&#8217;s SERPs&#8230;AND&#8230;I can choose the title of the snippet?!</p>
+<p>Before I kick off this experiment, there&#8217;s one <del>foot deeper I&#8217;ll dig my own grave</del> more thing I&#8217;ll mention about mattcutts.com: it appears as though his DNS record is configured to point all subdomains to his canonical name/IP address, so http://[anything].mattcutts.com will return the same thing as http://www.mattcutts.com. So as an added bonus, I&#8217;m going to create my own subdomain on Matt&#8217;s site. Thanks, Matt!</p>
+<p>It&#8217;s now time for me to go update my global navigation links. One last thing I&#8217;ll mention&#8230;did you know that Matt Cutts personally endorses my SEO services? It&#8217;s true&#8211;just the other day I heard him say <a href="http://mattcutts.com/files/seomofo-is-worlds-greatest-seo.html">SEOmofo is the World&#8217;s Greatest SEO</a>.</p>
+<p class="info_mofo">You&#8217;re probably wondering if this experiment has succeeded yet. Last I checked&#8230;no, it hasn&#8217;t. But feel free to check for yourself: <a href="http://www.google.com/search?num=100&amp;hl=en&amp;q=site%3Amattcutts.com+-site%3Awww.mattcutts.com" target="_blank">non-www subdomains on mattcutts.com</a></p>
+<p class="info_mofo">
+2/16/2011 UPDATE: It&#8217;s been over 10 weeks since this post was first published, and none of the major search engines have indexed my fake URL. So I&#8217;m making some changes to the experiment. The first thing I&#8217;m going to try changing is the fake URL: from <span class="uri_mofo" style="font-size:12px;">http://seomofo.loves.mattcutts.com/files/spam-me-tender.html</span> to <span class="uri_mofo" style="font-size:12px;">http://seomofo.mattcutts.com/files/spam-me-tender.html</span>. This is to rule out the possibility that it&#8217;s the double subdomain that&#8217;s preventing the URL from being indexed. I don&#8217;t think this is the case, since I&#8217;ve seen <span class="uri_mofo" style="font-size:12px;">www.ww.mattcutts.com/blog/disclaimer</span> indexed in both Yahoo and Google, but I&#8217;m knocking off a subdomain&#8230;just to be sure.
+</p>
+
+<p class="info_mofo">
+3/6/2011 UPDATE: I gave the single subdomain URL about 2.5 weeks, and still nothing, so I&#8217;m changing this again. This time, no subdomains. I&#8217;m changing the URL: from <span class="uri_mofo" style="font-size:12px;">http://seomofo.mattcutts.com/files/spam-me-tender.html</span> to <br /><span class="uri_mofo" style="font-size:12px;">http://mattcutts.com/files/seomofo-is-worlds-greatest-seo.html</span>. I&#8217;m also going to put some paragraph text around the global link.
+</p>
+<p class="info_mofo">
+10/13/2011 UPDATE: It has been almost a year since I published this post, and honestly I gave up on these experiments a long time ago. I removed all the links to seomofo.mattcutts.com and didn&#8217;t give it a second thought&#8230;until now. A guy named Will left a comment below that didn&#8217;t seem to acknowledge how miserably this post failed, so I re-checked <a href="http://www.google.com/search?q=site%3Amattcutts.com+inurl%3Aseomofo">the search results</a> and was happy to see that <span class="uri_mofo" style="font-size:12px;">http://seomofo.mattcutts.com/robots.txt</span> has been indexed!<br />
+<br />
+So thank you, Will, for bringing this to my attention. If I ever need to <a href="http://www.alkaliscientific.com/">buy laboratory supplies to supply my lab with science lab equipment</a>, I&#8217;ll be sure to check out Alkali Scientific&#8217;s offerings. ;) <br />
+<br />
+Oh yeah&#8230;and thanks for the subdomain, Matt!  :D
+</p>
+<p style="text-align:center;"><a href="../img/seomofo-mattcutts-com.png"><img src="../img/seomofo-mattcutts-com-small.png" alt="http://seomofo.mattcutts.com/" width="420" height="380" /></a></p>
+
+<p class="info_mofo" id="dec-19-2011">
+12/19/2011 UPDATE: <strong>HOLY SHIT! WTF?!!!</strong><br />
+<br />
+I just checked <a href="https://www.google.com/search?q=site%3Amattcutts.com+inurl%3Aseomofo&amp;filter=0">the results</a> again and found that <strong>every variation of this experiment I ever tried has been indexed!</strong> I don&#8217;t know why they&#8217;re <em>all</em> showing up (only one variation was live at any given time) or why it took a YEAR for them to show up, but in any case&#8230;have a look at these epic results.
+</p>
+<p style="text-align:center;"><a href="../img/seomofo-mattcutts-com-2.png"><img src="../img/seomofo-mattcutts-com-small-2.png" alt="http://seomofo.mattcutts.com/" width="420" height="227" /></a></p>	<div id="widget_holder">
+	</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="sidebars">
+			<div id="sidebar_1" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-7">			<div class="textwidget"><div style="width:158px; margin:0; padding:4px 0; border:1px solid #7ABCF1; background-color:#F3F6FF; color:#006699; font-family:Georgia, 'Times New Roman', Times, serif; font-size:16px; line-height:16px; text-align:center; text-shadow:#CCC 0 1px 1px; -moz-border-radius:12px; -webkit-border-radius:12px;border-radius:12px;-moz-box-shadow: 0 0 5px #A8D3F5;-webkit-box-shadow: 0 0 5px #A8D3F5;box-shadow: 0 0 5px #A8D3F5;"><a href="../snippet-optimizer.html" style="text-decoration:none;outline:none;"><span style="color: rgb(0, 57, 182);">G</span><span style="color: rgb(196, 18, 0);">o</span><span style="color: rgb(243, 197, 24);">o</span><span style="color: rgb(0, 57, 182);">g</span><span style="color: rgb(48, 167, 47);">l</span><span style="color: rgb(196, 18, 0);">e</span>&nbsp;SERP&nbsp;Snippet Optimization&nbsp;Tool</a></div></div>
+		</li><li class="widget widget_text" id="text-8"><div class="widget_heading">Pages</div>			<div class="textwidget">	<ul>
+		<li><a style="color: rgb(255, 76, 0);" href="../middle-finger-cursors.html"><span style="color: rgb(255, 76, 0);"><b>FREE Middle Finger Cursors!</b></span></a></li>
+		<li><a href="../low-priority-page.html">Low Priority Page</a></li>
+		<li><a href="../google-instant-previews.html">Google Instant Previews</a></li>
+	</ul></div>
+		</li><li class="widget widget_categories" id="categories-3"><div class="widget_heading">Categories</div>		<ul>
+	<li class="cat-item cat-item-8"><a href="../advanced/index.html" title="Advanced White Hat SEO">Advanced SEO</a> (4)
+</li>
+	<li class="cat-item cat-item-6"><a href="../antisocial-media/index.html" title="Anti-Social Media + Antisocial Media">AntiSocial Media</a> (4)
+</li>
+	<li class="cat-item cat-item-11"><a href="index.html" title="View all posts filed under Experiments">Experiments</a> (7)
+</li>
+	<li class="cat-item cat-item-9"><a href="../advanced/patents/index.html" title="Google Patents On Information Retrieval">Google Patents</a> (2)
+</li>
+	<li class="cat-item cat-item-12"><a href="../google-sucks/index.html" title="Sometimes I Hate Google">Google Sucks</a> (6)
+</li>
+	<li class="cat-item cat-item-7"><a href="../marketing/index.html" title="Internet Marketing">Marketing</a> (3)
+</li>
+	<li class="cat-item cat-item-13"><a href="../speed/index.html" title="Page Speed &amp; Site Performance">Page Speed</a> (5)
+</li>
+	<li class="cat-item cat-item-10"><a href="../orm/index.html" title="Online Reputation Management">Reputation Management</a> (6)
+</li>
+	<li class="cat-item cat-item-14"><a href="../ethics/index.html" title="View all posts filed under SEO Ethics">SEO Ethics</a> (3)
+</li>
+	<li class="cat-item cat-item-17"><a href="serp/index.html" title="View all posts filed under SERP Experiments">SERP Experiments</a> (10)
+</li>
+	<li class="cat-item cat-item-5"><a href="../wordpress/thesis/index.html" title="Thesis WordPress Theme">Thesis Theme</a> (6)
+</li>
+	<li class="cat-item cat-item-4"><a href="../wordpress/index.html" title="WordPress SEO Tips">WordPress</a> (4)
+</li>
+		</ul>
+</li>				</ul>
+			</div>
+			<div id="sidebar_2" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-4">			<div class="textwidget"><div id="sub_box"></div></div>
+		</li>				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<p id="copyright">Copyright&nbsp;&copy;&nbsp;2013&nbsp;Darren Slatten</p>
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+	//<![CDATA[
+	mofoImgs = document.getElementsByTagName("img");
+	if (mofoImgs.length > 0) {
+		mofoLazyPics = new Array();
+		for (var i = 0; i < mofoImgs.length; i++) {
+			mofoLazyPics[i] = mofoImgs[i].src;
+			mofoImgs[i].style.backgroundImage = "url(/img/throbber.gif)";
+			mofoImgs[i].style.backgroundRepeat = "no-repeat";
+			mofoImgs[i].style.backgroundPosition = "center center";
+			mofoImgs[i].setAttribute("src", "data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%00%00%00!%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00%00%02%02D%01%00%3B");
+		}
+	}
+	//]]>
+</script><script type="text/javascript">
+//<![CDATA[
+	var _gaq=[['_setAccount','UA-4827976-1'],['_setDomainName','.seomofo.com'],['_trackPageview'],['_trackPageLoadTime']];
+	(function(d,t){
+		var g=d.createElement(t);var s=d.getElementsByTagName(t)[0];
+		g.async=1;g.src='http://www.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s);
+	})(document,'script');
+//]]>
+</script><!-- 17 queries in 0.101 seconds. -->
+<script type='text/javascript' src='../wp-content/themes/freethesis/custom/customac77.js?ver=20120628-1801'></script>
+</body>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,14 @@
+Options +indexes
+
+### DENY ACCESS TO THE .HTACCESS FILE
+<Files .htaccess>
+	Order Allow,Deny
+	Deny from all
+</Files>
+
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css)$">
+Header unset Last-Modified
+Header unset ETag
+Header set Expires "Thu, 15 Apr 2010 20:00:00 GMT"
+Header set Cache-Control "no-store, must-revalidate"
+</FilesMatch>

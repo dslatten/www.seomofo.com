@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Thesis Phi-Column Layout</title>
+	<meta name="robots" content="noodp, noydir" />
+	<meta name="description" content="A post describing how to format a Thesis 3-column layout so that the width of each column is in the golden ratio (phi) to the width of its adjacent columns." />
+	<link rel="canonical" href="phi-column-layout.html" />
+	<link rel="pingback" href="../../xmlrpc.php" />
+	<link rel="stylesheet" href="../../wp-content/themes/freethesis/custom/custom0170.css?20120714-2235" type="text/css" />
+</head>
+<body class="custom">
+<div id="container">
+<div id="page">
+	<div id="header">
+		<div id="logo_mofo">
+			<div id="domain_mofo"><a href="../../index.html">SEO<span></span></a><b>mofo</b></div>
+			<div id="slogan_mofo">world's greatest seo</div>
+		</div>
+<ul class="menu">
+<li class="tab tab-1"><a href="../../about.html" title="About">About</a></li>
+<li class="tab tab-2"><a href="../../policy.html" title="Policy">Policy</a></li>
+</ul>
+
+<p id="breadcrumbs"><a href="../../index.html">SEO</a> &raquo; <a href="../index.html" title="View all posts in WordPress">WordPress</a> &raquo; <a href="index.html" title="View all posts in Thesis Theme">Thesis Theme</a> &raquo; <strong>Thesis Phi-Column Layout</strong></p>	</div>
+	<div id="content_box">
+		<div id="content" class="hfeed">
+
+			<div class="post-179 post type-post status-publish format-standard hentry category-thesis post_box top" id="post-179">
+<div class="headline_area">
+		<div id="tm_box"></div>
+		<div id="tm_loading"></div>
+		<div id="tw_box"></div>
+		<div id="tw_loading"></div>
+					<h1 class="entry-title">Thesis Phi-Column Layout</h1>
+					<p class="headline_meta">by <span class="author vcard fn">SEO Mofo</span> on <span class="published">Nov 3rd, 2009</span></p>
+					<p class="headline_meta">in <span><a href="index.html" title="View all posts in Thesis Theme" rel="category tag">Thesis Theme</a></span></p>
+				</div>
+				<div class="format_text entry-content">
+<p><abbr title="You see what I did there?">ucwutididthar</abbr>? I titled this post &#8220;Thesis <strong>Phi</strong>-Column Layout,&#8221; instead of &#8220;<strong>Three</strong>-Column Layout?&#8221; Ha ha ha! Get it?!</p>
+<p>No, of course you don&#8217;t. No one does&#8230;not even me. But let&#8217;s continue anyway.</p>
+<p>This post is for anyone who meets the following criteria:</p>
+<ul>
+	<li>You use the <a href="index.html" class="selfish">Thesis WordPress theme</a>.</li>
+	<li>You use a 3-column layout.</li>
+	<li>You want your page layout to be more aesthetically pleasing, by using column widths that are in the golden ratio.</li>
+</ul>
+<p>(I think that means I wrote this for myself.)</p>
+<p>In case you&#8217;re wondering&#8230;yes, I have already formatted this blog to achieve said aesthetic pleasure. You might also be wondering: <em>What is the golden ratio?</em> Well, the quick answer&#8211;and the only answer you&#8217;ll get from me&#8211;is it&#8217;s approximately <strong>1.61803399</strong>, and a bunch of smart people during the Renaissance believed it was a ratio that made shit look cool. I like my shit to look cool, so I experimented with the Thesis Design Options and made it happen.</p>
+<h2>The Golden Ratio</h2>
+<p>There are several different combinations that could work, but the basic goal is to set the column widths such that: <code>#content</code> ÷ <var>φ</var> = <code>#sidebars</code> where <var>φ</var> is the golden ratio ≈ 1.61803399</p>
+<h2>The Default Thesis Column Layout</h2>
+<p>I&#8217;ve made a diagram that I thought would help explain the differences between the default CSS and my &#8220;golden&#8221; CSS, but looking at it now&#8230;I&#8217;m confusing myself. Oh well, I&#8217;ll post it anyway. Here&#8217;s a diagram of the Thesis default column widths:</p>
+<p><img class="aligncenter" title="Thesis default column widths" src="../../img/default-ratio-columns.png" alt="Thesis default column widths" width="478" height="195" /></p>
+<p>This isn&#8217;t the actual CSS code I used. It&#8217;s only a key for you to reference when you look at the diagram, so you can tell which element is which.</p>
+<pre class="brush: css;">
+#content_box{width: 956px;}
+	#content{width: 516px;}
+	#sidebars{width: 439px;}
+		#sidebar_1{width: 219px;}
+		#sidebar_2{width: 218px;}
+</pre><br /><br />
+<p><strong>Note:</strong></p>
+<ul>
+	<li><code>#sidebar_1</code> is 220px wide in the diagram, but 219 in the CSS. This is because the diagram has added in the 1px border-right, indicated by the blue line.</li>
+	<li>The red lines in the diagram represent 1px-wide columns that are not occupied by child elements. The main element, <code>#content_box</code>, is 1px wider than the sum of its child widths. The first child, <code>#content</code>, is floated to the left of that &#8220;extra&#8221; pixel, and the second child, <code>#sidebars</code>, is floated to the right of it. The border that appears to occupy the extra pixel is actually a background image of <code>#content_box</code>.</li>
+	<li>The second red line (far right border) doesn&#8217;t have a purpose as far as I can tell. It might be caused by the browser rounding the conversion of pixels to ems, or it might just be a minor bug in the default CSS. With the Thesis CSS styles being dynamically built by WordPress, I&#8217;m not about to invest the time to figure out what&#8217;s causing that empty pixel. It could also be related to the 11px margin at the far right (instead of 12px like all the other margins).</li>
+</ul>
+<h2>The Phi-Column Layout</h2>
+<p>Here&#8217;s the diagram of the Thesis phi-column widths:</p>
+<p><img class="aligncenter" title="Thesis phi-column widths" src="../../img/golden-ratio-columns.png" alt="Thesis phi-column widths" width="496" height="195" /></p>
+<p>Again, these widths are only a reference so you can tell which element is which in the diagram</p>
+<pre class="brush: css;">
+#content_box{width: 991px;}
+	#content{width: 612px;}
+	#sidebars{width: 378px;}
+		#sidebar_1{width: 233px;}
+		#sidebar_2{width: 144px;}
+</pre><br /><br />
+<h2>Follow These Steps</h2>
+<p>Go to WP Admin → Thesis Options → Design Options → Site Layout → Columns, and enter in these widths:</p>
+<ul>
+	<li>Content: 576px</li>
+	<li>Column 1: 209px</li>
+	<li>Column 2: 120px</li>
+</ul>
+<p>Add this CSS code to your custom.css file:</p>
+<pre class="brush: css;">
+#sidebars{background:url('../custom/images/dash-ddd.gif') 23.3em 0 repeat-y;}
+#sidebar_1{border-right:0;}
+#sidebar_2{float:right; width:14.4em;}
+#sidebar_2 ul.sidebar_list{padding-right:1.2em;}
+</pre><br /><br />
+<p>Create a 1&#215;2 pixel .gif that matches your border color. The first pixel should be your border color and the second pixel should be transparent. If you are using the Thesis default color (#DDD), you can just copy <a href="../../img/mofo/dash-ddd.gif">this one</a> (right-click that link and select the &#8220;Save link as&#8230;&#8221; option, or something similar). Save the .gif image to your custom images folder (or use whatever folder you want, but be sure to update the CSS to point to that location).</p>
+<p>That&#8217;s it. You&#8217;re golden.</p>
+	<div id="widget_holder">
+	</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="sidebars">
+			<div id="sidebar_1" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-7">			<div class="textwidget"><div style="width:158px; margin:0; padding:4px 0; border:1px solid #7ABCF1; background-color:#F3F6FF; color:#006699; font-family:Georgia, 'Times New Roman', Times, serif; font-size:16px; line-height:16px; text-align:center; text-shadow:#CCC 0 1px 1px; -moz-border-radius:12px; -webkit-border-radius:12px;border-radius:12px;-moz-box-shadow: 0 0 5px #A8D3F5;-webkit-box-shadow: 0 0 5px #A8D3F5;box-shadow: 0 0 5px #A8D3F5;"><a href="../../snippet-optimizer.html" style="text-decoration:none;outline:none;"><span style="color: rgb(0, 57, 182);">G</span><span style="color: rgb(196, 18, 0);">o</span><span style="color: rgb(243, 197, 24);">o</span><span style="color: rgb(0, 57, 182);">g</span><span style="color: rgb(48, 167, 47);">l</span><span style="color: rgb(196, 18, 0);">e</span>&nbsp;SERP&nbsp;Snippet Optimization&nbsp;Tool</a></div></div>
+		</li><li class="widget widget_text" id="text-8"><div class="widget_heading">Pages</div>			<div class="textwidget">	<ul>
+		<li><a style="color: rgb(255, 76, 0);" href="../../middle-finger-cursors.html"><span style="color: rgb(255, 76, 0);"><b>FREE Middle Finger Cursors!</b></span></a></li>
+		<li><a href="../../low-priority-page.html">Low Priority Page</a></li>
+		<li><a href="../../google-instant-previews.html">Google Instant Previews</a></li>
+	</ul></div>
+		</li><li class="widget widget_categories" id="categories-3"><div class="widget_heading">Categories</div>		<ul>
+	<li class="cat-item cat-item-8"><a href="../../advanced/index.html" title="Advanced White Hat SEO">Advanced SEO</a> (4)
+</li>
+	<li class="cat-item cat-item-6"><a href="../../antisocial-media/index.html" title="Anti-Social Media + Antisocial Media">AntiSocial Media</a> (4)
+</li>
+	<li class="cat-item cat-item-11"><a href="../../experiments/index.html" title="View all posts filed under Experiments">Experiments</a> (7)
+</li>
+	<li class="cat-item cat-item-9"><a href="../../advanced/patents/index.html" title="Google Patents On Information Retrieval">Google Patents</a> (2)
+</li>
+	<li class="cat-item cat-item-12"><a href="../../google-sucks/index.html" title="Sometimes I Hate Google">Google Sucks</a> (6)
+</li>
+	<li class="cat-item cat-item-7"><a href="../../marketing/index.html" title="Internet Marketing">Marketing</a> (3)
+</li>
+	<li class="cat-item cat-item-13"><a href="../../speed/index.html" title="Page Speed &amp; Site Performance">Page Speed</a> (5)
+</li>
+	<li class="cat-item cat-item-10"><a href="../../orm/index.html" title="Online Reputation Management">Reputation Management</a> (6)
+</li>
+	<li class="cat-item cat-item-14"><a href="../../ethics/index.html" title="View all posts filed under SEO Ethics">SEO Ethics</a> (3)
+</li>
+	<li class="cat-item cat-item-17"><a href="../../experiments/serp/index.html" title="View all posts filed under SERP Experiments">SERP Experiments</a> (10)
+</li>
+	<li class="cat-item cat-item-5"><a href="index.html" title="Thesis WordPress Theme">Thesis Theme</a> (6)
+</li>
+	<li class="cat-item cat-item-4"><a href="../index.html" title="WordPress SEO Tips">WordPress</a> (4)
+</li>
+		</ul>
+</li>				</ul>
+			</div>
+			<div id="sidebar_2" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-4">			<div class="textwidget"><div id="sub_box"></div></div>
+		</li>				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<p id="copyright">Copyright&nbsp;&copy;&nbsp;2013&nbsp;Darren Slatten</p>
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+	//<![CDATA[
+	mofoImgs = document.getElementsByTagName("img");
+	if (mofoImgs.length > 0) {
+		mofoLazyPics = new Array();
+		for (var i = 0; i < mofoImgs.length; i++) {
+			mofoLazyPics[i] = mofoImgs[i].src;
+			mofoImgs[i].style.backgroundImage = "url(/img/throbber.gif)";
+			mofoImgs[i].style.backgroundRepeat = "no-repeat";
+			mofoImgs[i].style.backgroundPosition = "center center";
+			mofoImgs[i].setAttribute("src", "data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%00%00%00!%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00%00%02%02D%01%00%3B");
+		}
+	}
+	//]]>
+</script><script type="text/javascript">
+//<![CDATA[
+	var _gaq=[['_setAccount','UA-4827976-1'],['_setDomainName','.seomofo.com'],['_trackPageview'],['_trackPageLoadTime']];
+	(function(d,t){
+		var g=d.createElement(t);var s=d.getElementsByTagName(t)[0];
+		g.async=1;g.src='http://www.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s);
+	})(document,'script');
+//]]>
+</script><!-- 18 queries in 0.124 seconds. -->
+<script type='text/javascript' src='../../wp-content/themes/freethesis/custom/customac77.js?ver=20120628-1801'></script>
+<script type='text/javascript' src='../../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/shCore9bab.js?ver=2.1.364b'></script>
+<script type='text/javascript' src='../../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/shBrushCss9bab.js?ver=2.1.364b'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "../../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/styles/shCore9bab.css?ver=2.1.364b";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].appendChild(corecss);
+		var themecssurl = "../../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/styles/shThemeDefault9bab.css?ver=2.1.364b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.getElementsByTagName("head")[0].appendChild(themecss);
+	})();
+	SyntaxHighlighter.config.clipboardSwf = '../../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf';
+	SyntaxHighlighter.config.strings.expandSource = 'show source';
+	SyntaxHighlighter.config.strings.viewSource = 'view source';
+	SyntaxHighlighter.config.strings.copyToClipboard = 'copy to clipboard';
+	SyntaxHighlighter.config.strings.copyToClipboardConfirmation = 'The code is in your clipboard now';
+	SyntaxHighlighter.config.strings.print = 'print';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['auto-links'] = false;
+	SyntaxHighlighter.defaults['wrap-lines'] = false;
+	SyntaxHighlighter.all();
+</script>
+</body>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+</html>

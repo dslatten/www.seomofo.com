@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Hey, Matt Cutts, I&#8217;m using JavaScript to hide links from Google, cool?</title>
+	<meta name="robots" content="noodp, noydir" />
+	<meta name="description" content="Lazy-loading affiliate marketing links can minimize page load times and PageRank loss, but does it violate the Google Webmaster Guidelines?" />
+	<link rel="canonical" href="using-javascript-to-hide-links.html" />
+	<link rel="pingback" href="../xmlrpc.php" />
+	<link rel="stylesheet" href="../wp-content/themes/freethesis/custom/custom0170.css?20120714-2235" type="text/css" />
+</head>
+<body class="custom">
+<div id="container">
+<div id="page">
+	<div id="header">
+		<div id="logo_mofo">
+			<div id="domain_mofo"><a href="../index.html">SEO<span></span></a><b>mofo</b></div>
+			<div id="slogan_mofo">world's greatest seo</div>
+		</div>
+<ul class="menu">
+<li class="tab tab-1"><a href="../about.html" title="About">About</a></li>
+<li class="tab tab-2"><a href="../policy.html" title="Policy">Policy</a></li>
+</ul>
+
+<p id="breadcrumbs"><a href="../index.html">SEO</a> &raquo; <a href="index.html">SEO Ethics</a> &raquo; <strong>Hey, Matt Cutts, I&#8217;m using JavaScript to hide links from Google, cool?</strong></p>	</div>
+	<div id="content_box">
+		<div id="content" class="hfeed">
+
+			<div class="post-2449 post type-post status-publish format-standard hentry category-ethics post_box top" id="post-2449">
+<div class="headline_area">
+		<div id="tm_box"></div>
+		<div id="tm_loading"></div>
+		<div id="tw_box"></div>
+		<div id="tw_loading"></div>
+					<h1 class="entry-title">Hey, Matt Cutts, I&#8217;m using JavaScript to hide links from Google, cool?</h1>
+					<p class="headline_meta">by <span class="author vcard fn">SEO Mofo</span> on <span class="published">Jun 16th, 2010</span></p>
+					<p class="headline_meta">in <span><a href="index.html" title="View all posts in SEO Ethics" rel="category tag">SEO Ethics</a></span></p>
+				</div>
+				<div class="format_text entry-content">
+<p>
+Recently, I published an article called <a href="../marketing/seo-for-affiliate-links.html">Advanced SEO for Affiliate Marketing Links</a>, which explains linking techniques that prevent the transfer of PageRank to affiliate links, while also allowing the page to load faster&#8211;in some cases, <strong>a lot faster</strong>. However, the article has been generating some concerns amongst my fellow SEO practitioners that perhaps my advanced SEO linking techniques are actually violating Google&#8217;s Webmaster Guidelines.
+</p>
+<p class="info_mofo">
+<strong>UPDATE: </strong>I submitted a question to the Google Help Forums, asking whether or not this technique violates the Google Webmaster Guidelines. There were quite a few answers from the &#8220;Top Contributors&#8221; and even a Google employee responded. As I expected, their responses focused on the fact that this technique manipulates Google, and they desperately tried to avoid the inescapable reality that <strong>this method improves the User experience</strong>. So the question basically came down to this: is it okay to hide content from Google if it results in a better user experience? The jury is still out, but I&#8217;ll update again when I get an answer. Meanwhile, you can follow the heated debate on the Help Forums: <a href="http://www.google.com/support/forum/p/Webmasters/thread?tid=43c85ef328efaea4&amp;hl=en">Can I use JavaScript to hide affiliate links from Google?</a>
+</p>
+<p>
+<span class="afframe post-ad-left" title="CJ Zone 3"></span>
+I&#8217;d like to take a moment to share my thoughts on this issue, but I&#8217;d also like to hear some outside opinions from other SEO/SEM folks&#8211;especially all you white hat extremists out there. Hopefully I can persuade Matt Cutts or someone from the search quality team to comment on this post and provide a more definitive answer. Personally, I&#8217;m very interested in Google&#8217;s official stance on this issue, since&#8230;um&#8230;I&#8217;m currently using these techniques all throughout this site, and if I get booted from Google&#8217;s index&#8230;my nine children will surely starve.
+</p>
+<h2>What are these advanced SEO techniques you speak of?</h2>
+<p>
+I should probably recap the techniques I wrote about, to make sure everyone understands what we&#8217;re talking about here. Here&#8217;s a quick overview:
+</p>
+<ol>
+	<li>Remove affiliate links from your pages&#8217; HTML code.</li>
+	<li>If it&#8217;s a text link embedded in page content, then just remove the <code>&lt;a&gt;</code> tags and leave the anchor text there (as plain text).</li>
+	<li>If it&#8217;s an image link, remove the <code>&lt;a&gt;</code> tags AND the <code>&lt;img&gt;</code> tag.</li>
+	<li>Replace the <code>&lt;a&gt;</code> tags with <code>&lt;span&gt;</code> tags, and assign a class name to them (e.g. <code>&lt;span class="affiliate"&gt;</code>).</li>
+	<li>Write a JavaScript function that looks for <code>&lt;span&gt;</code> elements that contain <code>class="affiliate"</code> and replaces them with your affiliate links. (Yes, the ones you removed in Step 1).</li>
+	<li>Put the JavaScript function in an external .js file and block Google from accessing it (using robots.txt).</li>
+	<li>Attach the JavaScript function to the <code>onload</code> event, which means users&#8217; web browsers won&#8217;t call the function until after the page is finished loading.</li>
+	<li>Googlebot&#8211;and users without JavaScript enabled&#8211;can&#8217;t call the JavaScript function, so your affiliate links are never inserted into the page content.</li>
+	<li>Only users with JavaScript-enabled browsers will see your affiliate links. Everything/everyone else sees plain text instead of affiliate text links, and an empty space instead of affiliate image links.</li>
+</ol>
+<p>
+If you still don&#8217;t get it, check out this awesome diagram I spent 6 hours making just for you: <a href="../img/lazy-loading-affiliate-marketing-anchors.png">lazy-loading affiliate marketing anchors</a>.
+</p>
+<p>
+If you still don&#8217;t get it, even after viewing the diagram, then there&#8217;s no hope for you. I don&#8217;t mean just with this article&#8230;I mean your entire life is hopeless and you should seriously consider killing yourself. However, if you do understand&#8230;then let&#8217;s continue.
+</p>
+<div id="blackie-vs-whitey"></div>
+<h2>The Big Question: Does the practice of lazy-loading affiliate marketing links violate the Google Webmaster Guidelines?</h2>
+<p>
+<span class="afframe post-ad-right" title="CJ Zone 4"></span>
+I&#8217;ll kick off this debate by quoting some of the related information from Google&#8217;s Webmaster Guidelines&#8211;specifically the <a href="http://www.google.com/support/webmasters/bin/answer.py?answer=35769#3">Quality Guidelines</a> portion, which focuses on the things that might get your site penalized.
+</p>
+<p>
+To make things more entertaining, I&#8217;ll turn this into an argument between 2 imaginary characters, whom I&#8217;ve arbitrarily named Blackie and Whitey. In this debate, Whitey thinks the SEO technique in question is deceptive and shouldn&#8217;t be used. Blackie thinks the SEO technique in question is not inherently evil whatsoever and it can actually benefit users, webmasters, AND search engines. Read what these guys have to say&#8230;and then feel free to express your opinion in the comments section.
+</p>
+<blockquote>
+<p>
+Webmasters who spend their energies upholding the spirit of the basic principles will provide a much better user experience and subsequently enjoy better ranking than those who spend their time looking for loopholes they can exploit.
+</p>
+</blockquote>
+<p>
+<strong>Blackie:</strong> The SEO technique in question is <strong>not</strong> designed to exploit any loopholes; it&#8217;s designed to benefit users, Google, and me&#8230;the webmaster. Users benefit from faster page load times. Google benefits because it doesn&#8217;t have to waste resources trying to crawl affiliate links, and because it avoids contaminating the link graph with links that have no inherent editorial endorsement from the affiliate marketer. And as a webmaster, I benefit from higher rankings that might result from minimizing &#8220;PageRank evaporation&#8221; and <a href="../speed/index.html" class="selfish">decreasing page load times</a>.
+</p>
+<p>
+<strong>Whitey:</strong> The SEO technique in question is <strong>clearly</strong> exploiting loopholes. The most obvious example is the fact that it&#8217;s not really decreasing the amount of time it takes to load a page. All it&#8217;s doing is delaying the loading of affiliate links/content until after the main content is loaded. If we ignore the <code>onload</code> event, the amount of time it takes to load ALL of the content has actually INCREASED, because the user&#8217;s web browser now has to request and process the external JavaScript file.
+</p>
+<p>
+<strong>Blackie:</strong> First of all, webmasters can add the code to their existing .js files, so this technique doesn&#8217;t necessarily require an extra HTTP request.
+</p>
+<p>
+Second of all, what the hell are you talking about, &#8220;if we ignore the <code>onload</code> event&#8221;? While we&#8217;re at it, let&#8217;s ignore the definition of a &#8220;second,&#8221; and I&#8217;ll argue that this SEO technique reduces page load times by 2 millennia.
+</p>
+<p>
+<span class="afframe post-ad-left" title="CJ Zone 2"></span>
+The fact is&#8230;the <code>onload</code> event is extremely important and cannot be ignored. It&#8217;s the web browser&#8217;s way of saying &#8220;Ok, User, this web page is done loading, and you are now free to begin perusing the content.&#8221; It&#8217;s also the point at which the &#8220;<em>Loading&#8230;</em>&#8221; message/icon goes away. Sure, some affiliate banners might appear a few seconds later, but that has little or no effect on the user&#8217;s experience. All the user cares about is accessing the main content as quickly as possible, and with this <a href="../advanced/index.html" class="selfish">advanced SEO</a> technique&#8230;the user doesn&#8217;t have to wait for your affiliate banners to load.
+</p>
+<p>
+<strong>Whitey:</strong> Whatever. Let&#8217;s move on to the next section and see if your SEO trick upholds &#8220;the spirit of the basic principles.&#8221;
+</p>
+<blockquote>
+<p>
+Make pages primarily for users, not for search engines. Don&#8217;t deceive your users or present different content to search engines than you display to users, which is commonly referred to as &#8220;cloaking.&#8221;
+</p>
+</blockquote>
+<p>
+<strong>Whitey:</strong> There you go, Blackie! Read it and weep! It clearly says &#8220;DO NOT present different content to search engines than you display to users.&#8221; Sorry, but that&#8217;s exactly what you&#8217;re doing. You&#8217;re cloaking. End of story.
+</p>
+<p>
+<strong>Blackie:</strong> No&#8230;NOT &#8220;end of story.&#8221; Cloaking uses <strong>server-side</strong> programming to <strong>serve</strong> different content to different user-agents or IP addresses. My server returns <strong>the exact same document</strong> to users and search engines. If a user views the HTML source of my page, they will see exactly what Google sees. The HTML code is identical, down to every last character.
+</p>
+<p>
+<strong>Whitey:</strong> Yes, but a web page is much more than just HTML code; it&#8217;s also CSS, JavaScript, images, Flash objects, videos, and all kinds of other stuff. You may be serving the same HTML document, but you&#8217;re not allowing Googlebot to fetch your JavaScript file, and it is this file that instructs web browsers to rewrite the HTML code <strong>internally</strong> to show affiliate links and ads. So ultimately, the user sees their browser&#8217;s rewritten HTML, which is different from the HTML Googlebot sees.
+</p>
+<p>
+<span class="afframe post-ad-right" title="CJ Zone 1"></span>
+<strong>Blackie:</strong> First of all, I highly doubt that Google even requests external files to begin with. Even if it did, I don&#8217;t imagine Google is capable of parsing JavaScript, using it to rewrite the HTML of any documents that referenced it, and then retroactively updating those documents&#8217; index data to reflect the newly-discovered content. So unless Google is actually trying to fetch my JavaScript&#8211;which it isn&#8217;t&#8211;then blocking it with robots.txt isn&#8217;t really doing anything anyway.
+</p>
+<p>
+
+Second of all, bandwidth costs money, and I&#8217;m not obligated to serve Googlebot anything I don&#8217;t want to. It&#8217;s my JavaScript file; I have the right to control access to it.
+</p>
+<p>
+<strong>Whitey:</strong> You&#8217;re right&#8230;but similarly, it&#8217;s Google&#8217;s index and Google has the right to ban your website from it.
+</p>
+<p>
+<strong>Blackie:</strong> Yeah yeah yeah&#8230;blow me. Next quote.
+</p>
+<blockquote>
+<p>
+Avoid tricks intended to improve search engine rankings. A good rule of thumb is whether you&#8217;d feel comfortable explaining what you&#8217;ve done to a website that competes with you. Another useful test is to ask, &#8220;Does this help my users? Would I do this if search engines didn&#8217;t exist?&#8221;
+</p>
+</blockquote>
+<p>
+<strong>Whitey:</strong> The SEO technique in question is definitely a trick intended to improve search engine rankings.
+</p>
+<p>
+<strong>Blackie:</strong> True, the technique is intended to improve search engine rankings, but it&#8217;s not a &#8220;trick.&#8221; That&#8217;s like saying AJAX is a trick. Or Flash is a trick. There are always going to be emerging web technologies and languages that Google can&#8217;t crawl or doesn&#8217;t understand. That doesn&#8217;t mean using them is intended to trick search engines.
+</p>
+<p>
+<span class="afframe post-ad-left" title="CJ Zone 3"></span>
+Plus, let&#8217;s consider the two suggested ways of testing whether or not this technique should be used. &#8220;Does this help my users?&#8221; YES. &#8220;Would I do this if search engines didn&#8217;t exist?&#8221; YES.
+</p>
+<p>
+<strong>Whitey:</strong> But would you feel comfortable explaining what you&#8217;ve done to a website that competes with you? I doubt it.
+</p>
+<p>
+<strong>Blackie:</strong> Um&#8230;I spent the last three days trying to explain this, in vivid detail, to every SEO/SEM &#8220;competitor&#8221; who will listen. I even made a diagram, so idiots like you would understand it.
+</p>
+<p>
+<strong>Whitey:</strong> Yeah yeah yeah&#8230;suck it. Next quote.
+</p>
+<blockquote>
+<p>
+Use of JavaScript is an entirely legitimate web practice. However, use of JavaScript with the intent to deceive search engines is not. For instance, placing different text in JavaScript than in a noscript tag violates our webmaster guidelines because it displays different content for users (who see the JavaScript-based text) than for search engines (which see the noscript-based text).
+</p>
+</blockquote>
+<p>
+<strong>Whitey:</strong> Gee&#8230;that sounds kinda like what I was saying. 
+</p>
+<p>
+<strong>Blackie:</strong> The SEO technique in question doesn&#8217;t deceive anyone. I&#8217;m explicitly telling search engines they can&#8217;t request my JavaScript file, and therefore they can&#8217;t see the content it generates. I&#8217;m not displaying different content to search engines; I&#8217;m simply telling them this content is for humans only&#8230;no bots allowed. I mean come on, Whitey, surely you of all people can understand the value of segregation and discrimination.
+</p>
+<p>
+<strong>Whitey:</strong> Of course. Wait&#8230;what?!
+</p>
+<p>
+<strong>Blackie:</strong> Next quote, please.
+</p>
+<blockquote>
+<p>
+Avoid hidden text or hidden links.
+</p>
+</blockquote>
+<p>
+<strong>Whitey:</strong> Obviously, your technique is a way to hide links from search engines.
+</p>
+<p>
+<strong>Blackie:</strong> I also disallow search engines from trying to crawl my contact form. Does that mean I&#8217;m hiding my email address from Google? And I also disallow search engines from crawling my infinite calendar pages. Does that mean I&#8217;m hiding my dentist appointment next week?
+</p>
+<p>
+I&#8217;m using JavaScript to create links that <strong>only users</strong> can see; there&#8217;s nothing in the Quality Guidelines that says you must show Google everything that users see. In many cases, that&#8217;s not even possible. The <a href="http://www.google.com/support/webmasters/bin/answer.py?answer=66353">hidden links</a> section of the Guidelines even defines hidden links as &#8220;links that are intended to be crawled by Googlebot, but are unreadable to humans.&#8221; That&#8217;s not what I&#8217;m doing. I&#8217;m doing the exact opposite of that.
+</p>
+<p>
+<strong>Whitey:</strong> I just realized something&#8230;you&#8217;re right. This SEO technique is awesome. Where can I subscribe to your blog?
+</p>
+<p>
+<strong>Blackie:</strong> You can click the RSS icon below. It&#8217;s one of the 18 <a href="../antisocial-media/index.html" class="selfish">social media</a> buttons I lazy-loaded onto this page while you were reading the article content. I didn&#8217;t want to make you wait.
+</p>
+<p>
+<strong>Whitey:</strong> Well thank you. I appreciate that. Your lazy-loading trickery has indeed improved my user experience here today. I was a fool for doubting you, Blackie. Thankfully, the fog has been lifted, and for the first time&#8230;I can clearly see the&#8211;
+</p>
+<p>
+<strong>Blackie:</strong> &#8211;Just click the icons.
+</p>	<div id="widget_holder">
+	</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="sidebars">
+			<div id="sidebar_1" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-7">			<div class="textwidget"><div style="width:158px; margin:0; padding:4px 0; border:1px solid #7ABCF1; background-color:#F3F6FF; color:#006699; font-family:Georgia, 'Times New Roman', Times, serif; font-size:16px; line-height:16px; text-align:center; text-shadow:#CCC 0 1px 1px; -moz-border-radius:12px; -webkit-border-radius:12px;border-radius:12px;-moz-box-shadow: 0 0 5px #A8D3F5;-webkit-box-shadow: 0 0 5px #A8D3F5;box-shadow: 0 0 5px #A8D3F5;"><a href="../snippet-optimizer.html" style="text-decoration:none;outline:none;"><span style="color: rgb(0, 57, 182);">G</span><span style="color: rgb(196, 18, 0);">o</span><span style="color: rgb(243, 197, 24);">o</span><span style="color: rgb(0, 57, 182);">g</span><span style="color: rgb(48, 167, 47);">l</span><span style="color: rgb(196, 18, 0);">e</span>&nbsp;SERP&nbsp;Snippet Optimization&nbsp;Tool</a></div></div>
+		</li><li class="widget widget_text" id="text-8"><div class="widget_heading">Pages</div>			<div class="textwidget">	<ul>
+		<li><a style="color: rgb(255, 76, 0);" href="../middle-finger-cursors.html"><span style="color: rgb(255, 76, 0);"><b>FREE Middle Finger Cursors!</b></span></a></li>
+		<li><a href="../low-priority-page.html">Low Priority Page</a></li>
+		<li><a href="../google-instant-previews.html">Google Instant Previews</a></li>
+	</ul></div>
+		</li><li class="widget widget_categories" id="categories-3"><div class="widget_heading">Categories</div>		<ul>
+	<li class="cat-item cat-item-8"><a href="../advanced/index.html" title="Advanced White Hat SEO">Advanced SEO</a> (4)
+</li>
+	<li class="cat-item cat-item-6"><a href="../antisocial-media/index.html" title="Anti-Social Media + Antisocial Media">AntiSocial Media</a> (4)
+</li>
+	<li class="cat-item cat-item-11"><a href="../experiments/index.html" title="View all posts filed under Experiments">Experiments</a> (7)
+</li>
+	<li class="cat-item cat-item-9"><a href="../advanced/patents/index.html" title="Google Patents On Information Retrieval">Google Patents</a> (2)
+</li>
+	<li class="cat-item cat-item-12"><a href="../google-sucks/index.html" title="Sometimes I Hate Google">Google Sucks</a> (6)
+</li>
+	<li class="cat-item cat-item-7"><a href="../marketing/index.html" title="Internet Marketing">Marketing</a> (3)
+</li>
+	<li class="cat-item cat-item-13"><a href="../speed/index.html" title="Page Speed &amp; Site Performance">Page Speed</a> (5)
+</li>
+	<li class="cat-item cat-item-10"><a href="../orm/index.html" title="Online Reputation Management">Reputation Management</a> (6)
+</li>
+	<li class="cat-item cat-item-14"><a href="index.html" title="View all posts filed under SEO Ethics">SEO Ethics</a> (3)
+</li>
+	<li class="cat-item cat-item-17"><a href="../experiments/serp/index.html" title="View all posts filed under SERP Experiments">SERP Experiments</a> (10)
+</li>
+	<li class="cat-item cat-item-5"><a href="../wordpress/thesis/index.html" title="Thesis WordPress Theme">Thesis Theme</a> (6)
+</li>
+	<li class="cat-item cat-item-4"><a href="../wordpress/index.html" title="WordPress SEO Tips">WordPress</a> (4)
+</li>
+		</ul>
+</li>				</ul>
+			</div>
+			<div id="sidebar_2" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-4">			<div class="textwidget"><div id="sub_box"></div></div>
+		</li>				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<p id="copyright">Copyright&nbsp;&copy;&nbsp;2013&nbsp;Darren Slatten</p>
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+	//<![CDATA[
+	mofoImgs = document.getElementsByTagName("img");
+	if (mofoImgs.length > 0) {
+		mofoLazyPics = new Array();
+		for (var i = 0; i < mofoImgs.length; i++) {
+			mofoLazyPics[i] = mofoImgs[i].src;
+			mofoImgs[i].style.backgroundImage = "url(/img/throbber.gif)";
+			mofoImgs[i].style.backgroundRepeat = "no-repeat";
+			mofoImgs[i].style.backgroundPosition = "center center";
+			mofoImgs[i].setAttribute("src", "data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%00%00%00!%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00%00%02%02D%01%00%3B");
+		}
+	}
+	//]]>
+</script><script type="text/javascript">
+//<![CDATA[
+	var _gaq=[['_setAccount','UA-4827976-1'],['_setDomainName','.seomofo.com'],['_trackPageview'],['_trackPageLoadTime']];
+	(function(d,t){
+		var g=d.createElement(t);var s=d.getElementsByTagName(t)[0];
+		g.async=1;g.src='http://www.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s);
+	})(document,'script');
+//]]>
+</script><!-- 17 queries in 0.135 seconds. -->
+<script type='text/javascript' src='../wp-content/themes/freethesis/custom/customac77.js?ver=20120628-1801'></script>
+</body>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+</html>

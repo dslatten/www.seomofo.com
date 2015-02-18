@@ -1,0 +1,609 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Install the TweetMeme Retweet Button&#8230; WITHOUT the Slow Page Loads!</title>
+	<meta name="robots" content="noodp, noydir" />
+	<meta name="description" content="If you use the TweetMeme Retweet Button on your WordPress blog or website, this article explains how to install it so it doesn&#8217;t slow down your page speed." />
+	<link rel="canonical" href="tweetmeme-retweet-button.html" />
+	<link rel="pingback" href="../xmlrpc.php" />
+	<link rel="stylesheet" href="../wp-content/themes/freethesis/custom/custom0170.css?20120714-2235" type="text/css" />
+</head>
+<body class="custom">
+<div id="container">
+<div id="page">
+	<div id="header">
+		<div id="logo_mofo">
+			<div id="domain_mofo"><a href="../index.html">SEO<span></span></a><b>mofo</b></div>
+			<div id="slogan_mofo">world's greatest seo</div>
+		</div>
+<ul class="menu">
+<li class="tab tab-1"><a href="../about.html" title="About">About</a></li>
+<li class="tab tab-2"><a href="../policy.html" title="Policy">Policy</a></li>
+</ul>
+
+<p id="breadcrumbs"><a href="../index.html">SEO</a> &raquo; <a href="../speed/index.html">Page Speed</a> &raquo; <strong>Install the TweetMeme Retweet Button&#8230; WITHOUT the Slow Page Loads!</strong></p>	</div>
+	<div id="content_box">
+		<div id="content" class="hfeed">
+
+			<div class="post-1573 post type-post status-publish format-standard hentry category-speed category-wordpress post_box top" id="post-1573">
+<div class="headline_area">
+		<div id="tm_box"></div>
+		<div id="tm_loading"></div>
+		<div id="tw_box"></div>
+		<div id="tw_loading"></div>
+					<h1 class="entry-title">Install the TweetMeme Retweet Button&#8230; WITHOUT the Slow Page Loads!</h1>
+					<p class="headline_meta">by <span class="author vcard fn">SEO Mofo</span> on <span class="published">Feb 10th, 2010</span></p>
+					<p class="headline_meta">in <span><a href="../speed/index.html" title="View all posts in Page Speed" rel="category tag">Page Speed</a>, <a href="index.html" title="View all posts in WordPress" rel="category tag">WordPress</a></span></p>
+				</div>
+				<div class="format_text entry-content">
+<img class="post_image alignright" src="../img/tweetmeme-button-loading-slow.gif" width="180" height="180" alt="Please wait while the TweetMeme Retweet Button loads..." />
+<p>
+If you&#8217;re using the TweetMeme Retweet Button on your blog or website, and you&#8217;ve noticed it&#8217;s been slowing down your page load times, then this article is for you. I will discuss two common ways to install the Retweet Button&#8211;through the <a href="index.html" class="selfish">WordPress</a> plugin and through adding a custom <code>&lt;script&gt;</code> element to your HTML code&#8211;and I will explain why these two implementation methods are probably preventing your web pages from loading as quickly as they could be. Then I will show you how to install the TweetMeme Retweet Button in a way that doesn&#8217;t affect your page speed. My solution is not limited to the TweetMeme button, so a reasonably-intelligent person can apply these same steps to any iframe-based social media smart buttons.
+</p>
+<p>
+Most bloggers use social media networks and micro-blogging sites like <a href="../antisocial-media/custom-twitter-background.html" class="selfish">Twitter</a> to promote their content. One of the easiest ways to do that is to install social media widgets on your blog and hope that your readers are grateful enough to share your content with their friends. I mean&#8230;it&#8217;s the least they can do, considering how many hours of your personal time you put into your blog posts. *ahem* Right?
+</p>
+<p>
+The problem with some of these &#8220;smart&#8221; social media widgets (i.e., the ones that display a number of votes, diggs, sphinns, etc.) is that they usually require your page to make several HTTP requests for external files. Due to the way these widgets are normally installed, your page can&#8217;t finish loading until all of these requests have been answered. Ultimately, it doesn&#8217;t do you much good to put these things on your blog, if the result is a sluggish website that drives your readers away.
+</p>
+<p style="width:20em; float:left; margin-right:2em;">
+One social media widget that has become very popular is the retweet button from TweetMeme.com. For most of you, it looks something like this:
+</p>
+<p style="width:14em; float:left; margin-top:2em;">
+<img alt="TweetMeme button with 96 retweets" src="../img/tweetmeme-retweet-button.png" class="alignleft mb1em" width="50" height="61" />
+</p>
+<p style="clear:both; width:20em; float:left; margin-right:2em;">
+When you write super-amazing content like I do, your TweetMeme buttons tend to look more like this:
+</p>
+<p style="width:14em; float:left; margin-top:2em;">
+<img alt="TweetMeme button with 4,916,336,090 retweets" src="../img/tweetmeme-record-retweets.png" class="alignleft mb1em" width="100" height="61" />
+</p>
+<p style="clear:both; width:20em; float:left; margin-right:2em;">
+But the purpose of today&#8217;s article is to show you how to prevent your retweet buttons from ending up like this:
+</p>
+<p style="width:14em; float:left; margin-top:1em;">
+<img alt="Tab Loading... Waiting for api.tweetmeme.com..." src="../img/waiting-for-tweetmeme-api.gif" class="alignleft mb1em" width="200" height="100" />
+</p>
+<p style="clear:both; width:20em; margin-top:1em;">
+As soon as you realize my animated .gif isn&#8217;t actually going to load anything, we can continue&#8230;
+</p>
+<p>
+To fully understand the solution I propose in this article, you should probably read the next two sections, which explain why the WordPress plugin sucks&#8230;and why the customized <code>&lt;script&gt;</code> option sucks. However, you&#8217;re more than welcome to skip straight to <a href="#solution" style="vertical-align:-1px; text-decoration:none;">the solution&darr;</a>.
+</p>
+
+
+
+
+<h2 style="margin-top:3em;">Why does the TweetMeme WordPress plugin suck?</h2>
+<p>
+The TweetMeme Retweet Button plugin for WordPress has a couple of useful features, but ironically, inserting the Retweet Button code into your posts is <strong>not</strong> one of them. The features you might consider using are the TweetMeme Analytics interface, the option to automatically ping TweetMeme.com when you post new content, and the option to insert the Retweet button into your RSS feed pages. Unfortunately, the code that the WordPress plugin writes into your HTML source code is <strong>NOT usable for what we need to do</strong>. Therefore, if you keep the plugin activated, be sure to go to the TweetMeme settings and change the <b>Position</b> option to <b>Manual</b>.
+</p>
+<p>
+Also, you will NOT be able to use the <code>tweetmeme();</code> function in your WordPress templates, because it writes the same unusable HTML code. Basically, our objective for this plugin or any other TweetMeme plugin is to prevent it from inserting the <code>&lt;iframe&gt;</code> markup directly into your HTML. Here is an example of the useless code that the WordPress plugin wants to crap into your page:
+</p>
+<pre class="brush: xml;">
+&lt;div class=&quot;tweetmeme_button&quot;&gt;
+	&lt;iframe src=&quot;http://api.tweetmeme.com/button.js?url=http%3A%2F%2Fwww.seomofo.com%2Fwordpress%2Ftweetmeme-retweet-button.html&amp;source=SEOmofo&amp;style=normal&amp;service=bit.ly&quot; height=&quot;61&quot; width=&quot;50&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</pre>
+<p>
+You DON&#8217;T want this <code>&lt;iframe&gt;</code> anywhere in your HTML, for several reasons, but most-importantly because: <a href="http://www.stevesouders.com/blog/2009/06/03/using-iframes-sparingly/">iframes block your page from loading</a>. We&#8217;re going to work around this by using JavaScript to write the <code>&lt;iframe&gt;</code> code into a container element, <strong>after the page is done loading</strong>. We&#8217;ll get to that in a second, but first you need to kill any plugins that put the <code>&lt;iframe&gt;</code> code directly into your pages&#8217; HTML.
+</p>
+
+<h3>Why Does the WordPress Plugin FAIL?</h3>
+<p>
+Here is an overview of how the WordPress plugin works, and how it eventually forces your pages to wait for the TweetMeme <code>&lt;iframe&gt;</code> to load.
+</p>
+<ol>
+<li>WordPress builds an <code>&lt;iframe&gt;</code> (server-side) and inserts it into the HTML code of a page.</li>
+<li>Server sends the page to the client. (e.g., a visitor&#8217;s web browser)</li>
+<li>Web browser sees the <code>&lt;iframe&gt;</code> and requests its <code>src</code> file. Browser waits for <code>src</code> file to load completely before firing the onload event.</li>
+<li><strong style="color:#600;">Your page can&#8217;t finish loading until the Retweet Button finishes loading.</strong> <img src="../img/emoticons/angry.png" width="24" height="24" style="margin:0;" alt="Angry face!" /></li>
+</ol>
+
+<h3 style="text-align:center; margin-top:3em;">First Steps for TweetMeme WordPress Plugin Users</h3>
+<div style="width:75%; margin:0 auto 3em auto; padding:1em; background-color:#F3F6FF; border:1px solid #069;">
+<p>
+<strong>Good Idea:</strong> Go to the TweetMeme settings menu and change the <code>Position</code> option to <code>Manual</code>.
+</p>
+<p style="margin-bottom:0;">
+<strong>Better Idea:</strong> Uninstall or deactivate the TweetMeme Retweet Button plugin. (fewer plugins = faster page speeds)
+</p>
+</div>
+
+
+
+<h2 style="margin-top:3em;">Why does the TweetMeme button&#8217;s custom <code>&lt;script&gt;</code> suck?</h2>
+<p>
+The second method for installing the TweetMeme Retweet Button is to insert a <code>&lt;script&gt;</code> element into your HTML code, at the point where you want the button to appear. For details about this method, you can view the <a href="http://help.tweetmeme.com/2009/04/06/tweetmeme-button/">TweetMeme Button documentation</a> from TweetMeme.com. Or&#8230;just keep reading.
+</p>
+<p>
+At a bare minimum, you would need to include the <code>&lt;script&gt;</code> element that calls the JavaScript file, button.js, from TweetMeme&#8217;s servers. In addition, there are 4 parameters that you could use to customize your Retweet Button. I&#8217;ll explain them briefly:
+</p>
+<ul>
+	<li><strong>tweetmeme_url</strong> &#8211; the URL your retweet will link to on Twitter. By default, the button uses the URL of the page it&#8217;s on, so you don&#8217;t need to include this parameter unless you&#8217;re embedding the retweet button on Page A, but you want your Twitter status update to link to Page B. (For example, this would be handy for adding a retweet button to your RSS feed.)</li>
+	<li><strong>tweetmeme_source</strong> &#8211; the Twitter @username that will appear after the &#8220;RT.&#8221; By default, this parameter is set to &#8220;tweetmeme,&#8221; which results in retweets like this: RT @tweetmeme TITLE URL</li>
+	<li><strong>tweetmeme_style</strong> &#8211; choose between normal or compact button design. Default is normal. The compact button looks like this (I added the drop shadow):<br /><br />
+<img alt="TweetMeme compact retweet button" src="../img/tweetmeme-compact-retweet-button.png" width="110" height="40" style="display:block; margin:0 auto;" /></li>
+	<li><strong>tweetmeme_service</strong> &#8211; choose one from <a href="http://help.tweetmeme.com/2009/08/17/url-shorteners/">TweetMeme&#8217;s list of URL-shortening services</a>. Default is ow.ly.</li>
+</ul>
+<p>
+The following code is an example of the kind of crap that the script method might use. Theoretically, you would paste this directly into your pages&#8217; HTML code.
+</p>
+<pre class="brush: xml;">
+&lt;script type=&quot;text/javascript&quot;&gt;
+	tweetmeme_url = 'http://yoururl.com'; // only necessary if different from current URL
+	tweetmeme_source = 'SEOmofo';         // Twitter @username that will be retweeted
+	tweetmeme_style = 'compact';          // only add this line if you want to create a smaller button
+	tweetmeme_service = 'bit.ly';         // URL shortening service you want to use
+&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://tweetmeme.com/i/scripts/button.js&quot;&gt;
+&lt;/script&gt;
+</pre>
+<p>
+Are we going to be using the custom <code>&lt;script&gt;</code> parameters? No, not exactly. But you need to be familiar with them for our final method of installing the retweet button. We won&#8217;t be using them within <code>&lt;script&gt;</code> tags, but we <em>will</em> be using them to create a custom <code>src</code> URL for our iframe.
+</p>
+<p>
+The reason why we DO NOT want to use these <code>&lt;script&gt;</code> tags is the same reason we don&#8217;t want to use the <code>&lt;iframe&gt;</code> code directly: <strong>they block the page from loading</strong>. When a web browser is rendering the page, it will see the <code>&lt;script&gt;</code> tag that references the <span class="uri_mofo">button.js</span> file and immediately send a request for it. To make things worse, the <span class="uri_mofo">button.js</span> script uses <code>document.write();</code> statements to insert the <code>&lt;iframe&gt;</code> code into your document&#8230;and then we&#8217;re back to square one, waiting for the <code>&lt;iframe&gt;</code> to load. In other words, this method for installing the retweet button is actually <em>worse</em> than the WordPress plugin, because instead of building the <code>&lt;iframe&gt;</code> code on the server side, it has to request <span class="uri_mofo">button.js</span> (client side) and wait for it to build the <code>&lt;iframe&gt;</code> for you.
+</p>
+
+<h3>Why Does the Custom <code>&lt;script&gt;</code> FAIL?</h3>
+<p>
+Here is an overview of how the <code>&lt;script&gt;</code> method of installing the button works, and how it eventually forces your page to wait for the <code>&lt;script&gt;</code> to build your <code>&lt;iframe&gt;</code> code and then waits for the TweetMeme <code>&lt;iframe&gt;</code> content to load.
+</p>
+<ol>
+	<li>Server inserts custom <code>&lt;script&gt;</code> elements into the HTML code of a page.</li>
+	<li>Server sends the page to the client. (e.g., a visitor&#8217;s web browser)</li>
+	<li>Web browser sees the <code>&lt;script&gt;</code> and requests its <code>src</code> file. Browser waits for <code>src</code> file to load.</li>
+	<li>Src file inserts an <code>&lt;iframe&gt;</code> into our document.</li>
+	<li>Web browser sees the <code>&lt;iframe&gt;</code> and requests its <code>src</code> file. Browser waits for <code>src</code> file to load completely before firing the onload event.</li>
+	<li><strong style="color:#600;">Your page can&#8217;t finish loading until the Retweet Button finishes loading.</strong> <img src="../img/emoticons/angry.png" width="24" height="24" style="margin:0;" alt="Angry face!" /></li>
+</ol>
+
+
+
+
+
+
+
+
+<p id="solution" style="margin:2em auto; text-align:center; font-family:Georgia, 'Times New Roman', Times, serif; font-size:600%; line-height:100%; color:#006699; letter-spacing:.2em; text-shadow:#000 0 1px 2px;">The Solution</p>
+
+
+
+<h2>Load the TweetMeme Button AFTER the Page Loads</h2>
+<p>
+Despite all the bad things I&#8217;ve said about iframes and scripts, we&#8217;re actually going to use both in our implementation. The difference is we&#8217;re going to host our own JavaScript, and we&#8217;re not going to insert the TweetMeme button&#8217;s <code>&lt;iframe&gt;</code> into our document until after everything else is finished loading.
+</p>
+<h3 style="margin-top:6em;">STEP 1: Build Your Button&#8217;s <code>&lt;iframe&gt;</code> Code</h3>
+<p>
+Instead of relying on WordPress or <span class="uri_mofo">button.js</span> to build our <code>&lt;iframe&gt;</code> code, we&#8217;re going to do it ourselves. Don&#8217;t worry, it&#8217;s much easier than it sounds. To accomplish this, we first need to understand what <span class="uri_mofo">button.js</span> actually does. Here is the JavaScript code after I&#8217;ve formatted it and added comments to it. FYI, I&#8217;m not an expert on JavaScript, so my interpretation of this code might be totally wrong. But if you&#8217;ve read this far&#8230;there&#8217;s no turning back now, sucker!
+</p>
+
+<pre class="brush: jscript; collapse: true; light: false; toolbar: true;">
+// Get page URL
+var _url = window.location.href;
+
+// Remove illegal characters
+var _url = _url.replace(/((?:\?|&amp;)?fbc_receiver=.+)?(?:#.*)?$/, &quot;&quot;);
+
+// Convert your custom script parameters into local JavaScript variables.
+// Make sure they are strings and escape illegal characters.
+var url = escape(typeof tweetmeme_url == &quot;string&quot; ? tweetmeme_url : typeof TWEETMEME_URL == &quot;string&quot; ? TWEETMEME_URL : _url).replace(/\+/g, &quot;%2b&quot;);
+var source = typeof tweetmeme_source == &quot;string&quot; ? escape(tweetmeme_source) : typeof TWEETMEME_SOURCE == &quot;string&quot; ? escape(TWEETMEME_SOURCE) : false;
+var style = typeof tweetmeme_style == &quot;string&quot; ? escape(tweetmeme_style) : typeof TWEETMEME_STYLE == &quot;string&quot; ? escape(TWEETMEME_STYLE) : &quot;normal&quot;;
+var service = typeof tweetmeme_service == &quot;string&quot; ? escape(tweetmeme_service) : typeof TWEETMEME_SERVICE == &quot;string&quot; ? escape(TWEETMEME_SERVICE) : false;
+
+// Apparently, if your URL-shortening service offers an API, you can 
+// configure it with the tweetmeme_service_api parameter. I couldn't 
+// find any documentation on this parameter from TweetMeme, so I'm not 
+// sure about this.
+var service_api = typeof tweetmeme_service_api == &quot;string&quot; ? escape(tweetmeme_service_api) : typeof TWEETMEME_SERVICE_API == &quot;string&quot; ? escape(TWEETMEME_SERVICE_API) : false;
+
+// I didn't see any TweetMeme documentation about the tweetmeme_alias 
+// parameter, so I have no idea what this does.
+var alias = typeof tweetmeme_alias == &quot;string&quot; ? escape(tweetmeme_alias) : typeof TWEETMEME_ALIAS == &quot;string&quot; ? escape(TWEETMEME_ALIAS) : false;
+
+// This is our iframe src URL before we've added our custom parameter 
+// values to it in the form of a query string.
+var src = &quot;http://api.tweetmeme.com/button.js&quot;;
+
+// This is a poorly-programmed way of setting the height and width of 
+// our iframe. (BTW...I tried using the rednose style but nothing 
+// happened. It looked just like the default style.)
+switch (style) {
+	case &quot;compact&quot;:
+		var h = 20;
+		var w = 90;
+		break;
+	case &quot;rednose&quot;:
+		var h = 61;
+		var w = 50;
+		break;
+	default:
+		var h = 61;
+		var w = 50;
+		break;
+}
+
+// Add our page URL to the src URL
+src += &quot;?url=&quot; + url;
+
+// Add our button style option to the src URL
+src += &quot;&amp;style=&quot; + style;
+
+// If we defined a value for the tweetmeme_source parameter, 
+// then add it to the src URL.
+if (source != false) {
+	src += &quot;&amp;source=&quot; + source;
+}
+
+// If we defined a value for the tweetmeme_service parameter, 
+// then add it to the src URL.
+if (service) {
+	src += &quot;&amp;service=&quot; + service;
+}
+
+// If we defined a value for the tweetmeme_service_api parameter, 
+// then add it to the src URL.
+if (service_api) {
+	src += &quot;&amp;service_api=&quot; + service_api;
+}
+
+// If we defined a value for the tweetmeme_alias parameter, 
+// then add it to the src URL.
+if (alias) {
+	src += &quot;&amp;alias=&quot; + alias;
+}
+
+// Insert iframe code into our page 
+// (where we placed the script tags).
+document.write('&lt;iframe src=&quot;'+src+'&quot; height=&quot;'+h+'&quot; width=&quot;'+w+'&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;');
+
+// Inexplicably reset this huge fuckin' pile 
+// of redundant JavaScript variables.
+tweetmeme_url = null;
+TWEETMEME_URL = null;
+tweetmeme_source = null;
+TWEETMEME_SOURCE = null;
+tweetmeme_service = null;
+TWEETMEME_SERVICE = null;
+tweetmeme_service_api = null;
+TWEETMEME_SERVICE_API = null;
+tweetmeme_style = null;
+TWEETMEME_STYLE = null;
+</pre>
+
+<p>
+As you can see, the <span class="uri_mofo">button.js</span> script really doesn&#8217;t do much. All we really have to do is take this <code>&lt;iframe&gt;</code> code and replace the <span style="font-weight:bold; font-family:Georgia, 'Times New Roman', Times, serif; color:#C00;">variables</span> with our own values:
+</p>
+<p>
+<code style="font-size:1em;">
+&lt;iframe src="<span style="font-weight:bold; font-family:Georgia, 'Times New Roman', Times, serif; color:#C00;">src</span>" scrolling="no" frameborder="0" width="<span style="font-weight:bold; font-family:Georgia, 'Times New Roman', Times, serif; color:#C00;">w</span>" height="<span style="font-weight:bold; font-family:Georgia, 'Times New Roman', Times, serif; color:#C00;">h</span>" &gt;&lt;/iframe&gt;
+</code>
+</p>
+<p>
+To build your <span style="font-weight:bold; font-family:Georgia, 'Times New Roman', Times, serif; color:#C00;">src</span> variable, you can follow this pattern:
+</p>
+<ol>
+<li>Start with <span class="uri_mofo" style="font-size:1em; font-weight:bold; font-family:'Courier New', Courier, monospace;">http://api.tweetmeme.com/button.js</span></li>
+<li>Add <span class="uri_mofo" style="font-size:1em; font-weight:bold; font-family:'Courier New', Courier, monospace;">?url=</span> followed by your page URL (for right now, just use <span style="font-weight:bold; font-family:Georgia, 'Times New Roman', Times, serif; color:#C00;">URL</span> as a placeholder)</li>
+<li>Add <span class="uri_mofo" style="font-size:1em; font-weight:bold; font-family:'Courier New', Courier, monospace;">&amp;amp;style=</span> followed by either <span class="uri_mofo" style="font-size:1em; font-weight:bold; font-family:'Courier New', Courier, monospace;">normal</span> or <span class="uri_mofo" style="font-size:1em; font-weight:bold; font-family:'Courier New', Courier, monospace;">compact</span>.</li>
+<li>Add <span class="uri_mofo" style="font-size:1em; font-weight:bold; font-family:'Courier New', Courier, monospace;">&amp;amp;source=</span> followed by your Twitter username.</li>
+<li>Add <span class="uri_mofo" style="font-size:1em; font-weight:bold; font-family:'Courier New', Courier, monospace;">&amp;amp;service=</span> followed by a URL-shortening service from this list:<br />
+<br />
+<ul style="font-size:125%; font-weight:bold; font-family:'Courier New', Courier, monospace;">
+	<li style="padding:0;"><span class="uri_mofo">bit.ly</span></li>
+	<li style="padding:0;"><span class="uri_mofo">awe.sm</span></li>
+	<li style="padding:0;"><span class="uri_mofo">cli.gs</span></li>
+	<li style="padding:0;"><span class="uri_mofo">digg.com</span></li>
+	<li style="padding:0;"><span class="uri_mofo">is.gd</span></li>
+	<li style="padding:0;"><span class="uri_mofo">tinyurl.com</span></li>
+	<li style="padding:0;"><span class="uri_mofo">tr.im</span></li>
+	<li style="padding:0;"><span class="uri_mofo">su.pr</span></li>
+	<li style="padding:0;"><span class="uri_mofo">ow.ly</span></li>
+	<li style="padding:0;"><span class="uri_mofo">twurl.nl</span></li>
+</ul>
+</li>
+<li>If you have a URL-shortener API, add <span class="uri_mofo" style="font-size:1em; font-weight:bold; font-family:'Courier New', Courier, monospace;">&amp;amp;service_api=</span> followed by your API key. (Only available for awe.sm, cli.gs, digg.com, and su.pr services. I&#8217;m not sure if you&#8217;re really supposed to put your API key here or not. Frankly, I just made that up.)</li>
+</ol>
+<p>
+Your completed <span style="font-weight:bold; font-family:Georgia, 'Times New Roman', Times, serif; color:#C00;">src</span> variable should end up looking something like this:
+</p>
+<p>
+<span class="uri_mofo" style="font-size:1em; font-weight:bold; font-family:'Courier New', Courier, monospace;">http://api.tweetmeme.com/button.js?url=</span><span style="font-weight:bold; font-family:Georgia, 'Times New Roman', Times, serif; color:#C00;">URL</span><span class="uri_mofo" style="font-size:1em; font-weight:bold; font-family:'Courier New', Courier, monospace;">&amp;amp;style=normal&amp;amp;source=SEOmofo&amp;amp;service=bit.ly</span>
+</p>
+<p>
+Now set the <span style="font-weight:bold; font-family:Georgia, 'Times New Roman', Times, serif; color:#C00;">w</span> and <span style="font-weight:bold; font-family:Georgia, 'Times New Roman', Times, serif; color:#C00;">h</span> attributes.
+</p>
+<p>
+For a <span class="uri_mofo" style="font-size:1em; font-weight:bold; font-family:'Courier New', Courier, monospace;">normal</span> style button: <code style="font-size:1em;">width="<span style="font-weight:bold; font-family:Georgia, 'Times New Roman', Times, serif; color:#C00;">50</span>" height="<span style="font-weight:bold; font-family:Georgia, 'Times New Roman', Times, serif; color:#C00;">61</span>"</code>
+</p>
+<p>
+For a <span class="uri_mofo" style="font-size:1em; font-weight:bold; font-family:'Courier New', Courier, monospace;">compact</span> style button: <code style="font-size:1em;">width="<span style="font-weight:bold; font-family:Georgia, 'Times New Roman', Times, serif; color:#C00;">90</span>" height="<span style="font-weight:bold; font-family:Georgia, 'Times New Roman', Times, serif; color:#C00;">20</span>"</code>
+</p>
+<p>
+Now that you have your values for the variables <span style="font-weight:bold; font-family:Georgia, 'Times New Roman', Times, serif; color:#C00;">src</span>, <span style="font-weight:bold; font-family:Georgia, 'Times New Roman', Times, serif; color:#C00;">w</span>, and <span style="font-weight:bold; font-family:Georgia, 'Times New Roman', Times, serif; color:#C00;">h</span>, you can plug them back into your <code>&lt;iframe&gt;</code> code, which should now look something like this:
+</p>
+<p>
+<code style="font-size:1em;">
+&lt;iframe src="http://api.tweetmeme.com/button.js?url=<span style="font-weight:bold; font-family:Georgia, 'Times New Roman', Times, serif; color:#C00;">URL</span>&amp;amp;style=normal&amp;amp;source=SEOmofo&amp;amp;service=bit.ly" scrolling="no" frameborder="0" width="50" height="61" &gt;&lt;/iframe&gt;
+</code>
+</p>
+
+<h3 style="margin-top:6em;">STEP 2: Create a Container for Your Retweet Button</h3>
+<p>
+In Step 1, we created our own <code>&lt;iframe&gt;</code> code. Our goal is to store that code in a JavaScript function that we can call after the onload event is triggered. In order for our JavaScript function to work, our web page needs to have a containing element ready to insert the <code>&lt;iframe&gt;</code> code into. This element should have a unique id attribute assigned to it, so that we can tell our JavaScript function exactly where to put the iframe. Here is an example: <code>&lt;div id="tm_button"&gt;&lt;/div&gt;</code>
+</p>
+<p>
+If you&#8217;re using WordPress, you have several options for getting your container <code>&lt;div&gt;</code> into your page code. I&#8217;ve mentioned a few examples below. If you&#8217;re not using WordPress or you already know how to do this, then go to Step 3.
+</p>
+<ol>
+	<li>Add it to a select number of posts, by simply typing the code directly into the HTML view of your <em>Edit Post</em> screen.</li>
+	<li>Add it to your WordPress theme&#8217;s template files, which would add it to all web pages that use that template (e.g., single posts, pages, archives, etc.)</li>
+	<li>Add it as a plain text widget in your sidebars.</li>
+	<li>Add it to a WordPress hook, by writing a function in your theme&#8217;s functions.php file.</li>
+	<li>Add it to a Thesis hook, by writing a function in your custom_functions.php file (only available to those of you using the <a href="thesis/index.html" class="selfish">Thesis WordPress theme</a>).</li>
+	<li>Create your own WordPress plugin that adds it to certain types of pages.</li>
+</ol>
+
+<h3 style="text-align:center;">For Thesis Theme Users</h3>
+<div style="width:90%; margin:0 auto; padding:1em; background-color:#F3F6FF; border:1px solid #069;">
+<p>
+For those of you who are using Thesis, you can use the following example, which is what I&#8217;m currently using. It inserts the <code>&lt;div&gt;</code> into all my posts, but not previews of unpublished posts. If you want to customize it in other ways, check out the full list of <a href="http://codex.wordpress.org/Conditional_Tags">WordPress conditional tags</a>.
+</p>
+<pre class="brush: php;">
+// Define a function that adds your TweetMeme container &lt;div&gt;
+// to all posts except for when you're just previewing it.
+
+if (!function_exists('addTMContainer')) {
+	function addTMContainer() {
+		if (is_single() &amp;&amp; !is_preview()) {
+?&gt;
+		&lt;div id=&quot;tm_box&quot;&gt;&lt;/div&gt;
+&lt;?php }
+	}
+}
+
+// Hook your TweetMeme container to a Thesis hook
+
+add_action('thesis_hook_before_headline', 'addTMContainer');
+		
+</pre>
+<p>
+Here is the CSS I&#8217;m using to position the <code>&lt;div&gt;</code>:
+</p>
+<pre class="brush: css;">
+/* Make room for my button next to the page title */
+
+div.headline_area{position:relative; margin-right:6em;}
+
+/* Move my button to the top right corner of .headline_area */
+
+#tm_box{position:absolute; right:-6em;}
+	
+</pre>
+</div>
+
+<h3 style="margin-top:6em;">STEP 3: Define Your <code>&lt;iframe&gt;</code> Code as a JavaScript Function</h3>
+<p>
+There are several ways to do this, but I&#8217;ll show you what I consider the easiest one. Copy your HTML code and paste it into this tool that <a href="http://www.accessify.com/tools-and-wizards/developer-tools/html-javascript-convertor/">converts HTML into JavaScript</a>. Select the option that says <strong>Build up a string variable that you can use later</strong> and give your variable a name. I&#8217;ll call mine <var>iframeCode</var>.
+</p>
+<p>
+<img alt="HTML to JavaScript converter tool" src="../img/html-to-javascript-converter.png" title="HTML to JavaScript converter tool" class="aligncenter" width="466" height="338" />
+</p>
+<p>
+Copy the converted code and paste it into whatever program you use for editing JavaScript/HTML/plain text. Here is what my code looks like now:
+</p>
+<pre class="brush: jscript;">
+var iframeCode=&quot;&quot;;
+iframeCode += &quot;&lt;iframe src=\&quot;http:\/\/api.tweetmeme.com\/button.js?url=URL&amp;amp;style=normal&amp;amp;source=SEOmofo&amp;amp;service=bit.ly\&quot; scrolling=\&quot;no\&quot; frameborder=\&quot;0\&quot; width=\&quot;50\&quot; height=\&quot;61\&quot; &gt;&lt;\/iframe&gt;&quot;;
+	
+</pre>
+<p>
+If you remember&#8230;we still have a placeholder variable where our page URL is supposed to go. We can&#8217;t hard-code an actual URL here, because this JavaScript function has to work for any page that calls it. So instead, we make JavaScript get the requesting-page&#8217;s URL for us by replacing our placeholder URL with its JavaScript equivalent: <code>document.URL</code>. We can also use JavaScript&#8217;s <code>escape()</code> function to encode the URL just like TweetMeme does in their <span class="uri_mofo">button.js</span> script. Here is our new code:
+</p>
+<pre class="brush: jscript;">
+var iframeCode=&quot;&quot;;
+iframeCode += &quot;&lt;iframe src=\&quot;http:\/\/api.tweetmeme.com\/button.js?url=&quot; + escape(document.URL) + &quot;&amp;amp;style=normal&amp;amp;source=SEOmofo&amp;amp;service=bit.ly\&quot; scrolling=\&quot;no\&quot; frameborder=\&quot;0\&quot; width=\&quot;50\&quot; height=\&quot;61\&quot; &gt;&lt;\/iframe&gt;&quot;;
+	
+</pre>
+<p>
+We have defined the contents of our <var>iframeCode</var> variable, but we still need to put it in a function that writes this content into our TweetMeme container <code>&lt;div&gt;</code>. Here is an example:
+</p>
+<pre class="brush: jscript;">
+
+function tweetMemeButton() {
+
+	// If our TweetMeme container doesn't exist,
+	// then this function will basically do nothing.
+
+	if (document.getElementById(&quot;tm_box&quot;)) {
+
+		// This is the code we wrote a second ago.
+
+		var iframeCode = &quot;&quot;;
+		iframeCode += &quot;&lt;iframe src=\&quot;http://api.tweetmeme.com/button.js?url=&quot; + escape(document.URL) + &quot;&amp;amp;style=normal&amp;amp;source=SEOmofo&amp;amp;service=bit.ly\&quot; scrolling=\&quot;no\&quot; frameborder=\&quot;0\&quot; width=\&quot;50\&quot; height=\&quot;61\&quot; &gt;&quot;;
+
+		// Insert our iframe into our TweetMeme container
+
+		document.getElementById(&quot;tm_box&quot;).innerHTML = iframeCode;
+	}
+}
+
+</pre>
+
+<h3 style="margin-top:6em;">STEP 4: Use the <code>window.onload</code> Event Handler to Call Your Function</h3>
+<p>
+The <code>window</code> object has an event handler called <code>onload</code> that occurs as soon as a page is done loading. What we&#8217;re going to do now is program our <code>tweetMemeButton()</code> function so that it gets called when the onload event is triggered. In other words, we&#8217;re not even going to begin loading our TweetMeme button <code>&lt;iframe&gt;</code> until after the page is officially done loading. In order for us to accomplish this, we can add <code>window.onload = tweetMemeButton;</code> to our JavaScript code, which is now ready to be pasted into an external .js file.
+</p>
+<p>
+In the name of page speed and site performance, I&#8217;ve combined all of my site&#8217;s JavaScript files into one. I link to this file from the <code>&lt;head&gt;</code> section of every page on my site. However you want to go about it is up to you, but one way or another you need to put your JavaScript code somewhere where all the pages that need it can access it.
+</p>
+<p>
+If you&#8217;re wondering something like this: &#8220;Can&#8217;t I just paste the entire code into the <code>&lt;head&gt;</code> section of every page?&#8221;, then by all means, go right ahead&#8230;and punch yourself in the face. Then do it the right way, by pasting <strong>a reference to your external .js file</strong> into the <code>&lt;head&gt;</code> section of every page (that uses the TweetMeme Retweet Button). For faster page rendering, it&#8217;s best to paste this code after (below) your CSS file references. For example:
+</p>
+<pre class="brush: xml;">
+&lt;head&gt;
+...
+	&lt;link rel=&quot;stylesheet&quot; href=&quot;http://www.seomofo.com/wp-content/themes/thesis_16/custom/custom.css&quot; type=&quot;text/css&quot; /&gt;
+...
+	&lt;script type=&quot;text/javascript&quot; src=&quot;/external.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+	
+</pre>
+
+
+
+
+<p>
+Here is our final JavaScript code, ready to be pasted into your external .js file:
+</p>
+
+<pre class="brush: jscript;">
+function tweetMemeButton() {
+	if (document.getElementById(&quot;tm_box&quot;)) {
+		var iframeCode = &quot;&quot;;
+		iframeCode += &quot;&lt;iframe src=\&quot;http://api.tweetmeme.com/button.js?url=&quot; + escape(document.URL) + &quot;&amp;amp;style=normal&amp;amp;source=SEOmofo&amp;amp;service=bit.ly\&quot; scrolling=\&quot;no\&quot; frameborder=\&quot;0\&quot; width=\&quot;50\&quot; height=\&quot;61\&quot; &gt;&quot;;
+		document.getElementById(&quot;tm_box&quot;).innerHTML = iframeCode;
+	}
+}
+
+window.onload = tweetMemeButton;
+	
+</pre>
+
+<h3 style="margin-top:6em;">STEP 5: Share This Super-Amazing Article</h3>
+<p>
+That&#8217;s right&#8230;people are going to wonder why your blog is so damn fast, and when they do&#8230;you send them my way. Oh&#8230;and for more page speed tips to speed up WordPress, check out my previous masterpiece: <a href="comments-slow-page-speed.html">WordPress Comments Slow Down Page Speed</a>.
+</p>
+<p style="text-align:center; height:2em; line-height:200%; margin:6em 0;">
+ Peace, I&#8217;m outta here. <img src="../img/emoticons/big-smile.png" width="24" height="24" style="margin:0; vertical-align:middle;" alt="Big smile!" />
+</p>	<div id="widget_holder">
+	</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="sidebars">
+			<div id="sidebar_1" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-7">			<div class="textwidget"><div style="width:158px; margin:0; padding:4px 0; border:1px solid #7ABCF1; background-color:#F3F6FF; color:#006699; font-family:Georgia, 'Times New Roman', Times, serif; font-size:16px; line-height:16px; text-align:center; text-shadow:#CCC 0 1px 1px; -moz-border-radius:12px; -webkit-border-radius:12px;border-radius:12px;-moz-box-shadow: 0 0 5px #A8D3F5;-webkit-box-shadow: 0 0 5px #A8D3F5;box-shadow: 0 0 5px #A8D3F5;"><a href="../snippet-optimizer.html" style="text-decoration:none;outline:none;"><span style="color: rgb(0, 57, 182);">G</span><span style="color: rgb(196, 18, 0);">o</span><span style="color: rgb(243, 197, 24);">o</span><span style="color: rgb(0, 57, 182);">g</span><span style="color: rgb(48, 167, 47);">l</span><span style="color: rgb(196, 18, 0);">e</span>&nbsp;SERP&nbsp;Snippet Optimization&nbsp;Tool</a></div></div>
+		</li><li class="widget widget_text" id="text-8"><div class="widget_heading">Pages</div>			<div class="textwidget">	<ul>
+		<li><a style="color: rgb(255, 76, 0);" href="../middle-finger-cursors.html"><span style="color: rgb(255, 76, 0);"><b>FREE Middle Finger Cursors!</b></span></a></li>
+		<li><a href="../low-priority-page.html">Low Priority Page</a></li>
+		<li><a href="../google-instant-previews.html">Google Instant Previews</a></li>
+	</ul></div>
+		</li><li class="widget widget_categories" id="categories-3"><div class="widget_heading">Categories</div>		<ul>
+	<li class="cat-item cat-item-8"><a href="../advanced/index.html" title="Advanced White Hat SEO">Advanced SEO</a> (4)
+</li>
+	<li class="cat-item cat-item-6"><a href="../antisocial-media/index.html" title="Anti-Social Media + Antisocial Media">AntiSocial Media</a> (4)
+</li>
+	<li class="cat-item cat-item-11"><a href="../experiments/index.html" title="View all posts filed under Experiments">Experiments</a> (7)
+</li>
+	<li class="cat-item cat-item-9"><a href="../advanced/patents/index.html" title="Google Patents On Information Retrieval">Google Patents</a> (2)
+</li>
+	<li class="cat-item cat-item-12"><a href="../google-sucks/index.html" title="Sometimes I Hate Google">Google Sucks</a> (6)
+</li>
+	<li class="cat-item cat-item-7"><a href="../marketing/index.html" title="Internet Marketing">Marketing</a> (3)
+</li>
+	<li class="cat-item cat-item-13"><a href="../speed/index.html" title="Page Speed &amp; Site Performance">Page Speed</a> (5)
+</li>
+	<li class="cat-item cat-item-10"><a href="../orm/index.html" title="Online Reputation Management">Reputation Management</a> (6)
+</li>
+	<li class="cat-item cat-item-14"><a href="../ethics/index.html" title="View all posts filed under SEO Ethics">SEO Ethics</a> (3)
+</li>
+	<li class="cat-item cat-item-17"><a href="../experiments/serp/index.html" title="View all posts filed under SERP Experiments">SERP Experiments</a> (10)
+</li>
+	<li class="cat-item cat-item-5"><a href="thesis/index.html" title="Thesis WordPress Theme">Thesis Theme</a> (6)
+</li>
+	<li class="cat-item cat-item-4"><a href="index.html" title="WordPress SEO Tips">WordPress</a> (4)
+</li>
+		</ul>
+</li>				</ul>
+			</div>
+			<div id="sidebar_2" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-4">			<div class="textwidget"><div id="sub_box"></div></div>
+		</li>				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<p id="copyright">Copyright&nbsp;&copy;&nbsp;2013&nbsp;Darren Slatten</p>
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+	//<![CDATA[
+	mofoImgs = document.getElementsByTagName("img");
+	if (mofoImgs.length > 0) {
+		mofoLazyPics = new Array();
+		for (var i = 0; i < mofoImgs.length; i++) {
+			mofoLazyPics[i] = mofoImgs[i].src;
+			mofoImgs[i].style.backgroundImage = "url(/img/throbber.gif)";
+			mofoImgs[i].style.backgroundRepeat = "no-repeat";
+			mofoImgs[i].style.backgroundPosition = "center center";
+			mofoImgs[i].setAttribute("src", "data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%00%00%00!%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00%00%02%02D%01%00%3B");
+		}
+	}
+	//]]>
+</script><script type="text/javascript">
+//<![CDATA[
+	var _gaq=[['_setAccount','UA-4827976-1'],['_setDomainName','.seomofo.com'],['_trackPageview'],['_trackPageLoadTime']];
+	(function(d,t){
+		var g=d.createElement(t);var s=d.getElementsByTagName(t)[0];
+		g.async=1;g.src='http://www.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s);
+	})(document,'script');
+//]]>
+</script><!-- 17 queries in 0.142 seconds. -->
+<script type='text/javascript' src='../wp-content/themes/freethesis/custom/customac77.js?ver=20120628-1801'></script>
+<script type='text/javascript' src='../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/shCore9bab.js?ver=2.1.364b'></script>
+<script type='text/javascript' src='../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/shBrushXml9bab.js?ver=2.1.364b'></script>
+<script type='text/javascript' src='../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/shBrushJScript9bab.js?ver=2.1.364b'></script>
+<script type='text/javascript' src='../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/shBrushPhp9bab.js?ver=2.1.364b'></script>
+<script type='text/javascript' src='../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/shBrushCss9bab.js?ver=2.1.364b'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/styles/shCore9bab.css?ver=2.1.364b";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].appendChild(corecss);
+		var themecssurl = "../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/styles/shThemeDefault9bab.css?ver=2.1.364b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.getElementsByTagName("head")[0].appendChild(themecss);
+	})();
+	SyntaxHighlighter.config.clipboardSwf = '../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf';
+	SyntaxHighlighter.config.strings.expandSource = 'show source';
+	SyntaxHighlighter.config.strings.viewSource = 'view source';
+	SyntaxHighlighter.config.strings.copyToClipboard = 'copy to clipboard';
+	SyntaxHighlighter.config.strings.copyToClipboardConfirmation = 'The code is in your clipboard now';
+	SyntaxHighlighter.config.strings.print = 'print';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['auto-links'] = false;
+	SyntaxHighlighter.defaults['wrap-lines'] = false;
+	SyntaxHighlighter.all();
+</script>
+</body>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+</html>

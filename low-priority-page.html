@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Low Priority Page</title>
+	<meta name="robots" content="noodp, noydir" />
+	<meta name="description" content="I created this low priority page so Google Webmaster Tools will stop warning me about my single-page XML Sitemap that has a uniform priority setting." />
+	<link rel="canonical" href="low-priority-page.html" />
+	<link rel="stylesheet" href="wp-content/themes/freethesis/custom/custom0170.css?20120714-2235" type="text/css" />
+</head>
+<body class="custom low-priority-page">
+<div id="container">
+<div id="page">
+	<div id="header">
+		<div id="logo_mofo">
+			<div id="domain_mofo"><a href="index.html">SEO<span></span></a><b>mofo</b></div>
+			<div id="slogan_mofo">world's greatest seo</div>
+		</div>
+<ul class="menu">
+<li class="tab tab-1"><a href="about.html" title="About">About</a></li>
+<li class="tab tab-2"><a href="policy.html" title="Policy">Policy</a></li>
+</ul>
+
+<p id="breadcrumbs"><a href="index.html">SEO</a> &raquo; <strong>World&#8217;s Greatest Low Priority Page</strong></p>	</div>
+	<div id="content_box">
+		<div id="content">
+
+			<div class="post_box top" id="post-718">
+<div class="headline_area">
+		<div id="tm_box"></div>
+		<div id="tm_loading"></div>
+		<div id="tw_box"></div>
+		<div id="tw_loading"></div>
+					<h1>World&#8217;s Greatest Low Priority Page</h1>
+				</div>
+				<div class="format_text">
+<p class="info_mofo">
+I created this page a long time ago, when this site was nothing but a home page. However, some people seemed to enjoy it enough to submit it to Digg and link to it, so I&#8217;ve held onto it. The page you see here is the same content as the original; the only difference is I&#8217;ve pasted it into a WordPress page.
+</p>
+<p>
+This is the second page on my site. The first page was my home page (<a href="index.html">World&#8217;s Greatest SEO</a>), and that&#8217;s really the only page I needed, but apparently my simple one-page site has angered the Google gods. The reason for that is simple: my level of pathetic-ness has exceeded the imaginations of the Google engineers who programmed the Google Webmaster Tools.
+</p>
+<p>
+How&#8217;s that? Well, let me explain&#8230;
+</p>
+<p>
+There is a feature in Google&#8217;s Webmaster Tools that allows site owners to submit an XML Sitemap, which lists all the URLs for that site and defines the &#8220;priority&#8221; of each one. The Sitemap information is intended for search engines, and supposedly the priority setting tells a search engine which URLs you consider to be the most important ones on your website. So back in the good o&#8217; days, when I was rockin&#8217; the one-pager website, my XML Sitemap looked like this:
+</p>
+<p style="width:75%; text-align:left; margin-left:auto; margin-right:auto; padding:10px; border:2px dashed #000080; background-color:#e6e6ff; font-size:75%; font-family:courier new;">
+&lt;?xml version=&#8221;1.0&#8243; encoding=&#8221;UTF-8&#8243;?&gt;<br />
+<br />
+&lt;urlset<br />
+&nbsp;&nbsp;&nbsp;&nbsp;xmlns=&#8221;http://www.sitemaps.org/schemas/sitemap/0.9&#8243;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;xmlns:xsi=&#8221;http://www.w3.org/2001/XMLSchema-instance&#8221;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;xsi:schemaLocation=&#8221;http://www.sitemaps.org/schemas/sitemap/0.9<br />
+&nbsp;&nbsp;&nbsp;&nbsp;http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd&#8221;&gt;<br />
+<br />
+&lt;url&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;loc&gt;http://www.seomofo.com/&lt;/loc&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;priority&gt;1.0&lt;/priority&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;lastmod&gt;2008-06-23T09:07:53+00:00&lt;/lastmod&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;changefreq&gt;monthly&lt;/changefreq&gt;<br />
+&lt;/url&gt;<br />
+<br />
+&lt;/urlset><br />
+</p>
+<p>
+If you look closely, you&#8217;ll notice that the Sitemap contains only one &lt;url&gt;&lt;/url&gt; section, which of course was representin&#8217; for my only page&#8211;my home page. If you look with that url section, you&#8217;ll see &lt;priority&gt;1.0&lt;/priority&gt;, which is the priority setting I was telling you about. The number inside the priority tags is supposed to represent the <b>relative</b> priority of each URL you&#8217;ve listed, so therefore it only goes from 0.0 to 1.0, with 1.0 being the most important. So naturally, with my one page site, I&#8217;m gonna put 1.0 in there, right? Wouldn&#8217;t you? I mean&#8230; if I only have one page, then I&#8217;d say it&#8217;s a top-priority page! Well, according to Google Webmaster Tools&#8230; not so much. This is what they show me:
+</p>
+<p style="text-align:center;">
+<img src="img/xml-sitemap-warning.gif" alt="XML Sitemap warning from Google Webmaster Tools" style="margin-left:auto; margin-right:auto; border:1px solid #000080;" />
+</p>
+<p>
+In case you can&#8217;t read it, this is what it says:
+</p>				
+<blockquote style="color:#000080; font-style:italic;">
+<p>
+All the URLs in your Sitemap are set to the same priority (not the default priority). Priority indicates the importance of a particular URL relative to other URLs on your site, and doesn&#8217;t impact your site&#8217;s performance in search results. If all URLs have the same priority, Google can&#8217;t tell which are more important.
+</p>
+</blockquote>
+<p>
+When you think about how Google&#8217;s engineers would program this feature, you might imagine that they would write code that follows some kind of logic like this:
+</p>
+<div style="padding-left:20px;">
+<ol style="color:#008000;">
+<li>Check the priority setting for all URLs in the Sitemap</li>
+<li>See if the priority setting has been changed from 0.5 to something else</li>
+<li>If all URLs have the same priority setting, then throw a warning</li>
+</ol>
+</div>
+<p>
+I assume that it never occured to those Googlers that someone would be so pathetic that they would submit an XML Sitemap to Google Webmaster Tools for a website with only 1 page. Well&#8230; <b>I</b> am that pathetic. And I was tired of looking at that stupid warning message every time I logged in, so I took action. That&#8217;s right&#8230; I made a second page&#8211;the page you&#8217;re looking at! How do you like me now, Google?
+</p>
+<p style="width:75%; text-align:left; margin-left:auto; margin-right:auto; padding:10px; border:2px dashed #000080; background-color:#e6e6ff; font-size:75%; font-family:courier new;">
+&lt;?xml version=&#8221;1.0&#8243; encoding=&#8221;UTF-8&#8243;?&gt;<br />
+<br />
+&lt;urlset<br />
+&nbsp;&nbsp;&nbsp;&nbsp;xmlns=&#8221;http://www.sitemaps.org/schemas/sitemap/0.9&#8243;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;xmlns:xsi=&#8221;http://www.w3.org/2001/XMLSchema-instance&#8221;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;xsi:schemaLocation=&#8221;http://www.sitemaps.org/schemas/sitemap/0.9<br />
+&nbsp;&nbsp;&nbsp;&nbsp;http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd&#8221;&gt;<br />
+<br />
+&lt;url&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;loc&gt;http://www.seomofo.com/&lt;/loc&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;priority&gt;1.0&lt;/priority&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;lastmod&gt;2008-06-23T09:07:53+00:00&lt;/lastmod&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;changefreq&gt;monthly&lt;/changefreq&gt;<br />
+&lt;/url&gt;<br />
+<br />
+&lt;url&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;loc&gt;http://www.seomofo.com/low-priority-page.html&lt;/loc&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;priority&gt;0.1&lt;/priority&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;lastmod&gt;2008-07-26T07:07:00+00:00&lt;/lastmod&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;changefreq&gt;monthly&lt;/changefreq&gt;<br />
+&lt;/url&gt;<br />
+<br />
+&lt;/urlset><br />
+</p>
+<br />
+<p style="text-align:center;">
+Yeah, what&#8217;s up now? Huh?
+</p>
+<br />
+<p style="text-align:center;">
+<img src="img/xml-sitemap-fixed.gif" alt="The new XML Sitemap fixed the problem, and Google Webmaster Tools removed the warning." style="margin-left:auto; margin-right:auto; border:1px solid #000080;" />
+</p>
+<br />
+<p style="text-align:center;">
+That&#8217;s what I THOUGHT!
+</p>	<div id="widget_holder">
+	</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="sidebars">
+			<div id="sidebar_1" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-7">			<div class="textwidget"><div style="width:158px; margin:0; padding:4px 0; border:1px solid #7ABCF1; background-color:#F3F6FF; color:#006699; font-family:Georgia, 'Times New Roman', Times, serif; font-size:16px; line-height:16px; text-align:center; text-shadow:#CCC 0 1px 1px; -moz-border-radius:12px; -webkit-border-radius:12px;border-radius:12px;-moz-box-shadow: 0 0 5px #A8D3F5;-webkit-box-shadow: 0 0 5px #A8D3F5;box-shadow: 0 0 5px #A8D3F5;"><a href="snippet-optimizer.html" style="text-decoration:none;outline:none;"><span style="color: rgb(0, 57, 182);">G</span><span style="color: rgb(196, 18, 0);">o</span><span style="color: rgb(243, 197, 24);">o</span><span style="color: rgb(0, 57, 182);">g</span><span style="color: rgb(48, 167, 47);">l</span><span style="color: rgb(196, 18, 0);">e</span>&nbsp;SERP&nbsp;Snippet Optimization&nbsp;Tool</a></div></div>
+		</li><li class="widget widget_text" id="text-8"><div class="widget_heading">Pages</div>			<div class="textwidget">	<ul>
+		<li><a style="color: rgb(255, 76, 0);" href="middle-finger-cursors.html"><span style="color: rgb(255, 76, 0);"><b>FREE Middle Finger Cursors!</b></span></a></li>
+		<li><a href="low-priority-page.html">Low Priority Page</a></li>
+		<li><a href="google-instant-previews.html">Google Instant Previews</a></li>
+	</ul></div>
+		</li><li class="widget widget_categories" id="categories-3"><div class="widget_heading">Categories</div>		<ul>
+	<li class="cat-item cat-item-8"><a href="advanced/index.html" title="Advanced White Hat SEO">Advanced SEO</a> (4)
+</li>
+	<li class="cat-item cat-item-6"><a href="antisocial-media/index.html" title="Anti-Social Media + Antisocial Media">AntiSocial Media</a> (4)
+</li>
+	<li class="cat-item cat-item-11"><a href="experiments/index.html" title="View all posts filed under Experiments">Experiments</a> (7)
+</li>
+	<li class="cat-item cat-item-9"><a href="advanced/patents/index.html" title="Google Patents On Information Retrieval">Google Patents</a> (2)
+</li>
+	<li class="cat-item cat-item-12"><a href="google-sucks/index.html" title="Sometimes I Hate Google">Google Sucks</a> (6)
+</li>
+	<li class="cat-item cat-item-7"><a href="marketing/index.html" title="Internet Marketing">Marketing</a> (3)
+</li>
+	<li class="cat-item cat-item-13"><a href="speed/index.html" title="Page Speed &amp; Site Performance">Page Speed</a> (5)
+</li>
+	<li class="cat-item cat-item-10"><a href="orm/index.html" title="Online Reputation Management">Reputation Management</a> (6)
+</li>
+	<li class="cat-item cat-item-14"><a href="ethics/index.html" title="View all posts filed under SEO Ethics">SEO Ethics</a> (3)
+</li>
+	<li class="cat-item cat-item-17"><a href="experiments/serp/index.html" title="View all posts filed under SERP Experiments">SERP Experiments</a> (10)
+</li>
+	<li class="cat-item cat-item-5"><a href="wordpress/thesis/index.html" title="Thesis WordPress Theme">Thesis Theme</a> (6)
+</li>
+	<li class="cat-item cat-item-4"><a href="wordpress/index.html" title="WordPress SEO Tips">WordPress</a> (4)
+</li>
+		</ul>
+</li>				</ul>
+			</div>
+			<div id="sidebar_2" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-4">			<div class="textwidget"><div id="sub_box"></div></div>
+		</li>				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<p id="copyright">Copyright&nbsp;&copy;&nbsp;2013&nbsp;Darren Slatten</p>
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+	//<![CDATA[
+	mofoImgs = document.getElementsByTagName("img");
+	if (mofoImgs.length > 0) {
+		mofoLazyPics = new Array();
+		for (var i = 0; i < mofoImgs.length; i++) {
+			mofoLazyPics[i] = mofoImgs[i].src;
+			mofoImgs[i].style.backgroundImage = "url(/img/throbber.gif)";
+			mofoImgs[i].style.backgroundRepeat = "no-repeat";
+			mofoImgs[i].style.backgroundPosition = "center center";
+			mofoImgs[i].setAttribute("src", "data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%00%00%00!%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00%00%02%02D%01%00%3B");
+		}
+	}
+	//]]>
+</script><script type="text/javascript">
+//<![CDATA[
+	var _gaq=[['_setAccount','UA-4827976-1'],['_setDomainName','.seomofo.com'],['_trackPageview'],['_trackPageLoadTime']];
+	(function(d,t){
+		var g=d.createElement(t);var s=d.getElementsByTagName(t)[0];
+		g.async=1;g.src='http://www.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s);
+	})(document,'script');
+//]]>
+</script><!-- 15 queries in 0.104 seconds. -->
+<script type='text/javascript' src='wp-content/themes/freethesis/custom/customac77.js?ver=20120628-1801'></script>
+</body>
+</html>

@@ -1,0 +1,515 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Advanced SEO for Affiliate Marketing Links</title>
+	<meta name="robots" content="noodp, noydir" />
+	<meta name="description" content="These advanced SEO techniques were developed specifically for affiliate marketers. Optimized for page speed, PageRank, and accessibility." />
+	<link rel="canonical" href="seo-for-affiliate-links.html" />
+	<link rel="pingback" href="../xmlrpc.php" />
+	<link rel="stylesheet" href="../wp-content/themes/freethesis/custom/custom0170.css?20120714-2235" type="text/css" />
+</head>
+<body class="custom">
+<div id="container">
+<div id="page">
+	<div id="header">
+		<div id="logo_mofo">
+			<div id="domain_mofo"><a href="../index.html">SEO<span></span></a><b>mofo</b></div>
+			<div id="slogan_mofo">world's greatest seo</div>
+		</div>
+<ul class="menu">
+<li class="tab tab-1"><a href="../about.html" title="About">About</a></li>
+<li class="tab tab-2"><a href="../policy.html" title="Policy">Policy</a></li>
+</ul>
+
+<p id="breadcrumbs"><a href="../index.html">SEO</a> &raquo; <a href="../advanced/index.html">Advanced SEO</a> &raquo; <strong>Advanced SEO for Affiliate Marketing Links</strong></p>	</div>
+	<div id="content_box">
+		<div id="content" class="hfeed">
+
+			<div class="post-2355 post type-post status-publish format-standard hentry category-advanced category-marketing category-speed post_box top" id="post-2355">
+<div class="headline_area">
+		<div id="tm_box"></div>
+		<div id="tm_loading"></div>
+		<div id="tw_box"></div>
+		<div id="tw_loading"></div>
+					<h1 class="entry-title">Advanced SEO for Affiliate Marketing Links</h1>
+					<p class="headline_meta">by <span class="author vcard fn">SEO Mofo</span> on <span class="published">Jun 14th, 2010</span></p>
+					<p class="headline_meta">in <span><a href="../advanced/index.html" title="View all posts in Advanced SEO" rel="category tag">Advanced SEO</a>, <a href="index.html" title="View all posts in Marketing" rel="category tag">Marketing</a>, <a href="../speed/index.html" title="View all posts in Page Speed" rel="category tag">Page Speed</a></span></p>
+				</div>
+				<div class="format_text entry-content">
+<p>
+<span class="afframe post-ad-right" title="CJ Zone 3"></span>
+<strong>Affiliate marketing</strong> is primarily about two things: (1) acquiring traffic, and (2) converting that traffic. In my experience, I find that affiliate marketers typically focus more of their time on the conversion rate/click-through rate side of things. However, since I don&#8217;t know a damn thing about conversion rates, this article will address the &#8220;traffic acquisition&#8221; side of things by discussing some <a href="../advanced/index.html" class="selfish">advanced SEO techniques</a> I&#8217;ve developed specifically for affiliate marketers. Some of this information can be applied to banner advertising-based sites as well.
+</p>
+<p class="notice_mofo">
+This article is going to get a bit technical. You&#8217;ll need to analyze my code examples and customize them to suit your needs. It&#8217;s not completely necessary to know JavaScript, but it will certainly help if you do. If you&#8217;re hoping to skim through this article in a few minutes&#8230;forget it. You won&#8217;t get anything out of it. If you&#8217;re hoping for some advanced SEO techniques for affiliate marketers that can minimize PageRank loss and make your pages load a lot faster, then you&#8217;re in the right place&#8230;but you&#8217;ll need to really pay attention. Grab a cup of coffee and then proceed.
+</p>
+<p class="info_mofo">
+<strong>Update: </strong>I wrote another post about the techniques mentioned in this post. It addresses the question of whether or not these techniques are permitted by the Google Webmaster Guidelines. Check it out: <a href="../ethics/using-javascript-to-hide-links.html">Using JavaScript to Hide Links from Google</a><br/>
+<br />
+Also, when I wrote that second post, I created a diagram of the SEO techniques mentioned in this post. If you are more of a visual learner, then I recommend you check it out: <a href="../img/lazy-loading-affiliate-marketing-anchors.png">lazy-loading affiliate marketing anchors</a>
+</p>
+<h2>Common SEO Issues of Affiliate Marketers</h2>
+<p>
+Let&#8217;s start by looking at a couple of SEO-related topics that are relevant to a large percentage of affiliate marketing websites&#8211;PageRank and page speed.
+</p>
+<h3>PageRank</h3>
+<p>
+There are a couple of different ways in which PageRank can affect the performance of your affiliate website&#8217;s rankings in Google&#8217;s search results. For one, you can hinder your rankings by bleeding your site&#8217;s PageRank through outbound links to affiliate URLs. Even if your affiliate links contain the <code>rel="nofollow"</code> attribute, there&#8217;s still a strong possibility that Google factors them into the calculation of the followed links&#8217; PageRank. In other words, just because the nofollowed links don&#8217;t pass PageRank to your affiliate URLs, that doesn&#8217;t necessarily mean your remaining links (i.e. the ones <strong>without</strong> the <code>rel="nofollow"</code> attribute) get a bigger slice of the PageRank pie. The mere presence of nofollowed affiliate links on your web pages might result in an overall loss of site-wide PageRank, a concept some of you may know as &#8220;PageRank evaporation.&#8221;
+</p>
+<p>
+The second way that PageRank might affect affiliate marketing sites is less common, but much more severe, and it has to do with Google&#8217;s Webmaster Guidelines. One of the things Google (i.e. Matt Cutts) has said repeatedly is that <strong>paid links must not pass PageRank</strong>. Now granted, paid links are not exactly the same as affiliate links, because theoretically (according to Google&#8217;s stupid reasoning) paid links are definitely NOT unbiased, editorial-grade endorsements of the linked content, whereas affiliate links might be. Personally, I&#8217;d rather avoid the issue entirely, by making sure <strong>none</strong> of my affiliate links pass PageRank.
+</p>
+<h3>Page Speed</h3>
+<p>
+<span class="afframe post-ad-right" title="CJ Zone 3"></span>
+As most of you know, Google has incorporated <a href="../speed/index.html" class="selfish">page speed</a> into its ranking algorithm. This is bad news for any affiliate sites that rely heavily on image links and ad banners, because these resources typically slow down the loading time of your pages.
+</p>
+<h2>Affiliate Link Optimization</h2>
+<p>
+Here are the basic goals I set for myself when developing my super-advanced SEO technique.
+</p>
+<h3>Don&#8217;t Lose PageRank</h3>
+<p>
+As an SEO&#8211;the best in the world, as a matter of fact&#8211;my primary concern is avoiding the potential &#8220;evaporation&#8221; of PageRank that might occur as the result of nofollowed affiliate links in my page content. Therefore, my super-advanced SEO solution must NOT rely on the use of the <code>rel="nofollow"</code> attribute.
+</p>
+<h3>Don&#8217;t Pass PageRank</h3>
+<p>
+In order to comply with Google&#8217;s Webmaster Guidelines, my extremely-advanced SEO solution must prevent search engines from crawling my affiliate links or passing PageRank through them.
+</p>
+<h3>Follow the FTC Guidelines</h3>
+<p>
+The Federal Trade Commission published their Guides Concerning the Use of Endorsements and Testimonials in Advertising, an 80-page document that can be summarized in 3 words: disclose paid endorsements. At least I think that summarizes it&#8230;honestly, I didn&#8217;t read any of it. My extra-super-advanced SEO solution should automatically identify affiliate links by applying some kind of unique styling or visual aid.
+</p>
+<h3>Don&#8217;t Slow Down My Page Speed</h3>
+<p>
+Affiliate-related content (links, images links, banner ads, etc.) must not delay the loading of my page content&#8230;at all.
+</p>
+<h3>Make it Degrade Gracefully</h3>
+<p>
+If you haven&#8217;t guessed yet, my &uuml;ber-advanced SEO solution is going to rely on JavaScript. Therefore, it should degrade gracefully in browsers that don&#8217;t have JavaScript enabled. Also, it shouldn&#8217;t negatively affect accessibility. So to all you SEOs and affiliate marketers out there who are rockin&#8217; screen readers or whatever&#8230;don&#8217;t worry, I gotcha covered.
+<span class="affiliate post-ad-center" id="adobe468x60" title="Adobe Dreamweaver 468x60"></span>
+</p>
+<h3>Make it Easy to Use</h3>
+<p>
+A small percentage of my dear readers are actually &#8220;advanced SEOs&#8221;&#8211;or advanced <em>anything</em>, for that matter&#8211;and I can publish a loosely-defined solution, confident that they will tweak my code or improve on it, in order to meet the specific needs of their website. However, the majority of you have the cognitive abilities of a small piece of driftwood, and for your sakes&#8230;my solution should be reasonably easy to implement.
+</p>
+<h2>My Incredibly-Advanced SEO Solution</h2>
+<p>
+Alright then, Woody, let&#8217;s dig in!
+</p>
+<h3>What You&#8217;ll Need</h3>
+<p>
+Here is a generalized list of the various files and page elements that we&#8217;ll be working with:
+</p>
+<ol>
+<li>external JavaScript file (e.g. <code>scripts.js</code>)</li>
+<li>external stylesheet (e.g. <code>styles.css</code>)</li>
+<li>robots.txt file (e.g. <code>robots.txt</code>)</li>
+<li>a web page that contains affiliate links</li>
+</ol>
+<h3>Step 1: Create the JavaScript</h3>
+<p>
+Paste the following JavaScript code into your external .js file. I have made lots of comments throughout it, in order to help you understand (and/or customize) the code.
+</p>
+<p class="info_mofo">
+<strong>Attribution:</strong> My code uses a utility function, called <code>hasClass()</code>, which is from the book JavaScript: The Definitive Guide, 5th Edition, by David Flanagan. Copyright 2006 O&#8217;Reilly Media, Inc. (ISBN: 0596101996).
+</p>
+<pre class="brush: jscript; collapse: true; light: false; toolbar: true;">
+/**
+  * Advanced SEO Technique for Affiliate Marketing Links
+  * Copyright 2010, Darren Slatten, http://www.SEOmofo.com/
+  * 
+  * The following code consists of 2 functions. The first 
+  * function is a utility function that requires 2 parameters:
+  * an element name and a CSS class name. It checks to see if
+  * the specified element (e) is a member of the specified class (c),
+  * and returns true or false. The element name can be either an
+  * id or a tag name. The class name can either be the only class
+  * assigned to the element OR it can be one of several CSS classes
+  * assigned to the element. This function is used by the second
+  * function.
+  * 
+  * The second function finds all &lt;span&gt; elements that have &quot;affiliate&quot;
+  * as one of their CSS classes and then turns them into affiliate
+  * links.
+  * 
+  */
+
+
+
+// Utility function for checking if an element (e) is a member of CSS class (c).
+function hasClass(e, c) {
+
+// If we passed the function a string, then get the element with that id.
+	if (typeof e == &quot;string&quot;) e = document.getElementById(e);
+
+// Declare the variable &quot;classes&quot; as the text value of our element's CSS classes.
+	var classes = e.className;
+
+// If our element doesn't have any CSS classes assigned to it, return false.
+	if (!classes) return false;
+
+// If our element has exactly one class and that class is (c), return true.
+	if (classes == c) return true;
+
+// If our element has multiple classes and one of them is (c), return true.
+	return e.className.search(&quot;\\b&quot; + c + &quot;\\b&quot;) != -1;
+};
+
+
+
+// Function for rendering affiliate links in a way that won't pass PageRank.
+function affiliateLinks(){
+
+// Declare local variables.
+	var theURL, theAnchorText, theTitle;
+
+// Declare the variable &quot;spans&quot; as the collection of all &lt;span&gt; elements.
+	var spans = document.getElementsByTagName('span');
+
+// Perform the following steps for every &lt;span&gt; element.
+	for (var i = 0; i&lt;spans.length; i++){
+
+// If the &lt;span&gt; element is part of the &quot;affiliate&quot; class...
+		if (hasClass(spans[i], 'affiliate')){
+
+// Use the content between the &lt;span&gt; tags as our affiliate link's anchor text.
+// Example: &lt;span class=&quot;affiliate&quot; title=&quot;Affiliate Site&quot;&gt;this will be our anchor text&lt;/span&gt;
+// The content doesn't have to be just text; it can be HTML too.
+// Example: &lt;span class=&quot;affiliate&quot; title=&quot;Affiliate Site&quot;&gt;&lt;img src=&quot;/banners/affiliate-logo.png&quot; /&gt;&lt;/span&gt;
+			theAnchorText = spans[i].innerHTML;
+
+// Get the value of the &lt;span&gt; element's title attribute, make it lowercase, and remove whitespace
+// characters from the beginning and end.
+			theTitle = spans[i].title.toLowerCase().replace(/^\s+|\s+$/g,&quot;&quot;);
+
+// Check the value of the &lt;span&gt; element's title attribute against the following possibilities.
+			switch (theTitle) {
+
+// If the &lt;span&gt; element's title is &quot;thesis&quot; then set our affiliate link's href to
+// &quot;http://www.seomofo.com/affiliate/thesis/&quot;
+				case 'thesis': theURL = 'http://www.seomofo.com/affiliate/thesis/'; break;
+
+// If the &lt;span&gt; element's title is &quot;thesis plans&quot; then set our affiliate link's href to
+// &quot;http://www.seomofo.com/affiliate/thesis/plans/&quot;
+				case 'thesis plans': theURL = 'http://www.seomofo.com/affiliate/thesis/plans/'; break;
+
+// If the &lt;span&gt; element's title doesn't match any of the possibilities I've provided, then make
+// my affiliate link do NOTHING when clicked on, because I f***ed up my code somewhere.
+				default: theURL = 'javascript: void(0)';
+			}
+
+// Insert the new affiliate link into its corresponding &lt;span&gt; element and copy the &lt;span&gt; element's
+// CSS classes (all of them) into the affiliate link's &lt;a&gt; tag.
+			spans[i].innerHTML = '&lt;a href=&quot;' + theURL + '&quot; class=&quot;' + spans[i].className + '&quot;&gt;' + theAnchorText + '&lt;/a&gt;';
+
+// Remove the title attribute from the &lt;span&gt; element, to prevent Firefox from displaying it in a tooltip.
+			spans[i].removeAttribute('title');
+		}
+	}
+}
+
+
+
+// Call the affiliateLinks function AFTER the document has finished loading.
+window.onload = function(){
+	affiliateLinks();
+}
+</pre>
+
+<h3>Step 2: Define the CSS Styles (Optional)</h3>
+<p>
+The following CSS code is an <strong>example</strong> showing how I have defined my affiliate links&#8217; styles. You don&#8217;t necessarily have to use my styles; you can use your own if you prefer.
+</p>
+<p>
+If you want to use this example, be aware that it assumes you have placed a cursor file, called <code>affiliate-link.cur</code>, in a directory called <code>/cursors/</code> on your web server. If you save your cursor in a different subdirectory, adjust the URL accordingly in the CSS code.
+</p>
+<p>
+Also be aware that this example assumes you have a 125px ad banner, called <code>thesis-125x125.gif</code>, in a directory called <code>/banners/</code> on your web server. You will obviously need to customize the code so it references ad banners you&#8217;re actually using on your site.
+</p>
+<p>
+You can use any cursor you&#8217;d like (perhaps one of these <a href="../middle-finger-cursors.html">middle finger cursors</a>?) or you can download a copy of the one I&#8217;m using, by clicking on it below.<br />
+</p>
+<p style="line-height:32px; height:32px; width:324px; vertical-align:middle; margin:0 auto; text-align:center; border: 1px solid rgb(122, 188, 241); padding:8px; color:rgb(0, 102, 153); font-family:Georgia,'Times New Roman',Times,serif; font-size: 16px; text-shadow:0pt 1px 1px rgb(204, 204, 204); -moz-border-radius-topleft: 12px; -moz-border-radius-topright: 12px; -moz-border-radius-bottomright: 12px; -moz-border-radius-bottomleft: 12px; -moz-box-shadow: 0pt 0pt 5px rgba(82, 168, 236, 0.5);"><a href="../img/cursors/affiliate-link.cur" style="outline:0; text-decoration:none;display:block;width:324px;height:32px;">
+To download this cursor, click here &rArr;&nbsp;&nbsp; <img src="../img/icons/affiliate-link.png" alt="Affiliate link cursor" width="32" height="32" style="margin:0; vertical-align:middle;" /></a>
+</p>
+<pre class="brush: css;">
+a.affiliate {
+	color:#339900;
+}
+a.affiliate:hover {
+	cursor:url('/cursors/affiliate-link.cur'), pointer;
+}
+a.affiliate span {
+	display:none;
+}
+#thesis125 {
+	width:125px;
+	height:125px;
+}
+#thesis125 a.affiliate {
+	display:block;
+	width:125px;
+	height:125px;
+	background:url('/banners/thesis-125x125.gif') transparent no-repeat;
+}
+</pre>
+
+<h3>Step 3: Link Your Web Page to the External Files</h3>
+<p>
+Assuming your file names are <code>styles.css</code> and <code>scripts.js</code>, you would need to put something like the following code in the &lt;head&gt; section of your web page:
+</p>
+<pre class="brush: xml;">
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/styles.css&quot; /&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/scripts.js&quot;&gt;&lt;/script&gt;
+</pre>
+
+<h3>Step 4: Block Search Engines from Viewing Your External Files</h3>
+<p>
+Google&#8217;s ability to crawl JavaScript links keeps getting better and better. However, in this case, the URLs are not actually in our web page&#8217;s HTML source code. The only markup Google will see is the empty <code>&lt;span;&gt;</code> tags. In order for Google to find our affiliate links, it would have to fetch our external JavaScript file first. To make sure this doesn&#8217;t happen, you would need to Disallow your JavaScript file in your robots.txt file.
+</p>
+<p>
+If you saved <code>scripts.js</code> in your site&#8217;s root directory, your code would look like this:
+</p>
+<pre>
+User-agent: *
+Disallow: /scripts.js
+</pre>
+<p>
+If you saved <code>scripts.js</code> in a subdirectory called <code>/nobots/</code>, your code would look like this:
+</p>
+<pre>
+User-agent: *
+Disallow: /nobots/scripts.js
+</pre>
+
+<h3>Step 5: Insert the HTML Code into Your Web Page</h3>
+<p>
+The final step is to mark up your web pages. After the content of your web page is finished loading, the <code>affiliateLinks()</code> function will be called, and the <code>&lt;span&gt;</code> tags that have the <code>affiliate</code> CSS class will be injected with affiliate links. The next section has some mark up examples.
+</p>
+<h2>HTML Markup Examples</h2>
+<p>
+The following examples should give you a better understanding of how the script works. For each example, I will show you the <strong>HTML before</strong> (i.e. before the script modifies it), the <strong>HTML after</strong>, the final result with <strong>JavaScript enabled</strong> and the final result with <strong>JavaScript disabled</strong>.
+</p>
+<p style="text-align:center;">
+<span class="afframe" title="CJ Zone 1"></span>
+</p>
+<br /><br /><br />
+
+<h3><strong>Simple Plain Text Link</strong></h3>
+<h4>HTML Before:</h4>
+<pre class="brush: xml; wrap-lines: true;">
+&lt;p&gt;
+	SEOmofo.com runs on the &lt;span class=&quot;affiliate&quot; title=&quot;Thesis&quot;&gt;Thesis Theme for WordPress&lt;/span&gt;.
+&lt;/p&gt;
+</pre>
+<h4>HTML After:</h4>
+<pre class="brush: xml; wrap-lines: true;">
+&lt;p&gt;
+	SEOmofo.com runs on the &lt;span class=&quot;affiliate&quot;&gt;&lt;a class=&quot;affiliate&quot; href=&quot;http://www.seomofo.com/affiliate/thesis/&quot;&gt;Thesis Theme for WordPress&lt;/a&gt;&lt;/span&gt;.
+&lt;/p&gt;
+</pre>
+<h4>Result with JavaScript Enabled:</h4>
+<p>
+	SEOmofo.com runs on the <span class="affiliate" title="Thesis">Thesis Theme for WordPress</span>.
+</p>
+<h4>Result with JavaScript Disabled:</h4>
+<p>
+	SEOmofo.com runs on the <span title="Thesis">Thesis Theme for WordPress</span>.
+</p>
+
+<br /><br /><br />
+
+<h3><strong>Another Plain Text Link</strong></h3>
+<h4>HTML Before:</h4>
+<pre class="brush: xml; wrap-lines: true;">
+&lt;p&gt;
+	Find out more about my site's WordPress theme, by reviewing the &lt;span class=&quot;affiliate&quot; title=&quot;Thesis Plans&quot;&gt;Thesis &lt;b&gt;plans and pricing&lt;/b&gt;&lt;/span&gt;.
+&lt;/p&gt;
+</pre>
+<h4>HTML After:</h4>
+<pre class="brush: xml; wrap-lines: true;">
+&lt;p&gt;
+	Find out more about my site’s WordPress theme, by reviewing the &lt;span class=&quot;affiliate&quot;&gt;&lt;a class=&quot;affiliate&quot; href=&quot;http://www.seomofo.com/affiliate/thesis/plans/&quot;&gt;Thesis &lt;b&gt;plans and pricing&lt;/b&gt;&lt;/a&gt;&lt;/span&gt;.
+&lt;/p&gt;
+</pre>
+<h4>Result with JavaScript Enabled:</h4>
+<p>
+	Find out more about my site&#8217;s WordPress theme, by reviewing the <span class="affiliate" title="Thesis Plans">Thesis <b>plans and pricing</b></span>.
+</p>
+<h4>Result with JavaScript Disabled:</h4>
+<p>
+	Find out more about my site&#8217;s WordPress theme, by reviewing the <span title="Thesis Plans">Thesis <b>plans and pricing</b></span>.
+</p>
+
+<br /><br /><br />
+
+<h3><strong>Image Link</strong></h3>
+<h4>HTML Before:</h4>
+<pre class="brush: xml; wrap-lines: true;">
+&lt;p&gt;
+	&lt;span class=&quot;affiliate post-ad-right&quot; id=&quot;adobe300x250&quot; title=&quot;Adobe 300x250&quot;&gt;&lt;/span&gt;
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel lorem ipsum, in vulputate purus. Nullam faucibus turpis vel ipsum vestibulum eleifend. Maecenas vel velit aliquet purus feugiat pellentesque.
+&lt;/p&gt;
+</pre>
+<h4>HTML After:</h4>
+<pre class="brush: xml; wrap-lines: true;">
+&lt;p&gt;
+	&lt;span class=&quot;affiliate post-ad-right&quot; id=&quot;adobe300x250&quot;&gt;&lt;a class=&quot;affiliate post-ad-right&quot; href=&quot;http://www.seomofo.com/affiliate/adobe/cs5/production-premium/&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel lorem ipsum, in vulputate purus. Nullam faucibus turpis vel ipsum vestibulum eleifend. Maecenas vel velit aliquet purus feugiat pellentesque.
+&lt;/p&gt;
+</pre>
+<h4>Result with JavaScript Enabled:</h4>
+<p>
+	<span class="affiliate post-ad-right" id="adobe300x250" title="Adobe 300x250"></span>
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel lorem ipsum, in vulputate purus. Nullam faucibus turpis vel ipsum vestibulum eleifend. Maecenas vel velit aliquet purus feugiat pellentesque.
+</p>
+<div style="clear:both;"></div>
+<h4>Result with JavaScript Disabled:</h4>
+<p>
+	<span class="post-ad-right" id="adobe300x250" title="Adobe 300x250"></span>
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel lorem ipsum, in vulputate purus. Nullam faucibus turpis vel ipsum vestibulum eleifend. Maecenas vel velit aliquet purus feugiat pellentesque.
+</p>
+
+
+
+<h2>Conclusion</h2>
+<p>
+The SEO techniques I&#8217;ve discussed in this article are best suited for affiliate marketers who work with niche sites. This is because the JavaScript example I provided contains a list of name/value pairs that tie the <code>title</code> attributes of the affiliate <code>&lt;span&gt;</code> elements to their corresponding affiliate link URLs. This kind of setup works fine for most people, but it doesn&#8217;t scale up very well. Affiliate sites that link to a large number of different advertisers and/or products would find it impractical to constantly update their JavaScript file. In those cases, the script could be modified so that the function takes an obfuscated URL as it&#8217;s argument, and then decodes it before injecting it back into the HTML source. (Obfuscating the URL keeps Google from randomly picking it out of your HTML and crawling it.)
+</p>
+<p>
+I&#8217;m planning on doing a follow-up article about advanced SEO for affiliate marketers. It will build upon the basic concepts in this article, by giving some examples that inject 3rd-party scripts, Flash objects, and iframes. Just to give you an idea of what&#8217;s possible with these techniques, I&#8217;ll leave you with a copy of the page speed test results of the page you just read. If you&#8217;re not sure how to read this, then I&#8217;ll give you a hint: the green line indicates where the page begins to appear in the user&#8217;s browser, the blue line indicates where the page is officially loaded (i.e. where Google stops the &#8220;Site Performance&#8221; stopwatch), and everything to the right of the blue line is all the stuff I lazy-loaded after the onload event fired. Or in other words&#8230;this technique just cut down on my page load time by about 82%!!! Click the image link below.
+</p>
+<p style="text-align:center;">
+<a href="../img/affiliate-speed-savings.png"><img src="../img/thumbnails/advanced-seo-affiliate-links.png" alt="Page speed savings from advanced SEO technique" width="72" height="72" style="margin:0 auto;border:2px solid blue;" /></a>
+</p>
+<p style="text-align:center;">
+<span class="afframe" title="CJ Zone 2"></span>
+</p>
+	<div id="widget_holder">
+	</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="sidebars">
+			<div id="sidebar_1" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-7">			<div class="textwidget"><div style="width:158px; margin:0; padding:4px 0; border:1px solid #7ABCF1; background-color:#F3F6FF; color:#006699; font-family:Georgia, 'Times New Roman', Times, serif; font-size:16px; line-height:16px; text-align:center; text-shadow:#CCC 0 1px 1px; -moz-border-radius:12px; -webkit-border-radius:12px;border-radius:12px;-moz-box-shadow: 0 0 5px #A8D3F5;-webkit-box-shadow: 0 0 5px #A8D3F5;box-shadow: 0 0 5px #A8D3F5;"><a href="../snippet-optimizer.html" style="text-decoration:none;outline:none;"><span style="color: rgb(0, 57, 182);">G</span><span style="color: rgb(196, 18, 0);">o</span><span style="color: rgb(243, 197, 24);">o</span><span style="color: rgb(0, 57, 182);">g</span><span style="color: rgb(48, 167, 47);">l</span><span style="color: rgb(196, 18, 0);">e</span>&nbsp;SERP&nbsp;Snippet Optimization&nbsp;Tool</a></div></div>
+		</li><li class="widget widget_text" id="text-8"><div class="widget_heading">Pages</div>			<div class="textwidget">	<ul>
+		<li><a style="color: rgb(255, 76, 0);" href="../middle-finger-cursors.html"><span style="color: rgb(255, 76, 0);"><b>FREE Middle Finger Cursors!</b></span></a></li>
+		<li><a href="../low-priority-page.html">Low Priority Page</a></li>
+		<li><a href="../google-instant-previews.html">Google Instant Previews</a></li>
+	</ul></div>
+		</li><li class="widget widget_categories" id="categories-3"><div class="widget_heading">Categories</div>		<ul>
+	<li class="cat-item cat-item-8"><a href="../advanced/index.html" title="Advanced White Hat SEO">Advanced SEO</a> (4)
+</li>
+	<li class="cat-item cat-item-6"><a href="../antisocial-media/index.html" title="Anti-Social Media + Antisocial Media">AntiSocial Media</a> (4)
+</li>
+	<li class="cat-item cat-item-11"><a href="../experiments/index.html" title="View all posts filed under Experiments">Experiments</a> (7)
+</li>
+	<li class="cat-item cat-item-9"><a href="../advanced/patents/index.html" title="Google Patents On Information Retrieval">Google Patents</a> (2)
+</li>
+	<li class="cat-item cat-item-12"><a href="../google-sucks/index.html" title="Sometimes I Hate Google">Google Sucks</a> (6)
+</li>
+	<li class="cat-item cat-item-7"><a href="index.html" title="Internet Marketing">Marketing</a> (3)
+</li>
+	<li class="cat-item cat-item-13"><a href="../speed/index.html" title="Page Speed &amp; Site Performance">Page Speed</a> (5)
+</li>
+	<li class="cat-item cat-item-10"><a href="../orm/index.html" title="Online Reputation Management">Reputation Management</a> (6)
+</li>
+	<li class="cat-item cat-item-14"><a href="../ethics/index.html" title="View all posts filed under SEO Ethics">SEO Ethics</a> (3)
+</li>
+	<li class="cat-item cat-item-17"><a href="../experiments/serp/index.html" title="View all posts filed under SERP Experiments">SERP Experiments</a> (10)
+</li>
+	<li class="cat-item cat-item-5"><a href="../wordpress/thesis/index.html" title="Thesis WordPress Theme">Thesis Theme</a> (6)
+</li>
+	<li class="cat-item cat-item-4"><a href="../wordpress/index.html" title="WordPress SEO Tips">WordPress</a> (4)
+</li>
+		</ul>
+</li>				</ul>
+			</div>
+			<div id="sidebar_2" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-4">			<div class="textwidget"><div id="sub_box"></div></div>
+		</li>				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<p id="copyright">Copyright&nbsp;&copy;&nbsp;2013&nbsp;Darren Slatten</p>
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+	//<![CDATA[
+	mofoImgs = document.getElementsByTagName("img");
+	if (mofoImgs.length > 0) {
+		mofoLazyPics = new Array();
+		for (var i = 0; i < mofoImgs.length; i++) {
+			mofoLazyPics[i] = mofoImgs[i].src;
+			mofoImgs[i].style.backgroundImage = "url(/img/throbber.gif)";
+			mofoImgs[i].style.backgroundRepeat = "no-repeat";
+			mofoImgs[i].style.backgroundPosition = "center center";
+			mofoImgs[i].setAttribute("src", "data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%00%00%00!%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00%00%02%02D%01%00%3B");
+		}
+	}
+	//]]>
+</script><script type="text/javascript">
+//<![CDATA[
+	var _gaq=[['_setAccount','UA-4827976-1'],['_setDomainName','.seomofo.com'],['_trackPageview'],['_trackPageLoadTime']];
+	(function(d,t){
+		var g=d.createElement(t);var s=d.getElementsByTagName(t)[0];
+		g.async=1;g.src='http://www.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s);
+	})(document,'script');
+//]]>
+</script><!-- 17 queries in 0.150 seconds. -->
+<script type='text/javascript' src='../wp-content/themes/freethesis/custom/customac77.js?ver=20120628-1801'></script>
+<script type='text/javascript' src='../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/shCore9bab.js?ver=2.1.364b'></script>
+<script type='text/javascript' src='../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/shBrushJScript9bab.js?ver=2.1.364b'></script>
+<script type='text/javascript' src='../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/shBrushCss9bab.js?ver=2.1.364b'></script>
+<script type='text/javascript' src='../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/shBrushXml9bab.js?ver=2.1.364b'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/styles/shCore9bab.css?ver=2.1.364b";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].appendChild(corecss);
+		var themecssurl = "../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/styles/shThemeDefault9bab.css?ver=2.1.364b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.getElementsByTagName("head")[0].appendChild(themecss);
+	})();
+	SyntaxHighlighter.config.clipboardSwf = '../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf';
+	SyntaxHighlighter.config.strings.expandSource = 'show source';
+	SyntaxHighlighter.config.strings.viewSource = 'view source';
+	SyntaxHighlighter.config.strings.copyToClipboard = 'copy to clipboard';
+	SyntaxHighlighter.config.strings.copyToClipboardConfirmation = 'The code is in your clipboard now';
+	SyntaxHighlighter.config.strings.print = 'print';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['auto-links'] = false;
+	SyntaxHighlighter.defaults['wrap-lines'] = false;
+	SyntaxHighlighter.all();
+</script>
+</body>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+</html>

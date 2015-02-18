@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Social Media Widgets</title>
+	<meta name="robots" content="none" />
+	<style type="text/css">
+		body{margin:0; padding:0; border:0; background-color:#FCFCFF;}
+		a{display:block; width:32px; height:32px; overflow:hidden; margin:0; padding:0; border:0;}
+		a:hover img{display:none;}
+		a img{margin:0;	padding:0; border:0;}
+		div{width:576px; height:112px; overflow:hidden; margin:0; padding:0; border:0;}
+		div div{width:32px; height:32px; float:left;}
+		div div#spacer{width:576px; height:80px; float:none; background:url('http://www.seomofo.com/img/mofo/share-and-bookmark.png') #FCFCFF no-repeat;}
+		#twitter{background:url('http://www.seomofo.com/img/icons/social/twitter.png') transparent no-repeat;}
+		#facebook{background:url('http://www.seomofo.com/img/icons/social/facebook.png') transparent no-repeat;}
+		#friend{background:url('http://www.seomofo.com/img/icons/social/friend.png') transparent no-repeat;}
+		#stumble-upon{background:url('http://www.seomofo.com/img/icons/social/stumble-upon.png') transparent no-repeat;}
+		#delicious{background:url('http://www.seomofo.com/img/icons/social/delicious.png') transparent no-repeat;}
+		#digg{background:url('http://www.seomofo.com/img/icons/social/digg.png') transparent no-repeat;}
+		#reddit{background:url('http://www.seomofo.com/img/icons/social/reddit.png') transparent no-repeat;}
+		#sphinn{background:url('http://www.seomofo.com/img/icons/social/sphinn.png') transparent no-repeat;}
+		#technorati{background:url('http://www.seomofo.com/img/icons/social/technorati.png') transparent no-repeat;}
+		#linkedin{background:url('http://www.seomofo.com/img/icons/social/linkedin.png') transparent no-repeat;}
+		#posterous{background:url('http://www.seomofo.com/img/icons/social/posterous.png') transparent no-repeat;}
+		#tumblr{background:url('http://www.seomofo.com/img/icons/social/tumblr.png') transparent no-repeat;}
+		#yahoo-buzz{background:url('http://www.seomofo.com/img/icons/social/yahoo-buzz.png') transparent no-repeat;}
+		#mixx{background:url('http://www.seomofo.com/img/icons/social/mixx.png') transparent no-repeat;}
+		#google-buzz{background:url('http://www.seomofo.com/img/icons/social/buzz.png') transparent no-repeat;}
+		#google{background:url('http://www.seomofo.com/img/icons/social/google.png') transparent no-repeat;}
+		#orkut{background:url('http://www.seomofo.com/img/icons/social/orkut.png') transparent no-repeat;}
+		#rss{background:url('http://www.seomofo.com/img/icons/social/rss.png') transparent no-repeat;}
+	</style>
+	<script type="text/javascript">
+		//<![CDATA[
+		var thePost = top.document;
+		var thePermalink = encodeURIComponent(thePost.location.href);
+		var theTitle = encodeURIComponent(thePost.title);
+		var theExcerpt = encodeURIComponent(getMetaContent('description'));
+		var theFeedlink = encodeURIComponent(getRSSFeedURL());
+		var theBlogname = encodeURIComponent(getBlogTitle());
+		var	theLinks = document.links;
+		function getMetaContent(metaName) {
+			var metas = thePost.getElementsByTagName('meta');
+			for (var i = 0; i<metas.length; i++) {
+				if (metas[i].name.toLowerCase() == metaName.toLowerCase()) {
+					return metas[i].content;
+				}
+			}
+			return null;
+		}
+		function getRSSFeedURL() {
+			var postHead = thePost.getElementsByTagName('head');
+			var headLinkTags = postHead[0].getElementsByTagName('link');
+			for (var i = 0; i<headLinkTags.length; i++) {
+				if (headLinkTags[i].rel.toLowerCase() == 'alternate') {
+					return headLinkTags[i].href;
+				}
+			}
+			return null;
+		}
+		function getBlogTitle() {
+			var postHead = thePost.getElementsByTagName('head');
+			var headLinkTags = postHead[0].getElementsByTagName('link');
+			for (var i = 0; i<headLinkTags.length; i++) {
+				if (headLinkTags[i].rel.toLowerCase() == 'alternate') {
+					return headLinkTags[i].title.replace(' RSS Feed', '');
+				}
+			}
+			return null;
+		}
+		function makeLinkURLs() {
+			for (var i = 0; i<theLinks.length; i++) {
+				theLinks[i].href = theLinks[i].href.replace('PERMALINK', thePermalink);
+				theLinks[i].href = theLinks[i].href.replace('TITLE', theTitle);
+				theLinks[i].href = theLinks[i].href.replace('EXCERPT', theExcerpt);
+				theLinks[i].href = theLinks[i].href.replace('BLOGNAME', theBlogname);
+				if (theLinks[i].href == document.location.href || theLinks[i].href == ''){
+					theLinks[i].href = getRSSFeedURL();
+				}
+				theLinks[i].href = theLinks[i].href.replace('FEEDLINK', theFeedlink);
+				theLinks[i].target = '_blank';
+			}
+		}
+		window.onload = function()
+		{
+			makeLinkURLs();
+		}
+		//]]>
+	</script>
+</head>
+<body>
+	<div>
+		<div id="spacer"></div>
+		<div><a href="http://twitter.com/home?status=TITLE%20-%20PERMALINK" id="twitter"><img src="http://www.seomofo.com/img/icons/social/twitter-2.png" width="32" height="32" alt="Twitter" /></a></div>
+		<div><a href="http://www.facebook.com/share.php?u=PERMALINK&amp;t=TITLE" id="facebook"><img src="http://www.seomofo.com/img/icons/social/facebook-2.png" width="32" height="32" alt="Facebook" /></a></div>
+		<div><a href="http://www.friendfeed.com/share?title=TITLE&amp;link=PERMALINK" id="friend"><img src="http://www.seomofo.com/img/icons/social/friend-2.png" width="32" height="32" alt="Stumble Upon" /></a></div>
+		<div><a href="http://www.stumbleupon.com/submit?url=PERMALINK&amp;title=TITLE" id="stumble-upon"><img src="http://www.seomofo.com/img/icons/social/stumble-upon-2.png" width="32" height="32" alt="Stumble Upon" /></a></div>
+		<div><a href="http://delicious.com/post?url=PERMALINK&amp;title=TITLE&amp;notes=EXCERPT" id="delicious"><img src="http://www.seomofo.com/img/icons/social/delicious-2.png" width="32" height="32" alt="Delicious" /></a></div>
+		<div><a href="http://digg.com/submit?phase=2&amp;url=PERMALINK&amp;title=TITLE&amp;bodytext=EXCERPT" id="digg"><img src="http://www.seomofo.com/img/icons/social/digg-2.png" width="32" height="32" alt="Digg" /></a></div>
+		<div><a href="http://reddit.com/submit?url=PERMALINK&amp;title=TITLE" id="reddit"><img src="http://www.seomofo.com/img/icons/social/reddit-2.png" width="32" height="32" alt="Reddit" /></a></div>
+		<div><a href="http://www.seomofo.com/orm/sphinn-sucks.html" id="sphinn"><img src="http://www.seomofo.com/img/icons/social/sphinn-2.png" width="32" height="32" alt="Sphinn" /></a></div>
+		<div><a href="http://technorati.com/faves?add=PERMALINK" id="technorati"><img src="http://www.seomofo.com/img/icons/social/technorati-2.png" width="32" height="32" alt="Technorati" /></a></div>
+		<div><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=PERMALINK&amp;title=TITLE&amp;source=BLOGNAME&amp;summary=EXCERPT" id="linkedin"><img src="http://www.seomofo.com/img/icons/social/linkedin-2.png" width="32" height="32" alt="Linked In" /></a></div>
+		<div><a href="http://posterous.com/share?linkto=PERMALINK&amp;title=TITLE&amp;selection=EXCERPT" id="posterous"><img src="http://www.seomofo.com/img/icons/social/posterous-2.png" width="32" height="32" alt="Posterous" /></a></div>
+		<div><a href="http://www.tumblr.com/share?v=3&amp;u=PERMALINK&amp;t=TITLE&amp;s=EXCERPT" id="tumblr"><img src="http://www.seomofo.com/img/icons/social/tumblr-2.png" width="32" height="32" alt="Tumblr" /></a></div>
+		<div><a href="http://buzz.yahoo.com/submit/?submitUrl=PERMALINK&amp;submitHeadline=TITLE&amp;submitSummary=EXCERPT&amp;submitCategory=science&amp;submitAssetType=text" id="yahoo-buzz"><img src="http://www.seomofo.com/img/icons/social/yahoo-buzz-2.png" width="32" height="32" alt="Yahoo Buzz" /></a></div>
+		<div><a href="http://www.mixx.com/submit?page_url=PERMALINK&amp;title=TITLE" id="mixx"><img src="http://www.seomofo.com/img/icons/social/mixx-2.png" width="32" height="32" alt="Mixx" /></a></div>
+		<div><a href="http://www.google.com/bookmarks/mark?op=edit&amp;bkmk=PERMALINK&amp;title=TITLE&amp;annotation=EXCERPT" id="google"><img src="http://www.seomofo.com/img/icons/social/google-2.png" width="32" height="32" alt="Google" /></a></div>
+		<div><a href="http://www.google.com/buzz/post?message=TITLE&url=PERMALINK" id="google-buzz"><img src="http://www.seomofo.com/img/icons/social/buzz-2.png" width="32" height="32" alt="Google Buzz" /></a></div>
+		<div><a href="http://promote.orkut.com/preview?nt=orkut.com&tt=TITLE&du=PERMALINK&cn=EXCERPT" id="orkut"><img src="http://www.seomofo.com/img/icons/social/orkut-2.png" width="32" height="32" alt="Orkut" /></a></div>
+		<div><a href="" id="rss"><img src="http://www.seomofo.com/img/icons/social/rss-2.png" width="32" height="32" alt="RSS Feed" /></a></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>WordPress Comments Slow Down Page Speed</title>
+	<meta name="robots" content="noodp, noydir" />
+	<meta name="description" content="Enabling comments and custom Gravatars on your WordPress blog can encourage visitors to participate, but it also negatively impacts your page speed." />
+	<link rel="canonical" href="comments-slow-page-speed.html" />
+	<link rel="pingback" href="../xmlrpc.php" />
+	<link rel="stylesheet" href="../wp-content/themes/freethesis/custom/custom0170.css?20120714-2235" type="text/css" />
+</head>
+<body class="custom">
+<div id="container">
+<div id="page">
+	<div id="header">
+		<div id="logo_mofo">
+			<div id="domain_mofo"><a href="../index.html">SEO<span></span></a><b>mofo</b></div>
+			<div id="slogan_mofo">world's greatest seo</div>
+		</div>
+<ul class="menu">
+<li class="tab tab-1"><a href="../about.html" title="About">About</a></li>
+<li class="tab tab-2"><a href="../policy.html" title="Policy">Policy</a></li>
+</ul>
+
+<p id="breadcrumbs"><a href="../index.html">SEO</a> &raquo; <a href="../antisocial-media/index.html">AntiSocial Media</a> &raquo; <strong>WordPress Comments Slow Down Page Speed</strong></p>	</div>
+	<div id="content_box">
+		<div id="content" class="hfeed">
+
+			<div class="post-1321 post type-post status-publish format-standard hentry category-antisocial-media category-experiments category-speed category-wordpress post_box top" id="post-1321">
+<div class="headline_area">
+		<div id="tm_box"></div>
+		<div id="tm_loading"></div>
+		<div id="tw_box"></div>
+		<div id="tw_loading"></div>
+					<h1 class="entry-title">WordPress Comments Slow Down Page Speed</h1>
+					<p class="headline_meta">by <span class="author vcard fn">SEO Mofo</span> on <span class="published">Feb 1st, 2010</span></p>
+					<p class="headline_meta">in <span><a href="../antisocial-media/index.html" title="View all posts in AntiSocial Media" rel="category tag">AntiSocial Media</a>, <a href="../experiments/index.html" title="View all posts in Experiments" rel="category tag">Experiments</a>, <a href="../speed/index.html" title="View all posts in Page Speed" rel="category tag">Page Speed</a>, <a href="index.html" title="View all posts in WordPress" rel="category tag">WordPress</a></span></p>
+				</div>
+				<div class="format_text entry-content">
+<img style="float:right;" width="240" height="240" src="../img/wp-comments-slow-page-speed.png" alt="The tortoise is WordPress and the ball and chain is Gravatar. Gravatar slows down WordPress...get it?" />
+<p> There has been a lot of buzz lately about page speed. Matt Cutts has commented about how page speed might be added as a signal to Google&#8217;s ranking algorithm, sometime in the future. Google has released the Site Performance feature in the Labs section of Google Webmaster Tools, <del>despite the fact that it&#8217;s useless</del>. And of course, all the popular SEO/SEM blogs have predictably started churning out virtually-useless blog posts about how to make your website faster. </p>
+<p class="info_mofo"><strong>Update: Apr 9, 2010</strong> &#8211; Google has officially announced that <a href="http://googlewebmastercentral.blogspot.com/2010/04/using-site-speed-in-web-search-ranking.html">page speed has already been added as a ranking signal</a>. That announcement, combined with this post, basically means you need to start cracking down on bullshit comments on your blog. If a comment doesn&#8217;t add to the post&#8217;s topic, then all it&#8217;s doing is hurting your site&#8217;s chances of ranking highly in Google. I&#8217;m not saying you should flip out and start deleting all the comments from your blog, but&#8230;well&#8230;yes, that&#8217;s exactly what I&#8217;m saying.</p>
+<p> Regardless of whether or not Google makes page speed a ranking factor, optimizing page load times and overall site speed is a best practice that all web developers should be mindful of. Besides, if the Site Performance Lab is any indication, I&#8217;d say Google won&#8217;t have their page speed data signal &#8220;production-ready&#8221; for another 15 years. Using the Google Toolbar to detect page load times is quite frankly one of the dumbest ideas I&#8217;ve ever heard, and I sincerely hope it&#8217;s just another scare tactic to get webmasters&#8217; minds off of SEO and PageRank (and onto something that actually benefits Google). I don&#8217;t know how Google collects the speed data they use in their AdSense quality score, but I pray to God it&#8217;s more robust than this Site Performance joke. Anyway, rants aside, the fact remains that everyone is suddenly very interested in making their websites faster&#8230;and this post is going to address one small piece of that puzzle: <strong>WordPress comments</strong>. </p>
+<h2>How does WordPress handle comments?</h2>
+<p> When WordPress responds to a page request, it has to figure out how to output the comments associated with that particular post. Here is a very basic overview of the steps WordPress follows: </p>
+<ol>
+	<li>Fetch the comments from the <code>wp_comments</code> database table.</li>
+	<li>For each comment that matches the page ID being served, loop through and insert the raw data into HTML code. Here&#8217;s a simplified example:</li>
+</ol>
+<p style="line-height:normal;"> <code>&lt;h6&gt;&lt;a href="<span style="color:#090;">comment_author_url</span>"&gt;<span style="color:#090;">comment_author</span>&lt;/a&gt;&lt;/h6&gt;</code><br />
+<code>&lt;p&gt;<span style="color:#090;">comment_date</span>&lt;/p&gt;</code><br />
+<code>&lt;p&gt;&lt;img src="http://www.gravatar.com/avatar/<span style="color:#090;">comment_author_email</span> /&gt;&lt;/p&gt;</code><br />
+<code>&lt;p&gt;<span style="color:#090;">comment_content</span>&lt;/p&gt;</code> </p>
+<h2>How does WordPress handle Gravatars?</h2>
+<p> If a post has 0 comments, the steps shown above end pretty quickly because there&#8217;s nothing more for WordPress to process. However, even if a post has several comments to process, the computation cost is relatively insignificant when you compare it to the cost of downloading each commenter&#8217;s Gravatar. In other words, WordPress can build the HTML page pretty quickly and send it to your browser, but then your browser still has to request the Gravatar images from gravatar.com. As you&#8217;re about to see, it is the multiple HTTP requests for Gravatar images that <em>really</em> slow down your pages. I&#8217;ll try to explain why that is&#8230;by giving you an overview of how Gravatar works (as I understand it). Here&#8217;s the gist: </p>
+<ol>
+	<li>For each comment, WordPress takes the commenter&#8217;s email address and applies the md5 hash algorithm to it (in order to protect commenters&#8217; email addresses).</li>
+	<li>The hash is attached to a gravatar.com URL, which creates the src destination for the Gravatar&#8217;s img tag. For example: <code>&lt;img src="<span class="uri_mofo">http://www.gravatar.com/avatar/3904bc1a75d86eb05dd07425214002df</span>" /&gt;</code></li>
+	<li>After the HTML page is sent to your browser, your browser sends a request to Gravatar&#8217;s servers for each Gravatar image embedded in the comments.</li>
+	<li>Gravatar&#8217;s servers check their records for the hashed email address. If it exists (meaning the email address was registered at gravatar.com), Gravatar returns the corresponding image. If it doesn&#8217;t exist, Gravatar redirects to your blog&#8217;s default image, which you can select from the WP admin menu for <code>Settings</code> &rarr; <code>Discussion</code>:</li>
+</ol>
+<p style="text-align:center;"> <img src="../img/wordpress-default-avatar-settings.png" alt="WordPress admin settings for default avatar" width="501" height="717" /> </p>
+<h2>Why do Gravatars slow down WordPress?</h2>
+<p> Enabling comments and custom Gravatars on your WordPress blog can definitely encourage your visitors to participate and join the conversation, but on the other hand, the Gravatar system has some inherent flaws that negatively impact your page speed. Here are some examples: </p>
+<ul>
+	<li>Every comment contains an img element that points to a <strong>unique URL</strong> on gravatar.com. This means that every single person who comments on your blog post is costing you an extra HTTP request&#8230;regardless of whether or not they&#8217;ve registered their email address at gravatar.com.</li>
+	<li>If a user is NOT registered at Gravatar.com, their image request will be redirected to the default location. This redirect means yet <em>another</em> HTTP request, either to your server or another gravatar.com URL (depending on what you set your default image as).</li>
+	<li>Several different src URLs return the same exact image. This is because every email address results in a unique hash, which in turn creates a unique URL. Many of these unique URLs will redirect to the default Gravatar image, because not all your visitors will be signed up for Gravatar. This triggers a &#8220;page speed tip&#8221; in Google Webmaster Tools that looks like this:</li>
+</ul>
+<div style="width:75%; margin:0 auto; font-family:arial, sans-serif; font-size:13px; overflow-x:scroll; line-height:normal; border:1px solid #000; padding:1em;">
+	<p> <strong>Serve resources from a consistent URL</strong><br />
+	<br />
+	The following resources have identical contents, but are served from different URLs. Serve these resources from a consistent URL to save <em>10.7</em> KB and <em>5</em> requests: </p>
+	<ul>
+		<li>http://www.gravatar.com/avatar/f5264f0487ece922e2f512b58e2bf1d8?s=48&amp;d=http%3A%2F%2Fwww.seomofo.com%2Fwp-content%2Fthemes%2Fthesis_16%2Fcustom%2Fimages%2Fgravatars%2Fc01.png%3Fs%3D48&amp;r=X</li>
+		<li>http://www.gravatar.com/avatar/f018690430517b80b907581087479ebf?s=48&amp;d=http%3A%2F%2Fwww.seomofo.com%2Fwp-content%2Fthemes%2Fthesis_16%2Fcustom%2Fimages%2Fgravatars%2Fc01.png%3Fs%3D48&amp;r=X</li>
+		<li>http://www.gravatar.com/avatar/5160428f6f123b4bd5b83924eb87fefd?s=48&amp;d=http%3A%2F%2Fwww.seomofo.com%2Fwp-content%2Fthemes%2Fthesis_16%2Fcustom%2Fimages%2Fgravatars%2Fc01.png%3Fs%3D48&amp;r=X</li>
+		<li>http://www.gravatar.com/avatar/d36c9a1e57814dfbf9f16457f3f53405?s=48&amp;d=http%3A%2F%2Fwww.seomofo.com%2Fwp-content%2Fthemes%2Fthesis_16%2Fcustom%2Fimages%2Fgravatars%2Fc01.png%3Fs%3D48&amp;r=X</li>
+		<li>http://www.gravatar.com/avatar/9081da00619e7205805ecc0735dda190?s=48&amp;d=http%3A%2F%2Fwww.seomofo.com%2Fwp-content%2Fthemes%2Fthesis_16%2Fcustom%2Fimages%2Fgravatars%2Fc01.png%3Fs%3D48&amp;r=X</li>
+		<li>http://www.gravatar.com/avatar/b958344045e263b90eb521a64aaedb4e?s=48&amp;d=http%3A%2F%2Fwww.seomofo.com%2Fwp-content%2Fthemes%2Fthesis_16%2Fcustom%2Fimages%2Fgravatars%2Fc01.png%3Fs%3D48&amp;r=X</li>
+	</ul>
+</div>
+<h2>Page Speed Testing</h2>
+<p> Below you&#8217;ll find some page speed data I collected, using <a href="http://www.webpagetest.org/">this web page speed tool</a>. It is the same tool Matt Cutts mentioned in his WebPro News interview. The page I used in this test was my article about how <a href="../antisocial-media/stupid-people-hate-new-rt.html">stupid people hate Twitter&#8217;s new retweet feature</a>, which had a total of 18 comments (from 10 unique users) at the time of testing. The detailed results are linked to below, but I&#8217;ve summarized the data results for you as well. </p>
+<p> <img src="../img/wordpress-page-speed-graph.png" alt="WordPress page speed graph comparing comments and Gravatars" class="mb2em" /> </p>
+<table cellspacing="0" cellpadding="0" style="width:100%; font-size:50%; line-height:normal; margin-bottom:6em;">
+	<tr style="font-weight:bold; text-align:right;">
+		<td></td>
+		<td>Load<br />Time</td>
+		<td>First<br />Byte</td>
+		<td>Start<br />Render</td>
+		<td>Requests</td>
+		<td>Bytes&nbsp;In</td>
+		<td>Bandwidth</td>
+	</tr>
+	<tr style="text-align:right;">
+		<td style="text-align:left; width:40%;">No Comments (1st View)</td>
+		<td>0.956</td>
+		<td>0.502</td>
+		<td>0.726</td>
+		<td>20</td>
+		<td>227 KB</td>
+		<td>4.09 Mbps</td>
+	</tr>
+	<tr style="text-align:right;">
+		<td style="text-align:left;">No Comments (2nd View)</td>
+		<td>0.695</td>
+		<td>0.537</td>
+		<td>0.689</td>
+		<td>2</td>
+		<td>9 KB</td>
+		<td></td>
+	</tr>
+	<tr style="text-align:right;">
+		<td style="text-align:left;">Comments | No Gravatars (1st View)</td>
+		<td>1.122</td>
+		<td>0.620</td>
+		<td>0.909</td>
+		<td>22</td>
+		<td>238 KB</td>
+		<td>3.90 Mbps</td>
+	</tr>
+	<tr style="text-align:right;">
+		<td style="text-align:left;">Comments | No Gravatars (2nd View)</td>
+		<td>0.876</td>
+		<td>0.677</td>
+		<td>0.829</td>
+		<td>2</td>
+		<td>20 KB</td>
+		<td></td>
+	</tr>
+	<tr style="text-align:right;">
+		<td style="text-align:left;">Comments | Gravatars Default = Blank (1st View)</td>
+		<td>1.191</td>
+		<td>0.629</td>
+		<td>0.917</td>
+		<td>37</td>
+		<td>253 KB</td>
+		<td>3.70 Mbps</td>
+	</tr>
+	<tr style="text-align:right;">
+		<td style="text-align:left;">Comments | Gravatars Default = Blank (2nd View)</td>
+		<td>1.037</td>
+		<td>0.673</td>
+		<td>0.804</td>
+		<td>8</td>
+		<td>23 KB</td>
+		<td></td>
+	</tr>
+	<tr style="text-align:right;">
+		<td style="text-align:left;">Comments | Gravatars Default = Mystery Man (1st View)</td>
+		<td>1.312</td>
+		<td>0.629</td>
+		<td>0.922</td>
+		<td>38</td>
+		<td>260 KB</td>
+		<td>3.12 Mbps</td>
+	</tr>
+	<tr style="text-align:right;">
+		<td style="text-align:left;">Comments | Gravatars Default = Mystery Man (2nd View)</td>
+		<td>1.025</td>
+		<td>0.662</td>
+		<td>0.793</td>
+		<td>8</td>
+		<td>23 KB </td>
+		<td></td>
+	</tr>
+	<tr style="text-align:right;">
+		<td style="text-align:left;">Comments | Gravatars Default = Custom (1st View)</td>
+		<td>1.215</td>
+		<td>0.633</td>
+		<td>0.911</td>
+		<td>37</td>
+		<td>265 KB</td>
+		<td>3.77 Mbps</td>
+	</tr>
+	<tr style="text-align:right;">
+		<td style="text-align:left;">Comments | Gravatars Default = Custom (2nd View)</td>
+		<td>1.031</td>
+		<td>0.675</td>
+		<td>0.822</td>
+		<td>8</td>
+		<td>23 KB</td>
+		<td></td>
+	</tr>
+</table>
+<p> <strong>For the full results of each speed test, click the links below:</strong> </p>
+<p style="font-family:monospace;"> No comments&nbsp;&bull;&nbsp;No Gravatars&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.webpagetest.org/result/100127_4MB4/">Speed Test 1</a><br />
+&nbsp;&nbsp;&nbsp;Comments&nbsp;&bull;&nbsp;No Gravatars&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.webpagetest.org/result/100127_4MB7/">Speed Test 2</a><br />
+&nbsp;&nbsp;&nbsp;Comments&nbsp;&bull;&nbsp;&nbsp;&nbsp;&nbsp;Gravatars&nbsp;&bull;&nbsp;Default is Blank&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.webpagetest.org/result/100127_4MBB/">Speed Test 3</a><br />
+&nbsp;&nbsp;&nbsp;Comments&nbsp;&bull;&nbsp;&nbsp;&nbsp;&nbsp;Gravatars&nbsp;&bull;&nbsp;Default is Mystery Man&nbsp;&rarr;&nbsp;<a href="http://www.webpagetest.org/result/100127_4MCD/">Speed Test 4</a><br />
+&nbsp;&nbsp;&nbsp;Comments&nbsp;&bull;&nbsp;&nbsp;&nbsp;&nbsp;Gravatars&nbsp;&bull;&nbsp;Default is Custom&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.webpagetest.org/result/100127_4MDK/">Speed Test 5</a> </p>
+<h2>What can I do to speed up my comments?</h2>
+<p>
+Here are some suggestions for speeding up your WordPress posts by optimizing your comment settings. I will try to list these based on how big of an impact they have on your page speed. The suggestions that could improve your page speed the most are listed first:
+</p>
+<ol>
+<li>Disable comments completely.</li>
+<li>Load comments dynamically (e.g. a button that says &#8220;click here to view comments&#8221;).</li>
+<li>Delete any comments that don&#8217;t add value to your post. (Ego boosts don&#8217;t add value.)</li>
+<li>Disable Gravatars.</li>
+<li>Set your default Gravatar to Blank.</li>
+<li>Set your default Gravatar to a custom image on your server.</li>
+<li>Restrict your Gravatar images to small dimensions (e.g. 32px).</li>
+</ol>
+<h3 id="kill-smiley">Kill the Smiley Faces!</h3>
+<p>
+I just thought of one more setting you can tweak to speed up your WordPress comments. You can UN-check the option that says &#8220;Convert emoticons like <code>&#58;&#45;&#41;</code> and <code>&#58;&#45;&#80;</code> to graphics on display.&#8221; This will prevent WordPress from having to request the emoticon images such as <img class="wp-smiley" alt=":-)" src="../wp-includes/images/smilies/icon_smile.gif"> and <img class="wp-smiley" alt=":-P" src="../wp-includes/images/smilies/icon_razz.gif">.
+</p>
+<p style="text-align:center;" >
+<img width="426" height="147" src="../img/convert-smilies-into-emoticons.png" alt="" />
+</p>
+<p class="info_mofo">
+Something I found interesting about WordPress is that the Mystery Man default Gravatar image is stored on gravatar.com. So the reason why the Blank avatar and my custom avatar returned faster page load speeds&#8230;is because they are both stored on my own server. Theoretically, you might be able to speed up your page loads by simply saving a copy of Mystery Man to your own server and designating it as your default (I&#8217;ll eventually write a post that explains how to do this). Older browsers will only maintain 2 connections to any given host, so if your web browser is requesting ALL the Gravatar images from www.gravatar.com, then it can only grab two at a time. On the other hand, if the default Gravatar image is located on your own server, then your web browser can grab it even when both www.gravatar.com connections are busy.
+</p>
+<h2>To put it all in perspective&#8230;</h2>
+<p>
+<img class="alignright" width="308" height="148" src="../img/neil-yeomans-tweet.png" alt="@rishil the difference is negligible in that article though. Google more bothered with 10-20 sec load times imo #travelsites" title="@rishil the difference is negligible in that article though. Google more bothered with 10-20 sec load times imo #travelsites" />
+After reading a Twitter response to this article, I realized that I wasn&#8217;t entirely clear about how much comments slow down WordPress posts&#8230;as a <em>relative</em> measurement. I&#8217;ll try to put it into perspective for you.
+</p>
+<p>
+First of all, I only ran the speed tests on one page, so certainly these <strong>results will vary</strong>, depending on variables such as:
+</p>
+<ul>
+<li>How fast is your server, compared to gravatar.com&#8217;s server?</li>
+<li>How many comments does the WordPress post have?</li>
+<li>How many of those comments are from unique visitors (i.e. unique email addresses)?</li>
+<li>What type of web browser are your visitors using to view the page?*</li>
+</ul>
+<p style="font-size:75%; line-height:1.25; width:90%; margin:2em auto;">
+* Older browsers only permitted 2 persistent connections per host. Newer browsers support more, and therefore multiple Gravatar images can be downloaded from www.gravatar.com in parallel. For more details, see the <a href="http://www.stevesouders.com/blog/2008/03/20/roundup-on-parallel-connections/">Roundup on Parallel Connections</a> by <a href="http://stevesouders.com/">website speed guru, Steve Souders</a>.
+</p>
+<p>
+One of the reasons why my test results only differ by a couple 10ths of a second is because my test page only had 18 comments, and only 10 of those were from unique email addresses. Also, I&#8217;ve been busy tweaking. My website, in order to improve overall performance. So <strong>try not to</strong> think in terms of my specific test page, because <strong>this data will mislead you</strong>:
+</p>
+<ol>
+<li>Without any comments, the test page loaded in = 0.956 seconds.<br /><code>t<sub>1</sub>&nbsp;&nbsp;=&nbsp;&nbsp;0.956s</code></li>
+<li>After I enabled the comments (with<strong>out</strong> Gravatars), the test page required an <em>additional</em> 0.166 seconds to load.<br /><code>t<sub>2</sub>&nbsp;&nbsp;=&nbsp;&nbsp;t<sub>1</sub> + 0.166s</code></li>
+<li>After I enabled the Gravatars, the test page required an <em>additional</em>&nbsp; 0.190 seconds to load.<br /><code>t<sub>3</sub>&nbsp;&nbsp;=&nbsp;&nbsp;t<sub>2</sub> + 0.190s&nbsp;&nbsp;=&nbsp;&nbsp;t<sub>1</sub> + 0.356s</code></li>
+</ol>
+<h3>Why is that data misleading?</h3>
+<p>
+It&#8217;s misleading because some of you [lesser intelligent] people don&#8217;t know the importance of <em><strong>relative</strong></em> measurements, and you&#8217;ll interpret my data to mean something like this:
+</p>
+<blockquote>
+<p>
+Hooray! Comments and avatars only slow down a WordPress post by 0.356 seconds! That&#8217;s totally&#8230;like&#8230;<em>not</em> a long time to wait. Social media <em>really is</em> the best internet marketing strategy evar, tee-hee! I&#8217;m gonna put a trillion comments on every page of my site! Even the comments on my comments will have comments!
+</p>
+</blockquote>
+<p>
+Instead, look at it from a glass-half-empty point of view:
+</p>
+<ol>
+<li>Without any comments, the test page loaded in some [unknown] amount of time.<br /><code>t<sub>1</sub>&nbsp;&nbsp;=&nbsp;&nbsp;<strong><var>x</var></strong></code></li>
+<li>After I enabled the comments (with<strong>out</strong> Gravatars), the test page took 17.3% longer to load.<br /><code>t<sub>2</sub>&nbsp;&nbsp;=&nbsp;&nbsp;(117.3%)(t<sub>1</sub>)</code></li>
+<li>After I enabled the Gravatars, the test page took 16.9% longer to load than the page without Gravatars. And compared to the first page (which had no comments and no Gravatars), the test page took 37.2% longer to load.<br /><code>t<sub>3</sub>&nbsp;&nbsp;=&nbsp;&nbsp;(116.9%)(t<sub>2</sub>)&nbsp;&nbsp;=&nbsp;&nbsp;(137.2%)(t<sub>1</sub>)</code></li>
+</ol>
+<h3>Get your math equations out of my face and just spell it out in plain English!</h3>
+<p>
+What I&#8217;m telling you is&#8230;<br />
+</p>
+<p>
+<strong>Adding 18 comments to my blog post made it 37.2% SLOWER.</strong>
+</p>
+<h3>I&#8217;m still not convinced!</h3>
+<p>
+Alright, I got another test case for you. This one is a comparison between two different posts on Outspoken Media: one that has 5 comments vs one that has 130 comments. The content isn&#8217;t exactly the same, but it&#8217;s close enough. No? It&#8217;s not close enough? You demand more-accurate testing? Fine, I copied the content portion of these posts, pasted it into empty HTML pages, hosted them on my own site, and ran the tests again on <em>just the content</em>. If you really want to see the difference, the results are here:&nbsp;&nbsp;<a href="http://www.webpagetest.org/result/100201_4SYC/">Page#1</a>&nbsp;&nbsp;<a href="http://www.webpagetest.org/result/100201_4SY6/">Page#2</a>. The only relevant information those results show is that the page with 130 comments has a slight disadvantage (due to an extra image) and takes 0.2 seconds longer to load (not including the comments, of course). Anyhow&#8230;let&#8217;s get to the important stuff now. Let&#8217;s compare the page load times of the actual posts&#8230;comments and all.
+</p>
+<h4>Speed Test #1</h4>
+<ul>
+<li>Post: <a href="http://outspokenmedia.com/online-marketing/you-just-suck/">It’s Not the Recession, You Just Suck</a></li>
+<li><strong>130</strong> comments</li>
+<li><strong>85</strong> unique Gravatars</li>
+<li>Average load time before cache: <strong>9.315</strong>s</li>
+<li>Average load time after cache: <strong>4.155</strong>s</li>
+<li><a href="http://www.webpagetest.org/result/100201_4SVA/">full test results</a></li>
+</ul>
+<h4>Speed Test #2</h4>
+<ul>
+<li>Post: <a href="http://outspokenmedia.com/seo/duplicate-content-penalties/">Penalties, issues and filtering; it’s all just confusing me</a></li>
+<li><strong>5</strong> comments</li>
+<li><strong>5</strong> unique Gravatars</li>
+<li>Average load time before cache: <strong>4.636</strong>s</li>
+<li>Average load time after cache: <strong>2.352</strong>s</li>
+<li><a href="http://www.webpagetest.org/result/100201_4SVJ/">full test results</a></li>
+</ul>
+<h3>In plain English</h3>
+<p>
+The results of this second set of tests indicate that&#8230;<br />
+</p>
+<p>
+<strong>Compared to the post with 5 comments&#8230;the post with 130 comments took roughly TWICE as long to load.</strong>
+</p>
+<h2 id="finale" style="text-align:center;">Grand Finale</h2>
+<p style="margin:1em auto; width:60%;">
+Click the small green button below to see the waterfall graph comparison between the 130-comment post and the 5-comment post.
+</p>
+<p style="text-align:center;">
+<img src="../img/show-graph.png" alt="Show waterfall graph comparison" onclick="this.src='../img/outspoken-media-page-speed-charts.png'; this.style.cursor='default'" style="cursor:pointer;" />
+</p>
+
+	<div id="widget_holder">
+	</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="sidebars">
+			<div id="sidebar_1" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-7">			<div class="textwidget"><div style="width:158px; margin:0; padding:4px 0; border:1px solid #7ABCF1; background-color:#F3F6FF; color:#006699; font-family:Georgia, 'Times New Roman', Times, serif; font-size:16px; line-height:16px; text-align:center; text-shadow:#CCC 0 1px 1px; -moz-border-radius:12px; -webkit-border-radius:12px;border-radius:12px;-moz-box-shadow: 0 0 5px #A8D3F5;-webkit-box-shadow: 0 0 5px #A8D3F5;box-shadow: 0 0 5px #A8D3F5;"><a href="../snippet-optimizer.html" style="text-decoration:none;outline:none;"><span style="color: rgb(0, 57, 182);">G</span><span style="color: rgb(196, 18, 0);">o</span><span style="color: rgb(243, 197, 24);">o</span><span style="color: rgb(0, 57, 182);">g</span><span style="color: rgb(48, 167, 47);">l</span><span style="color: rgb(196, 18, 0);">e</span>&nbsp;SERP&nbsp;Snippet Optimization&nbsp;Tool</a></div></div>
+		</li><li class="widget widget_text" id="text-8"><div class="widget_heading">Pages</div>			<div class="textwidget">	<ul>
+		<li><a style="color: rgb(255, 76, 0);" href="../middle-finger-cursors.html"><span style="color: rgb(255, 76, 0);"><b>FREE Middle Finger Cursors!</b></span></a></li>
+		<li><a href="../low-priority-page.html">Low Priority Page</a></li>
+		<li><a href="../google-instant-previews.html">Google Instant Previews</a></li>
+	</ul></div>
+		</li><li class="widget widget_categories" id="categories-3"><div class="widget_heading">Categories</div>		<ul>
+	<li class="cat-item cat-item-8"><a href="../advanced/index.html" title="Advanced White Hat SEO">Advanced SEO</a> (4)
+</li>
+	<li class="cat-item cat-item-6"><a href="../antisocial-media/index.html" title="Anti-Social Media + Antisocial Media">AntiSocial Media</a> (4)
+</li>
+	<li class="cat-item cat-item-11"><a href="../experiments/index.html" title="View all posts filed under Experiments">Experiments</a> (7)
+</li>
+	<li class="cat-item cat-item-9"><a href="../advanced/patents/index.html" title="Google Patents On Information Retrieval">Google Patents</a> (2)
+</li>
+	<li class="cat-item cat-item-12"><a href="../google-sucks/index.html" title="Sometimes I Hate Google">Google Sucks</a> (6)
+</li>
+	<li class="cat-item cat-item-7"><a href="../marketing/index.html" title="Internet Marketing">Marketing</a> (3)
+</li>
+	<li class="cat-item cat-item-13"><a href="../speed/index.html" title="Page Speed &amp; Site Performance">Page Speed</a> (5)
+</li>
+	<li class="cat-item cat-item-10"><a href="../orm/index.html" title="Online Reputation Management">Reputation Management</a> (6)
+</li>
+	<li class="cat-item cat-item-14"><a href="../ethics/index.html" title="View all posts filed under SEO Ethics">SEO Ethics</a> (3)
+</li>
+	<li class="cat-item cat-item-17"><a href="../experiments/serp/index.html" title="View all posts filed under SERP Experiments">SERP Experiments</a> (10)
+</li>
+	<li class="cat-item cat-item-5"><a href="thesis/index.html" title="Thesis WordPress Theme">Thesis Theme</a> (6)
+</li>
+	<li class="cat-item cat-item-4"><a href="index.html" title="WordPress SEO Tips">WordPress</a> (4)
+</li>
+		</ul>
+</li>				</ul>
+			</div>
+			<div id="sidebar_2" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-4">			<div class="textwidget"><div id="sub_box"></div></div>
+		</li>				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<p id="copyright">Copyright&nbsp;&copy;&nbsp;2013&nbsp;Darren Slatten</p>
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+	//<![CDATA[
+	mofoImgs = document.getElementsByTagName("img");
+	if (mofoImgs.length > 0) {
+		mofoLazyPics = new Array();
+		for (var i = 0; i < mofoImgs.length; i++) {
+			mofoLazyPics[i] = mofoImgs[i].src;
+			mofoImgs[i].style.backgroundImage = "url(/img/throbber.gif)";
+			mofoImgs[i].style.backgroundRepeat = "no-repeat";
+			mofoImgs[i].style.backgroundPosition = "center center";
+			mofoImgs[i].setAttribute("src", "data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%00%00%00!%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00%00%02%02D%01%00%3B");
+		}
+	}
+	//]]>
+</script><script type="text/javascript">
+//<![CDATA[
+	var _gaq=[['_setAccount','UA-4827976-1'],['_setDomainName','.seomofo.com'],['_trackPageview'],['_trackPageLoadTime']];
+	(function(d,t){
+		var g=d.createElement(t);var s=d.getElementsByTagName(t)[0];
+		g.async=1;g.src='http://www.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s);
+	})(document,'script');
+//]]>
+</script><!-- 17 queries in 0.189 seconds. -->
+<script type='text/javascript' src='../wp-content/themes/freethesis/custom/customac77.js?ver=20120628-1801'></script>
+</body>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+</html>

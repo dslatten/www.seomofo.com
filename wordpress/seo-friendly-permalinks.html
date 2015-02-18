@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Natural SEO-friendly Permalinks in WordPress</title>
+	<meta name="robots" content="noodp, noydir" />
+	<meta name="description" content="In this article, I will show you exactly how I achieved natural, SEO-friendly permalinks in WordPress, by installing plugins and customizing settings." />
+	<link rel="canonical" href="seo-friendly-permalinks.html" />
+	<link rel="pingback" href="../xmlrpc.php" />
+	<link rel="stylesheet" href="../wp-content/themes/freethesis/custom/custom0170.css?20120714-2235" type="text/css" />
+</head>
+<body class="custom">
+<div id="container">
+<div id="page">
+	<div id="header">
+		<div id="logo_mofo">
+			<div id="domain_mofo"><a href="../index.html">SEO<span></span></a><b>mofo</b></div>
+			<div id="slogan_mofo">world's greatest seo</div>
+		</div>
+<ul class="menu">
+<li class="tab tab-1"><a href="../about.html" title="About">About</a></li>
+<li class="tab tab-2"><a href="../policy.html" title="Policy">Policy</a></li>
+</ul>
+
+<p id="breadcrumbs"><a href="../index.html">SEO</a> &raquo; <a href="index.html">WordPress</a> &raquo; <strong>Natural SEO-friendly Permalinks in WordPress</strong></p>	</div>
+	<div id="content_box">
+		<div id="content" class="hfeed">
+
+			<div class="post-361 post type-post status-publish format-standard hentry category-wordpress post_box top" id="post-361">
+<div class="headline_area">
+		<div id="tm_box"></div>
+		<div id="tm_loading"></div>
+		<div id="tw_box"></div>
+		<div id="tw_loading"></div>
+					<h1 class="entry-title">Natural SEO-friendly Permalinks in WordPress</h1>
+					<p class="headline_meta">by <span class="author vcard fn">SEO Mofo</span> on <span class="published">Dec 1st, 2009</span></p>
+					<p class="headline_meta">in <span><a href="index.html" title="View all posts in WordPress" rel="category tag">WordPress</a></span></p>
+				</div>
+				<div class="format_text entry-content">
+<p>
+<img src="../img/natural-permalinks.png" alt="Natural Permalinks" class="alignright" width="144" height="288" style="margin:0 4em 2em 4em;" />
+After installing WordPress, one of the first things I needed to configure was my permalink structure. I read several articles on how to do this, but none of them had the information I was looking for. In fact, I was pretty shocked at how difficult it was for me to accomplish the permalinks used throughout this site. In this article, I will show you exactly how I achieved natural, SEO-friendly permalinks.
+</p>
+<h2 style="clear:both;">What does a natural SEO-friendly URL look like?</h2>
+<p>
+When I say <dfn>natural URL</dfn>, I&#8217;m talking about a URL that looks like it belongs to a <strong>static HTML web page</strong>. In other words, I want my URLs to look like they would if I wasn&#8217;t using WordPress at all.
+</p>
+<h3>Here is the static HTML website I&#8217;m trying to represent:</h3>
+<p>
+<img src="../img/static-html-file-structure.png" alt="SEOmofo.com with a static HTML file structure" class="alignleft" width="321" height="491" />
+</p>
+<h2 style="clear:both;">Why are natural permalinks better?</h2>
+<p>
+Because Matt Cutts says so. Watch this Matt Cutts video where he answers a question about file name extensions. If you don&#8217;t want to watch it&#8230;I&#8217;ll summarize it for you: Don&#8217;t strip your URLs of their file extensions. If it&#8217;s an HTML page, let it end with .html.
+</p>
+<div class="mofo_embed_youtube">
+<object width="560" height="340"><param name="movie" value="http://www.youtube.com/v/dSG6C33GwsE&amp;hl=en_US&amp;fs=1&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/dSG6C33GwsE&amp;hl=en_US&amp;fs=1&amp;rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="560" height="340"></embed></object>
+</div>
+<p>
+Okay, here&#8217;s how I achieved natural URLs:
+</p>
+<div style="clear:both; border:1px solid #CCC; background-color:#F3F6FF; -moz-border-radius:1em; -webkit-border-radius:1em; padding-left:2em; padding-right:2em;">
+<h2 style="margin-top:1em;">To-Do list for achieving natural URLs:</h2>
+<ol>
+<li>Add <span class="uri_mofo">.html</span> to the end of blog posts</li>
+<li>Add <span class="uri_mofo">.html</span> to the end of WordPress pages</li>
+<li>Remove category base (<span class="uri_mofo">/category/</span>)</li>
+<li>Add a trailing slash to the end of category archive pages</li>
+<li>Change the default location where Media is uploaded to <span class="uri_mofo">/img/</span> instead of <span class="uri_mofo">/wp-content/uploads/</span></li>
+</ol>
+</div>
+<h2 style="margin-top:3em;">Step 1: Add .html to the end of blog posts</h2>
+<p>
+The first step toward optimizing your permalinks is to change the default URL structure (<span class="uri_mofo">http://www.seomofo.com/?p=123</span>) to a custom URL structure. In order to do this, go to the Permalink Settings menu (Settings &rarr; Permalinks):
+</p>
+<p>
+<img src="../img/default-permalink-settings.png" alt="default permalink settings menu" class="aligncenter" width="550" height="467" />
+</p>
+<p>
+In my opinion (and keep in mind&#8230;I&#8217;m really, really smart), the ONLY custom URL structure that makes sense is this:
+</p>
+<div style="background-color:#F9F9F9; border:1px solid #DFDFDF; padding:6px 24px 3px 24px; margin:1em auto; width:502px;">
+<label style="font-family:'Lucida Grande',Verdana,Arial,'Bitstream Vera Sans',sans-serif; font-size:13px; line-height:18.2px;">
+<input name="selection" id="custom_selection" value="custom" checked="checked" type="radio" style="font-size:12px; line-height:14px; vertical-align:baseline; width:13px; height:13px; margin:2px 2px 1px 1px;">
+<span style="vertical-align:1px;">Custom Structure</span>
+</label>
+<input onclick="this.focus();this.select();" name="permalink_structure" id="permalink_structure" value="/%category%/%postname%.html" type="text" style="font-size:12px; line-height:14px; font-family:Consolas,Monaco,Courier,monospace; -moz-border-radius:.25em; -webkit-border-radius:.25em; background-color:#FFF; color:#000; vertical-align:middle; float:right;">
+</div>
+<p style="text-align:center;">
+[ BTW...this isn't a picture. You can copy this text. &uarr; ]
+</p>
+<h2 style="margin-top:3em;">Step 2: Add .html to the end of WordPress pages</h2>
+<p>
+Install this plugin, which <a href="http://www.introsites.co.uk/wordpress/html-on-pages-plugin.html">adds .html to WordPress pages</a>.
+</p>
+<h2 style="margin-top:3em;">Step 3: Remove category base</h2>
+<p>
+Install this plugin, which <a href="http://www.fortes.com/projects/wordpress/top-level-cats">removes the category base from WordPress URLs</a>.
+</p>
+<h2 style="margin-top:3em;">Step 4: Add a trailing slash to the end of category archive pages</h2>
+<p>
+Install this plugin, which <a href="http://wordpress.org/extend/plugins/permalink-trailing-slash-fixer/">adds a trailing slash to the end of category URLs</a>.
+</p>
+<p>
+<b>This plugin requires a simple modification.</b> This plugin will add a trailing slash to category pages AND regular WordPress pages. We only want it to apply to category pages, otherwise we will end up with page URLs like this:<br /><br />
+<span class="uri_mofo">http://www.seomofo.com/about.html/</span>
+</p>
+<p>
+To prevent the plugin from adding a trailing slash to our WordPress pages, open the plugin in your editor and locate this code:
+<pre class="brush: php;">
+function ppm_fixe_trailingslash($url, $type)
+{
+	if ('single' === $type)
+		return $url;
+
+	return trailingslashit($url);
+}
+</pre>
+Replace it with this modified code:
+<pre class="brush: php;">
+function ppm_fixe_trailingslash($url, $type)
+{
+	if ('single' === $type)
+		return $url;
+	if ('page' === $type)
+		return $url;
+	return trailingslashit($url);
+}
+</pre>
+</p>
+<p class="notice_mofo">
+If you have any other plugins that use your permalinks (e.g. the Google XML Sitemaps plugin), they will need to be initiated AFTER your permalinks have been modified by the plugins mentioned above. You can do this by editing the main plugin file and changing the name (the part after &#8220;Plugin Name:&#8221; that&#8217;s usually on line 2 or 3 of the code) to something higher in the alphabetical order. For example, I saved a second copy of the &#8220;Permalink Trailing Slash Fixer&#8221; plugin and named it &#8220;<strong>A</strong> Permalink Trailing Slash Fixer.&#8221; It now appears in my WP admin dashboard BEFORE the Google XML Sitemap Generator plugin, and therefore&#8230;my Sitemap URLs are the modified versions. (Tip: to make sure you&#8217;re still notified when the plugin needs to be updated, keep a deactivated copy of the original file&#8211;the one with the original name&#8211;with your other plugins.)
+</p>
+<h2 style="margin-top:3em;">Step 5: Change the Media folder to <span class="uri_mofo">/img/</span></h2>
+<p>
+This step is optional. Personally, I think storing all your images in a folder like <span class="uri_mofo">/wp-content/uploads/</span> is kinda lame. I&#8217;d much prefer a traditional folder name like <span class="uri_mofo">/img/</span>. In order to make this happen, go to your Miscellaneous Settings menu (Settings &rarr; Miscellaneous), and modify the defaults to something like this:
+</p>
+<p>
+<img src="../img/miscellaneous-settings.png" alt="WordPress Miscellaneous Settings menu" class="aligncenter" width="550" height="354" />
+</p>
+<p>
+If you&#8217;ve followed these steps exactly, you should now have a URL structure that gives no indication that you&#8217;re using WordPress. They should be clean, natural, and SEO-friendly.
+</p>
+<p>
+Now before you go&#8230;do me a favor and click every single one of these widgets:
+</p>	<div id="widget_holder">
+	</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="sidebars">
+			<div id="sidebar_1" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-7">			<div class="textwidget"><div style="width:158px; margin:0; padding:4px 0; border:1px solid #7ABCF1; background-color:#F3F6FF; color:#006699; font-family:Georgia, 'Times New Roman', Times, serif; font-size:16px; line-height:16px; text-align:center; text-shadow:#CCC 0 1px 1px; -moz-border-radius:12px; -webkit-border-radius:12px;border-radius:12px;-moz-box-shadow: 0 0 5px #A8D3F5;-webkit-box-shadow: 0 0 5px #A8D3F5;box-shadow: 0 0 5px #A8D3F5;"><a href="../snippet-optimizer.html" style="text-decoration:none;outline:none;"><span style="color: rgb(0, 57, 182);">G</span><span style="color: rgb(196, 18, 0);">o</span><span style="color: rgb(243, 197, 24);">o</span><span style="color: rgb(0, 57, 182);">g</span><span style="color: rgb(48, 167, 47);">l</span><span style="color: rgb(196, 18, 0);">e</span>&nbsp;SERP&nbsp;Snippet Optimization&nbsp;Tool</a></div></div>
+		</li><li class="widget widget_text" id="text-8"><div class="widget_heading">Pages</div>			<div class="textwidget">	<ul>
+		<li><a style="color: rgb(255, 76, 0);" href="../middle-finger-cursors.html"><span style="color: rgb(255, 76, 0);"><b>FREE Middle Finger Cursors!</b></span></a></li>
+		<li><a href="../low-priority-page.html">Low Priority Page</a></li>
+		<li><a href="../google-instant-previews.html">Google Instant Previews</a></li>
+	</ul></div>
+		</li><li class="widget widget_categories" id="categories-3"><div class="widget_heading">Categories</div>		<ul>
+	<li class="cat-item cat-item-8"><a href="../advanced/index.html" title="Advanced White Hat SEO">Advanced SEO</a> (4)
+</li>
+	<li class="cat-item cat-item-6"><a href="../antisocial-media/index.html" title="Anti-Social Media + Antisocial Media">AntiSocial Media</a> (4)
+</li>
+	<li class="cat-item cat-item-11"><a href="../experiments/index.html" title="View all posts filed under Experiments">Experiments</a> (7)
+</li>
+	<li class="cat-item cat-item-9"><a href="../advanced/patents/index.html" title="Google Patents On Information Retrieval">Google Patents</a> (2)
+</li>
+	<li class="cat-item cat-item-12"><a href="../google-sucks/index.html" title="Sometimes I Hate Google">Google Sucks</a> (6)
+</li>
+	<li class="cat-item cat-item-7"><a href="../marketing/index.html" title="Internet Marketing">Marketing</a> (3)
+</li>
+	<li class="cat-item cat-item-13"><a href="../speed/index.html" title="Page Speed &amp; Site Performance">Page Speed</a> (5)
+</li>
+	<li class="cat-item cat-item-10"><a href="../orm/index.html" title="Online Reputation Management">Reputation Management</a> (6)
+</li>
+	<li class="cat-item cat-item-14"><a href="../ethics/index.html" title="View all posts filed under SEO Ethics">SEO Ethics</a> (3)
+</li>
+	<li class="cat-item cat-item-17"><a href="../experiments/serp/index.html" title="View all posts filed under SERP Experiments">SERP Experiments</a> (10)
+</li>
+	<li class="cat-item cat-item-5"><a href="thesis/index.html" title="Thesis WordPress Theme">Thesis Theme</a> (6)
+</li>
+	<li class="cat-item cat-item-4"><a href="index.html" title="WordPress SEO Tips">WordPress</a> (4)
+</li>
+		</ul>
+</li>				</ul>
+			</div>
+			<div id="sidebar_2" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-4">			<div class="textwidget"><div id="sub_box"></div></div>
+		</li>				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<p id="copyright">Copyright&nbsp;&copy;&nbsp;2013&nbsp;Darren Slatten</p>
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+	//<![CDATA[
+	mofoImgs = document.getElementsByTagName("img");
+	if (mofoImgs.length > 0) {
+		mofoLazyPics = new Array();
+		for (var i = 0; i < mofoImgs.length; i++) {
+			mofoLazyPics[i] = mofoImgs[i].src;
+			mofoImgs[i].style.backgroundImage = "url(/img/throbber.gif)";
+			mofoImgs[i].style.backgroundRepeat = "no-repeat";
+			mofoImgs[i].style.backgroundPosition = "center center";
+			mofoImgs[i].setAttribute("src", "data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%00%00%00!%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00%00%02%02D%01%00%3B");
+		}
+	}
+	//]]>
+</script><script type="text/javascript">
+//<![CDATA[
+	var _gaq=[['_setAccount','UA-4827976-1'],['_setDomainName','.seomofo.com'],['_trackPageview'],['_trackPageLoadTime']];
+	(function(d,t){
+		var g=d.createElement(t);var s=d.getElementsByTagName(t)[0];
+		g.async=1;g.src='http://www.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s);
+	})(document,'script');
+//]]>
+</script><!-- 17 queries in 0.091 seconds. -->
+<script type='text/javascript' src='../wp-content/themes/freethesis/custom/customac77.js?ver=20120628-1801'></script>
+<script type='text/javascript' src='../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/shCore9bab.js?ver=2.1.364b'></script>
+<script type='text/javascript' src='../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/shBrushPhp9bab.js?ver=2.1.364b'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/styles/shCore9bab.css?ver=2.1.364b";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].appendChild(corecss);
+		var themecssurl = "../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/styles/shThemeDefault9bab.css?ver=2.1.364b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.getElementsByTagName("head")[0].appendChild(themecss);
+	})();
+	SyntaxHighlighter.config.clipboardSwf = '../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf';
+	SyntaxHighlighter.config.strings.expandSource = 'show source';
+	SyntaxHighlighter.config.strings.viewSource = 'view source';
+	SyntaxHighlighter.config.strings.copyToClipboard = 'copy to clipboard';
+	SyntaxHighlighter.config.strings.copyToClipboardConfirmation = 'The code is in your clipboard now';
+	SyntaxHighlighter.config.strings.print = 'print';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['auto-links'] = false;
+	SyntaxHighlighter.defaults['wrap-lines'] = false;
+	SyntaxHighlighter.all();
+</script>
+</body>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+</html>

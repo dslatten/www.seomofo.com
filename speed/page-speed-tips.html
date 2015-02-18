@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Page Speed Optimization Tips You&#8217;ve Probably Never Heard Before</title>
+	<meta name="robots" content="noodp, noydir" />
+	<meta name="description" content="Site speed is now a factor in Google’s ranking algorithm. Here are some tips for optimizing your page load times, for SEO, SEM, and social media folks." />
+	<link rel="canonical" href="page-speed-tips.html" />
+	<link rel="pingback" href="../xmlrpc.php" />
+	<link rel="stylesheet" href="../wp-content/themes/freethesis/custom/custom0170.css?20120714-2235" type="text/css" />
+</head>
+<body class="custom">
+<div id="container">
+<div id="page">
+	<div id="header">
+		<div id="logo_mofo">
+			<div id="domain_mofo"><a href="../index.html">SEO<span></span></a><b>mofo</b></div>
+			<div id="slogan_mofo">world's greatest seo</div>
+		</div>
+<ul class="menu">
+<li class="tab tab-1"><a href="../about.html" title="About">About</a></li>
+<li class="tab tab-2"><a href="../policy.html" title="Policy">Policy</a></li>
+</ul>
+
+<p id="breadcrumbs"><a href="../index.html">SEO</a> &raquo; <a href="index.html">Page Speed</a> &raquo; <strong>Page Speed Optimization Tips You&#8217;ve Probably Never Heard Before</strong></p>	</div>
+	<div id="content_box">
+		<div id="content" class="hfeed">
+
+			<div class="post-1267 post type-post status-publish format-standard hentry category-speed post_box top" id="post-1267">
+<div class="headline_area">
+		<div id="tm_box"></div>
+		<div id="tm_loading"></div>
+		<div id="tw_box"></div>
+		<div id="tw_loading"></div>
+					<h1 class="entry-title">Page Speed Optimization Tips You&#8217;ve Probably Never Heard Before</h1>
+					<p class="headline_meta">by <span class="author vcard fn">SEO Mofo</span> on <span class="published">Apr 12th, 2010</span></p>
+					<p class="headline_meta">in <span><a href="index.html" title="View all posts in Page Speed" rel="category tag">Page Speed</a></span></p>
+				</div>
+				<div class="format_text entry-content">
+<p>
+Well&#8230;it&#8217;s official. Matt Cutts has announced that <a href="http://www.mattcutts.com/blog/site-speed/">site speed is now a factor in Google&#8217;s ranking algorithm</a>. Cue the mass hysteria, worthless recap blog posts, and stupid comments!
+</p>
+<p>
+Instead of rehashing the same shit that all the other SEO blogs have already beaten to death, I&#8217;m going to introduce a handful of unique page speed optimization tips that I came up with myself. As you might expect from someone like me, these tips are a little bit&#8230;let&#8217;s say&#8230;unorthodox. If by chance you haven&#8217;t already learned the basics of optimizing your site speed, then I highly recommend you read Steve Souders&#8217; <a href="http://stevesouders.com/hpws/rules.php">14 Rules for Faster-Loading Web Sites</a>, which explains the following best practices:
+</p>
+<ol class="nopad">
+	<li>Make Fewer HTTP Requests</li>
+	<li>Use a Content Delivery Network</li>
+	<li>Add an Expires Header</li>
+	<li>Gzip Components</li>
+	<li>Put Stylesheets at the Top</li>
+	<li>Put Scripts at the Bottom</li>
+	<li>Avoid CSS Expressions</li>
+	<li>Make JavaScript and CSS External</li>
+	<li>Reduce DNS Lookups</li>
+	<li>Minify JavaScript</li>
+	<li>Avoid Redirects</li>
+	<li>Remove Duplicate Scripts</li>
+	<li>Configure ETags</li>
+	<li>Make AJAX Cacheable</li>
+</ol>
+<p>
+In addition to those rules, here are a few of my own page speed tips. These are geared more towards SEO, SEM, and social media folks.
+</p>
+<h2>Page Speed Tip #1: Cut Your Comments</h2>
+<p>
+Let&#8217;s be honest&#8230;none of your blog readers have anything intelligent to say. Sure, it makes you feel good when lots of people comment on your blog posts, but you need to weigh that feeling against the feeling of <strong>ranking well in Google</strong>. What do I mean by that? Well&#8230;to put it simply: <a href="../wordpress/comments-slow-page-speed.html">WordPress blog comments slow down your page speed</a>&#8230;A LOT. The more comments you receive on each blog post, the longer it takes to load that page. Plus, there&#8217;s a strong chance that the comments are de-emphasizing the important keywords in your post anyway. Here is a brief list of options you can consider, in order to reduce the page speed slowing effects of WordPress comments:
+</p>
+<ul>
+	<li>Disable comments.</li>
+	<li>Disable Gravatars.</li>
+	<li>Delete off-topic comments.</li>
+	<li>Don&#8217;t show comments until a user clicks &#8220;View Comments&#8221; button. Don&#8217;t let Google click the button.</li>
+</ul>
+<h2>Page Speed Tip #2: Scrap Your Scripts</h2>
+<p>
+Don&#8217;t load scripts from your pages unless you really need them. One thing I see quite often is sites that have multiple traffic-analysis scripts embedded in each page. Website owners are usually borderline-obsessive about their website&#8217;s traffic statistics, and sometimes they go overboard with the tracking scripts. Do you really need more than one? Probably not. Pick one and delete the rest. In my experience, the most common cases of excessive tracking scripts are:
+<ul>
+	<li>WordPress blogs that use Google Analytics + WP Stats</li>
+	<li>eCommerce sites that use Google Analytics + shopping cart software&#8217;s default tracking script</li>
+	<li>Sites that switched from Brand X to Google Analytics (or vice versa), but never deleted the old script</li>
+</ul>
+<h2>Page Speed Tip #3: Whack Your Widgets</h2>
+<p>
+A simple strategy for increasing your content&#8217;s exposure on social media sites is to provide your visitors with an easy way to share your post with their friends. Virtually all social media networks offer buttons or widgets for you to embed in your blog posts and website pages. These widgets vary in complexity, but they all share a common characteristic: <strong>they slow down your page speed</strong>. The best way to address this problem is to use JavaScript to load the widgets into your page <em>after the page is finished loading everything else</em>. For a detailed explanation of this technique, check out my article on <a href="../wordpress/tweetmeme-retweet-button.html">how to install the TweetMeme retweet button without the slow page loads</a>. If you&#8217;re not smart enough to pull off something that fancy, then try one of these inferior options:
+</p>
+<ul>
+	<li>Delete all your widgets. Social media is for losers anyway.</li>
+	<li>Replace script-based widgets with their HTML equivalents.</li>
+	<li>If you use multiple inline images for your social media links/buttons, then combine them into one image, and set it as the background image for the block element that contains your social media links. For an example of this, read <a href="../experiments/6-small-images-vs-1-large.html">Page Speed: 6 Small Images vs. 1 Large Image</a>.</li>
+</ul>
+
+<h2>Page Speed Tip #4: Stop Supporting IE6</h2>
+<p>
+The days of bending over backwards for IE6 users are over. Those cavemen are never going to upgrade to a modern browser if you keep catering to their needs. Adopt a new policy: fuck Internet Explorer 6 and anyone who uses it. You might be wondering what this has to do with page speed. I&#8217;ll tell you. Google&#8217;s primary means of measuring your site speed is through the Google Toolbar. That means users who have the Google Toolbar installed are sending information about your page load times to Google, as they browse your site. Now let&#8217;s imagine two different websites:
+</p>
+<p style="width:75%; margin:1em auto;">
+<strong>Website A</strong> is old school. It was built a few years ago, and it was designed to support Internet Explorer 6. In order to accomplish that, the site uses several hacks and workarounds. For example, it has a stylesheet specifically dedicated to IE6, and it has conditional IE tags in the HTML code that contain an IE6-specific script for handling PNG images with transparency.
+</p>
+<p style="width:75%; margin:2em auto;">
+<strong>Website B</strong> doesn&#8217;t support IE6. It was designed to comply with the W3C standards, and it doesn&#8217;t use any hacks at all.
+</p>
+<p>
+If these two sites are identical in every other way, which one will be faster? Obviously, Website B would be faster. In fact, Website B would be faster in all browsers&#8230;including IE6! If your site serves IE-specific stylesheets and scripts, then Internet Explorer 6 has to process those files in addition to the default files. The other browsers wouldn&#8217;t request the IE-specific files, but they would still have to download lines of code that are of no use. Any way you cut it, supporting IE6 slows down your site and hurts your rankings.
+</p>
+<p>
+For the advanced SEOs out there&#8230;you might consider installing a server-side script that detects IE6 user-agents and serves them a blank page. The Google Toolbar is available for IE6, so users who have it installed will automatically tell Google your page loaded in like 0.1 seconds! You know&#8230;because it&#8217;s blank? Never mind.
+</p>
+
+
+
+	<div id="widget_holder">
+	</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="sidebars">
+			<div id="sidebar_1" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-7">			<div class="textwidget"><div style="width:158px; margin:0; padding:4px 0; border:1px solid #7ABCF1; background-color:#F3F6FF; color:#006699; font-family:Georgia, 'Times New Roman', Times, serif; font-size:16px; line-height:16px; text-align:center; text-shadow:#CCC 0 1px 1px; -moz-border-radius:12px; -webkit-border-radius:12px;border-radius:12px;-moz-box-shadow: 0 0 5px #A8D3F5;-webkit-box-shadow: 0 0 5px #A8D3F5;box-shadow: 0 0 5px #A8D3F5;"><a href="../snippet-optimizer.html" style="text-decoration:none;outline:none;"><span style="color: rgb(0, 57, 182);">G</span><span style="color: rgb(196, 18, 0);">o</span><span style="color: rgb(243, 197, 24);">o</span><span style="color: rgb(0, 57, 182);">g</span><span style="color: rgb(48, 167, 47);">l</span><span style="color: rgb(196, 18, 0);">e</span>&nbsp;SERP&nbsp;Snippet Optimization&nbsp;Tool</a></div></div>
+		</li><li class="widget widget_text" id="text-8"><div class="widget_heading">Pages</div>			<div class="textwidget">	<ul>
+		<li><a style="color: rgb(255, 76, 0);" href="../middle-finger-cursors.html"><span style="color: rgb(255, 76, 0);"><b>FREE Middle Finger Cursors!</b></span></a></li>
+		<li><a href="../low-priority-page.html">Low Priority Page</a></li>
+		<li><a href="../google-instant-previews.html">Google Instant Previews</a></li>
+	</ul></div>
+		</li><li class="widget widget_categories" id="categories-3"><div class="widget_heading">Categories</div>		<ul>
+	<li class="cat-item cat-item-8"><a href="../advanced/index.html" title="Advanced White Hat SEO">Advanced SEO</a> (4)
+</li>
+	<li class="cat-item cat-item-6"><a href="../antisocial-media/index.html" title="Anti-Social Media + Antisocial Media">AntiSocial Media</a> (4)
+</li>
+	<li class="cat-item cat-item-11"><a href="../experiments/index.html" title="View all posts filed under Experiments">Experiments</a> (7)
+</li>
+	<li class="cat-item cat-item-9"><a href="../advanced/patents/index.html" title="Google Patents On Information Retrieval">Google Patents</a> (2)
+</li>
+	<li class="cat-item cat-item-12"><a href="../google-sucks/index.html" title="Sometimes I Hate Google">Google Sucks</a> (6)
+</li>
+	<li class="cat-item cat-item-7"><a href="../marketing/index.html" title="Internet Marketing">Marketing</a> (3)
+</li>
+	<li class="cat-item cat-item-13"><a href="index.html" title="Page Speed &amp; Site Performance">Page Speed</a> (5)
+</li>
+	<li class="cat-item cat-item-10"><a href="../orm/index.html" title="Online Reputation Management">Reputation Management</a> (6)
+</li>
+	<li class="cat-item cat-item-14"><a href="../ethics/index.html" title="View all posts filed under SEO Ethics">SEO Ethics</a> (3)
+</li>
+	<li class="cat-item cat-item-17"><a href="../experiments/serp/index.html" title="View all posts filed under SERP Experiments">SERP Experiments</a> (10)
+</li>
+	<li class="cat-item cat-item-5"><a href="../wordpress/thesis/index.html" title="Thesis WordPress Theme">Thesis Theme</a> (6)
+</li>
+	<li class="cat-item cat-item-4"><a href="../wordpress/index.html" title="WordPress SEO Tips">WordPress</a> (4)
+</li>
+		</ul>
+</li>				</ul>
+			</div>
+			<div id="sidebar_2" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-4">			<div class="textwidget"><div id="sub_box"></div></div>
+		</li>				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<p id="copyright">Copyright&nbsp;&copy;&nbsp;2013&nbsp;Darren Slatten</p>
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+	//<![CDATA[
+	mofoImgs = document.getElementsByTagName("img");
+	if (mofoImgs.length > 0) {
+		mofoLazyPics = new Array();
+		for (var i = 0; i < mofoImgs.length; i++) {
+			mofoLazyPics[i] = mofoImgs[i].src;
+			mofoImgs[i].style.backgroundImage = "url(/img/throbber.gif)";
+			mofoImgs[i].style.backgroundRepeat = "no-repeat";
+			mofoImgs[i].style.backgroundPosition = "center center";
+			mofoImgs[i].setAttribute("src", "data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%00%00%00!%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00%00%02%02D%01%00%3B");
+		}
+	}
+	//]]>
+</script><script type="text/javascript">
+//<![CDATA[
+	var _gaq=[['_setAccount','UA-4827976-1'],['_setDomainName','.seomofo.com'],['_trackPageview'],['_trackPageLoadTime']];
+	(function(d,t){
+		var g=d.createElement(t);var s=d.getElementsByTagName(t)[0];
+		g.async=1;g.src='http://www.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s);
+	})(document,'script');
+//]]>
+</script><!-- 17 queries in 0.093 seconds. -->
+<script type='text/javascript' src='../wp-content/themes/freethesis/custom/customac77.js?ver=20120628-1801'></script>
+</body>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+</html>

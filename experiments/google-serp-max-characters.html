@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>How Many Characters in Google&#8217;s *New* SERP Title? Snippet? URL?</title>
+	<meta name="robots" content="noodp, noydir" />
+	<link rel="canonical" href="google-serp-max-characters.html" />
+	<link rel="pingback" href="../xmlrpc.php" />
+	<link rel="stylesheet" href="../wp-content/themes/freethesis/custom/custom0170.css?20120714-2235" type="text/css" />
+</head>
+<body class="custom">
+<div id="container">
+<div id="page">
+	<div id="header">
+		<div id="logo_mofo">
+			<div id="domain_mofo"><a href="../index.html">SEO<span></span></a><b>mofo</b></div>
+			<div id="slogan_mofo">world's greatest seo</div>
+		</div>
+<ul class="menu">
+<li class="tab tab-1"><a href="../about.html" title="About">About</a></li>
+<li class="tab tab-2"><a href="../policy.html" title="Policy">Policy</a></li>
+</ul>
+
+<p id="breadcrumbs"><a href="../index.html">SEO</a> &raquo; <a href="index.html">Experiments</a> &raquo; <strong>How Many Characters in Google&#8217;s *New* SERP Title? Snippet? URL?</strong></p>	</div>
+	<div id="content_box">
+		<div id="content" class="hfeed">
+
+			<div class="post-3706 post type-post status-publish format-standard hentry category-experiments post_box top" id="post-3706">
+<div class="headline_area">
+		<div id="tm_box"></div>
+		<div id="tm_loading"></div>
+		<div id="tw_box"></div>
+		<div id="tw_loading"></div>
+					<h1 class="entry-title">How Many Characters in Google&#8217;s *New* SERP Title? Snippet? URL?</h1>
+					<p class="headline_meta">by <span class="author vcard fn">SEO Mofo</span> on <span class="published">Jan 17th, 2012</span></p>
+					<p class="headline_meta">in <span><a href="index.html" title="View all posts in Experiments" rel="category tag">Experiments</a></span></p>
+				</div>
+				<div class="format_text entry-content">
+<h2>The Quick Answer:</h2>
+<img src="../img/serp-snippet-example.png" alt="SERP snippet example" width="288" height="288" class="alignright size-full wp-image-3733" style="margin-left:0;" />
+<dl>
+<dt>Title</dt>
+<dd>As many characters<strong style="color:#c00">&#x2020;</strong> as you can fit into a block element that&#8217;s 512px wide and doesn&#8217;t exceed 1 line of text.</dd>
+<dt>Snippet/Description</dt>
+<dd>As many characters<strong style="color:#c00">&#x2021;</strong> as you can fit into a block element that&#8217;s 512px wide and doesn&#8217;t exceed 3 lines of text. (These limits are for normal queries; long queries have higher limits.)</dd>
+<dt>Display URL</dt>
+<dd>70 characters or less and can fit into a block element that&#8217;s 512px wide.</dd>
+</dl>
+<p>
+<small><strong style="color:#c00">&#x2020;</strong> usually ~70 characters or fewer</small><br />
+<small><strong style="color:#c00">&#x2021;</strong> usually ~156 characters or fewer</small>
+</p>
+
+<h2>The <abbr title="do it yourself" style="font-family:Georgia,Times,'Times New Roman',serif;">DIY</abbr> Answer:</h2>
+
+<p>
+Don&#8217;t take my word for it; <strong>use the bookmarklet below to figure it out for yourself!</strong> Just drag the bookmarklet onto your bookmark toolbar (in other words, save it like any other bookmark), adjust your Google search preferences to show 100 results at a time (optional), search for something in Google, and click on the bookmarklet (with Google&#8217;s SERP still active in your browser). If everything works the way it&#8217;s supposed to, you should see a draggable table of SERP data appear. Give it a try!
+</p>
+
+<div style="text-align:center;margin-bottom:5em">
+<h3 style="margin:5em 0 2em 0">Drag this to your bookmark bar and click it while viewing a Google SERP:</h3>
+<p>
+<a class="button" href="javascript:(function(){var serpScript=document.createElement('script');document.getElementsByTagName('head')[0].appendChild(serpScript).src='http://github.seomofo.com/serp-characters/serp-char-counter.js';document.getElementsByTagName('head')[0].removeChild(serpScript);})();" onclick="return false">Google SERP Character Counter</a>
+</p>
+</div>
+<h2>The Long Answer</h2>
+<p>
+It has been awhile since I&#8217;ve updated my <a href="../snippet-optimizer.html">Google SERP Snippet Optimization Tool</a>, and Google has been <strong>constantly</strong> redesigning their SERP interface since then, so I figured I&#8217;d run some tests and see if the maximum character counts have changed.
+</p>
+<p>
+To figure out the max values previously, I had manually copied + pasted random SERP content into Excel and rigged up some custom functions/filters to count characters. That&#8217;s kind of a pain in the ass, especially since Google changes their interface roughly 87 times per day, so this time I wanted to use a test method that&#8217;s easier to update.
+</p>
+<p>
+I decided that the best solution was a bookmarklet that I could run directly from a Google search result page (and distribute to others, so they can verify results for themselves). I wrote a JavaScript function that traverses the SERP DOM, scrapes the Title content from each listing, counts the characters, measures the width, throws everything into a nice-looking table, and then automatically finds the maximum character count and maximum width (in pixels). Then I modified the bookmarklet to work with snippet content (aka, the meta description content) and the content of the <em>displayed</em> URLs (i.e., the URLs shown in green text).
+</p>
+<h3>Find a bug&#8230;get a link!</h3>
+<p>
+If you find bugs, errors, etc. while using these bookmarklets, then please let me know. As an incentive, I&#8217;ll give a big fat juicy backlink to anyone who reports a legitimate bug they found in my bookmarklets.
+</p>
+<h3 id="known-issues">Known Issues</h3>
+<h4>CSS-generated Ellipses Might Be Hiding Characters</h4>
+<p>
+Google&#8217;s SERP titles use a CSS property called <code>text-overflow</code> with a value set to <code>ellipsis</code>. This CSS declaration causes some titles to display fewer characters than are actually in the DOM node. In other words, if a title exceeds the 512px maximum width, the overflowing words/characters will be hidden from view in a web browser (i.e., replaced with an ellipsis), but the underlying HTML code will still contain the entire title. Therefore, in some instances, my bookmarklet will show a character count that is higher than the number of characters Users can actually see. (I&#8217;ve tried to program the title bookmarklet to highlight these instances (i.e., table rows) with a red-tinted background color, but I haven&#8217;t thoroughly tested this yet.)
+</p>
+<h4>Quick Answer Was Half-assed</h4>
+<p>
+The limits stated in the &#8220;Quick Answer&#8221; section are not 100% accurate. I&#8217;ve seen several anomalies that I have yet to investigate. If you run a bookmarklet and discover a SERP listing with character counts that defy the stated limits, then feel free to leave a comment about it. However, if you want to earn a link, you need to explain why the anomaly occurred. That is, simply identifying a discrepancy isn&#8217;t enough.
+</p>
+<h4>Google Instant Breaks Jump Links</h4>
+<p>
+If you have Google Instant enabled in your search settings, then your search results are probably being served from the URL: <span class="mofo_url"></span>, in which case the on-page anchors (i.e., the arrow links in the left column of each table row generated by these bookmarklets) will not work as intended. That is, instead of jumping to that SERP listing, you&#8217;ll be taken to the Google home page (more accurately: something that <em>looks</em> like the Google home page). If you want the jump links to function correctly, go to <a href="https://www.google.com/preferences">your Google search settings page</a> and toggle the <strong>Google Instant predictions</strong> option to <strong>OFF</strong>.
+</p>
+<h4>Google Chrome Complains About Inserting Non-secure Scripts Into HTTPS Pages</h4>
+<p>
+Github <em>Pages</em> apparently don&#8217;t support https requests, so these bookmarklets have to insert the external .js files via normal http requests. Depending on whether or not you&#8217;re signed into Google, the SERPs might be https&#8230;and if they are, some browsers (e.g., Chrome) are going to be all like WTF. Just ignore it and proceed anyway. I won&#8217;t steal your identity and empty your bank account, I promise.
+</p>
+<h3>Fork me, report issues, &amp; view the code on Github</h3>
+<p>
+You may have noticed that these bookmarklets do not execute the JavaScript code directly. Instead, they insert a script tag, which references <a href="https://github.com/SEOmofo/serp-characters">external .js files hosted on Github</a>. I did it this way for a number of reasons:
+</p>
+<ol>
+	<li style="padding:0;">Github can serve the files faster and more reliably.</li>
+	<li style="padding:0;">I can update the .js files on Github and magically update the functionality of everyone&#8217;s bookmarklet.</li>
+	<li style="padding:0;">You can use Github to submit bug reports, fork the code, make comments, etc. You won&#8217;t&#8230;but theoretically you <em>could</em>.</li>
+	<li style="padding:0;">Using Github makes me feel smarter and better than you.</li>
+</ol>
+<p class="info_mofo update">
+<strong>1/18/2012, 20:15 GMT:</strong> Changed bookmarklets to use <code>document.getElementsByTagName('head')[0]</code> instead of <code>document.head</code>. Thanks to Fabian Salomon for this suggestion.
+</p>
+<p class="info_mofo update">
+<strong>1/18/2012, 21:25 GMT:</strong> Fixed a bug in the snippet character counter that was caused by setting the initial value of the <var>minChar</var> variable too low. Thanks to Stefano Gorgoni, who is a <a href="http://www.stefanogorgoni.com/">professional SEO and certified Google Analytics expert in Malta, Italy</a>, for reporting this bug.
+</p>
+<p class="info_mofo update">
+<strong>1/18/2012, 22:50 GMT:</strong> Added info to the <a href="#known-issues">Known Issues</a> section. Thanks to Alan Bleiweiss, <a href="http://alanbleiweiss.com/">a search marketing professional, author, blogger, industry speaker, sustainable SEO best practices advocate and forensic SEO site auditor</a>, for bringing this to my attention.
+</p>
+<p class="info_mofo update">
+<strong>3/30/2012, 22:15 GMT:</strong> Changed the bookmarklet to my new all-in-one script.
+</p>
+<p class="info_mofo update">
+<strong>4/2/2012, 01:35 GMT:</strong> Updated the all-in-one script. Looks prettier. Fewer bugs.
+</p>	<div id="widget_holder">
+	</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="sidebars">
+			<div id="sidebar_1" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-7">			<div class="textwidget"><div style="width:158px; margin:0; padding:4px 0; border:1px solid #7ABCF1; background-color:#F3F6FF; color:#006699; font-family:Georgia, 'Times New Roman', Times, serif; font-size:16px; line-height:16px; text-align:center; text-shadow:#CCC 0 1px 1px; -moz-border-radius:12px; -webkit-border-radius:12px;border-radius:12px;-moz-box-shadow: 0 0 5px #A8D3F5;-webkit-box-shadow: 0 0 5px #A8D3F5;box-shadow: 0 0 5px #A8D3F5;"><a href="../snippet-optimizer.html" style="text-decoration:none;outline:none;"><span style="color: rgb(0, 57, 182);">G</span><span style="color: rgb(196, 18, 0);">o</span><span style="color: rgb(243, 197, 24);">o</span><span style="color: rgb(0, 57, 182);">g</span><span style="color: rgb(48, 167, 47);">l</span><span style="color: rgb(196, 18, 0);">e</span>&nbsp;SERP&nbsp;Snippet Optimization&nbsp;Tool</a></div></div>
+		</li><li class="widget widget_text" id="text-8"><div class="widget_heading">Pages</div>			<div class="textwidget">	<ul>
+		<li><a style="color: rgb(255, 76, 0);" href="../middle-finger-cursors.html"><span style="color: rgb(255, 76, 0);"><b>FREE Middle Finger Cursors!</b></span></a></li>
+		<li><a href="../low-priority-page.html">Low Priority Page</a></li>
+		<li><a href="../google-instant-previews.html">Google Instant Previews</a></li>
+	</ul></div>
+		</li><li class="widget widget_categories" id="categories-3"><div class="widget_heading">Categories</div>		<ul>
+	<li class="cat-item cat-item-8"><a href="../advanced/index.html" title="Advanced White Hat SEO">Advanced SEO</a> (4)
+</li>
+	<li class="cat-item cat-item-6"><a href="../antisocial-media/index.html" title="Anti-Social Media + Antisocial Media">AntiSocial Media</a> (4)
+</li>
+	<li class="cat-item cat-item-11"><a href="index.html" title="View all posts filed under Experiments">Experiments</a> (7)
+</li>
+	<li class="cat-item cat-item-9"><a href="../advanced/patents/index.html" title="Google Patents On Information Retrieval">Google Patents</a> (2)
+</li>
+	<li class="cat-item cat-item-12"><a href="../google-sucks/index.html" title="Sometimes I Hate Google">Google Sucks</a> (6)
+</li>
+	<li class="cat-item cat-item-7"><a href="../marketing/index.html" title="Internet Marketing">Marketing</a> (3)
+</li>
+	<li class="cat-item cat-item-13"><a href="../speed/index.html" title="Page Speed &amp; Site Performance">Page Speed</a> (5)
+</li>
+	<li class="cat-item cat-item-10"><a href="../orm/index.html" title="Online Reputation Management">Reputation Management</a> (6)
+</li>
+	<li class="cat-item cat-item-14"><a href="../ethics/index.html" title="View all posts filed under SEO Ethics">SEO Ethics</a> (3)
+</li>
+	<li class="cat-item cat-item-17"><a href="serp/index.html" title="View all posts filed under SERP Experiments">SERP Experiments</a> (10)
+</li>
+	<li class="cat-item cat-item-5"><a href="../wordpress/thesis/index.html" title="Thesis WordPress Theme">Thesis Theme</a> (6)
+</li>
+	<li class="cat-item cat-item-4"><a href="../wordpress/index.html" title="WordPress SEO Tips">WordPress</a> (4)
+</li>
+		</ul>
+</li>				</ul>
+			</div>
+			<div id="sidebar_2" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-4">			<div class="textwidget"><div id="sub_box"></div></div>
+		</li>				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<p id="copyright">Copyright&nbsp;&copy;&nbsp;2013&nbsp;Darren Slatten</p>
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+	//<![CDATA[
+	mofoImgs = document.getElementsByTagName("img");
+	if (mofoImgs.length > 0) {
+		mofoLazyPics = new Array();
+		for (var i = 0; i < mofoImgs.length; i++) {
+			mofoLazyPics[i] = mofoImgs[i].src;
+			mofoImgs[i].style.backgroundImage = "url(/img/throbber.gif)";
+			mofoImgs[i].style.backgroundRepeat = "no-repeat";
+			mofoImgs[i].style.backgroundPosition = "center center";
+			mofoImgs[i].setAttribute("src", "data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%00%00%00!%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00%00%02%02D%01%00%3B");
+		}
+	}
+	//]]>
+</script><script type="text/javascript">
+//<![CDATA[
+	var _gaq=[['_setAccount','UA-4827976-1'],['_setDomainName','.seomofo.com'],['_trackPageview'],['_trackPageLoadTime']];
+	(function(d,t){
+		var g=d.createElement(t);var s=d.getElementsByTagName(t)[0];
+		g.async=1;g.src='http://www.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s);
+	})(document,'script');
+//]]>
+</script><!-- 17 queries in 0.131 seconds. -->
+<script type='text/javascript' src='../wp-content/themes/freethesis/custom/customac77.js?ver=20120628-1801'></script>
+</body>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+</html>

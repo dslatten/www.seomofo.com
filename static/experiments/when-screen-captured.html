@@ -1,0 +1,427 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>When Does Google Take the Screen Capture Image for Instant Previews?</title>
+<meta name="robots" content="noodp, noydir" />
+<meta name="description" content="Google Instant Previews Experiment #01 &#8211; When is the Screen Captured? Find out how lazy-loading content might affect your SERP preview." />
+<link rel="stylesheet" href="wp-content/themes/freethesis/custom/custom0170.css?20120714-2235" type="text/css" />
+<link rel="canonical" href="http://www.seomofo.com/experiments/when-screen-captured.html" />
+<link rel="alternate" type="application/rss+xml" title="SEO Mofo » World&#039;s Greatest SEO RSS Feed" href="http://feeds.seomofo.com/seomofo" />
+<script type="text/javascript" src="/nobots/mofo-20110116.js"></script>
+<script type="text/javascript">
+	//<![CDATA[
+
+	function addLoadEvent(func) {
+		var oldonload = window.onload;
+		if (typeof window.onload != 'function') {
+			window.onload = func;
+		} else {
+			window.onload = function() {
+				func(); // Timer begins before lazy content begins loading
+				if (oldonload) {
+					oldonload(); // Lazy load sidebar, widgets, etc.
+				}
+			}
+		}
+	}
+
+	addLoadEvent(function() {
+		beginning = new Date();
+		showDate();
+		tickTock();
+	});
+
+	function tickTock(){
+		now = new Date();
+		timeElapsed = now.getTime() - beginning.getTime();
+		delete now;
+		secsElapsed = 0; hunsElapsed = 0; out = "";
+		secsElapsed = Math.floor(timeElapsed/1000);
+		timeElapsed = timeElapsed%1000;
+		hunsElapsed = Math.floor(timeElapsed/10);
+		timeElapsed = timeElapsed%10;
+		out += ((secsElapsed < 10) ? "0" : "") + secsElapsed + "<span class=\"dot\">.</span>";
+		out += ((hunsElapsed < 10) ? "0" : "") + hunsElapsed;
+		document.getElementById('numbox').innerHTML = out;
+		stopID = setTimeout("tickTock()", 10);
+	}
+
+	function showDate() {
+		var d = new Date();
+		var gmt = -d.getTimezoneOffset()/60;
+		var month = new Array(12);
+		month[0] = "Jan";
+		month[1] = "Feb";
+		month[2] = "Mar";
+		month[3] = "Apr";
+		month[4] = "May";
+		month[5] = "Jun";
+		month[6] = "Jul";
+		month[7] = "Aug";
+		month[8] = "Sep";
+		month[9] = "Oct";
+		month[10] = "Nov";
+		month[11] = "Dec";
+		var todaysDate = month[d.getUTCMonth()] + ' '  + d.getUTCDate() + '<span class="comma">,</span> ' + d.getUTCFullYear() + '<br />' + ((d.getUTCHours() < 10) ? "0" : "") + d.getUTCHours() + '<span class="colon">:</span>' + ((d.getUTCMinutes() < 10) ? "0" : "") + d.getUTCMinutes() + '  GMT' + '<br />' + ((d.getHours() < 10) ? "0" : "") + d.getHours() + '<span class="colon">:</span>' + ((d.getMinutes() < 10) ? "0" : "") + d.getMinutes() + '  local<br />' + 'GMT  ' + gmt;
+		document.getElementById('datebox').innerHTML = todaysDate;
+	}
+
+	//]]>
+</script>
+<style type="text/css">
+	#test-area{
+		width:572px;
+		margin:0 0 128px 0;
+		padding:0;
+		background-color:#F2FCFF;
+		border:2px solid #0CF;
+		text-align:center;
+		-moz-border-radius: 16px;
+		-webkit-border-radius: 16px;
+		border-radius: 16px;
+	}
+	#test-heading{
+		font-size:64px;
+		line-height:64px;
+		font-family:Georgia, "Times New Roman", Times, serif;
+		color:#F60;
+		font-weight:bold;
+		text-shadow:0 0 1px #AAA;
+		margin:32px 0;
+	}
+	#numbox{
+		font-size:180px;
+		color:#0CF;
+		margin-bottom:0;
+		height:180px;
+		line-height:180px;
+		margin:32px 0;
+	}
+	#datebox{
+		text-align:center;
+		font-weight:bold;
+		font-size:72px;
+		color:#000;
+		margin-bottom:0;
+		line-height:1.5;
+		margin:32px 0;
+	}
+	#stopbox{
+		text-align:center;
+		font-size:16px;
+	}
+	#stopbox button{
+		margin:16px;
+		padding:2px 8px;
+	}
+	.dot {
+		font-family:Georgia,"Times New Roman",Times,serif;
+		margin:0 4px;
+		line-height:180px;
+	}
+	.comma {
+		margin:0 4px;
+	}
+	.colon {
+		font-family:Georgia,"Times New Roman",Times,serif;
+		margin:0 4px;
+		vertical-align:8px;
+	}
+	#g-box{
+		width:551px;
+		height:33px;
+		position:relative;
+		margin:8px auto 32px auto;
+	}
+	#g-box a{
+		width:551px;
+		height:33px;
+		display:block;
+		position:absolute;
+		top:0;
+		left:0;
+	}
+	#g-box a span{
+		width:551px;
+		height:33px;
+		display:block;
+		position:absolute;
+		top:0;
+		left:0;
+		background:url("/img/google-site-search-when-screen-captured.png") no-repeat;
+	}
+</style>
+
+</head>
+<body class="custom">
+<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-4827976-1']);
+		_gaq.push(['_setDomainName', '.seomofo.com']);
+		_gaq.push(['_trackPageview']);
+		(function(){
+			var ga = document.createElement('script');
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			ga.setAttribute('async', 'true');
+			document.documentElement.firstChild.appendChild(ga);}
+		)();
+	</script>
+<div id="container">
+	<div id="page">
+		<div id="header">
+			<div id="logo_mofo">
+				<div id="domain_mofo"><a href="/">SEO<span></span></a><b>mofo</b></div>
+				<div id="slogan_mofo">world's greatest seo</div>
+			</div>
+			<ul class="menu">
+				<li class="tab tab-1"><a href="http://www.seomofo.com/about.html" title="About">About</a></li>
+				<li class="tab tab-2"><a href="http://www.seomofo.com/policy.html" title="Policy">Policy</a></li>
+			</ul>
+			<p id="breadcrumbs"><a href="http://www.seomofo.com">SEO</a> &raquo; <a href="http://www.seomofo.com/experiments/">Experiments</a> &raquo; <strong>Google Instant Previews Experiment #01 &#8211; When is the Screen Captured?</strong></p>
+		</div>
+		<div id="content_box">
+			<div id="content" class="hfeed">
+				<div class="post-2737 post type-post hentry category-experiments post_box top" id="post-2737">
+					<div class="headline_area">
+						<div id="tm_box"></div>
+						<div id="tm_loading"></div>
+						<div id="tw_box"></div>
+						<div id="tw_loading"></div>
+						<h1 class="entry-title">Google Instant Previews Experiment #01 &#8211; When is the Screen Captured?</h1>
+						<p class="headline_meta">by <span class="author vcard fn">SEO mofo</span> on <span class="published">Feb 20th, 2011</span></p>
+						<p class="headline_meta">in <span><a href="http://www.seomofo.com/experiments/" title="View all posts in Experiments" rel="category tag">Experiments</a></span></p>
+					</div>
+					<div class="format_text entry-content">
+
+						<!-- BEGIN TEST AREA -->
+						<p id="datebox">MMM dd, YYYY</p>
+						<div id="test-area">
+							<p id="test-heading">onload&nbsp;+</p>
+							<p id="numbox"> &#8211;<span class="dot">.</span>&#8211; </p>
+						</div>
+						<p id="stopbox">
+							<button type="button" value="Stop" onclick="clearTimeout(stopID);testArea=document.getElementById('test-area');testArea.parentNode.removeChild(testArea);stopButton=document.getElementById('stopbox');stopButton.parentNode.removeChild(stopButton);dateArea=document.getElementById('datebox');dateArea.parentNode.removeChild(dateArea);">Trying to read the article?&nbsp;&nbsp;Click here to hide the clutter.</button>
+						</p>
+						<!-- END TEST AREA -->
+
+						<p><b>When does Google take the screen capture of a web page&#8217;s content?</b></p>
+						<p>Following Google&#8217;s announcement that <a href="http://www.seomofo.com/speed/" class="selfish">page speed</a> is officially part of their ranking algorithm, I developed a bit of an obsession. My research started with learning about basic speed enhancements like Gzipping (compressing) text content before serving it, combining multiple CSS and JavaScript files into one, and using <a href="http://www.seomofo.com/experiments/6-small-images-vs-1-large.html" class="selfish">CSS sprites for icons</a> and background images. Soon enough, my obsession progressed toward more-advanced concepts like how to avoid race conditions while dynamically loading 3rd-party-hosted JavaScript libraries asynchronously. My research paid off, and I found that I was easily capable of cutting down page load times by 50% or more.</p>
+						<p>Out of everything I tried, the technique that provided the most substantial improvements was <b>lazy loading content</b>. For those of you who aren&#8217;t familiar with it, lazy-loaded content refers to content that is intentionally delayed until <em>after</em> the page is done loading. This is accomplished by attaching JavaScript functions to the document&#8217;s <code>load</code> event. Basically, this means you write a JavaScript function that waits for the browser to signal that it&#8217;s finished loading the web page and then it tells the browser to add even more &#8220;stuff&#8221; to the page. This allows webmasters to load their important content first, so Users can immediately start reading/interacting with the page&#8230;without waiting for things like <a href="http://www.seomofo.com/wordpress/tweetmeme-retweet-button.html" class="selfish">social media widgets</a> and <a href="http://www.seomofo.com/marketing/seo-for-affiliate-links.html" class="selfish">affiliate advertisements</a> to finish loading.</p>
+						<p><img src="http://www.seomofo.com/img/lazy-load-example.png" alt="Lazy-loading content" width="576" height="400" /></p>
+						<p>Lazy-loading content is great for improving site performance and the user experience. However, since Google has started showing their <a href="http://www.seomofo.com/google-instant-previews.html" class="selfish">Instant Preview</a> screen captures in <abbr title="Search Engine Results Pages">SERPs</abbr>, lazy-loading content has become a bit trickier. The reason is because Google&#8217;s screen-capturing program has to decide when to take the screen shot. With a normal web page (i.e., one that doesn&#8217;t use the lazy-loading technique), the decision is straightforward:</p>
+						<blockquote>
+							<p>Okay, the <code>load</code> event just fired; the page content seems stable, so now I&#8217;m going to take a snapshot for Instant Previews.</p>
+						</blockquote>
+						<p>But&#8230;if you&#8217;re a <a href="http://www.seomofo.com/advanced/" class="selfish">ridiculously advanced SEO</a>, and your web pages load a pile of crap <em>after</em> the <code>load</code> event, then Google&#8217;s decision isn&#8217;t quite as simple:</p>
+						<blockquote>
+							<p>Okay, the <code>load</code> event just fired; the page content seems sta&#8211;WHAT THE DEUCE!? This page isn&#8217;t stable at all&#8211;it&#8217;s getting flooded with new content! Is this thing gonna settle down or what? I want a good picture, but I ain&#8217;t gonna wait around forever. You know what&#8230;I&#8217;m sorry but this is bullshit. I ain&#8217;t gettin&#8217; paid to sort through all this nonsense&#8230;</p>
+						</blockquote>
+						<p>The reality is&#8230;in a world of AJAX and dynamic content, a document&#8217;s <code>load</code> event simply means the initial (synchronous) content has been loaded, but it does NOT mean the page content is done changing. So the question is:</p>
+						<p><b>If your webpage content never stops changing, how does Google Instant Previews determine when to take the picture?</b></p>
+						<p>One obvious possibility would be to wait <var>x</var> number of seconds after the <code>load</code> event fires. A better way might be to wait <var>x</var> number of seconds after the last HTTP request was sent&#8230;or after the last external file was loaded. From an engineering perspective, you would want your program to capture an accurate preview of the webpage, but you would also need to make sure your program doesn&#8217;t get stuck waiting for a page <a href="http://twitter.com/" title="Twitter home page">like this</a> to stop changing. The purpose of this experiment is to gain insight into how Google Instant Previews handles these types of pages.</p>
+						<p> Assuming that this page loads correctly, Users (and Google) will be greeted with a large, colorful timer that begins when the document&#8217;s <code>load</code> event is triggered. If everything goes as planned, Google Instant Preview will take the screen capture and <strong>we&#8217;ll be able to see approximately how long Google waited for my lazy content to load</strong>, by looking at this page&#8217;s preview in Google&#8217;s SERPs. I&#8217;ve also programmed the page to display the current date and time, which will allow us to tell when the current preview was taken. </p>
+						<p style="text-align:center;font-weight:bold;color:#C00;margin-bottom:8px;font-size:12px;">Click this search box, then click the preview icon <img src="data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%0D%00%00%00%0D%08%03%00%00%00E5%14N%00%00%00%19tEXtSoftware%00Adobe%20ImageReadyq%C9e%3C%00%00%00ZPLTE%FF%FF%FF%0E%20%DE%E5%E7%FCDR%E5%C3%C8%F7GT%E6%17(%DF%1A*%E0%88%91%EF%85%8E%EE%82%8C%EE%1C-%E0(8%E1R_%E7Xd%E8%E3%E5%FBUb%E7%14%25%DF%1F0%E0IW%E7JX%E7fq%EA%11%23%DE%B0%B6%F4it%EA%8E%96%EFO%5C%E7LZ%E7%B2%B8%F5%00%00%00%60%C8%F3%AE%00%00%00%1EtRNS%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%00%EC%18%1C%5E%00%00%00eIDATx%DAD%CDW%12%800%08EQ%88)%96%14%7Bg%FF%DBTHF%EF%DF%99y%03%40%A4%A3%F7Q%13%07t%A0%9Bg%87%ADH%AF%95%02P%15%DE%2Cc%13%BC%25kX%5D%00)%0C%A2%3E%AB%1F%F2R1T%5Ej%2CWv%F9%D0%A2%9B%26%87%885%8B%B6s%1C%AFE%08Tj%98%9F%84%BF%98%8F%00%03%00E%96%09%E9%C7~%E0%B9%00%00%00%00IEND%AEB%60%82" alt="Google Instant Preview icon" style="margin-bottom:0;" /> in the search results.</p>
+						<div id="g-box"> <a href="http://www.google.com/search?q=site%3Aseomofo.com%2Fexperiments%2Fwhen-screen-captured.html">site:www.seomofo.com/experiments/when-screen-captured.html<span></span></a> </div>
+						<p class="info_mofo"> 2/20/2011, 17:45 GMT UPDATE: The results are in! As it turns out, different people saw different results for the first experiment, depending on their location. Some saw <a href="http://www.seomofo.com/img/google-instant-preview-01.png">60.00 seconds</a>, while others saw <a href="http://www.seomofo.com/img/google-instant-preview-02.png">04.99 seconds</a>. <br />
+							<br />
+							On the version that I see, the timer says <code>60:00</code> (i.e. 60 seconds), which is the time I programmed the timer to automatically stop at. I have removed this from the code, so the new test is to see how Google will handle this. </p>
+						<p class="info_mofo"> 2/21/2011, 06:45 GMT UPDATE: The preview has already changed again! Here is <a href="http://www.seomofo.com/img/google-instant-preview-03.png">Google Instant Preview #3</a>. This means Google has updated the preview two times in under 24 hours&#8230;at least in the SERPs I&#8217;m shown. Folks in the 04.99 crowd&#8230;are you seeing a change too? If so, someone grab a screenshot for me. <br />
+							<br />
+							I don&#8217;t have any idea why Google is showing a date from January in this newest preview. So far, I don&#8217;t see any patterns emerging. However, the data we&#8217;ve seen so far is definitely useful. For example, anyone using a lightbox or thickbox type of jQuery/JavaScript plugin can probably prevent onload-triggered popups from appearing in Google Instant Previews by setting a condition like: <br />
+							<br />
+							<code>if (Date == 0) {show_lightbox()}</code> <br />
+							<br />
+							In my next experiment (which will have its own page), I&#8217;ll put together a working example of this theory and test it out. As for this page&#8230;I&#8217;m going to try to gain more insight into this seemingly-random set of previews by programming my server to print the actual date/time the page was requested. I might also include the client IP address and User-Agent (depending on how hard WordPress fights me). Stay tuned&#8230; </p>
+						<div id="widget_holder"> </div>
+					</div>
+				</div>
+				<div id="comments">
+					<div id="comments_intro" class="comments_intro">
+						<p><span class="bracket">{</span> <span>14</span> comments&#8230; read them below or <a href="#respond">add one</a> <span class="bracket">}</span></p>
+					</div>
+					<dl id="comment_list">
+						<dt class="comment even thread-even depth-1 parent" id="comment-10545"> <span class="comment_author">Ben</span> <span class="comment_time"><a href="#comment-10545" title="Permalink to this comment">February 20, 2011 at 8:56 am</a></span> </dt>
+						<dd class="comment even thread-even depth-1 parent">
+							<div class="format_text" id="comment-body-10545">
+								<p>Great article/experiment, ta! It&#8217;ll be interesting to see if the screenshot is the same time (5 seconds) next time it generates.</p>
+							</div>
+							<dl class="children">
+								<dt class="comment byuser comment-author-admin bypostauthor odd alt depth-2" id="comment-10547"> <span class="comment_author">SEO mofo</span> <span class="comment_time"><a href="#comment-10547" title="Permalink to this comment">February 20, 2011 at 11:44 am</a></span> </dt>
+								<dd class="comment byuser comment-author-admin bypostauthor odd alt depth-2">
+									<div class="format_text" id="comment-body-10547">
+										<p>Hey Ben,</p>
+										<p>Can you take a screen shot of the 5 sec. SERP preview? I&#8217;m not seeing that; I&#8217;m seeing 60.00 seconds.</p>
+										<p>-Darren</p>
+									</div>
+								</dd>
+							</dl>
+						</dd>
+						<dt class="comment even thread-odd thread-alt depth-1" id="comment-10548"> <span class="comment_author">Thomas Fjordside</span> <span class="comment_time"><a href="#comment-10548" title="Permalink to this comment">February 20, 2011 at 12:11 pm</a></span> </dt>
+						<dd class="comment even thread-odd thread-alt depth-1">
+							<div class="format_text" id="comment-body-10548">
+								<p>Also seing 4.99 on mine.</p>
+							</div>
+						</dd>
+						<dt class="comment odd alt thread-even depth-1" id="comment-10549"> <span class="comment_author">Ryan Jones</span> <span class="comment_time"><a href="#comment-10549" title="Permalink to this comment">February 20, 2011 at 12:20 pm</a></span> </dt>
+						<dd class="comment odd alt thread-even depth-1">
+							<div class="format_text" id="comment-body-10549">
+								<p>Seeing 60.00 when I click.</p>
+							</div>
+						</dd>
+						<dt class="comment even thread-odd thread-alt depth-1" id="comment-10550"> <span class="comment_author">Matt</span> <span class="comment_time"><a href="#comment-10550" title="Permalink to this comment">February 20, 2011 at 12:25 pm</a></span> </dt>
+						<dd class="comment even thread-odd thread-alt depth-1">
+							<div class="format_text" id="comment-body-10550">
+								<p>Both logged in and logged out with everything clear I am seeing 60.00 seconds.</p>
+							</div>
+						</dd>
+						<dt class="comment odd alt thread-even depth-1" id="comment-10551"> <span class="comment_author">Aleyda</span> <span class="comment_time"><a href="#comment-10551" title="Permalink to this comment">February 20, 2011 at 12:29 pm</a></span> </dt>
+						<dd class="comment odd alt thread-even depth-1">
+							<div class="format_text" id="comment-body-10551">
+								<p>I see 04.99 &#8230; here&#8217;s the screenshot: http://ow.ly/i/8nXS</p>
+							</div>
+						</dd>
+						<dt class="comment even thread-odd thread-alt depth-1" id="comment-10553"> <span class="comment_author">pakoito</span> <span class="comment_time"><a href="#comment-10553" title="Permalink to this comment">February 20, 2011 at 1:27 pm</a></span> </dt>
+						<dd class="comment even thread-odd thread-alt depth-1">
+							<div class="format_text" id="comment-body-10553">
+								<p>4.99 here too.</p>
+							</div>
+						</dd>
+						<dt class="comment odd alt thread-even depth-1" id="comment-10554"> <span class="comment_author">zanna86</span> <span class="comment_time"><a href="#comment-10554" title="Permalink to this comment">February 20, 2011 at 2:10 pm</a></span> </dt>
+						<dd class="comment odd alt thread-even depth-1">
+							<div class="format_text" id="comment-body-10554">
+								<p>Your test are great!! 4.99 me too!</p>
+							</div>
+						</dd>
+						<dt class="comment even thread-odd thread-alt depth-1" id="comment-10555"> <span class="comment_author">Carly</span> <span class="comment_time"><a href="#comment-10555" title="Permalink to this comment">February 20, 2011 at 2:32 pm</a></span> </dt>
+						<dd class="comment even thread-odd thread-alt depth-1">
+							<div class="format_text" id="comment-body-10555">
+								<p>4.99 &#8211; but are some people seeing Google.com and others .co.uk &#8211; I see .co.uk</p>
+							</div>
+						</dd>
+						<dt class="comment odd alt thread-even depth-1" id="comment-10556"> <span class="comment_author">Carly</span> <span class="comment_time"><a href="#comment-10556" title="Permalink to this comment">February 20, 2011 at 2:32 pm</a></span> </dt>
+						<dd class="comment odd alt thread-even depth-1">
+							<div class="format_text" id="comment-body-10556">
+								<p>not sure why I asked that, it was pretty dumb! ha</p>
+							</div>
+						</dd>
+						<dt class="comment even thread-odd thread-alt depth-1" id="comment-10557"> <span class="comment_author">Mark</span> <span class="comment_time"><a href="#comment-10557" title="Permalink to this comment">February 20, 2011 at 9:12 pm</a></span> </dt>
+						<dd class="comment even thread-odd thread-alt depth-1">
+							<div class="format_text" id="comment-body-10557">
+								<p>4.99 here. Interesting. 60 seems bizarre.</p>
+							</div>
+						</dd>
+						<dt class="comment odd alt thread-even depth-1 parent" id="comment-10558"> <span class="comment_author">B. Moore</span> <span class="comment_time"><a href="#comment-10558" title="Permalink to this comment">February 21, 2011 at 12:41 am</a></span> </dt>
+						<dd class="comment odd alt thread-even depth-1 parent">
+							<div class="format_text" id="comment-body-10558">
+								<p>ok what i see in the preview is completely different then everyone else here.</p>
+								<p>I see:<br />
+									Date: January 26<br />
+									Time: 0:00 GMT<br />
+									Load Timer: 00:00</p>
+								<p>So..?..</p>
+							</div>
+							<dl class="children">
+								<dt class="comment byuser comment-author-admin bypostauthor even depth-2" id="comment-10559"> <span class="comment_author">SEO mofo</span> <span class="comment_time"><a href="#comment-10559" title="Permalink to this comment">February 21, 2011 at 1:21 am</a></span> </dt>
+								<dd class="comment byuser comment-author-admin bypostauthor even depth-2">
+									<div class="format_text" id="comment-body-10559">
+										<p>Post updated.</p>
+									</div>
+								</dd>
+							</dl>
+						</dd>
+						<dt class="comment odd alt thread-odd thread-alt depth-1" id="comment-10560"> <span class="comment_author">Santosh Prasad</span> <span class="comment_time"><a href="#comment-10560" title="Permalink to this comment">February 21, 2011 at 1:26 am</a></span> </dt>
+						<dd class="comment odd alt thread-odd thread-alt depth-1">
+							<div class="format_text" id="comment-body-10560">
+								<p>Seeing 60.00 when I click. +1<br />
+									btwn excellent post..</p>
+							</div>
+						</dd>
+					</dl>
+					<div id="respond">
+						<div id="respond_intro"> <a rel="nofollow" id="cancel-comment-reply-link" href="/experiments/when-screen-captured.html#respond" style="display:none;">Cancel reply</a>
+							<p>Leave a Comment</p>
+						</div>
+						<form action="http://www.seomofo.com/wp-comments-post.php" method="post" id="commentform">
+							<p>Logged in as <a href="http://www.seomofo.com/wp-admin/profile.php">SEO mofo</a>. <a href="http://www.seomofo.com/wp-login.php?action=logout&amp;redirect_to=http%3A%2F%2Fwww.seomofo.com%2Fexperiments%2Fwhen-screen-captured.html&amp;_wpnonce=0be1665cf3" title="Log out of this account">Logout &rArr;</a></p>
+							<p class="comment_box">
+								<textarea name="comment" id="comment" tabindex="4" cols="40" rows="8"></textarea>
+							</p>
+							<p style="clear: both;" class="subscribe-to-comments"> You are the author of this post. <a href="http://www.seomofo.com/?wp-subscription-manager=1&amp;ref=http%3A%2F%2Fwww.seomofo.com%2Fexperiments%2Fwhen-screen-captured.html">Manage comment subscriptions</a>. </p>
+							<p class="remove_bottom_margin">
+								<input name="submit" class="form_submit" type="submit" id="submit" tabindex="5" value="Submit" />
+								<input type='hidden' name='comment_post_ID' value='2737' id='comment_post_ID' />
+								<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+							</p>
+							<input type="hidden" id="_wp_unfiltered_html_comment" name="_wp_unfiltered_html_comment" value="92c1d55704" />
+							<p style="display: none;">
+								<input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="8ca0dc87a1" />
+							</p>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div id="sidebars">
+				<div id="sidebar_1" class="sidebar">
+					<ul class="sidebar_list">
+						<li class="widget widget_text" id="text-7">
+							<div class="textwidget">
+								<div style="width:158px; margin:0; padding:4px 0; border:1px solid #7ABCF1; background-color:#F3F6FF; color:#006699; font-family:Georgia, 'Times New Roman', Times, serif; font-size:16px; line-height:16px; text-align:center; text-shadow:#CCC 0 1px 1px; -moz-border-radius:12px; -webkit-border-radius:12px;border-radius:12px;-moz-box-shadow: 0 0 5px #A8D3F5;-webkit-box-shadow: 0 0 5px #A8D3F5;box-shadow: 0 0 5px #A8D3F5;"><a href="http://www.seomofo.com/snippet-optimizer.html" style="text-decoration:none;outline:none;"><span style="color: rgb(0, 57, 182);">G</span><span style="color: rgb(196, 18, 0);">o</span><span style="color: rgb(243, 197, 24);">o</span><span style="color: rgb(0, 57, 182);">g</span><span style="color: rgb(48, 167, 47);">l</span><span style="color: rgb(196, 18, 0);">e</span>&nbsp;SERP&nbsp;Snippet Optimization&nbsp;Tool</a></div>
+							</div>
+						</li>
+						<li class="widget widget_text" id="text-8">
+							<div class="widget_heading">Pages</div>
+							<div class="textwidget">
+								<ul>
+									<li><a style="color: rgb(255, 76, 0);" href="http://www.seomofo.com/middle-finger-cursors.html"><span style="color: rgb(255, 76, 0);"><b>FREE Middle Finger Cursors!</b></span></a></li>
+									<li><a href="http://www.seomofo.com/snippet-experiment.html">Snippet Experiments</a></li>
+									<li><a href="http://www.seomofo.com/low-priority-page.html">Low Priority Page</a></li>
+									<li><a href="http://www.seomofo.com/google-instant-previews.html">Google Instant Previews</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="widget widget_categories" id="categories-3">
+							<div class="widget_heading">Categories</div>
+							<ul>
+								<li class="cat-item cat-item-8"><a href="http://www.seomofo.com/advanced/" title="Advanced White Hat SEO">Advanced SEO</a> (2) </li>
+								<li class="cat-item cat-item-6"><a href="http://www.seomofo.com/antisocial-media/" title="Anti-Social Media + Antisocial Media">AntiSocial Media</a> (4) </li>
+								<li class="cat-item cat-item-11"><a href="http://www.seomofo.com/experiments/" title="View all posts filed under Experiments">Experiments</a> (6) </li>
+								<li class="cat-item cat-item-9"><a href="http://www.seomofo.com/advanced/patents/" title="Google Patents On Information Retrieval">Google Patents</a> (2) </li>
+								<li class="cat-item cat-item-12"><a href="http://www.seomofo.com/google-sucks/" title="Sometimes I Hate Google">Google Sucks</a> (1) </li>
+								<li class="cat-item cat-item-7"><a href="http://www.seomofo.com/marketing/" title="Internet Marketing">Marketing</a> (3) </li>
+								<li class="cat-item cat-item-13"><a href="http://www.seomofo.com/speed/" title="Page Speed &amp; Site Performance">Page Speed</a> (5) </li>
+								<li class="cat-item cat-item-10"><a href="http://www.seomofo.com/orm/" title="Online Reputation Management">Reputation Management</a> (5) </li>
+								<li class="cat-item cat-item-14"><a href="http://www.seomofo.com/ethics/" title="View all posts filed under SEO Ethics">SEO Ethics</a> (1) </li>
+								<li class="cat-item cat-item-5"><a href="http://www.seomofo.com/wordpress/thesis/" title="Thesis WordPress Theme">Thesis Theme</a> (6) </li>
+								<li class="cat-item cat-item-4"><a href="http://www.seomofo.com/wordpress/" title="WordPress SEO Tips">WordPress</a> (4) </li>
+							</ul>
+						</li>
+						<li class="widget widget_text" id="text-9">
+							<div class="widget_heading">New SERP Experiment:</div>
+							<div class="textwidget">
+								<p><a href="http://seomofo.mattcutts.com/files/spam-me-tender.html">SEOmofo is the only SEO I trust</a></p>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div id="sidebar_2" class="sidebar">
+					<ul class="sidebar_list">
+						<li class="widget widget_text" id="text-4">
+							<div class="textwidget">
+								<div id="sub_box"></div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<p id="attribution"><a href="http://www.freethesis.org/">Free Thesis WordPress Theme</a></p>
+			<p id="copyright">&copy;&nbsp;Copyright&nbsp;&nbsp;2007&nbsp;-&nbsp;2011,&nbsp;&nbsp;<a href="http://www.seomofo.com/">Darren Slatten</a></p>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+<div id="lazy_styles"></div>
+</body>
+</html>

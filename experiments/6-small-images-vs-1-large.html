@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Page Speed Experiment: 6 Small Images vs. 1 Large Image</title>
+	<meta name="robots" content="noodp, noydir" />
+	<meta name="description" content="This experiment compares the page load times of two different versions of social media widgets: one that uses 6 images vs. one that uses 1 image." />
+	<link rel="canonical" href="6-small-images-vs-1-large.html" />
+	<link rel="pingback" href="../xmlrpc.php" />
+	<link rel="stylesheet" href="../wp-content/themes/freethesis/custom/custom0170.css?20120714-2235" type="text/css" />
+</head>
+<body class="custom">
+<div id="container">
+<div id="page">
+	<div id="header">
+		<div id="logo_mofo">
+			<div id="domain_mofo"><a href="../index.html">SEO<span></span></a><b>mofo</b></div>
+			<div id="slogan_mofo">world's greatest seo</div>
+		</div>
+<ul class="menu">
+<li class="tab tab-1"><a href="../about.html" title="About">About</a></li>
+<li class="tab tab-2"><a href="../policy.html" title="Policy">Policy</a></li>
+</ul>
+
+<p id="breadcrumbs"><a href="../index.html">SEO</a> &raquo; <a href="index.html">Experiments</a> &raquo; <strong>Page Speed: 6 Small Images vs. 1 Large Image</strong></p>	</div>
+	<div id="content_box">
+		<div id="content" class="hfeed">
+
+			<div class="post-2122 post type-post status-publish format-standard hentry category-experiments category-speed post_box top" id="post-2122">
+<div class="headline_area">
+		<div id="tm_box"></div>
+		<div id="tm_loading"></div>
+		<div id="tw_box"></div>
+		<div id="tw_loading"></div>
+					<h1 class="entry-title">Page Speed: 6 Small Images vs. 1 Large Image</h1>
+					<p class="headline_meta">by <span class="author vcard fn">SEO Mofo</span> on <span class="published">Apr 12th, 2010</span></p>
+					<p class="headline_meta">in <span><a href="index.html" title="View all posts in Experiments" rel="category tag">Experiments</a>, <a href="../speed/index.html" title="View all posts in Page Speed" rel="category tag">Page Speed</a></span></p>
+				</div>
+				<div class="format_text entry-content">
+<p>
+This experiment compares the page load times of two different versions of the social media widgets I include at the bottom of my posts. I was actually running this experiment to see for myself the kind of improvements I could achieve by combining my social media widget icons into a single image. Since I&#8217;ve already gone through the trouble of testing these pages, I figure I might as well publish the results.
+</p>
+<p>
+This experiment has implications for anyone who&#8217;s heard about using CSS sprites but is wondering if the page speed benefit is worth the effort. Although my social media icons don&#8217;t actually use sprites, the principle is basically the same: <strong>combining several small images into one large image can help your web page load faster.</strong>
+</p>
+<h2>Setup</h2>
+<p>
+I created two test pages that render exactly the same in a web browser. The content of both pages appears like this:
+</p>
+<div style="cursor:pointer; width:360px; height:80px; overflow:hidden; background:url('../img/widgets.png') no-repeat; margin:1em 0 2em 0;"></div>
+<p>
+However, the two test pages are coded differently. The first test page uses a separate image for each of the 6 social media links. This results in 7 HTTP requests: one for the HTML page itself and one for each of the 6 images. The second test page uses only 1 image, which contains all of the social media icons combined. This results in only 2 HTTP requests: one for the HTML page itself and one for the image. Here is the HTML code I used for each of the test pages:
+</p>
+<h3>Six Images</h3>
+<pre class="brush: xml; collapse: true; light: false; toolbar: true;">
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+&lt;title&gt;Six Images&lt;/title&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+	#post_widgets{width:360px; height:80px; overflow:hidden; background:transparent;}
+	#post_widgets a{display:block; width:60px; height:80px; float:left;}
+	a img{margin:0; padding:0; border:0;}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;post_widgets&quot;&gt;
+	&lt;a href=&quot;http://twitter.com/&quot;&gt;
+		&lt;img width=&quot;60&quot; height=&quot;80&quot; src=&quot;/img/twitter.png&quot; alt=&quot;Share this on Twitter!&quot; /&gt;
+	&lt;/a&gt;
+	&lt;a href=&quot;http://digg.com/&quot;&gt;
+		&lt;img width=&quot;60&quot; height=&quot;80&quot; src=&quot;/img/digg.png&quot; alt=&quot;Digg this!&quot; /&gt;
+	&lt;/a&gt;
+	&lt;a href=&quot;http://delicious.com/&quot;&gt;
+		&lt;img width=&quot;60&quot; height=&quot;80&quot; src=&quot;/img/delicious.png&quot; alt=&quot;Bookmark this on Delicious!&quot; /&gt;
+	&lt;/a&gt;
+	&lt;a href=&quot;http://www.stumbleupon.com/&quot;&gt;
+		&lt;img width=&quot;60&quot; height=&quot;80&quot; src=&quot;/img/stumbleupon.png&quot; alt=&quot;Stumble this!&quot; /&gt;
+	&lt;/a&gt;
+	&lt;a href=&quot;http://www.facebook.com/&quot;&gt;
+		&lt;img width=&quot;60&quot; height=&quot;80&quot; src=&quot;/img/facebook.png&quot; alt=&quot;Share this on Facebook!&quot; /&gt;
+	&lt;/a&gt;
+	&lt;a href=&quot;http://www.reddit.com/&quot;&gt;
+		&lt;img width=&quot;60&quot; height=&quot;80&quot; src=&quot;/img/reddit.png&quot; alt=&quot;Submit to Reddit!&quot; /&gt;
+	&lt;/a&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3>One Image</h3>
+<pre class="brush: xml; collapse: true; light: false; toolbar: true;">
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+&lt;title&gt;One Image&lt;/title&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+	#post_widgets{width:360px; height:80px; overflow:hidden; background:url('/img/widgets.png') no-repeat;}
+	#post_widgets a{display:block; width:60px; height:80px; float:left;}
+	#post_widgets a span{display:none;}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;post_widgets&quot;&gt;
+	&lt;a href=&quot;http://twitter.com/&quot;&gt;
+		&lt;span&gt;Share this on Twitter!&lt;/span&gt;
+	&lt;/a&gt;
+	&lt;a href=&quot;http://digg.com/&quot;&gt;
+		&lt;span&gt;Digg this!&lt;/span&gt;
+	&lt;/a&gt;
+	&lt;a href=&quot;http://delicious.com/&quot;&gt;
+		&lt;span&gt;Bookmark this on Delicious!&lt;/span&gt;
+	&lt;/a&gt;
+	&lt;a href=&quot;http://www.stumbleupon.com/&quot;&gt;
+		&lt;span&gt;Stumble this!&lt;/span&gt;
+	&lt;/a&gt;
+	&lt;a href=&quot;http://www.facebook.com/&quot;&gt;
+		&lt;span&gt;Share this on Facebook!&lt;/span&gt;
+	&lt;/a&gt;
+	&lt;a href=&quot;http://www.reddit.com/&quot;&gt;
+		&lt;span&gt;Submit to Reddit!&lt;/span&gt;
+	&lt;/a&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h2>Procedure</h2>
+<p>I used this <a href="http://www.webpagetest.org/">web page speed testing tool</a> to measure the page load times. Each of the 2 pages was tested 10 times. The testing server was located in San Jose, CA, and my content server was in Seattle, WA. The pages were requested using IE7 with 2 parallel connections enabled. I ran the entire experiment twice. In the first experiment, I saved the images as 24-bit PNG files. In the second experiment, I saved them as 8-bit PNG files.</p>
+
+<h2>Results</h2>
+<table style="font-size:12px; text-align:center; width:100%;" border="1" cellspacing="0">
+<tr>
+	<th style="text-align:left; padding-left:1em;">Test</th>
+	<th>HTTP Requests</th>
+	<th>Bytes Downloaded</th>
+	<th>Download Time</th>
+</tr>
+<tr>
+	<th style="text-align:left; padding-left:1em;"><a href="http://www.webpagetest.org/result/100412_6XDB/">6 images @ 24-bit PNG</a></td>
+	<td>7</td>
+	<td>16KB</td>
+	<td>0.623s</td>
+</tr>
+<tr>
+	<th style="text-align:left; padding-left:1em;"><a href="http://www.webpagetest.org/result/100412_6XDS/">1 image @ 24-bit PNG</a></td>
+	<td>2</td>
+	<td>14KB</td>
+	<td>0.541s</td>
+</tr>
+<tr>
+	<th style="text-align:left; padding-left:1em;"><a href="http://www.webpagetest.org/result/100412_6XFP/">6 images @ 8-bit PNG</a></td>
+	<td>7</td>
+	<td>13KB</td>
+	<td>0.608s</td>
+</tr>
+<tr>
+	<th style="text-align:left; padding-left:1em;"><a href="http://www.webpagetest.org/result/100412_6XFK/">1 image @ 8-bit PNG</a></td>
+	<td>2</td>
+	<td>7KB</td>
+	<td>0.461s</td>
+</tr>
+</table>
+
+<h2>Conclusion</h2>
+<p><strong>Using 24-bit PNG files</strong>: the page load time for 1 image was <strong>13.2% faster</strong> than the page load time for 6 images.</p>
+<p><strong>Using 8-bit PNG files</strong>: the page load time for 1 image was <strong>24.2% faster</strong> than the page load time for 6 images.</p>
+	<div id="widget_holder">
+	</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="sidebars">
+			<div id="sidebar_1" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-7">			<div class="textwidget"><div style="width:158px; margin:0; padding:4px 0; border:1px solid #7ABCF1; background-color:#F3F6FF; color:#006699; font-family:Georgia, 'Times New Roman', Times, serif; font-size:16px; line-height:16px; text-align:center; text-shadow:#CCC 0 1px 1px; -moz-border-radius:12px; -webkit-border-radius:12px;border-radius:12px;-moz-box-shadow: 0 0 5px #A8D3F5;-webkit-box-shadow: 0 0 5px #A8D3F5;box-shadow: 0 0 5px #A8D3F5;"><a href="../snippet-optimizer.html" style="text-decoration:none;outline:none;"><span style="color: rgb(0, 57, 182);">G</span><span style="color: rgb(196, 18, 0);">o</span><span style="color: rgb(243, 197, 24);">o</span><span style="color: rgb(0, 57, 182);">g</span><span style="color: rgb(48, 167, 47);">l</span><span style="color: rgb(196, 18, 0);">e</span>&nbsp;SERP&nbsp;Snippet Optimization&nbsp;Tool</a></div></div>
+		</li><li class="widget widget_text" id="text-8"><div class="widget_heading">Pages</div>			<div class="textwidget">	<ul>
+		<li><a style="color: rgb(255, 76, 0);" href="../middle-finger-cursors.html"><span style="color: rgb(255, 76, 0);"><b>FREE Middle Finger Cursors!</b></span></a></li>
+		<li><a href="../low-priority-page.html">Low Priority Page</a></li>
+		<li><a href="../google-instant-previews.html">Google Instant Previews</a></li>
+	</ul></div>
+		</li><li class="widget widget_categories" id="categories-3"><div class="widget_heading">Categories</div>		<ul>
+	<li class="cat-item cat-item-8"><a href="../advanced/index.html" title="Advanced White Hat SEO">Advanced SEO</a> (4)
+</li>
+	<li class="cat-item cat-item-6"><a href="../antisocial-media/index.html" title="Anti-Social Media + Antisocial Media">AntiSocial Media</a> (4)
+</li>
+	<li class="cat-item cat-item-11"><a href="index.html" title="View all posts filed under Experiments">Experiments</a> (7)
+</li>
+	<li class="cat-item cat-item-9"><a href="../advanced/patents/index.html" title="Google Patents On Information Retrieval">Google Patents</a> (2)
+</li>
+	<li class="cat-item cat-item-12"><a href="../google-sucks/index.html" title="Sometimes I Hate Google">Google Sucks</a> (6)
+</li>
+	<li class="cat-item cat-item-7"><a href="../marketing/index.html" title="Internet Marketing">Marketing</a> (3)
+</li>
+	<li class="cat-item cat-item-13"><a href="../speed/index.html" title="Page Speed &amp; Site Performance">Page Speed</a> (5)
+</li>
+	<li class="cat-item cat-item-10"><a href="../orm/index.html" title="Online Reputation Management">Reputation Management</a> (6)
+</li>
+	<li class="cat-item cat-item-14"><a href="../ethics/index.html" title="View all posts filed under SEO Ethics">SEO Ethics</a> (3)
+</li>
+	<li class="cat-item cat-item-17"><a href="serp/index.html" title="View all posts filed under SERP Experiments">SERP Experiments</a> (10)
+</li>
+	<li class="cat-item cat-item-5"><a href="../wordpress/thesis/index.html" title="Thesis WordPress Theme">Thesis Theme</a> (6)
+</li>
+	<li class="cat-item cat-item-4"><a href="../wordpress/index.html" title="WordPress SEO Tips">WordPress</a> (4)
+</li>
+		</ul>
+</li>				</ul>
+			</div>
+			<div id="sidebar_2" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-4">			<div class="textwidget"><div id="sub_box"></div></div>
+		</li>				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<p id="copyright">Copyright&nbsp;&copy;&nbsp;2013&nbsp;Darren Slatten</p>
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+	//<![CDATA[
+	mofoImgs = document.getElementsByTagName("img");
+	if (mofoImgs.length > 0) {
+		mofoLazyPics = new Array();
+		for (var i = 0; i < mofoImgs.length; i++) {
+			mofoLazyPics[i] = mofoImgs[i].src;
+			mofoImgs[i].style.backgroundImage = "url(/img/throbber.gif)";
+			mofoImgs[i].style.backgroundRepeat = "no-repeat";
+			mofoImgs[i].style.backgroundPosition = "center center";
+			mofoImgs[i].setAttribute("src", "data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%00%00%00!%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00%00%02%02D%01%00%3B");
+		}
+	}
+	//]]>
+</script><script type="text/javascript">
+//<![CDATA[
+	var _gaq=[['_setAccount','UA-4827976-1'],['_setDomainName','.seomofo.com'],['_trackPageview'],['_trackPageLoadTime']];
+	(function(d,t){
+		var g=d.createElement(t);var s=d.getElementsByTagName(t)[0];
+		g.async=1;g.src='http://www.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s);
+	})(document,'script');
+//]]>
+</script><!-- 17 queries in 0.089 seconds. -->
+<script type='text/javascript' src='../wp-content/themes/freethesis/custom/customac77.js?ver=20120628-1801'></script>
+<script type='text/javascript' src='../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/shCore9bab.js?ver=2.1.364b'></script>
+<script type='text/javascript' src='../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/shBrushXml9bab.js?ver=2.1.364b'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/styles/shCore9bab.css?ver=2.1.364b";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].appendChild(corecss);
+		var themecssurl = "../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/styles/shThemeDefault9bab.css?ver=2.1.364b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.getElementsByTagName("head")[0].appendChild(themecss);
+	})();
+	SyntaxHighlighter.config.clipboardSwf = '../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf';
+	SyntaxHighlighter.config.strings.expandSource = 'show source';
+	SyntaxHighlighter.config.strings.viewSource = 'view source';
+	SyntaxHighlighter.config.strings.copyToClipboard = 'copy to clipboard';
+	SyntaxHighlighter.config.strings.copyToClipboardConfirmation = 'The code is in your clipboard now';
+	SyntaxHighlighter.config.strings.print = 'print';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['auto-links'] = false;
+	SyntaxHighlighter.defaults['wrap-lines'] = false;
+	SyntaxHighlighter.all();
+</script>
+</body>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+</html>

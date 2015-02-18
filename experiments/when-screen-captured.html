@@ -1,0 +1,415 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>When Does Google Take the Screen Capture Image for Instant Previews?</title>
+	<meta name="robots" content="noodp, noydir" />
+	<meta name="description" content="Google Instant Previews Experiment #01 &#8211; When is the Screen Captured? Find out how lazy-loading content might affect your SERP preview." />
+	<link rel="canonical" href="when-screen-captured.html" />
+	<link rel="pingback" href="../xmlrpc.php" />
+	<link rel="stylesheet" href="../wp-content/themes/freethesis/custom/custom0170.css?20120714-2235" type="text/css" />
+<script type="text/javascript">
+		//<![CDATA[
+	
+		function addLoadEvent(func) {
+			window.onload = function(){console.log('The initial window.onload has executed.')};
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function() {
+					func();
+					if (oldonload) {
+						oldonload();
+					}
+				}
+			}
+		}
+	
+		addLoadEvent(function() {
+			beginning = new Date();
+			showDate();
+			showClientInfo();
+			tickTock();
+			showImage(4);
+		});
+	
+		function tickTock(){
+			now = new Date();
+			timeElapsed = now.getTime() - beginning.getTime();
+			delete now;
+			secsElapsed = 0; hunsElapsed = 0; out = "";
+			secsElapsed = Math.floor(timeElapsed/1000);
+			timeElapsed = timeElapsed%1000;
+			hunsElapsed = Math.floor(timeElapsed/10);
+			timeElapsed = timeElapsed%10;
+			out += ((secsElapsed < 10) ? "0" : "") + secsElapsed + "<span class=\"dot\">.</span>";
+			out += ((hunsElapsed < 10) ? "0" : "") + hunsElapsed;
+			document.getElementById('numbox').innerHTML = out;
+			stopID = setTimeout("tickTock()", 10);
+		}
+	
+		function showDate() {
+			var d = new Date();
+			var gmt = -d.getTimezoneOffset()/60;
+			var month = new Array(12);
+			month[0] = "Jan";
+			month[1] = "Feb";
+			month[2] = "Mar";
+			month[3] = "Apr";
+			month[4] = "May";
+			month[5] = "Jun";
+			month[6] = "Jul";
+			month[7] = "Aug";
+			month[8] = "Sep";
+			month[9] = "Oct";
+			month[10] = "Nov";
+			month[11] = "Dec";
+			var todaysDate = month[d.getUTCMonth()] + ' '  + d.getUTCDate() + '<span class="comma">,</span> ' + d.getUTCFullYear() + '<br />' + ((d.getUTCHours() < 10) ? "0" : "") + d.getUTCHours() + '<span class="colon">:</span>' + ((d.getUTCMinutes() < 10) ? "0" : "") + d.getUTCMinutes() + '  GMT' + '<br />' + ((d.getHours() < 10) ? "0" : "") + d.getHours() + '<span class="colon">:</span>' + ((d.getMinutes() < 10) ? "0" : "") + d.getMinutes() + '  local<br />' + 'GMT  ' + gmt;
+			document.getElementById('datebox').innerHTML = todaysDate;
+		}
+	
+		function showClientInfo() {
+			var clientInfo = "";
+			clientInfo += "Jan 1, 1970<br /> 00:00 GMT<br />";
+			clientInfo += "<span id=\"ip-address\">255.255.255.255</span><br />";
+			clientInfo += "<span id=\"user-agent\">Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)</span><br />";
+			document.getElementById('spybox').innerHTML = clientInfo;
+		}
+	
+		function showImage(int) {
+			int = ((int < 10) ? "0" + int : int);
+			var parentID = "update" + int;
+			var updatePs = document.getElementById("updates").getElementsByTagName("p");
+			var image = document.createElement('img');
+			var imgID = "image" + int;
+			var imgURI = "/img/google-instant-preview-" + int + ".png";
+			var imgALT = "Google Instant Preview #" + int;
+	
+			for (var i = 0; i < updatePs.length; i++) {
+				var imgObj = updatePs[i].getElementsByTagName("img");
+				if (imgObj[0]!=null){
+					imgObj[0].parentNode.removeChild(imgObj[0]);
+				}
+			}
+	
+			image.setAttribute("id", imgID);
+			image.setAttribute("class", "preview-image");
+			image.setAttribute("src", imgURI);
+			image.setAttribute("width", "302");
+			image.setAttribute("height", "585");
+			document.getElementById(parentID).appendChild(image);
+		}
+	
+		//]]>
+	</script>
+	<style type="text/css">
+		#test-area{
+			margin:0 0 64px 0;
+			padding:0;
+			background-color:#F2FCFF;
+			border:2px solid #0CF;
+			text-align:center;
+		}
+		#test-heading{
+			font-size:64px;
+			line-height:64px;
+			font-family:Georgia, "Times New Roman", Times, serif;
+			color:#F60;
+			font-weight:bold;
+			text-shadow:0 0 1px #AAA;
+			margin:32px 0;
+		}
+		#numbox{
+			font-size:96px;
+			color:#0CF;
+			margin:32px 0;
+		}
+		#datebox,
+		#spybox{
+			text-align:center;
+			font-weight:bold;
+			font-size:72px;
+			color:#000;
+			line-height:96px;
+			margin:32px 0;
+		}
+		#spybox{
+			line-height:72px;
+			margin:0 0 128px 0;
+		}
+		#ip-address{
+			font-size:96px;
+			line-height:196px;
+			color:#069;
+		}
+		#user-agent{
+			font-size:48px;
+			line-height:60px;
+		}
+		#stopbox{
+			text-align:center;
+			font-size:16px;
+			margin-top:64px;
+		}
+		#stopbox button{
+			margin:16px;
+			padding:2px 8px;
+		}
+		.dot {
+			font-family:Georgia,"Times New Roman",Times,serif;
+			margin:0 4px;
+		}
+		.comma {
+			margin:0 4px;
+		}
+		.colon {
+			font-family:Georgia,"Times New Roman",Times,serif;
+			margin:0 4px;
+			vertical-align:8px;
+		}
+		#g-box{
+			width:551px;
+			height:33px;
+			position:relative;
+			margin:8px auto 128px auto;
+		}
+		#g-box a{
+			width:551px;
+			height:33px;
+			display:block;
+			position:absolute;
+			top:0;
+			left:0;
+		}
+		#g-box a span{
+			width:551px;
+			height:33px;
+			display:block;
+			position:absolute;
+			top:0;
+			left:0;
+			background:url("../img/google-site-search-when-screen-captured.png") no-repeat;
+		}
+		.update{
+			position:relative;
+		}
+		.preview-image{
+			position:absolute;
+			top:0;
+			left:610px;
+		}
+		#updates{
+			padding-top:32px;
+		}
+	</style>
+	</head>
+<body class="custom">
+<div id="container">
+<div id="page">
+	<div id="header">
+		<div id="logo_mofo">
+			<div id="domain_mofo"><a href="../index.html">SEO<span></span></a><b>mofo</b></div>
+			<div id="slogan_mofo">world's greatest seo</div>
+		</div>
+<ul class="menu">
+<li class="tab tab-1"><a href="../about.html" title="About">About</a></li>
+<li class="tab tab-2"><a href="../policy.html" title="Policy">Policy</a></li>
+</ul>
+
+<p id="breadcrumbs"><a href="../index.html">SEO</a> &raquo; <a href="index.html">Experiments</a> &raquo; <strong>Google Instant Previews Experiment #01 &#8211; When is the Screen Captured?</strong></p>	</div>
+
+<!-- BEGIN TEST AREA -->
+<div id="experimental">
+	<p id="stopbox">
+		<button type="button" value="Stop" onclick="clearTimeout(stopID);testArea=document.getElementById('experimental');testArea.parentNode.removeChild(testArea);">Trying to read the article?&nbsp;&nbsp;Click here to hide the clutter.</button>
+	</p>
+	<p id="datebox">MMM dd, YYYY</p>
+	<div id="test-area">
+		<p id="test-heading">onload&nbsp;+</p>
+		<p id="numbox"> &#8211;<span class="dot">.</span>&#8211; </p>
+	</div>
+	<p id="spybox">&#8211;</p>
+</div>
+<!-- END TEST AREA -->
+
+	<div id="content_box">
+		<div id="content" class="hfeed">
+
+			<div class="post-2737 post type-post status-publish format-standard hentry category-experiments post_box top" id="post-2737">
+<div class="headline_area">
+		<div id="tm_box"></div>
+		<div id="tm_loading"></div>
+		<div id="tw_box"></div>
+		<div id="tw_loading"></div>
+					<h1 class="entry-title">Google Instant Previews Experiment #01 &#8211; When is the Screen Captured?</h1>
+					<p class="headline_meta">by <span class="author vcard fn">SEO Mofo</span> on <span class="published">Feb 20th, 2011</span></p>
+					<p class="headline_meta">in <span><a href="index.html" title="View all posts in Experiments" rel="category tag">Experiments</a></span></p>
+				</div>
+				<div class="format_text entry-content">
+<p><b>When does Google take the screen capture of a web page&#8217;s content?</b></p>
+<p>Following Google&#8217;s announcement that <a href="../speed/index.html" class="selfish">page speed</a> is officially part of their ranking algorithm, I developed a bit of an obsession. My research started with learning about basic speed enhancements like Gzipping (compressing) text content before serving it, combining multiple CSS and JavaScript files into one, and using <a href="6-small-images-vs-1-large.html" class="selfish">CSS sprites for icons</a> and background images. Soon enough, my obsession progressed toward more-advanced concepts like how to avoid race conditions while dynamically loading 3rd-party-hosted JavaScript libraries asynchronously. My research paid off, and I found that I was easily capable of cutting down page load times by 50% or more.</p>
+<p>Out of everything I tried, the technique that provided the most substantial improvements was <b>lazy loading content</b>. For those of you who aren&#8217;t familiar with it, lazy-loaded content refers to content that is intentionally delayed until <em>after</em> the page is done loading. This is accomplished by attaching JavaScript functions to the document&#8217;s <code>load</code> event. Basically, this means you write a JavaScript function that waits for the browser to signal that it&#8217;s finished loading the web page and then it tells the browser to add even more &#8220;stuff&#8221; to the page. This allows webmasters to load their important content first, so Users can immediately start reading/interacting with the page&#8230;without waiting for things like <a href="../wordpress/tweetmeme-retweet-button.html" class="selfish">social media widgets</a> and <a href="../marketing/seo-for-affiliate-links.html" class="selfish">affiliate advertisements</a> to finish loading.</p>
+<p><img src="../img/lazy-load-example.png" alt="Lazy-loading content" width="576" height="400" /></p>
+<p>Lazy-loading content is great for improving site performance and the user experience. However, since Google has started showing their <a href="../google-instant-previews.html" class="selfish">Instant Preview</a> screen captures in <abbr title="Search Engine Results Pages">SERPs</abbr>, lazy-loading content has become a bit trickier. The reason is because Google&#8217;s screen-capturing program has to decide when to take the screen shot. With a normal web page (i.e., one that doesn&#8217;t use the lazy-loading technique), the decision is straightforward:</p>
+<blockquote>
+	<p>Okay, the <code>load</code> event just fired; the page content seems stable, so now I&#8217;m going to take a snapshot for Instant Previews.</p>
+</blockquote>
+<p>But&#8230;if you&#8217;re a <a href="../advanced/index.html" class="selfish">ridiculously advanced SEO</a>, and your web pages load a pile of crap <em>after</em> the <code>load</code> event, then Google&#8217;s decision isn&#8217;t quite as simple:</p>
+<blockquote>
+	<p>Okay, the <code>load</code> event just fired; the page content seems sta&#8211;WHAT THE DEUCE!? This page isn&#8217;t stable at all&#8211;it&#8217;s getting flooded with new content! Is this thing gonna settle down or what? I want a good picture, but I ain&#8217;t gonna wait around forever. You know what&#8230;I&#8217;m sorry but this is bullshit. I ain&#8217;t gettin&#8217; paid to sort through all this nonsense&#8230;</p>
+</blockquote>
+<p>The reality is&#8230;in a world of AJAX and dynamic content, a document&#8217;s <code>load</code> event simply means the initial (synchronous) content has been loaded, but it does NOT mean the page content is done changing. So the question is:</p>
+<p><b>If your webpage content never stops changing, how does Google Instant Previews determine when to take the picture?</b></p>
+<p>One obvious possibility would be to wait <var>x</var> number of seconds after the <code>load</code> event fires. A better way might be to wait <var>x</var> number of seconds after the last HTTP request was sent&#8230;or after the last external file was loaded. From an engineering perspective, you would want your program to capture an accurate preview of the webpage, but you would also need to make sure your program doesn&#8217;t get stuck waiting for a page <a href="http://twitter.com/" title="Twitter home page">like this</a> to stop changing. The purpose of this experiment is to gain insight into how Google Instant Previews handles these types of pages.</p>
+<p> Assuming that this page loads correctly, Users (and Google) will be greeted with a large, colorful timer that begins when the document&#8217;s <code>load</code> event is triggered. If everything goes as planned, Google Instant Preview will take the screen capture and <strong>we&#8217;ll be able to see approximately how long Google waited for my lazy content to load</strong>, by looking at this page&#8217;s preview in Google&#8217;s SERPs. I&#8217;ve also programmed the page to display the current date and time, which will allow us to tell when the current preview was taken. </p>
+
+
+
+<h2 style="text-align:center;margin-top:128px;">View the current Google Instant Preview for this page</h2>
+<p style="text-align:center;font-weight:bold;color:#C00;margin-bottom:8px;margin-top:32px;font-size:12px;">Click this search box, then click the preview icon <img src="data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%0D%00%00%00%0D%08%03%00%00%00E5%14N%00%00%00%19tEXtSoftware%00Adobe%20ImageReadyq%C9e%3C%00%00%00ZPLTE%FF%FF%FF%0E%20%DE%E5%E7%FCDR%E5%C3%C8%F7GT%E6%17(%DF%1A*%E0%88%91%EF%85%8E%EE%82%8C%EE%1C-%E0(8%E1R_%E7Xd%E8%E3%E5%FBUb%E7%14%25%DF%1F0%E0IW%E7JX%E7fq%EA%11%23%DE%B0%B6%F4it%EA%8E%96%EFO%5C%E7LZ%E7%B2%B8%F5%00%00%00%60%C8%F3%AE%00%00%00%1EtRNS%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%00%EC%18%1C%5E%00%00%00eIDATx%DAD%CDW%12%800%08EQ%88)%96%14%7Bg%FF%DBTHF%EF%DF%99y%03%40%A4%A3%F7Q%13%07t%A0%9Bg%87%ADH%AF%95%02P%15%DE%2Cc%13%BC%25kX%5D%00)%0C%A2%3E%AB%1F%F2R1T%5Ej%2CWv%F9%D0%A2%9B%26%87%885%8B%B6s%1C%AFE%08Tj%98%9F%84%BF%98%8F%00%03%00E%96%09%E9%C7~%E0%B9%00%00%00%00IEND%AEB%60%82" alt="Google Instant Preview icon" style="margin-bottom:0;" /> in the search results.</p>
+
+<div id="g-box">
+<a href="http://www.google.com/search?q=site%3Aseomofo.com%2Fexperiments%2Fwhen-screen-captured.html">site:www.seomofo.com/experiments/when-screen-captured.html<span></span></a>
+</div>
+
+
+<div id="updates">
+<h2 style="text-align:center;margin-bottom:36px;">Updates</h2>
+
+<p class="info_mofo update" id="update01" onmouseover="showImage(1);">
+<strong>2/20/2011, 17:45 GMT:</strong> The results are in! I&#8217;m seeing a preview that says <strong><code style="color:#0CF;background-color:#F2FCFF;outline:1px solid #0CF;">60.00</code></strong> seconds for the onload value. Some people see a different preview than mine, so this could be something that&#8217;s stored separately for each data center? The version other people are seeing is show as result #2 below.
+<br /><br />
+On the version that I see, the timer says <code>60:00</code> (i.e. 60 seconds), which is the time I programmed the timer to automatically stop at. I have removed this from the code, so the new test is to see how Google will handle this.
+</p>
+
+<p class="info_mofo update" id="update02" onmouseover="showImage(2);">
+<strong>2/20/2011, 17:45 GMT:</strong> As it turns out, different people saw different results for the first experiment, depending on their location. Some folks saw <strong><code style="color:#0CF;background-color:#F2FCFF;outline:1px solid #0CF;">04.99</code></strong> seconds, instead of <code>60.00</code>.
+</p>
+
+<p class="info_mofo update" id="update03" onmouseover="showImage(3);">
+<strong>2/21/2011, 06:45 GMT:</strong> The preview has already changed again! Google Instant Preview #3 shows <strong><code style="color:#0CF;background-color:#F2FCFF;outline:1px solid #0CF;">00.00</code></strong>. This means Google has updated the preview two times in under 24 hours&#8230;at least in the SERPs I&#8217;m shown. Folks in the <code>04.99</code> crowd&#8230;are you seeing a change too? If so, someone grab a screenshot for me.
+<br /><br />
+I don&#8217;t have any idea why Google is showing a date from January in this newest preview. So far, I don&#8217;t see any patterns emerging. However, the data we&#8217;ve seen so far is definitely useful. For example, anyone using a lightbox or thickbox type of jQuery/JavaScript plugin can probably prevent onload-triggered popups from appearing in Google Instant Previews by setting a condition like:
+<br /><br />
+<code>if (Date == 0) {show_lightbox()}</code>
+<br /><br />
+In my next experiment (which will have its own page), I&#8217;ll put together a working example of this theory and test it out. As for this page&#8230;I&#8217;m going to try to gain more insight into this seemingly-random set of previews by programming my server to print the actual date/time the page was requested. I might also include the client IP address and User-Agent (depending on how hard WordPress fights me). Stay tuned&#8230; 
+</p>
+
+<p class="info_mofo update" id="update04" onmouseover="showImage(4);">
+<strong>2/21/2011, 20:25 GMT:</strong> New preview. This one is pretty crazy; it says <strong><code style="color:#0CF;background-color:#F2FCFF;outline:1px solid #0CF;">0-129600</code></strong>, and that&#8217;s all that&#8217;s shown before the content box trims the overflow-x.
+<br /><br />
+I&#8217;m not sure how much information is being cut off by the content area boundaries, so I&#8217;m going to tweak the page layout a bit and try again.
+<br /><br />
+Layout tweaked successfully. I also gave the IP address some color. You know&#8230;to make my Google Instant Preview look more attractive&#8230;or something.
+</p>
+
+<p class="info_mofo update" id="update05" onmouseover="showImage(5);">
+<strong>2/25/2011, 10:15 GMT:</strong> I don&#8217;t know why, but suddenly Google is highlighting content in my Instant Preview. The preview image itself hasn&#8217;t changed; it just has HTML on it now. Anyone else seeing this?
+</p>
+
+<p class="info_mofo update" id="update06" onmouseover="showImage(6);">
+<strong>2/28/2011, 14:50 GMT:</strong> This preview is courtesy of zanna86, who says this is what was showing in Italy.
+</p>
+
+<p class="info_mofo update" id="update07" onmouseover="showImage(7);">
+<strong>3/2/2011, 11:00 GMT:</strong> I&#8217;m seeing a new preview this morning.
+</p>
+
+<p class="info_mofo update" id="update08" onmouseover="showImage(8);">
+<strong>3/12/2011, 20:30 GMT:</strong> New preview.
+</p>
+
+<p class="info_mofo update" id="update09" onmouseover="showImage(9);">
+<strong>3/23/2011, 18:00 GMT:</strong> New preview.
+</p>
+
+<p class="info_mofo update" id="update10" onmouseover="showImage(10);">
+<strong>5/21/2011, 05:00 GMT:</strong> Latest preview suggests the page was crawled from a new time zone. Interesting, but not significant as far as I can tell. Also, the font is different (larger than before). There&#8217;s really no consistency at all between all these screen captures. Best answer to the original question is <strong>5 seconds</strong>.
+</p>
+
+
+
+</div>	<div id="widget_holder">
+	</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="sidebars">
+			<div id="sidebar_1" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-7">			<div class="textwidget"><div style="width:158px; margin:0; padding:4px 0; border:1px solid #7ABCF1; background-color:#F3F6FF; color:#006699; font-family:Georgia, 'Times New Roman', Times, serif; font-size:16px; line-height:16px; text-align:center; text-shadow:#CCC 0 1px 1px; -moz-border-radius:12px; -webkit-border-radius:12px;border-radius:12px;-moz-box-shadow: 0 0 5px #A8D3F5;-webkit-box-shadow: 0 0 5px #A8D3F5;box-shadow: 0 0 5px #A8D3F5;"><a href="../snippet-optimizer.html" style="text-decoration:none;outline:none;"><span style="color: rgb(0, 57, 182);">G</span><span style="color: rgb(196, 18, 0);">o</span><span style="color: rgb(243, 197, 24);">o</span><span style="color: rgb(0, 57, 182);">g</span><span style="color: rgb(48, 167, 47);">l</span><span style="color: rgb(196, 18, 0);">e</span>&nbsp;SERP&nbsp;Snippet Optimization&nbsp;Tool</a></div></div>
+		</li><li class="widget widget_text" id="text-8"><div class="widget_heading">Pages</div>			<div class="textwidget">	<ul>
+		<li><a style="color: rgb(255, 76, 0);" href="../middle-finger-cursors.html"><span style="color: rgb(255, 76, 0);"><b>FREE Middle Finger Cursors!</b></span></a></li>
+		<li><a href="../low-priority-page.html">Low Priority Page</a></li>
+		<li><a href="../google-instant-previews.html">Google Instant Previews</a></li>
+	</ul></div>
+		</li><li class="widget widget_categories" id="categories-3"><div class="widget_heading">Categories</div>		<ul>
+	<li class="cat-item cat-item-8"><a href="../advanced/index.html" title="Advanced White Hat SEO">Advanced SEO</a> (4)
+</li>
+	<li class="cat-item cat-item-6"><a href="../antisocial-media/index.html" title="Anti-Social Media + Antisocial Media">AntiSocial Media</a> (4)
+</li>
+	<li class="cat-item cat-item-11"><a href="index.html" title="View all posts filed under Experiments">Experiments</a> (7)
+</li>
+	<li class="cat-item cat-item-9"><a href="../advanced/patents/index.html" title="Google Patents On Information Retrieval">Google Patents</a> (2)
+</li>
+	<li class="cat-item cat-item-12"><a href="../google-sucks/index.html" title="Sometimes I Hate Google">Google Sucks</a> (6)
+</li>
+	<li class="cat-item cat-item-7"><a href="../marketing/index.html" title="Internet Marketing">Marketing</a> (3)
+</li>
+	<li class="cat-item cat-item-13"><a href="../speed/index.html" title="Page Speed &amp; Site Performance">Page Speed</a> (5)
+</li>
+	<li class="cat-item cat-item-10"><a href="../orm/index.html" title="Online Reputation Management">Reputation Management</a> (6)
+</li>
+	<li class="cat-item cat-item-14"><a href="../ethics/index.html" title="View all posts filed under SEO Ethics">SEO Ethics</a> (3)
+</li>
+	<li class="cat-item cat-item-17"><a href="serp/index.html" title="View all posts filed under SERP Experiments">SERP Experiments</a> (10)
+</li>
+	<li class="cat-item cat-item-5"><a href="../wordpress/thesis/index.html" title="Thesis WordPress Theme">Thesis Theme</a> (6)
+</li>
+	<li class="cat-item cat-item-4"><a href="../wordpress/index.html" title="WordPress SEO Tips">WordPress</a> (4)
+</li>
+		</ul>
+</li>				</ul>
+			</div>
+			<div id="sidebar_2" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-4">			<div class="textwidget"><div id="sub_box"></div></div>
+		</li>				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<p id="copyright">Copyright&nbsp;&copy;&nbsp;2013&nbsp;Darren Slatten</p>
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+	//<![CDATA[
+	mofoImgs = document.getElementsByTagName("img");
+	if (mofoImgs.length > 0) {
+		mofoLazyPics = new Array();
+		for (var i = 0; i < mofoImgs.length; i++) {
+			mofoLazyPics[i] = mofoImgs[i].src;
+			mofoImgs[i].style.backgroundImage = "url(/img/throbber.gif)";
+			mofoImgs[i].style.backgroundRepeat = "no-repeat";
+			mofoImgs[i].style.backgroundPosition = "center center";
+			mofoImgs[i].setAttribute("src", "data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%00%00%00!%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00%00%02%02D%01%00%3B");
+		}
+	}
+	//]]>
+</script><script type="text/javascript">
+//<![CDATA[
+	var _gaq=[['_setAccount','UA-4827976-1'],['_setDomainName','.seomofo.com'],['_trackPageview'],['_trackPageLoadTime']];
+	(function(d,t){
+		var g=d.createElement(t);var s=d.getElementsByTagName(t)[0];
+		g.async=1;g.src='http://www.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s);
+	})(document,'script');
+//]]>
+</script><!-- 17 queries in 0.101 seconds. -->
+<script type='text/javascript' src='../wp-content/themes/freethesis/custom/customac77.js?ver=20120628-1801'></script>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>New &#8216;Comments Are Closed&#8217; Filter Hooks for Thesis 1.7</title>
+	<meta name="robots" content="noodp, noydir" />
+	<meta name="description" content="Looking at the code of the newly-released Thesis 1.7 theme for WordPress, I found 2 new filters: thesis_comments_closed and thesis_comments_link_closed." />
+	<link rel="canonical" href="comments-are-closed-filters.html" />
+	<link rel="pingback" href="../../xmlrpc.php" />
+	<link rel="stylesheet" href="../../wp-content/themes/freethesis/custom/custom0170.css?20120714-2235" type="text/css" />
+</head>
+<body class="custom">
+<div id="container">
+<div id="page">
+	<div id="header">
+		<div id="logo_mofo">
+			<div id="domain_mofo"><a href="../../index.html">SEO<span></span></a><b>mofo</b></div>
+			<div id="slogan_mofo">world's greatest seo</div>
+		</div>
+<ul class="menu">
+<li class="tab tab-1"><a href="../../about.html" title="About">About</a></li>
+<li class="tab tab-2"><a href="../../policy.html" title="Policy">Policy</a></li>
+</ul>
+
+<p id="breadcrumbs"><a href="../../index.html">SEO</a> &raquo; <a href="../index.html" title="View all posts in WordPress">WordPress</a> &raquo; <a href="index.html" title="View all posts in Thesis Theme">Thesis Theme</a> &raquo; <strong>New &#8216;Comments Are Closed&#8217; Filter Hooks for Thesis 1.7</strong></p>	</div>
+	<div id="content_box">
+		<div id="content" class="hfeed">
+
+			<div class="post-2066 post type-post status-publish format-standard hentry category-thesis post_box top" id="post-2066">
+<div class="headline_area">
+		<div id="tm_box"></div>
+		<div id="tm_loading"></div>
+		<div id="tw_box"></div>
+		<div id="tw_loading"></div>
+					<h1 class="entry-title">New &#8216;Comments Are Closed&#8217; Filter Hooks for Thesis 1.7</h1>
+					<p class="headline_meta">by <span class="author vcard fn">SEO Mofo</span> on <span class="published">Apr 13th, 2010</span></p>
+					<p class="headline_meta">in <span><a href="index.html" title="View all posts in Thesis Theme" rel="category tag">Thesis Theme</a></span></p>
+				</div>
+				<div class="format_text entry-content">
+<img class="post_image alignright" src="../../img/comments-on-this-entry-are-closed.png" width="144" height="128" alt="Comments on this entry are closed." />
+<p>I was looking at the code of the newly-released <a href="index.html" class="selfish">Thesis 1.7 theme</a> for <a href="../index.html" class="selfish">WordPress</a>, and I came across 2 filters that I hadn&#8217;t seen before:</p>
+<p style="text-align:center; font-size:150%; line-height:150%; color:#090; font-family:'Courier New', Courier, monospace;">
+<strong>thesis_comments_closed</strong><br />
+<strong>thesis_comments_link_closed</strong>
+</p>
+<p>I wanted to find out more about these filters, so I googled them. To my surprise&#8230;there were <strong>zero results</strong>!?</p>
+<p>
+It was at that moment that I realized&#8230;the World is counting on me to demystify these mysterious mysteries, for I am the chosen one. Fear not, my fellow Thesis theme users! I will share my great wisdom with you.</p>
+<h2>Where can I find these mysterious Thesis filters?</h2>
+<p>After searching through my local copy of Thesis, I discovered that each filter was mentioned in only one location:</p>
+<p>
+thesis_comments_closed: <strong>line 110</strong><br />
+<span class="uri_mofo">/wp-content/themes/thesis_17/lib/<span style="background-color:#FF9;">classes</span>/comments.php</span>
+</p>
+<p>
+thesis_comments_link_closed: <strong>line 14</strong><br />
+<span class="uri_mofo">/wp-content/themes/thesis_17/lib/<span style="background-color:#FF9;">functions</span>/comments.php</span>
+</p>
+<p>
+Notice that these filters are not located in the same files. I&#8217;ve highlighted the directory that sets them apart.
+</p>
+<h2>How are these Thesis filters defined in the code?</h2>
+<p>
+Here is the php code of the functions that contain the Thesis filters:
+</p>
+
+<pre class="brush: php; collapse: true; first-line: 56; highlight: [110]; light: false; toolbar: true;">
+	function form() {
+		global $thesis_site;
+
+		if (comments_open()) { #wp
+			global $user_ID, $user_identity;
+
+			if (get_option('comment_registration') &amp;&amp; !$user_ID) { // If registration is required and the user is NOT logged in... #wp
+				echo &quot;\t\t\t\t&lt;div class=\&quot;login_alert\&quot;&gt;\n&quot;;
+				echo &quot;\t\t\t\t\t&lt;p&gt;&quot; . sprintf(__('You must &lt;a href=&quot;%s&quot; rel=&quot;nofollow&quot;&gt;log in&lt;/a&gt; to post a comment.', 'thesis'), get_option('siteurl') . '/wp-login.php?redirect_to=' . urlencode(get_permalink())) . &quot;&lt;/p&gt;\n&quot;; #wp
+				echo &quot;\t\t\t\t&lt;/div&gt;\n&quot;;
+			}
+			else { // Otherwise, show the user the stinkin' comment form already!
+				echo &quot;\t\t\t\t&lt;div id=\&quot;respond\&quot;&gt;\n&quot;;
+				echo &quot;\t\t\t\t\t&lt;div id=\&quot;respond_intro\&quot;&gt;\n&quot;;
+
+				if (get_option('thread_comments')) cancel_comment_reply_link(__('Cancel reply', 'thesis')); #wp
+
+				echo &quot;\t\t\t\t\t\t&lt;p&gt;&quot; . apply_filters('thesis_comment_form_title', __('Leave a Comment', 'thesis')) . &quot;&lt;/p&gt;\n&quot;; #filter
+				echo &quot;\t\t\t\t\t&lt;/div&gt;\n&quot;;
+				echo &quot;\t\t\t\t\t&lt;form action=\&quot;&quot; . get_option('siteurl') . &quot;/wp-comments-post.php\&quot; method=\&quot;post\&quot; id=\&quot;commentform\&quot;&gt;\n&quot;; #wp
+				thesis_hook_comment_form_top();
+
+				if ($user_ID) // If the user is logged in... #wp
+					echo &quot;\t\t\t\t\t\t&lt;p&gt;&quot; . sprintf(__('Logged in as &lt;a href=&quot;%1$s&quot; rel=&quot;nofollow&quot;&gt;%2$s&lt;/a&gt;.', 'thesis'), get_option('siteurl') . '/wp-admin/profile.php', $user_identity) . ' ' . sprintf(__('&lt;a href=&quot;%s&quot; title=&quot;Log out of this account&quot; rel=&quot;nofollow&quot;&gt;Logout &amp;rarr;&lt;/a&gt;', 'thesis'), thesis_logout_url()) . &quot;&lt;/p&gt;\n&quot;; #wp
+				else { // Otherwise, give your name to the doorman
+					$req = (bool) get_option('require_name_email');
+?&gt;
+						&lt;p&gt;&lt;input class=&quot;text_input&quot; type=&quot;text&quot; name=&quot;author&quot; id=&quot;author&quot; value=&quot;&lt;?php echo $comment_author; ?&gt;&quot; tabindex=&quot;1&quot;&lt;?php if ($req) echo ' aria-required=&quot;true&quot;'; ?&gt; /&gt;&lt;label for=&quot;author&quot;&gt;&lt;?php _e('Name', 'thesis'); if ($req) _e(' &lt;span class=&quot;required&quot; title=&quot;Required&quot;&gt;*&lt;/span&gt;', 'thesis'); ?&gt;&lt;/label&gt;&lt;/p&gt;
+						&lt;p&gt;&lt;input class=&quot;text_input&quot; type=&quot;text&quot; name=&quot;email&quot; id=&quot;email&quot; value=&quot;&lt;?php echo $comment_author_email; ?&gt;&quot; tabindex=&quot;2&quot;&lt;?php if ($req) echo ' aria-required=&quot;true&quot;'; ?&gt; /&gt;&lt;label for=&quot;email&quot;&gt;&lt;?php _e('E-mail', 'thesis'); if ($req) _e(' &lt;span class=&quot;required&quot; title=&quot;Required&quot;&gt;*&lt;/span&gt;', 'thesis'); ?&gt;&lt;/label&gt;&lt;/p&gt;
+						&lt;p&gt;&lt;input class=&quot;text_input&quot; type=&quot;text&quot; name=&quot;url&quot; id=&quot;url&quot; value=&quot;&lt;?php echo $comment_author_url; ?&gt;&quot; tabindex=&quot;3&quot; /&gt;&lt;label for=&quot;url&quot;&gt;&lt;?php _e('Website', 'thesis'); ?&gt;&lt;/label&gt;&lt;/p&gt;
+&lt;?php 
+				}
+
+				thesis_hook_comment_field();
+				echo &quot;\t\t\t\t\t\t&lt;p class=\&quot;comment_box\&quot;&gt;\n&quot;;
+				echo &quot;\t\t\t\t\t\t\t&lt;textarea name=\&quot;comment\&quot; id=\&quot;comment\&quot; tabindex=\&quot;4\&quot; cols=\&quot;40\&quot; rows=\&quot;8\&quot;&gt;&lt;/textarea&gt;\n&quot;;
+				echo &quot;\t\t\t\t\t\t&lt;/p&gt;\n&quot;;
+
+				thesis_hook_after_comment_box();
+
+				echo &quot;\t\t\t\t\t\t&lt;p class=\&quot;remove_bottom_margin\&quot;&gt;\n&quot;;
+				echo &quot;\t\t\t\t\t\t\t&lt;input name=\&quot;submit\&quot; class=\&quot;form_submit\&quot; type=\&quot;submit\&quot; id=\&quot;submit\&quot; tabindex=\&quot;5\&quot; value=\&quot;&quot; . __('Submit', 'thesis') . &quot;\&quot; /&gt;\n&quot;;
+				comment_id_fields(); #wp
+				echo &quot;\t\t\t\t\t\t&lt;/p&gt;\n&quot;;
+
+				thesis_hook_comment_form_bottom();
+				do_action('comment_form', $post-&gt;ID); #wp
+
+				echo &quot;\t\t\t\t\t&lt;/form&gt;\n&quot;;
+				echo &quot;\t\t\t\t&lt;/div&gt;\n&quot;;
+			}
+		}
+		elseif ($thesis_site-&gt;comments['show_closed']) {
+			echo &quot;\t\t\t\t&lt;div class=\&quot;comments_closed\&quot;&gt;\n&quot;;
+			echo &quot;\t\t\t\t\t&lt;p&gt;&quot; . apply_filters('thesis_comments_closed', __('Comments on this entry are closed.', 'thesis')) . &quot;&lt;/p&gt;\n&quot;;
+			echo &quot;\t\t\t\t&lt;/div&gt;\n&quot;;
+		}
+	}
+}
+</pre>
+
+<pre class="brush: php; collapse: true; first-line: 3; highlight: [14]; light: false; toolbar: true;">
+/**
+ * function thesis_comments_link()
+ *
+ * Generates and outputs a direct link to a page's or post's comments from index
+ * or archive views.
+ *
+ * @since 1.0.2
+ */
+function thesis_comments_link() {
+	if (!is_single() &amp;&amp; !is_page()) { #wp
+		$num_comments = get_comments_number(); #wp
+		$link = (comments_open()) ? '&lt;a href=&quot;' . get_permalink() . '#comments&quot; rel=&quot;nofollow&quot;&gt;' . thesis_num_comments($num_comments, true) . '&lt;/a&gt;' : apply_filters('thesis_comments_link_closed', __('Comments on this entry are closed', 'thesis')); #wp #filter
+		echo &quot;&lt;p class=\&quot;to_comments\&quot;&gt;&quot; . apply_filters('thesis_comments_link', $link) . &quot;&lt;/p&gt;\n&quot;; #filter
+	}
+}
+
+function default_skin_comments_link($link) {
+	return &quot;&lt;span class=\&quot;bracket\&quot;&gt;{&lt;/span&gt; $link &lt;span class=\&quot;bracket\&quot;&gt;}&lt;/span&gt;&quot;;
+}
+
+function default_skin_edit_comment_link($link) {
+	return &quot;[$link]&quot;;
+}
+</pre>
+<h2>What can I do with these Thesis filters?</h2>
+<p>
+These filters control the text that appears when you disable comments on one of your posts. To change the text that appears on the home page, you would use the <code>thesis_comments_link_closed</code> filter. To change the text that appears on the post itself, you would use the <code>thesis_comments_closed</code> filter.
+</p>
+<p>
+<img alt="To change the text that appears on the home page, you would use the Thesis filter called thesis_comments_link_closed." src="../../img/thesis-comments-link-closed.png" title="thesis_comments_link_closed" width="553" height="382" />
+</p>
+<p>
+<img alt="To change the text that appears on a post that has comments disabled, you would use the Thesis filter called thesis_comments_closed." src="../../img/thesis-comments-closed.png" title="thesis_comments_closed" width="553" height="440" />
+</p>
+<h2>Why don&#8217;t I see that text&#8230;</h2>
+<p>
+<span style="font-family:Georgia, 'Times New Roman', Times, serif; color:#069;">&#8230;anywhere?</span><br />
+A new feature in Thesis 1.7 is the ability to disable the text entirely. To see if your comment text is disabled, go to the settings menu at <code>Thesis => Page Options => Display Options => Comments</code> and make sure the box is checked next to <code>If comments are closed, display a message</code>.
+</p>
+<p style="text-align:center;">
+<img src="../../img/thesis-display-options-comments.png" alt="If comments are closed, display a message" width="300" height="431" />
+</p>
+<p>
+<span style="font-family:Georgia, 'Times New Roman', Times, serif; color:#069;">&#8230;on my home page?</span><br />
+Not everyone will see the text that appears on the home page. It depends on your Thesis settings. If you have your settings such that the home page doesn&#8217;t show any featured posts, then you probably won&#8217;t see the text. This setting can be found under <code>Thesis => Page Options => Home Page Display => Number of featured posts to show</code>.
+</p>
+<p>
+If your home page shows featured posts, but the comment text still isn&#8217;t showing up, then check your custom.css stylesheet to see if you intentionally made it disappear sometime in the past and forgot about it. The element that contains the text is <code>&lt;p class="to_comments"&gt;...&lt;/p&gt;</code>, so your CSS code would probably look like one of these:
+</p>
+<ul>
+	<li><code>.custom .to_comments{ display: none; }</code></li>
+	<li><code>.custom .to_comments{ text-indent: -9999px; }</code></li>
+	<li><code>.format_text .to_comments{ display: none; }</code></li>
+	<li><code>.format_text .to_comments{ text-indent: -9999px; }</code></li>
+</ul>
+<p>
+<span style="font-family:Georgia, 'Times New Roman', Times, serif; color:#069;">&#8230;at the bottom of my post?</span><br />
+If the text that appears at the bottom of your posts is missing, it might be because you intentionally made it disappear sometime in the past and forgot about it. The element that contains the text is <code>&lt;div class="comments_closed"&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;</code>, so your CSS code would probably look like one of these:
+</p>
+<ul>
+	<li><code>.custom .comments_closed{ display: none; }</code></li>
+	<li><code>.custom .comments_closed{ text-indent: -9999px; }</code></li>
+	<li><code>.comments_closed p{ display: none; }</code></li>
+	<li><code>.comments_closed p{ text-indent: -9999px; }</code></li>
+</ul>
+</p>
+<h2>How do I use these Thesis filters?</h2>
+<p>
+Here is an example of the code you can paste into your <code>custom_functions.php</code> file:
+</p>
+<pre class="brush: php; collapse: true; light: false; toolbar: true;">
+// Define a custom filter for the text that appears on my HOME PAGE.
+// This filter changes the text to &quot;Ain't no commentin' on dis mofo!&quot;
+if (!function_exists('custom_comments_link_closed')) {
+	function custom_comments_link_closed() {
+		return 'Ain\'t no commentin\' on dis mofo!';
+	}
+}
+// Hook my custom filter onto the Thesis filter
+add_filter('thesis_comments_link_closed', 'custom_comments_link_closed');
+
+// Define a custom filter for the text that appears on my POSTS.
+// This filter changes the text to &quot;See? I told you they's no commentin'!&quot;
+if (!function_exists('custom_comments_closed')) {
+	function custom_comments_closed() {
+		return 'See? I told you they\'s no commentin\'!';
+	}
+}
+// Hook my custom filter onto the Thesis filter
+add_filter('thesis_comments_closed', 'custom_comments_closed');
+</pre>
+<p>
+Here is another example. This one is similar to the home page example above, but it goes a step further by inserting HTML code, in addition to the text. The result of the following example looks like this:
+</p>
+<p style="text-align:center;">
+<img src="../../img/no-commentin-on-dis-mofo.png" width="240" height="52" alt="Ain&#039;t no commentin&#039; on dis mofo!" />
+</p>
+<pre class="brush: php; collapse: true; light: false; toolbar: true;">
+// Define a custom filter for the text that appears on my HOME PAGE.
+// This filter changes the text to &quot;Ain't no commentin' on dis mofo!&quot;
+if (!function_exists('custom_comments_link_closed')) {
+	function custom_comments_link_closed() {
+		return 'Ain\'t no commentin\' on dis &lt;span style=&quot;color:#069; font-size:100%;&quot;&gt;mofo&lt;/span&gt;!';
+	}
+}
+// Hook my custom filter onto the Thesis filter
+add_filter('thesis_comments_link_closed', 'custom_comments_link_closed');
+</pre>
+<p>
+Oh and BTW&#8230;the comments on this entry aren&#8217;t actually closed. So&#8230;leave me a compliment, you non-chosen one.
+</p>
+	<div id="widget_holder">
+	</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="sidebars">
+			<div id="sidebar_1" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-7">			<div class="textwidget"><div style="width:158px; margin:0; padding:4px 0; border:1px solid #7ABCF1; background-color:#F3F6FF; color:#006699; font-family:Georgia, 'Times New Roman', Times, serif; font-size:16px; line-height:16px; text-align:center; text-shadow:#CCC 0 1px 1px; -moz-border-radius:12px; -webkit-border-radius:12px;border-radius:12px;-moz-box-shadow: 0 0 5px #A8D3F5;-webkit-box-shadow: 0 0 5px #A8D3F5;box-shadow: 0 0 5px #A8D3F5;"><a href="../../snippet-optimizer.html" style="text-decoration:none;outline:none;"><span style="color: rgb(0, 57, 182);">G</span><span style="color: rgb(196, 18, 0);">o</span><span style="color: rgb(243, 197, 24);">o</span><span style="color: rgb(0, 57, 182);">g</span><span style="color: rgb(48, 167, 47);">l</span><span style="color: rgb(196, 18, 0);">e</span>&nbsp;SERP&nbsp;Snippet Optimization&nbsp;Tool</a></div></div>
+		</li><li class="widget widget_text" id="text-8"><div class="widget_heading">Pages</div>			<div class="textwidget">	<ul>
+		<li><a style="color: rgb(255, 76, 0);" href="../../middle-finger-cursors.html"><span style="color: rgb(255, 76, 0);"><b>FREE Middle Finger Cursors!</b></span></a></li>
+		<li><a href="../../low-priority-page.html">Low Priority Page</a></li>
+		<li><a href="../../google-instant-previews.html">Google Instant Previews</a></li>
+	</ul></div>
+		</li><li class="widget widget_categories" id="categories-3"><div class="widget_heading">Categories</div>		<ul>
+	<li class="cat-item cat-item-8"><a href="../../advanced/index.html" title="Advanced White Hat SEO">Advanced SEO</a> (4)
+</li>
+	<li class="cat-item cat-item-6"><a href="../../antisocial-media/index.html" title="Anti-Social Media + Antisocial Media">AntiSocial Media</a> (4)
+</li>
+	<li class="cat-item cat-item-11"><a href="../../experiments/index.html" title="View all posts filed under Experiments">Experiments</a> (7)
+</li>
+	<li class="cat-item cat-item-9"><a href="../../advanced/patents/index.html" title="Google Patents On Information Retrieval">Google Patents</a> (2)
+</li>
+	<li class="cat-item cat-item-12"><a href="../../google-sucks/index.html" title="Sometimes I Hate Google">Google Sucks</a> (6)
+</li>
+	<li class="cat-item cat-item-7"><a href="../../marketing/index.html" title="Internet Marketing">Marketing</a> (3)
+</li>
+	<li class="cat-item cat-item-13"><a href="../../speed/index.html" title="Page Speed &amp; Site Performance">Page Speed</a> (5)
+</li>
+	<li class="cat-item cat-item-10"><a href="../../orm/index.html" title="Online Reputation Management">Reputation Management</a> (6)
+</li>
+	<li class="cat-item cat-item-14"><a href="../../ethics/index.html" title="View all posts filed under SEO Ethics">SEO Ethics</a> (3)
+</li>
+	<li class="cat-item cat-item-17"><a href="../../experiments/serp/index.html" title="View all posts filed under SERP Experiments">SERP Experiments</a> (10)
+</li>
+	<li class="cat-item cat-item-5"><a href="index.html" title="Thesis WordPress Theme">Thesis Theme</a> (6)
+</li>
+	<li class="cat-item cat-item-4"><a href="../index.html" title="WordPress SEO Tips">WordPress</a> (4)
+</li>
+		</ul>
+</li>				</ul>
+			</div>
+			<div id="sidebar_2" class="sidebar">
+				<ul class="sidebar_list">
+<li class="widget widget_text" id="text-4">			<div class="textwidget"><div id="sub_box"></div></div>
+		</li>				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<p id="copyright">Copyright&nbsp;&copy;&nbsp;2013&nbsp;Darren Slatten</p>
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+	//<![CDATA[
+	mofoImgs = document.getElementsByTagName("img");
+	if (mofoImgs.length > 0) {
+		mofoLazyPics = new Array();
+		for (var i = 0; i < mofoImgs.length; i++) {
+			mofoLazyPics[i] = mofoImgs[i].src;
+			mofoImgs[i].style.backgroundImage = "url(/img/throbber.gif)";
+			mofoImgs[i].style.backgroundRepeat = "no-repeat";
+			mofoImgs[i].style.backgroundPosition = "center center";
+			mofoImgs[i].setAttribute("src", "data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%00%00%00!%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00%00%02%02D%01%00%3B");
+		}
+	}
+	//]]>
+</script><script type="text/javascript">
+//<![CDATA[
+	var _gaq=[['_setAccount','UA-4827976-1'],['_setDomainName','.seomofo.com'],['_trackPageview'],['_trackPageLoadTime']];
+	(function(d,t){
+		var g=d.createElement(t);var s=d.getElementsByTagName(t)[0];
+		g.async=1;g.src='http://www.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s);
+	})(document,'script');
+//]]>
+</script><!-- 18 queries in 0.101 seconds. -->
+<script type='text/javascript' src='../../wp-content/themes/freethesis/custom/customac77.js?ver=20120628-1801'></script>
+<script type='text/javascript' src='../../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/shCore9bab.js?ver=2.1.364b'></script>
+<script type='text/javascript' src='../../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/shBrushPhp9bab.js?ver=2.1.364b'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "../../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/styles/shCore9bab.css?ver=2.1.364b";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].appendChild(corecss);
+		var themecssurl = "../../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/styles/shThemeDefault9bab.css?ver=2.1.364b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.getElementsByTagName("head")[0].appendChild(themecss);
+	})();
+	SyntaxHighlighter.config.clipboardSwf = '../../wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf';
+	SyntaxHighlighter.config.strings.expandSource = 'show source';
+	SyntaxHighlighter.config.strings.viewSource = 'view source';
+	SyntaxHighlighter.config.strings.copyToClipboard = 'copy to clipboard';
+	SyntaxHighlighter.config.strings.copyToClipboardConfirmation = 'The code is in your clipboard now';
+	SyntaxHighlighter.config.strings.print = 'print';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['auto-links'] = false;
+	SyntaxHighlighter.defaults['wrap-lines'] = false;
+	SyntaxHighlighter.all();
+</script>
+</body>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+</html>

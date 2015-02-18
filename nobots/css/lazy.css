@@ -1,0 +1,36 @@
+.custom .affiliate:hover {
+	cursor:url("/img/cursors/affiliate-link.cur"),pointer
+}
+
+.custom a:hover,
+.db-wrapper,
+span.db-wrapper {
+	cursor:url("/img/cursors/aero-middle-finger.cur"),pointer
+}
+
+.notice_mofo {
+	color:#404040;
+	font-size:.75em;
+	line-height:1.5em;
+	border:1px solid #E6DB55;
+	padding:1em;
+	text-indent:2em;
+	background:url("/img/icons/notice.png") #FFFBCC no-repeat 1em 1em;
+	-moz-border-radius:1em;
+	-webkit-border-radius:1em;
+	border-radius:1em;
+}
+
+.info_mofo {
+	color:#404040;
+	font-size:.75em;
+	line-height:1.5em;
+	border:1px solid #BDE0E6;
+	padding:1em;
+	text-indent:2em;
+	background:url("/img/icons/info.png") #F0F6FA no-repeat 1em 1em;
+	-moz-border-radius:1em;
+	-webkit-border-radius:1em;
+	border-radius:1em;
+}
+#content #comments #comment_list>dd.bypostauthor div.format_text{background:url('/img/mofo/seo-mofo-64.png') no-repeat top right transparent}

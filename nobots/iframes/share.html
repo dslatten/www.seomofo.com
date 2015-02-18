@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Social Media Widgets</title>
+	<meta name="robots" content="none" />
+	<style type="text/css">
+		body{margin:0; padding:0; border:0; background-color:#FFF;}
+		a{display:block; width:32px; height:32px; overflow:hidden; margin:0; padding:0; border:0;}
+		a:hover{background:url('http://www.seomofo.com/img/mofo/share-and-bookmark.png') #FFF no-repeat;}
+		div{width:576px; height:128px; overflow:hidden; margin:0; padding:0; border:0; background:url('http://www.seomofo.com/img/mofo/share-and-bookmark.png') #FCFCFF no-repeat;}
+		div div{width:32px; height:32px; float:left; background:none;}
+		div div#spacer{width:576px; height:96px; float:none;}
+		#twitter:hover{background-position:0 -128px;}
+		#facebook:hover{background-position:-32px -128px;}
+		#friend:hover{background-position:-64px -128px;}
+		#stumble-upon:hover{background-position:-96px -128px;}
+		#delicious:hover{background-position:-128px -128px;}
+		#digg:hover{background-position:-160px -128px;}
+		#reddit:hover{background-position:-192px -128px;}
+		#sphinn:hover{background-position:-224px -128px;}
+		#technorati:hover{background-position:-256px -128px;}
+		#linkedin:hover{background-position:-288px -128px;}
+		#posterous:hover{background-position:-320px -128px;}
+		#tumblr:hover{background-position:-352px -128px;}
+		#yahoo-buzz:hover{background-position:-384px -128px;}
+		#mixx:hover{background-position:-416px -128px;}
+		#google:hover{background-position:-448px -128px;}
+		#google-buzz:hover{background-position:-480px -128px;}
+		#orkut:hover{background-position:-512px -128px;}
+		#rss:hover{background-position:-544px -128px;}
+	</style>
+	<script type="text/javascript">
+		//<![CDATA[
+		var thePost = top.document;
+		var thePermalink = encodeURIComponent(thePost.location.href);
+		var theTitle = encodeURIComponent(thePost.title);
+		var theExcerpt = encodeURIComponent(getMetaContent('description'));
+		var theFeedlink = encodeURIComponent(getRSSFeedURL());
+		var theBlogname = encodeURIComponent(getBlogTitle());
+		var	theLinks = document.links;
+		function getMetaContent(metaName) {
+			var metas = thePost.getElementsByTagName('meta');
+			for (var i = 0; i<metas.length; i++) {
+				if (metas[i].name.toLowerCase() == metaName.toLowerCase()) {
+					return metas[i].content;
+				}
+			}
+			return null;
+		}
+		function getRSSFeedURL() {
+			var postHead = thePost.getElementsByTagName('head');
+			var headLinkTags = postHead[0].getElementsByTagName('link');
+			for (var i = 0; i<headLinkTags.length; i++) {
+				if (headLinkTags[i].rel.toLowerCase() == 'alternate') {
+					return headLinkTags[i].href;
+				}
+			}
+			return null;
+		}
+		function getBlogTitle() {
+			var postHead = thePost.getElementsByTagName('head');
+			var headLinkTags = postHead[0].getElementsByTagName('link');
+			for (var i = 0; i<headLinkTags.length; i++) {
+				if (headLinkTags[i].rel.toLowerCase() == 'alternate') {
+					return headLinkTags[i].title.replace(' RSS Feed', '');
+				}
+			}
+			return null;
+		}
+		function makeLinkURLs() {
+			for (var i = 0; i<theLinks.length; i++) {
+				theLinks[i].href = theLinks[i].href.replace('PERMALINK', thePermalink);
+				theLinks[i].href = theLinks[i].href.replace('TITLE', theTitle);
+				theLinks[i].href = theLinks[i].href.replace('EXCERPT', theExcerpt);
+				theLinks[i].href = theLinks[i].href.replace('BLOGNAME', theBlogname);
+				if (theLinks[i].href == document.location.href || theLinks[i].href == ''){
+					theLinks[i].href = getRSSFeedURL();
+				}
+				theLinks[i].href = theLinks[i].href.replace('FEEDLINK', theFeedlink);
+				theLinks[i].target = '_blank';
+			}
+		}
+		window.onload = function()
+		{
+			makeLinkURLs();
+		}
+		//]]>
+	</script>
+</head>
+<body>
+	<div>
+		<div id="spacer"></div>
+		<div><a href="http://twitter.com/home?status=TITLE%20-%20PERMALINK" id="twitter"></a></div>
+		<div><a href="http://www.facebook.com/share.php?u=PERMALINK&amp;t=TITLE" id="facebook"></a></div>
+		<div><a href="http://www.friendfeed.com/share?title=TITLE&amp;link=PERMALINK" id="friend"></a></div>
+		<div><a href="http://www.stumbleupon.com/submit?url=PERMALINK&amp;title=TITLE" id="stumble-upon"></a></div>
+		<div><a href="http://delicious.com/post?url=PERMALINK&amp;title=TITLE&amp;notes=EXCERPT" id="delicious"></a></div>
+		<div><a href="http://digg.com/submit?phase=2&amp;url=PERMALINK&amp;title=TITLE&amp;bodytext=EXCERPT" id="digg"></a></div>
+		<div><a href="http://reddit.com/submit?url=PERMALINK&amp;title=TITLE" id="reddit"></a></div>
+		<div><a href="http://www.seomofo.com/orm/sphinn-sucks.html" id="sphinn"></a></div>
+		<div><a href="http://technorati.com/faves?add=PERMALINK" id="technorati"></a></div>
+		<div><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=PERMALINK&amp;title=TITLE&amp;source=BLOGNAME&amp;summary=EXCERPT" id="linkedin"></a></div>
+		<div><a href="http://posterous.com/share?linkto=PERMALINK&amp;title=TITLE&amp;selection=EXCERPT" id="posterous"></a></div>
+		<div><a href="http://www.tumblr.com/share?v=3&amp;u=PERMALINK&amp;t=TITLE&amp;s=EXCERPT" id="tumblr"></a></div>
+		<div><a href="http://buzz.yahoo.com/submit/?submitUrl=PERMALINK&amp;submitHeadline=TITLE&amp;submitSummary=EXCERPT&amp;submitCategory=science&amp;submitAssetType=text" id="yahoo-buzz"></a></div>
+		<div><a href="http://www.mixx.com/submit?page_url=PERMALINK&amp;title=TITLE" id="mixx"></a></div>
+		<div><a href="http://www.google.com/bookmarks/mark?op=edit&amp;bkmk=PERMALINK&amp;title=TITLE&amp;annotation=EXCERPT" id="google"></a></div>
+		<div><a href="http://www.google.com/buzz/post?message=TITLE&amp;url=PERMALINK" id="google-buzz"></a></div>
+		<div><a href="http://promote.orkut.com/preview?nt=orkut.com&amp;tt=TITLE&amp;du=PERMALINK&amp;cn=EXCERPT" id="orkut"></a></div>
+		<div><a href="" id="rss"></a></div>
+	</div>
+</body>
+</html>
